@@ -1,0 +1,409 @@
+/* The palette, the page and the furigana are in `templates/common.css`, laid
+   at the head of this sheet: here are only the colours of this card.
+
+   A word takes the colour of its class (--k), which the script reads from its
+   tags: the ending that conjugates, its badge, its forms and the box of its
+   example all carry it, so a card has one colour and not several. The
+   register badge alone takes another one, that of its family: it is rare,
+   and it shows for being the only other colour on the card. */
+/* kotogen:palette=dark */
+:root {
+/* /kotogen:palette */
+/* kotogen:palette=auto */
+.nightMode, .night_mode {
+/* /kotogen:palette */
+/* kotogen:palette=dark|auto */
+  --verb-一段動詞: 255, 235, 59;
+  --verb-五段動詞: 33, 150, 243;
+  --verb-不規則動詞: 244, 67, 54;
+  --adj-い: 255, 152, 0;
+  --adj-な: 186, 104, 200;
+  --noun: 77, 182, 172;
+  --adverb: 240, 98, 146;
+  --expression: 188, 160, 150;
+
+  --register-formal: 140, 158, 255;
+  --register-casual: 255, 138, 101;
+  --register-marked: 144, 164, 174;
+}
+/* /kotogen:palette */
+/* kotogen:palette=light|auto */
+:root {
+  --verb-一段動詞: 130, 100, 0;
+  --verb-五段動詞: 21, 101, 192;
+  --verb-不規則動詞: 198, 40, 40;
+  --adj-い: 150, 82, 0;
+  --adj-な: 106, 27, 154;
+  --noun: 0, 121, 107;
+  --adverb: 173, 20, 87;
+  --expression: 121, 85, 72;
+
+  --register-formal: 57, 73, 171;
+  --register-casual: 191, 54, 12;
+  --register-marked: 84, 110, 122;
+}
+/* /kotogen:palette */
+
+/* A word whose class has no colour - a tag the script does not know, or its
+   family switched off - keeps the colour of the text: its ending reads as the
+   rest of the word, its box and its badge go grey. */
+.vocab-card {
+  --k: var(--text);
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+/* kotogen:verb-colours */
+.vocab-card.verb-一段動詞 { --k: var(--verb-一段動詞); }
+.vocab-card.verb-五段動詞 { --k: var(--verb-五段動詞); }
+.vocab-card.verb-不規則動詞 { --k: var(--verb-不規則動詞); }
+/* /kotogen:verb-colours */
+/* kotogen:adjective-colours */
+.vocab-card.adj-い { --k: var(--adj-い); }
+.vocab-card.adj-な { --k: var(--adj-な); }
+/* /kotogen:adjective-colours */
+/* kotogen:other-colours */
+.vocab-card.noun { --k: var(--noun); }
+.vocab-card.adverb { --k: var(--adverb); }
+.vocab-card.expression { --k: var(--expression); }
+/* /kotogen:other-colours */
+
+/* The word, at the same place on both sides. The front carries its readings
+   too, hidden: they hold the room the back shows them in, and the word does
+   not move when the card turns. */
+.vocab-head {
+  text-align: center;
+  padding: 26px 20px 0;
+}
+
+/* --fit: what the script shrinks the word by when it is wider than the screen,
+   the same on both sides. */
+.vocab-word {
+  font-size: calc(3em * var(--fit, 1));
+  line-height: 1.35;
+  font-weight: 500;
+}
+
+.vocab-word-box {
+  position: relative;
+  display: inline-block;
+}
+
+.vocab-word-box.readings-hidden rt {
+  visibility: hidden;
+}
+
+.vocab-ending {
+  color: rgb(var(--k));
+}
+
+/* The な a な-adjective takes before a noun, hung after the word so the word
+   itself stays where the front had it. */
+.vocab-na {
+  position: absolute;
+  left: 100%;
+  bottom: 0;
+  padding-left: 0.04em;
+  font-weight: 400;
+  color: rgba(var(--k), 0.6);
+}
+
+.vocab-badges {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.vocab-badge {
+  font-size: 0.66em;
+  font-weight: 700;
+  line-height: 1.5;
+  padding: 2px 9px;
+  border-radius: 4px;
+  letter-spacing: 0.03em;
+}
+
+.vocab-badge:empty {
+  display: none;
+}
+
+/* kotogen:badge */
+.vocab-class {
+  color: rgb(var(--k));
+  background-color: rgba(var(--k), 0.14);
+}
+/* /kotogen:badge */
+
+/* kotogen:register */
+.vocab-registers {
+  display: contents;
+}
+
+.vocab-register {
+  color: rgb(var(--register));
+  background-color: rgba(var(--register), 0.14);
+}
+
+.vocab-register.formal { --register: var(--register-formal); }
+.vocab-register.casual { --register: var(--register-casual); }
+.vocab-register.marked { --register: var(--register-marked); }
+/* /kotogen:register */
+
+/* The meaning, on the back of `Recognition`; the question, on both sides of
+   `Production`. The meaning is the answer of its back, and it stands clear of
+   the badges over it and of the forms or the example under it. */
+.vocab-gloss,
+.vocab-question {
+  text-align: center;
+}
+
+.vocab-gloss {
+  padding: 14px 0 18px;
+}
+
+.vocab-question {
+  padding-top: 26px;
+}
+
+.vocab-translation {
+  font-size: 1.7em;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.vocab-context {
+  font-size: 0.82em;
+  font-style: italic;
+  color: rgb(var(--text-soft));
+  margin-top: 4px;
+}
+
+/* The forms: three, and three more for a touch anywhere on the strip. The
+   tab on its lower rule says it opens, without taking room from the forms. */
+.card .vocab-forms {
+  position: relative;
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  background: transparent;
+  border: none;
+  border-block: 1px solid rgba(var(--text), 0.12);
+  cursor: pointer;
+}
+
+.vocab-forms[hidden] {
+  display: none;
+}
+
+.vocab-forms::after {
+  content: "▾";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translate(-50%, 50%);
+  padding: 0 12px;
+  font-size: 0.55em;
+  line-height: 1.5;
+  color: rgb(var(--text-faint));
+  background-color: rgb(var(--background));
+  border: 1px solid rgba(var(--text), 0.12);
+  border-radius: 999px;
+}
+
+.vocab-forms[aria-expanded="true"]::after {
+  content: "▴";
+}
+
+@media (hover: hover) {
+  .vocab-forms:hover {
+    background-color: rgba(var(--k), 0.04);
+  }
+}
+
+.vocab-forms-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.vocab-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 0;
+  padding: 6px 2px 10px;
+  overflow: hidden;
+}
+
+.vocab-form:not(:nth-child(3n+1)) {
+  border-left: 1px solid rgba(var(--text), 0.12);
+}
+
+.vocab-form:nth-child(n+4) {
+  display: none;
+  border-top: 1px solid rgba(var(--text), 0.12);
+}
+
+.vocab-forms[aria-expanded="true"] .vocab-form:nth-child(n+4) {
+  display: flex;
+}
+
+/* --fit: what the script shrinks the forms by when one of them is wider than
+   its cell. */
+.vocab-form-word {
+  font-size: calc(0.95em * var(--fit, 1));
+  line-height: 2;
+  white-space: nowrap;
+}
+
+.vocab-form-ending,
+.vocab-form-word rt.vocab-changed {
+  color: rgb(var(--k));
+  font-weight: 700;
+}
+
+.vocab-form-name {
+  font-size: 0.6em;
+  letter-spacing: 0.05em;
+  color: rgb(var(--text-faint));
+}
+
+/* kotogen:example=yes|untranslated */
+.vocab-example {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: center;
+  padding: 16px 8px;
+  border-block: 1px solid rgba(var(--k), 0.28);
+  background-color: rgba(var(--k), 0.05);
+}
+
+.vocab-example-text {
+  font-size: 1.08em;
+  line-height: 2.1;
+}
+
+.vocab-example mark {
+  color: inherit;
+  background-color: rgba(var(--k), 0.2);
+  border-radius: 4px;
+  padding: 2px 0.1em;
+}
+
+/* On the highlight, the grey of a furigana falls under 4.5:1 (a word with no
+   colour of its own, in either palette): the next grey up reads above it. */
+.vocab-example mark rt {
+  color: rgb(var(--text-light));
+}
+/* /kotogen:example */
+
+/* kotogen:example=yes */
+.vocab-example-translation {
+  font-size: 0.8em;
+  font-style: italic;
+  color: rgb(var(--text-faint));
+}
+/* /kotogen:example */
+
+/* kotogen:notes */
+.vocab-notes {
+  text-align: center;
+  font-size: 0.8em;
+  line-height: 1.9;
+  color: rgb(var(--text-soft));
+}
+
+.vocab-notes::before {
+  content: "※";
+  margin-right: 0.3em;
+  color: rgb(var(--text-faint));
+}
+/* /kotogen:notes */
+
+/* The player stays where it always was, at the foot of the screen over the
+   card, on its own disc so it reads over a line of text. It is the same for
+   the recording of the note and for the system voice. The card keeps that
+   foot free when a player is there, so the end of a long back never sits
+   under it: the player comes first in the page for that, the only order a
+   selector can read without `:has()`. */
+.vocab-player ~ .vocab-card {
+  padding-bottom: 76px;
+}
+
+.vocab-player {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+}
+
+.vocab-player .replay-button,
+.vocab-player .soundLink {
+  display: inline-block;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  line-height: 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.18);
+}
+
+.vocab-player .replay-button svg,
+.vocab-player .soundLink svg {
+  width: 52px;
+  height: 52px;
+}
+
+.vocab-player .replay-button svg circle,
+.vocab-player .soundLink svg circle {
+  fill: rgb(var(--surface));
+  stroke: rgba(var(--text), 0.14);
+  stroke-width: 1;
+}
+
+.vocab-player .replay-button svg path,
+.vocab-player .soundLink svg path {
+  fill: rgb(var(--text-soft));
+}
+
+@media (hover: hover) {
+  .vocab-player .replay-button:hover svg path,
+  .vocab-player .soundLink:hover svg path {
+    fill: rgb(var(--accent));
+  }
+}
+
+/* kotogen:tags=yes */
+/* The width of the screen, so that it wraps late: the back keeps the room it
+   takes (its script measures it). */
+.tags-footer {
+  font-size: 10px;
+  color: rgb(var(--text-faint));
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0 20px;
+  text-align: center;
+}
+/* /kotogen:tags */
+
+@media (max-width: 600px) {
+  .vocab-card {
+    gap: 20px;
+  }
+
+  .vocab-head {
+    padding: 20px 14px 0;
+  }
+
+  .vocab-word {
+    font-size: calc(2.6em * var(--fit, 1));
+  }
+}

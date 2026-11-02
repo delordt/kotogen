@@ -1,0 +1,641 @@
+{{FrontSide}}
+
+<!-- The back runs again every script of the front it needs: whether the
+     front's own run a second time here is up to the client, and a script
+     leaves alone what one before it has done. -->
+
+<!-- kotogen:badge -->
+<script>
+(function () {
+  // The level the deck files the note under (`Level::N4`). A note filed under
+  // none shows no badge, and the row stays hidden.
+  var badge = document.getElementById('card-level');
+  var tags = document.getElementById('note-tags');
+  if (!badge || !tags) return;
+  var level = tags.textContent.trim().split(/\s+/).filter(function (tag) {
+    return tag.indexOf('Level::') === 0;
+  })[0];
+  if (!level) return;
+  badge.textContent = level.split('::').pop();
+  badge.parentNode.hidden = false;
+})();
+</script>
+<!-- /kotogen:badge -->
+
+<!-- kotogen:player=drawn -->
+<script>
+(function () {
+  // The note carries the whole tag, `<audio controls>`: it is the field Anki
+  // finds the media in. The script takes the controls off and drives the
+  // element from the bar; a script that does not run leaves the player of the
+  // system, which plays all the same.
+  var box = document.querySelector('.audio-player');
+  var bar = box ? box.querySelector('.player-bar') : null;
+  var media = box ? box.querySelector('audio, video') : null;
+  if (!bar || !media || bar.dataset.ready) return;
+  bar.dataset.ready = '1';
+
+  media.controls = false;
+  media.removeAttribute('controls');
+  box.classList.add('is-drawn');
+  bar.hidden = false;
+
+  var play = bar.querySelector('.play-btn');
+  var track = bar.querySelector('.player-track');
+  var fill = bar.querySelector('.player-fill');
+  var knob = bar.querySelector('.player-knob');
+  var time = bar.querySelector('.player-time');
+  var speed = bar.querySelector('.player-speed');
+
+  function clock(seconds) {
+    var s = Math.max(0, Math.floor(seconds || 0));
+    return Math.floor(s / 60) + ':' + (s % 60 < 10 ? '0' : '') + (s % 60);
+  }
+
+  function draw() {
+    var length = media.duration;
+    var known = isFinite(length) && length > 0;
+    var share = known ? Math.min(1, media.currentTime / length) * 100 : 0;
+    fill.style.width = share + '%';
+    knob.style.left = share + '%';
+    time.textContent = clock(media.currentTime) + (known ? ' / ' + clock(length) : '');
+    track.setAttribute('aria-valuemax', known ? Math.round(length) : 0);
+    track.setAttribute('aria-valuenow', Math.round(media.currentTime || 0));
+    track.setAttribute('aria-valuetext', time.textContent);
+    play.setAttribute('aria-pressed', media.paused ? 'false' : 'true');
+    box.classList.toggle('is-playing', !media.paused);
+  }
+
+  // The four progress reports a second the browser makes move the knob in
+  // jumps; while playing, it is drawn at every frame.
+  var frame = 0;
+  function trace() {
+    frame = 0;
+    draw();
+    if (!media.paused && window.requestAnimationFrame) {
+      frame = window.requestAnimationFrame(trace);
+    }
+  }
+
+  ['timeupdate', 'pause', 'ended', 'seeked', 'loadedmetadata', 'durationchange']
+    .forEach(function (name) { media.addEventListener(name, draw); });
+  media.addEventListener('play', function () { if (!frame) trace(); });
+
+  function toggle() {
+    if (media.paused) {
+      var playing = media.play();
+      if (playing && playing.catch) playing.catch(function () {});
+    } else {
+      media.pause();
+    }
+  }
+  play.addEventListener('click', toggle);
+  if (media.tagName === 'VIDEO') media.addEventListener('click', toggle);
+
+  // A touch on the bar moves the playhead there; a drag follows the finger.
+  function seekTo(clientX) {
+    var length = media.duration;
+    var r = track.getBoundingClientRect();
+    if (!(length > 0) || !r.width) return;
+    media.currentTime = Math.max(0, Math.min(1, (clientX - r.left) / r.width)) * length;
+    draw();
+  }
+  var dragging = false;
+  track.addEventListener('pointerdown', function (e) {
+    if (e.target.closest && e.target.closest('.player-tick')) return;
+    dragging = true;
+    if (track.setPointerCapture) track.setPointerCapture(e.pointerId);
+    seekTo(e.clientX);
+  });
+  track.addEventListener('pointermove', function (e) { if (dragging) seekTo(e.clientX); });
+  track.addEventListener('pointerup', function () { dragging = false; });
+  track.addEventListener('pointercancel', function () { dragging = false; });
+
+  // From the keyboard, a slider's keys: five seconds an arrow, Home and End
+  // for either end.
+  track.addEventListener('keydown', function (e) {
+    var length = media.duration;
+    if (!(length > 0)) return;
+    var steps = { ArrowLeft: -5, ArrowDown: -5, ArrowRight: 5, ArrowUp: 5 };
+    var to = e.key === 'Home' ? 0 : e.key === 'End' ? length
+      : steps[e.key] ? media.currentTime + steps[e.key] : null;
+    if (to === null) return;
+    e.preventDefault();
+    media.currentTime = Math.max(0, Math.min(length, to));
+    draw();
+  });
+
+  // The speeds are written in the bar, one shown at a time: the sign the
+  // button wears is in the template, not in the script.
+  speed.addEventListener('click', function () {
+    var rates = speed.querySelectorAll('[data-rate]');
+    var shown = 0;
+    for (var i = 0; i < rates.length; i++) if (!rates[i].hidden) shown = i;
+    var next = (shown + 1) % rates.length;
+    for (var j = 0; j < rates.length; j++) rates[j].hidden = j !== next;
+    media.playbackRate = parseFloat(rates[next].getAttribute('data-rate'));
+    speed.classList.toggle('is-slow', next !== 0);
+  });
+
+  draw();
+})();
+</script>
+<!-- /kotogen:player -->
+
+<script>
+(function () {
+  var player = document.querySelector('.audio-player');
+  if (!player || player.dataset.watched || !('IntersectionObserver' in window)) return;
+  player.dataset.watched = '1';
+  var io = new IntersectionObserver(function (entries) {
+    player.classList.toggle('is-stuck', entries[0].intersectionRatio < 1);
+  }, { threshold: [1], rootMargin: '-1px 0px 0px 0px' });
+  io.observe(player);
+})();
+</script>
+
+<div class="answer-container">
+  <div class="answer">
+    <span class="answer-text">{{furigana::Answer}}</span>
+  </div>
+</div>
+
+<script>
+(function () {
+  // Anki's "Next day starts at" (Preferences > Review).
+  var ROLLOVER_HOUR = 4;
+  var LETTERS = 'ABCDEFGH';
+
+  function ankiDay() {
+    var d = new Date(Date.now() - ROLLOVER_HOUR * 3600000);
+    return d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate();
+  }
+
+  var imul = Math.imul || function (a, b) {
+    var al = a & 0xffff, bl = b & 0xffff;
+    return (al * bl + ((((a >>> 16) * bl + al * (b >>> 16)) << 16) >>> 0)) | 0;
+  };
+
+  function hash(text) {
+    var h = 5381;
+    for (var i = 0; i < text.length; i++) {
+      h = ((h << 5) - h + text.charCodeAt(i)) | 0;
+    }
+    return h >>> 0;
+  }
+
+  function seeded(a) {
+    return function () {
+      a = (a + 0x6D2B79F5) | 0;
+      var t = imul(a ^ (a >>> 15), 1 | a);
+      t = ((t + imul(t ^ (t >>> 7), 61 | t)) | 0) ^ t;
+      return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+    };
+  }
+
+  // kotogen:choices=four
+  function howMany(total) { return total; }
+  // /kotogen:choices
+  // kotogen:choices=two
+  function howMany(total) { return Math.min(2, total); }
+  // /kotogen:choices
+  // kotogen:choices=none
+  function howMany() { return 0; }
+  // /kotogen:choices
+  // kotogen:choices=alternate
+
+  function howMany(total, seed) {
+    var rank = /_(\d+)\s*\|/.exec(seed ? seed.textContent : '');
+    return (!rank || parseInt(rank[1], 10) % 2 === 1) ? total : 0;
+  }
+  // /kotogen:choices
+
+  function shuffle() {
+    var box = document.querySelector('.choices-container');
+    if (!box || box.classList.contains('is-ready')) return box;
+
+    var choices = [];
+    var all = box.querySelectorAll('.choice');
+    for (var n = 0; n < all.length; n++) choices.push(all[n]);
+    if (choices.length < 2) return box;
+
+    var seed = box.querySelector('.choices-seed');
+    var rand = seeded(hash((seed ? seed.textContent : '') + '|' + ankiDay()));
+
+    var kept = howMany(choices.length, seed);
+    if (kept < 2) {
+      if (box.parentNode) box.parentNode.removeChild(box);
+      return null;
+    }
+
+    while (choices.length > kept) {
+      var candidates = [];
+
+      for (var d = 0; d < choices.length; d++) {
+        if (!choices[d].getAttribute('data-role')) candidates.push(d);
+      }
+      if (!candidates.length) break;
+      var dropped = candidates[Math.floor(rand() * candidates.length)];
+      if (choices[dropped].parentNode) choices[dropped].parentNode.removeChild(choices[dropped]);
+      choices.splice(dropped, 1);
+    }
+
+    for (var i = choices.length - 1; i > 0; i--) {
+      var j = Math.floor(rand() * (i + 1));
+      var tmp = choices[i]; choices[i] = choices[j]; choices[j] = tmp;
+    }
+    for (var k = 0; k < choices.length; k++) {
+      choices[k].querySelector('.choice-letter').textContent = LETTERS.charAt(k);
+      box.appendChild(choices[k]);
+    }
+
+    box.classList.add('is-ready');
+    return box;
+  }
+
+  var box = shuffle();
+  if (box && box.classList.contains('is-ready')) {
+    box.classList.add('is-revealed');
+    // Nothing is left to pick: the choices go back to being text.
+    var shown = box.querySelectorAll('.choice');
+    for (var c = 0; c < shown.length; c++) {
+      shown[c].removeAttribute('tabindex');
+      shown[c].removeAttribute('role');
+      shown[c].removeAttribute('aria-pressed');
+    }
+
+    var written = document.querySelector('.answer-container');
+    if (written && written.parentNode) written.parentNode.removeChild(written);
+  }
+})();
+</script>
+
+{{#Transcript}}
+<div class="transcript-container">
+  <details class="reveal">
+    <summary>
+
+      <span class="summary-label" lang="ja">本文</span>
+      <span class="summary-fold" aria-hidden="true"></span>
+      <!-- kotogen:translation=on-click|at-once -->
+      {{#Translation}}
+      <button type="button" class="aid tr-toggle" lang="ja" aria-pressed="false">訳</button>
+      {{/Translation}}
+      <!-- /kotogen:translation -->
+    </summary>
+
+    <div class="transcript">
+      <div class="jp-raw" hidden>{{furigana::Transcript}}</div>
+      <div class="trans-raw" hidden>{{furigana::Translation}}</div>
+
+      <div class="tc-raw" hidden>{{Timecodes}}</div>
+
+      <div class="key-raw" hidden>{{KeyLine}}</div>
+      <div class="interlinear"></div>
+    </div>
+  </details>
+</div>
+<!-- kotogen:transcript=unfolded -->
+<script>
+  (function () {
+    var panel = document.querySelector('.transcript-container details');
+    if (panel) panel.open = true;
+  })();
+</script>
+<!-- /kotogen:transcript -->
+
+<script>
+(function () {
+  var TURN_MAX_CHARS = 100;
+
+  var LABEL_RE = /^\s*([^：:\s][^：:]{0,11})[：:]\s*/;
+
+  var LABEL_TRANS_RE = /^\s*([^<：:\s][^<：:]{0,11})[：:]\s*/;
+
+  function splitLines(el) {
+    if (!el) return [];
+    return el.innerHTML
+      .split(/<br\s*\/?>/i)
+      .map(function (s) { return s.trim(); })
+      .filter(function (s) { return s.length; });
+  }
+
+  function elementOf(html) {
+    var el = document.createElement('div');
+    el.innerHTML = html;
+    return el;
+  }
+
+  function visibleText(node) {
+    if (node.nodeType === 3) return node.nodeValue;
+    var clone = node.cloneNode(true);
+    var rt = clone.querySelectorAll('rt');
+    for (var i = 0; i < rt.length; i++) rt[i].parentNode.removeChild(rt[i]);
+    return clone.textContent;
+  }
+
+  function visibleLength(html) {
+    return visibleText(elementOf(html)).replace(/\s+/g, '').length;
+  }
+
+  function cutHead(html, size) {
+    var el = elementOf(html);
+    var head = document.createElement('div');
+    var rest = size;
+    while (rest > 0 && el.firstChild) {
+      var n = el.firstChild;
+      var len = visibleText(n).length;
+      if (len <= rest) {
+        rest -= len;
+        head.appendChild(n);
+        continue;
+      }
+
+      if (n.nodeType === 3) {
+        head.appendChild(document.createTextNode(n.nodeValue.slice(0, rest)));
+        n.nodeValue = n.nodeValue.slice(rest);
+      }
+      break;
+    }
+    return { head: head.innerHTML, rest: el.innerHTML };
+  }
+
+  var container = document.querySelector('.transcript-container');
+  if (!container) return;
+  var transcript = container.querySelector('.transcript');
+  var out = container.querySelector('.interlinear');
+  if (!transcript || !out) return;
+
+  var jp = splitLines(container.querySelector('.jp-raw'));
+  var trans = splitLines(container.querySelector('.trans-raw'));
+
+  var tcRaw = container.querySelector('.tc-raw');
+  var tc = ((tcRaw ? tcRaw.textContent : '') || '').trim().split(/\s+/);
+
+  var keyRaw = container.querySelector('.key-raw');
+  var keyRank = parseInt(((keyRaw ? keyRaw.textContent : '') || '').trim(), 10);
+
+  var sentences = jp.map(function (html, i) {
+    var isKey = keyRank > 0 && i + 1 === keyRank;
+    var m = LABEL_RE.exec(visibleText(elementOf(html)));
+    var transLine = trans[i] || '';
+    var mf = LABEL_TRANS_RE.exec(transLine);
+
+    var cut = m ? cutHead(html, m[0].length) : { head: '', rest: html };
+    return {
+      label: m ? m[1].trim() : '',
+      labelTrans: mf ? mf[1].trim() : '',
+      speaker: cut.head,
+      text: cut.rest,
+      trans: transLine,
+      isKey: isKey,
+      t: tc[i],
+      long: visibleLength(html)
+    };
+  });
+
+  var turns = [];
+  sentences.forEach(function (p) {
+    var current = turns[turns.length - 1];
+    if (current && p.label && current.label === p.label
+        && current.long + p.long <= TURN_MAX_CHARS) {
+      current.sentences.push(p);
+      current.long += p.long;
+      return;
+    }
+    turns.push({ label: p.label, labelTrans: p.labelTrans,
+                 sentences: [p], long: p.long });
+  });
+
+  // A dialogue gives its speakers a column of their own, the first one who
+  // speaks set apart from the others; a monologue has no column at all.
+  var dialogue = turns.some(function (turn) { return turn.label; });
+  var firstLabel = '';
+  for (var f = 0; f < turns.length && !firstLabel; f++) firstLabel = turns[f].label;
+  out.classList.toggle('is-dialogue', dialogue);
+
+  out.innerHTML = '';
+  turns.forEach(function (turn) {
+    var row = document.createElement('div');
+    row.className = 'line';
+    var translations = [];
+
+    if (dialogue) {
+      var who = document.createElement('span');
+      who.className = 'speaker' + (turn.label && turn.label === firstLabel ? ' is-first' : '');
+      who.lang = 'ja';
+      who.innerHTML = turn.label ? turn.sentences[0].speaker.replace(/[：:]\s*$/, '') : '';
+      row.appendChild(who);
+    }
+    var said = document.createElement('div');
+    said.className = 'turn';
+    row.appendChild(said);
+
+    turn.sentences.forEach(function (p, n) {
+      var jpEl = document.createElement('div');
+      jpEl.className = 'jp' + (p.isKey ? ' key' : '');
+      jpEl.lang = 'ja';
+
+      var instant = parseFloat(p.t);
+      if (isFinite(instant) && instant >= 0) jpEl.dataset.t = instant;
+
+      jpEl.innerHTML = p.text;
+      said.appendChild(jpEl);
+
+      if (!p.trans) return;
+      var t = p.trans;
+
+      if (n && p.labelTrans && p.labelTrans === turn.labelTrans) {
+        t = t.replace(LABEL_TRANS_RE, '');
+      }
+      translations.push(t);
+    });
+
+    if (translations.length) {
+      var transEl = document.createElement('div');
+      transEl.className = 'trans';
+      transEl.innerHTML = translations.join(' ');
+      said.appendChild(transEl);
+    }
+    out.appendChild(row);
+  });
+
+  var player = document.querySelector('.audio-player audio, .audio-player video');
+  if (player) {
+    var clickables = out.querySelectorAll('.jp[data-t]');
+    // kotogen:click=sentence
+
+    for (var i = 0; i + 1 < clickables.length; i++) {
+      clickables[i].dataset.end = clickables[i + 1].dataset.t;
+    }
+
+    var bound = NaN;
+    var frame = 0;
+
+    function stopAtBound() {
+      if (isFinite(bound) && player.currentTime >= bound) {
+        bound = NaN;
+        player.pause();
+      }
+    }
+
+    function follow() {
+      frame = 0;
+      stopAtBound();
+      if (isFinite(bound) && !player.paused && window.requestAnimationFrame) {
+        frame = window.requestAnimationFrame(follow);
+      }
+    }
+
+    player.addEventListener('timeupdate', stopAtBound);
+    player.addEventListener('play', function () { if (!frame) follow(); });
+    // /kotogen:click
+    function playLine(line) {
+      // kotogen:click=sentence
+
+      bound = parseFloat(line.dataset.end);
+      // /kotogen:click
+      player.currentTime = parseFloat(line.dataset.t);
+
+      var playing = player.play();
+      if (playing && playing.catch) playing.catch(function () {});
+      // kotogen:click=sentence
+
+      if (!frame) follow();
+      // /kotogen:click
+    }
+
+    out.addEventListener('click', function (e) {
+      var line = e.target.closest ? e.target.closest('.jp[data-t]') : null;
+      if (!line || !out.contains(line)) return;
+
+      var selection = window.getSelection ? window.getSelection() : null;
+      if (selection && !selection.isCollapsed) return;
+      playLine(line);
+    });
+
+    // The sentence being heard is lit while the sound plays, whatever started
+    // it: the play button, the bar or a sentence.
+    var lit = null;
+    function light() {
+      var heard = null;
+      if (!player.paused) {
+        for (var s = 0; s < clickables.length; s++) {
+          if (parseFloat(clickables[s].dataset.t) > player.currentTime + 0.05) break;
+          heard = clickables[s];
+        }
+      }
+      if (heard === lit) return;
+      if (lit) lit.classList.remove('is-playing');
+      if (heard) heard.classList.add('is-playing');
+      lit = heard;
+    }
+    ['timeupdate', 'play', 'pause', 'seeked', 'ended'].forEach(function (name) {
+      player.addEventListener(name, light);
+    });
+    // kotogen:player=drawn
+
+    // The bar knows the sentences: a tick where each one starts, the key
+    // line's in green, and a touch on a tick does what a touch on its sentence
+    // does. The ticks repeat the sentences, which are the control: they are
+    // left out of the reading order.
+    var track = document.querySelector('.audio-player .player-track');
+    if (track && !track.querySelector('.player-tick')) {
+      var ticks = [];
+      for (var c = 0; c < clickables.length; c++) {
+        var tick = document.createElement('button');
+        tick.type = 'button';
+        tick.className = 'player-tick' + (clickables[c].classList.contains('key') ? ' is-key' : '');
+        tick.tabIndex = -1;
+        tick.setAttribute('aria-hidden', 'true');
+        tick.dataset.line = c;
+        track.appendChild(tick);
+        ticks.push(tick);
+      }
+      var placeTicks = function () {
+        var length = player.duration;
+        for (var k = 0; k < ticks.length; k++) {
+          var at = parseFloat(clickables[k].dataset.t);
+          ticks[k].hidden = !(length > 0) || at > length;
+          if (length > 0) ticks[k].style.left = (at / length * 100) + '%';
+        }
+      };
+      player.addEventListener('loadedmetadata', placeTicks);
+      player.addEventListener('durationchange', placeTicks);
+      placeTicks();
+      track.addEventListener('click', function (e) {
+        var hit = e.target.closest ? e.target.closest('.player-tick') : null;
+        if (hit) playLine(clickables[parseInt(hit.dataset.line, 10)]);
+      });
+    }
+    // /kotogen:player
+  }
+
+  // kotogen:translation=on-click|at-once
+
+  // The 訳 of the reading card, in the title of the transcript: the same
+  // gesture on both cards. It sits inside the <summary>, and a touch on it
+  // lights the translation without folding the transcript.
+  var toggle = container.querySelector('.tr-toggle');
+  if (toggle) {
+    var showTranslation = function (shown) {
+      transcript.classList.toggle('show-trans', shown);
+      toggle.classList.toggle('active', shown);
+      toggle.setAttribute('aria-pressed', shown ? 'true' : 'false');
+    };
+    // /kotogen:translation
+    // kotogen:translation=on-click
+    showTranslation(false);
+    // /kotogen:translation
+    // kotogen:translation=at-once
+    showTranslation(true);
+    // /kotogen:translation
+    // kotogen:translation=on-click|at-once
+    toggle.addEventListener('click', function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      showTranslation(!toggle.classList.contains('active'));
+    });
+  }
+  // /kotogen:translation
+})();
+</script>
+{{/Transcript}}
+
+<!-- kotogen:source -->
+{{#Source}}
+<div class="source-section">{{Source}}</div>
+<script>
+(function () {
+  var MAX_LENGTH = 48;
+
+  var box = document.querySelector('.source-section');
+  if (!box) return;
+  var text = box.textContent.trim();
+
+  var head = /^(https?:\/\/\S+)(.*)$/.exec(text);
+  var tail = head ? null : /^(.*\S)\s+(https?:\/\/\S+)$/.exec(text);
+  if (!head && !tail) return;
+
+  var readable, rest = '';
+  if (head) {
+    readable = head[1].replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '');
+    if (readable.length > MAX_LENGTH) readable = readable.slice(0, MAX_LENGTH - 1) + '…';
+    rest = head[2].trim();
+  } else {
+    readable = tail[1];
+  }
+
+  var link = document.createElement('a');
+  link.href = head ? head[1] : tail[2];
+  link.target = '_blank';
+  link.rel = 'noopener noreferrer';
+  link.textContent = readable;
+
+  box.textContent = '';
+  box.appendChild(link);
+  if (rest) box.appendChild(document.createTextNode(' ' + rest));
+})();
+</script>
+{{/Source}}
+<!-- /kotogen:source -->

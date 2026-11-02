@@ -1,0 +1,36 @@
+name: A language
+description: Ask for kotogen in another language, for its screens or for its cards.
+labels: ["language"]
+body:
+  - type: markdown
+    attributes:
+      value: >
+        A language is written in the repository, not sent as a pull request
+        ([Adding a language](https://github.com/delordt/kotogen/blob/HEAD/CONTRIBUTING.md#adding-a-language)).
+        What it needs from you is to read it, and to say what reads wrong.
+  - type: input
+    id: language
+    attributes:
+      label: Language
+      placeholder: Spanish
+    validations:
+      required: true
+  - type: dropdown
+    id: scope
+    attributes:
+      label: For
+      options:
+        - The screens
+        - The cards
+        - Both
+    validations:
+      required: true
+  - type: dropdown
+    id: reader
+    attributes:
+      label: Could you read the first translation and say what reads wrong?
+      options:
+        - "Yes"
+        - "No"
+    validations:
+      required: true

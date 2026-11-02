@@ -1,0 +1,667 @@
+<!-- The word said aloud, at the foot of the screen. The recording of the note
+     is played when there is one: `Audio` is left empty by the generation, for
+     a sound put in from Anki's editor. Without one the system voice stands in,
+     where the setting asks for it - it needs a Japanese voice the machine may
+     not have, and a machine without one prints its error on every back. Laid
+     before the card, which keeps the foot of the screen free only when a
+     player is there (style.css). -->
+{{#Audio}}<div class="vocab-player">{{Audio}}</div>{{/Audio}}
+<!-- kotogen:tts=yes -->
+{{^Audio}}<div class="vocab-player">{{tts ja_JP:kana:Expression}}</div>{{/Audio}}
+<!-- /kotogen:tts -->
+
+<div class="vocab-card" id="vocab-card">
+  <!-- The question of the front, as it was, then the answer under it. -->
+  <div class="vocab-question">
+    <!-- kotogen:furigana=yes|no -->
+    <div class="vocab-translation">{{furigana::Translation}}</div>
+    <!-- /kotogen:furigana -->
+    <!-- kotogen:furigana=kana -->
+    <div class="vocab-translation">{{kana::Translation}}</div>
+    <!-- /kotogen:furigana -->
+    {{#Context}}<div class="vocab-context">{{Context}}</div>{{/Context}}
+  </div>
+
+  <div class="vocab-head">
+    <div class="vocab-word" lang="ja">
+      <!-- kotogen:furigana=yes -->
+      <span class="vocab-word-box" id="vocab-word">{{furigana::Expression}}</span>
+      <!-- /kotogen:furigana -->
+      <!-- kotogen:furigana=no -->
+      <span class="vocab-word-box" id="vocab-word">{{kanji::Expression}}</span>
+      <!-- /kotogen:furigana -->
+      <!-- kotogen:furigana=kana -->
+      <span class="vocab-word-box" id="vocab-word">{{kana::Expression}}</span>
+      <!-- /kotogen:furigana -->
+    </div>
+    <div class="vocab-badges" lang="ja">
+      <!-- kotogen:badge -->
+      <span class="vocab-badge vocab-class" id="vocab-class"></span>
+      <!-- /kotogen:badge -->
+      <!-- kotogen:register -->
+      <span class="vocab-registers" id="vocab-registers"></span>
+      <!-- /kotogen:register -->
+    </div>
+  </div>
+
+  <!-- Filled by the script, and left hidden when the word has nothing to
+       conjugate or is not one it can conjugate safely. -->
+  <button type="button" class="vocab-forms" id="vocab-forms" aria-expanded="false" lang="ja" hidden></button>
+
+  <!-- kotogen:example=yes -->
+  {{#Example}}
+  <div class="vocab-example">
+    <!-- kotogen:furigana=yes|no -->
+    <div class="vocab-example-text" id="vocab-example" lang="ja">{{furigana::Example}}</div>
+    <!-- /kotogen:furigana -->
+    <!-- kotogen:furigana=kana -->
+    <div class="vocab-example-text" id="vocab-example" lang="ja">{{kana::Example}}</div>
+    <!-- /kotogen:furigana -->
+    {{#ExampleTranslation}}
+    <!-- kotogen:furigana=yes|no -->
+    <div class="vocab-example-translation">{{furigana::ExampleTranslation}}</div>
+    <!-- /kotogen:furigana -->
+    <!-- kotogen:furigana=kana -->
+    <div class="vocab-example-translation">{{kana::ExampleTranslation}}</div>
+    <!-- /kotogen:furigana -->
+    {{/ExampleTranslation}}
+  </div>
+  {{/Example}}
+  <!-- /kotogen:example -->
+  <!-- kotogen:example=untranslated -->
+  {{#Example}}
+  <div class="vocab-example">
+    <!-- kotogen:furigana=yes|no -->
+    <div class="vocab-example-text" id="vocab-example" lang="ja">{{furigana::Example}}</div>
+    <!-- /kotogen:furigana -->
+    <!-- kotogen:furigana=kana -->
+    <div class="vocab-example-text" id="vocab-example" lang="ja">{{kana::Example}}</div>
+    <!-- /kotogen:furigana -->
+  </div>
+  {{/Example}}
+  <!-- /kotogen:example -->
+
+  <!-- kotogen:notes -->
+  {{#Notes}}
+  <div class="vocab-notes">
+    <!-- kotogen:furigana=yes|no -->
+    {{furigana::Notes}}
+    <!-- /kotogen:furigana -->
+    <!-- kotogen:furigana=kana -->
+    {{kana::Notes}}
+    <!-- /kotogen:furigana -->
+  </div>
+  {{/Notes}}
+  <!-- /kotogen:notes -->
+</div>
+
+<!-- The word as the note writes it, kanji included: the exceptions of the
+     conjugation (行く, ある, 来る...) are recognised on it whatever the card
+     shows of the word. -->
+<span id="vocab-kanji" hidden>{{kanji::Expression}}</span>
+<!-- The tags, read from here rather than written into a script: a tag holds
+     what it likes, and a backtick or a `${` in it would break the script. -->
+<span id="note-tags" hidden>{{Tags}}</span>
+
+<!-- kotogen:tags=yes -->
+<div class="tags-footer"><i id="tags"></i></div>
+<script>
+(function () {
+  var tags = document.getElementById("note-tags");
+  var footer = document.getElementById("tags");
+  var card = document.getElementById("vocab-card");
+  if (!tags || !footer || !card) {
+    return;
+  }
+  footer.innerText = tags.textContent.trim().split(/\s+/).join(" - ");
+
+  // The card keeps the room of the line, which wraps on a narrow screen, and
+  // the player stands on it rather than over it: the end of a long back never
+  // sits under either.
+  var player = document.querySelector(".vocab-player");
+  function reserve() {
+    card.style.removeProperty("padding-bottom");
+    var room = footer.parentNode.offsetHeight;
+    if (player) {
+      player.style.removeProperty("bottom");
+      player.style.bottom = room + parseFloat(getComputedStyle(player).bottom) + "px";
+      room += parseFloat(getComputedStyle(card).paddingBottom);
+    }
+    if (room > parseFloat(getComputedStyle(card).paddingBottom)) {
+      card.style.paddingBottom = room + "px";
+    }
+  }
+  reserve();
+  if (window.ResizeObserver) {
+    new ResizeObserver(reserve).observe(footer.parentNode);
+  }
+})();
+</script>
+<!-- /kotogen:tags -->
+
+<!-- A word wider than the screen shrinks until it fits on its line, rather
+     than run off the side of it (ローラーコースター on a phone). The same
+     script on every face that shows the word, so that the word does not move
+     when the card turns (tests/test_templates.py holds them equal). -->
+<script>
+(function () {
+  var line = document.querySelector(".vocab-word");
+  var box = line && line.querySelector(".vocab-word-box");
+  var tags = document.getElementById("note-tags");
+  if (!box) {
+    return;
+  }
+  // The back hangs a な after a な-adjective, outside the word: every face
+  // keeps its room on either side of the centred word, the front included.
+  var hung = tags && /(^|\s)Adjective::な(\s|$)/.test(tags.textContent) ? 2 : 0;
+
+  // Under half its size the word would read worse than on two lines: it
+  // stops shrinking there, and breaks.
+  function fit() {
+    line.style.removeProperty("--fit");
+    line.style.whiteSpace = "nowrap";
+    var em = parseFloat(getComputedStyle(line).fontSize);
+    var width = box.getBoundingClientRect().width + hung * em;
+    var room = line.clientWidth;
+    line.style.removeProperty("white-space");
+    // Rounded down: a word a hair too wide for its line would break there.
+    if (room > 0 && width > room) {
+      line.style.setProperty("--fit", Math.max(Math.floor(room / width * 100) / 100, 0.5));
+    }
+  }
+
+  fit();
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(fit);
+  }
+
+  // Fitted again when its line changes width or type size: a phone turned
+  // round, or Anki desktop styling its first card only after this script. A
+  // frame later, since the fit resizes what is watched.
+  if (!window.ResizeObserver) {
+    return;
+  }
+  var measured = line.clientWidth + " " + getComputedStyle(line.parentNode).fontSize;
+  var queued = 0;
+  var watch = new ResizeObserver(function () {
+    if (queued) {
+      return;
+    }
+    queued = requestAnimationFrame(function () {
+      queued = 0;
+      if (!line.isConnected) {
+        watch.disconnect();
+        return;
+      }
+      var now = line.clientWidth + " " + getComputedStyle(line.parentNode).fontSize;
+      if (now !== measured) {
+        measured = now;
+        fit();
+      }
+    });
+  });
+  watch.observe(line);
+})();
+</script>
+
+<!-- The script of both backs, the same on each (tests/test_templates.py
+     holds them equal). -->
+<script>
+(function () {
+  var card = document.getElementById("vocab-card");
+  var word = document.getElementById("vocab-word");
+  if (!card || !word) {
+    return;
+  }
+  var tags = document.getElementById("note-tags");
+  var tagList = tags ? tags.textContent.trim().split(/\s+/) : [];
+  var written = document.getElementById("vocab-kanji");
+  var kanji = written ? written.textContent.trim() : "";
+
+  // The class of the word: the first of these its tags carry. The card takes
+  // its colour, the badge prints its name. Counters and dates are used as
+  // nouns and take their colour, onomatopoeia as adverbs.
+  var CLASSES = {
+    "Verb::一段動詞": ["verb-一段動詞", "一段動詞"],
+    "Verb::五段動詞": ["verb-五段動詞", "五段動詞"],
+    "Verb::不規則動詞": ["verb-不規則動詞", "不規則動詞"],
+    "Adjective::い": ["adj-い", "い形容詞"],
+    "Adjective::な": ["adj-な", "な形容詞"],
+    "Counter": ["noun", "助数詞"],
+    "Date": ["noun", "日付"],
+    "Noun": ["noun", "名詞"],
+    "Onomatopoeia": ["adverb", "オノマトペ"],
+    "Adverb": ["adverb", "副詞"],
+    "Expression": ["expression", "表現"]
+  };
+
+  // The register, printed the way a Japanese dictionary marks it, and the
+  // family whose colour it takes. A word usable in every register has no tag.
+  var REGISTERS = {
+    "Register::敬語::尊敬語": ["尊敬", "formal"],
+    "Register::敬語::謙譲語": ["謙譲", "formal"],
+    "Register::丁寧語": ["丁寧", "formal"],
+    "Register::改まった語": ["改", "formal"],
+    "Register::文章語": ["文", "formal"],
+    "Register::口語": ["口", "casual"],
+    "Register::俗語": ["俗", "casual"],
+    "Register::蔑称": ["蔑", "casual"],
+    "Register::古語": ["古", "marked"],
+    "Speaker::男性語": ["男", "marked"],
+    "Speaker::女性語": ["女", "marked"],
+    "Dialect::関西弁": ["関西", "marked"]
+  };
+
+  // The row each ending of a 五段 verb moves to: あ, い, the て form, え, お.
+  var GODAN = {
+    "う": ["わ", "い", "って", "え", "お"],
+    "く": ["か", "き", "いて", "け", "こ"],
+    "ぐ": ["が", "ぎ", "いで", "げ", "ご"],
+    "す": ["さ", "し", "して", "せ", "そ"],
+    "つ": ["た", "ち", "って", "て", "と"],
+    "ぬ": ["な", "に", "んで", "ね", "の"],
+    "ぶ": ["ば", "び", "んで", "べ", "ぼ"],
+    "む": ["ま", "み", "んで", "め", "も"],
+    "る": ["ら", "り", "って", "れ", "ろ"]
+  };
+  // The five honorific verbs whose ます form drops the り.
+  var HONORIFIC = ["いらっしゃる", "おっしゃる", "仰る", "くださる", "下さる",
+                   "なさる", "為さる", "ござる", "御座る"];
+  // A 〜する verb on a single kanji takes no できる, the kanji being no noun:
+  // its potential and its volitional, "" where the form is not in use. The
+  // others take the written potential, しうる, which every one of them accepts.
+  var ONE_KANJI = {"愛": ["せる", "しよう"], "恋": ["できる", "しよう"]};
+  "属反有".split("").forEach(function (one) {
+    ONE_KANJI[one] = ["しうる", ""];
+  });
+  "値関際対要面即適".split("").forEach(function (one) {
+    ONE_KANJI[one] = ["", ""];
+  });
+  var VERB = ["ない形", "ます形", "て形", "可能形", "意向形", "ば形"];
+  var I_ADJECTIVE = ["否定", "過去", "て形", "過去否定", "副詞", "条件"];
+  var NA_ADJECTIVE = ["名詞の前", "副詞", "否定", "過去", "て形", "条件"];
+
+  var kind = null;
+  Object.keys(CLASSES).some(function (name) {
+    var found = tagList.some(function (tag) {
+      return tag === name || tag.indexOf(name + "::") === 0;
+    });
+    if (found) {
+      kind = name;
+    }
+    return found;
+  });
+  if (kind) {
+    card.classList.add(CLASSES[kind][0]);
+    var badge = document.getElementById("vocab-class");
+    if (badge) {
+      badge.textContent = CLASSES[kind][1];
+    }
+  }
+
+  var registers = document.getElementById("vocab-registers");
+  if (registers) {
+    tagList.forEach(function (tag) {
+      if (REGISTERS[tag]) {
+        var sign = document.createElement("span");
+        sign.className = "vocab-badge vocab-register " + REGISTERS[tag][1];
+        sign.textContent = REGISTERS[tag][0];
+        registers.appendChild(sign);
+      }
+    });
+  }
+
+  // What a reader sees of a node: the readings over the kanji left out.
+  function seen(node) {
+    if (node.nodeType === 3) {
+      return node.nodeValue;
+    }
+    if (node.nodeType !== 1 || node.nodeName === "RT" || node.nodeName === "RP") {
+      return "";
+    }
+    var text = "";
+    for (var child = node.firstChild; child; child = child.nextSibling) {
+      text += seen(child);
+    }
+    return text;
+  }
+
+  function ends(text, endings) {
+    return endings.some(function (end) {
+      return text.slice(-end.length) === end;
+    });
+  }
+
+  // Takes `count` characters off the end of what a copy of the word shows. A
+  // kanji and its reading go together or not at all: false when the cut would
+  // have to split them, and the form is then not drawn.
+  function cut(box, count) {
+    while (count > 0) {
+      var last = box.lastChild;
+      if (!last) {
+        return false;
+      }
+      if (last.nodeType === 3) {
+        var text = last.nodeValue.replace(/\s+$/, "");
+        var taken = Math.min(count, text.length);
+        last.nodeValue = text.slice(0, text.length - taken);
+        count -= taken;
+        if (!last.nodeValue) {
+          box.removeChild(last);
+        }
+      } else {
+        var length = seen(last).length;
+        if (length > count) {
+          return false;
+        }
+        box.removeChild(last);
+        count -= length;
+      }
+    }
+    return true;
+  }
+
+  // The six forms of the word, the three the strip opens on first: what the
+  // word loses at its end, and what it takes instead. Null for a word this
+  // table cannot conjugate safely - no strip rather than a wrong one.
+  function conjugation() {
+    var text = seen(word).replace(/\s+$/, "");
+    var last = text.slice(-1);
+    function each(names, count, endings) {
+      return names.map(function (name, n) {
+        return {name: name, cut: count, ending: endings[n]};
+      });
+    }
+    if (kind === "Verb::一段動詞") {
+      return last === "る" ? each(VERB, 1, ["ない", "ます", "て", "られる", "よう", "れば"]) : null;
+    }
+    if (kind === "Verb::五段動詞") {
+      var row = GODAN[last];
+      if (!row) {
+        return null;
+      }
+      var endings = [row[0] + "ない", row[1] + "ます", row[2], row[3] + "る", row[4] + "う", row[3] + "ば"];
+      if (ends(kanji, ["行く", "逝く", "いく"])) {
+        endings[2] = "って";
+      }
+      if (ends(kanji, ["問う", "請う", "乞う"])) {
+        endings[2] = "うて";
+      }
+      if (ends(kanji, HONORIFIC)) {
+        endings[1] = "います";
+      }
+      var forms = each(VERB, 1, endings);
+      // ある has no あらない: its negative is ない, the verb gone with it. Nor
+      // has it a potential: a dash, rather than あれる.
+      if (ends(kanji, ["ある", "有る", "在る"])) {
+        forms[0] = {name: VERB[0], cut: 2, ending: "ない"};
+        forms[3].ending = "";
+      }
+      return forms;
+    }
+    if (kind === "Verb::不規則動詞") {
+      if (ends(kanji, ["する"]) && ends(text, ["する"])) {
+        var suru = ["しない", "します", "して", "できる", "しよう", "すれば"];
+        // Told on the word as written: in kana, 愛する shows as あいする.
+        var stem = kanji.slice(0, -2);
+        if (/^[㐀-鿿]$/.test(stem)) {
+          var own = ONE_KANJI[stem] || ["しうる", "しよう"];
+          suru[3] = own[0];
+          suru[4] = own[1];
+        }
+        return each(VERB, 2, suru);
+      }
+      // 来る changes the reading of its kanji: shown over it when the card
+      // gives readings, written out when it is in kana.
+      if (ends(kanji, ["来る", "くる"])) {
+        var spoken = ends(text, ["くる"]);
+        var readings = ["こ", "き", "き", "こ", "こ", "く"];
+        var after = ["ない", "ます", "て", "られる", "よう", "れば"];
+        return VERB.map(function (name, n) {
+          return spoken ? {name: name, cut: 2, ending: readings[n] + after[n]}
+                        : {name: name, cut: 1, ending: after[n], reading: readings[n]};
+        });
+      }
+      return null;
+    }
+    if (kind === "Adjective::い") {
+      if (last !== "い") {
+        return null;
+      }
+      // いい conjugates on よい; かわいい is an ordinary い-adjective.
+      if (ends(kanji, ["いい"]) && !ends(kanji, ["かわいい"]) && ends(text, ["いい"])) {
+        return each(I_ADJECTIVE, 2, ["よくない", "よかった", "よくて", "よくなかった", "よく", "よければ"]);
+      }
+      return each(I_ADJECTIVE, 1, ["くない", "かった", "くて", "くなかった", "く", "ければ"]);
+    }
+    if (kind === "Adjective::な") {
+      return each(NA_ADJECTIVE, last === "な" ? 1 : 0, ["な", "に", "じゃない", "だった", "で", "なら"]);
+    }
+    return null;
+  }
+
+  // One form: a copy of the word, readings included, cut and given its ending.
+  function cell(form) {
+    var copy = word.cloneNode(true);
+    copy.removeAttribute("id");
+    copy.className = "vocab-form-word";
+    if (!cut(copy, form.cut)) {
+      return null;
+    }
+    if (form.reading) {
+      var group = copy.lastChild;
+      if (group && group.nodeName === "RUBY" && seen(group) === "来") {
+        var reading = group.querySelector("rt");
+        if (reading) {
+          reading.textContent = form.reading;
+          reading.className = "vocab-changed";
+        }
+      }
+    }
+    // A form not in use is a dash, rather than a word nobody says.
+    if (!form.ending) {
+      copy.textContent = "";
+    }
+    var ending = document.createElement("span");
+    ending.className = form.ending ? "vocab-form-ending" : "";
+    ending.textContent = form.ending || "-";
+    copy.appendChild(ending);
+    var name = document.createElement("span");
+    name.className = "vocab-form-name";
+    name.textContent = form.name;
+    var box = document.createElement("span");
+    box.className = "vocab-form";
+    box.appendChild(copy);
+    box.appendChild(name);
+    return box;
+  }
+
+  var strip = document.getElementById("vocab-forms");
+
+  // A form wider than its cell shrinks, and every form of the strip with it,
+  // so the cells keep one size: 申し上げられる does not run into its neighbour.
+  function fit() {
+    strip.style.removeProperty("--fit");
+    var ratio = 1;
+    Array.prototype.forEach.call(strip.querySelectorAll(".vocab-form"), function (form) {
+      var room = form.clientWidth - 6;
+      var width = form.firstChild.scrollWidth;
+      if (room > 0 && width > room) {
+        ratio = Math.min(ratio, room / width);
+      }
+    });
+    if (ratio < 1) {
+      strip.style.setProperty("--fit", Math.max(ratio, 0.6).toFixed(3));
+    }
+  }
+
+  var forms = strip ? conjugation() : null;
+  var cells = forms ? forms.map(cell) : [];
+  var conjugated = cells.length > 0 && cells.every(Boolean);
+  if (conjugated) {
+    var grid = document.createElement("span");
+    grid.className = "vocab-forms-grid";
+    cells.forEach(function (one) {
+      grid.appendChild(one);
+    });
+    strip.appendChild(grid);
+    strip.hidden = false;
+    strip.addEventListener("click", function () {
+      var open = strip.getAttribute("aria-expanded") === "true";
+      strip.setAttribute("aria-expanded", open ? "false" : "true");
+      fit();
+    });
+    fit();
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(fit);
+    }
+    // Fitted again when the strip changes width, a phone turned round: a frame
+    // later, since the fit resizes what is watched.
+    if (window.ResizeObserver) {
+      var stripWidth = strip.clientWidth;
+      var queued = 0;
+      var watch = new ResizeObserver(function () {
+        if (queued) {
+          return;
+        }
+        queued = requestAnimationFrame(function () {
+          queued = 0;
+          if (!strip.isConnected) {
+            watch.disconnect();
+          } else if (strip.clientWidth !== stripWidth) {
+            stripWidth = strip.clientWidth;
+            fit();
+          }
+        });
+      });
+      watch.observe(strip);
+    }
+  }
+
+  // Wraps what the reader sees between `start` and `end` in a <mark>. A kanji
+  // reached partway goes in whole, with its reading.
+  function wrap(box, start, end) {
+    var first = null;
+    var last = null;
+    var at = 0;
+    var node = box.firstChild;
+    while (node) {
+      var length = seen(node).length;
+      var next = node.nextSibling;
+      if (length && at + length > start && at < end) {
+        if (node.nodeType === 3 && at < start) {
+          node = node.splitText(start - at);
+          length -= start - at;
+          at = start;
+        }
+        if (node.nodeType === 3 && at + length > end) {
+          node.splitText(end - at);
+          length = end - at;
+        }
+        next = node.nextSibling;
+        first = first || node;
+        last = node;
+      }
+      at += length;
+      node = next;
+    }
+    if (!first) {
+      return;
+    }
+    var mark = document.createElement("mark");
+    box.insertBefore(mark, first);
+    var moving = first;
+    while (moving) {
+      var following = moving.nextSibling;
+      mark.appendChild(moving);
+      if (moving === last) {
+        break;
+      }
+      moving = following;
+    }
+  }
+
+  // The word picked out in its example, under whatever form the sentence gives
+  // it: what does not change of it (帰 of 帰りたい), and the kana that carries
+  // the conjugation. Found nowhere - the sentence writes it otherwise - and
+  // nothing is picked out, rather than the wrong thing.
+  function pickOut() {
+    var example = document.getElementById("vocab-example");
+    if (!example) {
+      return;
+    }
+    var text = seen(word).trim();
+    var stem = text;
+    var then = null;
+    if (kind === "Verb::一段動詞") {
+      stem = text.slice(0, -1);
+      then = /^る/;
+    } else if (kind === "Verb::五段動詞") {
+      stem = text.slice(0, -1);
+      then = /^[ぁ-ゖ]/;
+    } else if (kind === "Verb::不規則動詞") {
+      stem = text.replace(/(する|くる|る)$/, "");
+    } else if (kind === "Adjective::い") {
+      stem = text.slice(0, -1);
+      then = /^(かった|ければ|くて|く|い)/;
+    } else if (kind === "Adjective::な") {
+      stem = text.replace(/な$/, "");
+    }
+    // A stem of a single kana is in every other sentence.
+    if (!stem || (stem.length < 2 && !/[㐀-鿿々]/.test(stem))) {
+      return;
+    }
+    var sentence = seen(example);
+    var start = sentence.indexOf(stem);
+    if (start < 0) {
+      return;
+    }
+    var end = start + stem.length;
+    var more = then ? then.exec(sentence.slice(end)) : null;
+    wrap(example, start, more ? end + more[0].length : end);
+  }
+
+  // The ending that conjugates, in the colour of the class - once the forms
+  // have shown it does: a word whose tag does not fit it keeps its colour. A
+  // な-adjective shows instead the な it takes before a noun.
+  function colourEnding() {
+    if (kind === "Adjective::な") {
+      if (!/な$/.test(seen(word).trim())) {
+        var na = document.createElement("span");
+        na.className = "vocab-na";
+        na.textContent = "な";
+        word.appendChild(na);
+      }
+      return;
+    }
+    if (!conjugated) {
+      return;
+    }
+    var tail = word.lastChild;
+    while (tail && tail.nodeType === 3 && !tail.nodeValue.trim()) {
+      tail = tail.previousSibling;
+    }
+    if (!tail || tail.nodeType !== 3) {
+      return;
+    }
+    // What every form of the strip takes off the word: one kana as a rule, the
+    // whole する of 属する, the くる of a kana くる and the いい of いい. ある
+    // keeps る alone, since only its negative takes the verb off with it.
+    var count = Math.min.apply(null, forms.map(function (form) {
+      return form.cut;
+    }));
+    var text = tail.nodeValue.replace(/\s+$/, "");
+    if (text.length < count) {
+      return;
+    }
+    var ending = document.createElement("span");
+    ending.className = "vocab-ending";
+    ending.textContent = text.slice(-count);
+    tail.nodeValue = text.slice(0, -count);
+    word.insertBefore(ending, tail.nextSibling);
+  }
+
+  pickOut();
+  colourEnding();
+})();
+</script>

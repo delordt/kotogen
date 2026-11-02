@@ -1,0 +1,304 @@
+<div class="kanji-card" id="kanji-card" data-kanji="{{Kanji}}">
+  <!-- The face of the front, as it was: the back adds its blocks under it,
+       and nothing inside it changes its size. -->
+  <div class="kanji-face">
+    <span class="kanji-char" lang="ja">{{Kanji}}</span>
+    <!-- kotogen:badge -->
+    <div class="kanji-badges" lang="ja">
+      <span class="kanji-badge" id="kanji-level"></span>
+      {{#Strokes}}<span class="kanji-badge">{{Strokes}}画</span>{{/Strokes}}
+    </div>
+    <!-- /kotogen:badge -->
+  </div>
+
+  <div class="kanji-meaning">{{furigana::Meaning}}</div>
+
+  <!-- The readings, laid out as the strip of forms of the vocabulary card:
+       one cell for the on readings, one for the kun, their sign under them.
+       The fold of the other readings hangs on its lower rule. -->
+  <div class="kanji-readings" lang="ja">
+    <div class="reading-cells">
+      {{#Onyomi}}
+      <div class="reading-cell">
+        <span class="reading-list">{{Onyomi}}</span>
+        <span class="reading-label on">音</span>
+      </div>
+      {{/Onyomi}}
+      {{#Kunyomi}}
+      <div class="reading-cell">
+        <span class="reading-list">{{Kunyomi}}</span>
+        <span class="reading-label kun">訓</span>
+      </div>
+      {{/Kunyomi}}
+    </div>
+    <!-- kotogen:other-readings=folded -->
+    {{#OtherReadings}}
+    <details class="other-readings">
+      <summary><span class="reading-label">他</span></summary>
+      <span class="reading-list">{{OtherReadings}}</span>
+    </details>
+    {{/OtherReadings}}
+    <!-- /kotogen:other-readings -->
+    <!-- kotogen:other-readings=shown -->
+    {{#OtherReadings}}
+    <div class="other-readings-row">
+      <span class="reading-label">他</span>
+      <span class="reading-list">{{OtherReadings}}</span>
+    </div>
+    {{/OtherReadings}}
+    <!-- /kotogen:other-readings -->
+  </div>
+
+  {{#Words}}
+  <div class="kanji-words" id="kanji-words"></div>
+  <div id="kanji-words-raw" hidden>{{Words}}</div>
+  {{/Words}}
+
+  <!-- kotogen:composition -->
+  {{#Composition}}
+  <div class="kanji-aside">
+    <span class="aside-label" lang="ja">構成</span>
+    <span class="aside-text" data-mixed>{{Composition}}</span>
+  </div>
+  {{/Composition}}
+  <!-- /kotogen:composition -->
+
+  <!-- kotogen:lookalikes -->
+  {{#LookAlikes}}
+  <div class="kanji-aside">
+    <span class="aside-label">≠</span>
+    <span class="aside-text" data-mixed>{{LookAlikes}}</span>
+  </div>
+  {{/LookAlikes}}
+  <!-- /kotogen:lookalikes -->
+
+  <!-- kotogen:notes -->
+  {{#Notes}}
+  <div class="kanji-aside" lang="ja">
+    <span class="aside-label">熟字訓</span>
+    <span class="aside-text">{{furigana::Notes}}</span>
+  </div>
+  {{/Notes}}
+  <!-- /kotogen:notes -->
+</div>
+
+<!-- The two witnesses the script reads: a setting can only take a block away,
+     so what it changes in what the script draws is said by the presence of an
+     element, never by a value written into the script. -->
+<!-- kotogen:word-readings -->
+<span id="kanji-word-readings" hidden></span>
+<!-- /kotogen:word-readings -->
+<!-- kotogen:onyomi=hiragana -->
+<span id="kanji-on-in-hiragana" hidden></span>
+<!-- /kotogen:onyomi -->
+<!-- The tags, read from here rather than written into a script: a tag holds
+     what it likes, and a backtick or a `${` in it would break the script. -->
+<span id="note-tags" hidden>{{Tags}}</span>
+
+<!-- kotogen:tags=yes -->
+<div class="tags-footer"><i id="tags"></i></div>
+<script>
+(function () {
+  var tags = document.getElementById("note-tags");
+  var footer = document.getElementById("tags");
+  var card = document.getElementById("kanji-card");
+  if (!tags || !footer || !card) {
+    return;
+  }
+  footer.innerText = tags.textContent.trim().split(/\s+/).join(" - ");
+
+  // The card keeps the room of the line, which wraps on a narrow screen: the
+  // end of a long back never sits under it.
+  function reserve() {
+    card.style.removeProperty("padding-bottom");
+    var room = footer.parentNode.offsetHeight;
+    if (room > parseFloat(getComputedStyle(card).paddingBottom)) {
+      card.style.paddingBottom = room + "px";
+    }
+  }
+  reserve();
+  if (window.ResizeObserver) {
+    new ResizeObserver(reserve).observe(footer.parentNode);
+  }
+})();
+</script>
+<!-- /kotogen:tags -->
+
+<script>
+(function () {
+  var card = document.getElementById("kanji-card");
+  if (!card) {
+    return;
+  }
+  var kanji = (card.getAttribute("data-kanji") || "").trim();
+  var showWordReadings = !!document.getElementById("kanji-word-readings");
+  var onInHiragana = !!document.getElementById("kanji-on-in-hiragana");
+
+  // The text of a field, its line breaks kept: the editor of Anki writes a new
+  // line as a <br> or as a <div>, and a field written by kotogen as a <br>.
+  function plain(html) {
+    var box = document.createElement("div");
+    box.innerHTML = html.replace(/<br\s*\/?>|<\/div>/gi, "\n");
+    return box.textContent;
+  }
+
+  function isOn(text) {
+    return /^[ァ-ー.]+$/.test(text);
+  }
+
+  function toHiragana(text) {
+    return text.replace(/[ァ-ヶ]/g, function (c) {
+      return String.fromCharCode(c.charCodeAt(0) - 0x60);
+    });
+  }
+
+  // A reading as the card shows it: on or kun by its script, and the okurigana
+  // after the dot (まな.ぶ) in a lighter tone.
+  function reading(text) {
+    var on = isOn(text);
+    var span = document.createElement("span");
+    span.className = "reading " + (on ? "on" : "kun");
+    var shown = on && onInHiragana ? toHiragana(text) : text;
+    var cut = shown.indexOf(".");
+    span.appendChild(document.createTextNode(cut < 0 ? shown : shown.slice(0, cut)));
+    if (cut >= 0) {
+      var tail = document.createElement("span");
+      tail.className = "okurigana";
+      tail.appendChild(document.createTextNode(shown.slice(cut + 1)));
+      span.appendChild(tail);
+    }
+    return span;
+  }
+
+  // The kanji of the card picked out wherever a word writes it, in the colour
+  // of the reading that word gives it.
+  function marked(text, kind) {
+    var span = document.createElement("span");
+    if (!kanji) {
+      span.appendChild(document.createTextNode(text));
+      return span;
+    }
+    text.split(kanji).forEach(function (piece, n) {
+      if (n > 0) {
+        var hit = document.createElement("span");
+        hit.className = "kanji-hit " + kind;
+        hit.appendChild(document.createTextNode(kanji));
+        span.appendChild(hit);
+      }
+      span.appendChild(document.createTextNode(piece));
+    });
+    return span;
+  }
+
+  // Anki's own furigana notation (学生[がくせい], a space before a group),
+  // read here because the word is one part of a line and not a whole field.
+  function ruby(word, kind) {
+    var out = document.createElement("span");
+    out.className = "word";
+    out.lang = "ja";
+    var pattern = / ?([^ \[\]]+)\[([^\]]*)\]/g;
+    var last = 0;
+    var match;
+    while ((match = pattern.exec(word)) !== null) {
+      if (match.index > last) {
+        out.appendChild(marked(word.slice(last, match.index), kind));
+      }
+      var group = document.createElement("ruby");
+      group.appendChild(marked(match[1], kind));
+      var rt = document.createElement("rt");
+      rt.appendChild(document.createTextNode(match[2]));
+      group.appendChild(rt);
+      out.appendChild(group);
+      last = pattern.lastIndex;
+    }
+    if (last < word.length) {
+      out.appendChild(marked(word.slice(last), kind));
+    }
+    return out;
+  }
+
+  // A look-alike or a composition sets kanji in a sentence of the language of
+  // the cards: the kanji, the components and the kana are marked Japanese, or
+  // a phone may draw them in their Chinese forms on the card about their shape.
+  // Radicals, 々 and its kin, kana, and the blocks of kanji.
+  var JAPANESE = /[\u2E80-\u2FDF\u3005-\u3007\u3040-\u30FF\u3400-\u9FFF\uF900-\uFAFF]+/g;
+  Array.prototype.forEach.call(document.querySelectorAll(".aside-text[data-mixed]"), function (aside) {
+    var walker = document.createTreeWalker(aside, NodeFilter.SHOW_TEXT, null, false);
+    var texts = [];
+    var node;
+    while ((node = walker.nextNode())) {
+      texts.push(node);
+    }
+    texts.forEach(function (text) {
+      var value = text.nodeValue;
+      var pieces = document.createDocumentFragment();
+      var last = 0;
+      var match;
+      JAPANESE.lastIndex = 0;
+      while ((match = JAPANESE.exec(value)) !== null) {
+        pieces.appendChild(document.createTextNode(value.slice(last, match.index)));
+        var run = document.createElement("span");
+        run.lang = "ja";
+        run.appendChild(document.createTextNode(match[0]));
+        pieces.appendChild(run);
+        last = JAPANESE.lastIndex;
+      }
+      if (last) {
+        pieces.appendChild(document.createTextNode(value.slice(last)));
+        text.parentNode.replaceChild(pieces, text);
+      }
+    });
+  });
+
+  var lists = document.querySelectorAll(".reading-list");
+  for (var i = 0; i < lists.length; i++) {
+    var list = lists[i];
+    var items = plain(list.innerHTML).split(/[、,，\s]+/).filter(Boolean);
+    list.textContent = "";
+    items.forEach(function (text) {
+      list.appendChild(reading(text));
+    });
+  }
+
+  // One word per line: `学生[がくせい]|student|ガク`.
+  var raw = document.getElementById("kanji-words-raw");
+  var words = document.getElementById("kanji-words");
+  if (raw && words) {
+    plain(raw.innerHTML).split("\n").forEach(function (line) {
+      var parts = line.split("|");
+      var word = (parts[0] || "").trim();
+      if (!word) {
+        return;
+      }
+      var given = (parts[2] || "").trim();
+      var kind = given ? (isOn(given) ? "on" : "kun") : "";
+      var row = document.createElement("div");
+      row.className = "word-row";
+      row.appendChild(ruby(word, kind));
+      var meaning = document.createElement("span");
+      meaning.className = "word-meaning";
+      meaning.appendChild(document.createTextNode((parts[1] || "").trim()));
+      row.appendChild(meaning);
+      if (given && showWordReadings) {
+        var said = reading(given);
+        said.classList.add("word-reading");
+        row.appendChild(said);
+      }
+      words.appendChild(row);
+    });
+  }
+
+  var tags = document.getElementById("note-tags");
+  var level = (tags ? tags.textContent.trim().split(/\s+/) : []).filter(function (tag) {
+    return tag.indexOf("Level::") === 0;
+  })[0];
+  var badge = document.getElementById("kanji-level");
+  if (badge) {
+    if (level) {
+      badge.textContent = level.split("::").pop();
+    } else {
+      badge.style.display = "none";
+    }
+  }
+})();
+</script>

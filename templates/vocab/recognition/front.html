@@ -1,0 +1,85 @@
+<div class="vocab-card">
+  <!-- The readings are laid here too, hidden: they hold the room the back
+       shows them in, and the word does not move when the card turns. -->
+  <div class="vocab-head">
+    <div class="vocab-word" lang="ja">
+      <!-- kotogen:furigana=yes -->
+      <span class="vocab-word-box readings-hidden">{{furigana::Expression}}</span>
+      <!-- /kotogen:furigana -->
+      <!-- kotogen:furigana=no -->
+      <span class="vocab-word-box">{{kanji::Expression}}</span>
+      <!-- /kotogen:furigana -->
+      <!-- kotogen:furigana=kana -->
+      <span class="vocab-word-box">{{kana::Expression}}</span>
+      <!-- /kotogen:furigana -->
+    </div>
+  </div>
+</div>
+<!-- The tags, read from here rather than written into a script: a tag holds
+     what it likes, and a backtick or a `${` in it would break the script. -->
+<span id="note-tags" hidden>{{Tags}}</span>
+
+<!-- A word wider than the screen shrinks until it fits on its line, rather
+     than run off the side of it (ローラーコースター on a phone). The same
+     script on every face that shows the word, so that the word does not move
+     when the card turns (tests/test_templates.py holds them equal). -->
+<script>
+(function () {
+  var line = document.querySelector(".vocab-word");
+  var box = line && line.querySelector(".vocab-word-box");
+  var tags = document.getElementById("note-tags");
+  if (!box) {
+    return;
+  }
+  // The back hangs a な after a な-adjective, outside the word: every face
+  // keeps its room on either side of the centred word, the front included.
+  var hung = tags && /(^|\s)Adjective::な(\s|$)/.test(tags.textContent) ? 2 : 0;
+
+  // Under half its size the word would read worse than on two lines: it
+  // stops shrinking there, and breaks.
+  function fit() {
+    line.style.removeProperty("--fit");
+    line.style.whiteSpace = "nowrap";
+    var em = parseFloat(getComputedStyle(line).fontSize);
+    var width = box.getBoundingClientRect().width + hung * em;
+    var room = line.clientWidth;
+    line.style.removeProperty("white-space");
+    // Rounded down: a word a hair too wide for its line would break there.
+    if (room > 0 && width > room) {
+      line.style.setProperty("--fit", Math.max(Math.floor(room / width * 100) / 100, 0.5));
+    }
+  }
+
+  fit();
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(fit);
+  }
+
+  // Fitted again when its line changes width or type size: a phone turned
+  // round, or Anki desktop styling its first card only after this script. A
+  // frame later, since the fit resizes what is watched.
+  if (!window.ResizeObserver) {
+    return;
+  }
+  var measured = line.clientWidth + " " + getComputedStyle(line.parentNode).fontSize;
+  var queued = 0;
+  var watch = new ResizeObserver(function () {
+    if (queued) {
+      return;
+    }
+    queued = requestAnimationFrame(function () {
+      queued = 0;
+      if (!line.isConnected) {
+        watch.disconnect();
+        return;
+      }
+      var now = line.clientWidth + " " + getComputedStyle(line.parentNode).fontSize;
+      if (now !== measured) {
+        measured = now;
+        fit();
+      }
+    });
+  });
+  watch.observe(line);
+})();
+</script>

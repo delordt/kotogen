@@ -1,0 +1,14 @@
+# The actions the CI runs on are pinned to the commit of a release, and a new
+# release comes as a pull request, the commit and its version comment changed
+# together: the CI runs on it, and the bump is then made on develop like any
+# other change. The Python dependencies are not listed here:
+# `pyproject.toml` declares lower bounds only, and what GitHub reports about
+# them is its security alerts.
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    # Work reaches main only through a release: the bumps go where the rest goes.
+    target-branch: develop
+    schedule:
+      interval: monthly

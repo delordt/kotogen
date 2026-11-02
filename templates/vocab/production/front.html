@@ -1,0 +1,14 @@
+<div class="vocab-card">
+  <!-- The question and nothing else: the register of the word is on the back
+       with the word itself, and the context is what tells two words of one
+       translation apart. -->
+  <div class="vocab-question">
+    <!-- kotogen:furigana=yes|no -->
+    <div class="vocab-translation">{{furigana::Translation}}</div>
+    <!-- /kotogen:furigana -->
+    <!-- kotogen:furigana=kana -->
+    <div class="vocab-translation">{{kana::Translation}}</div>
+    <!-- /kotogen:furigana -->
+    {{#Context}}<div class="vocab-context">{{Context}}</div>{{/Context}}
+  </div>
+</div>

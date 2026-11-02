@@ -1,0 +1,225 @@
+<div class="grammar-card" id="grammar-card">
+
+  <!-- What tells two forms apart when the translation does not: the register
+       and the nuance, over the sentence, as the instruction of an exercise. -->
+  <div class="grammar-brief" id="grammar-brief">
+    <!-- kotogen:register -->
+    <span class="grammar-badge grammar-register" id="register" lang="ja" hidden></span>
+    <!-- /kotogen:register -->
+    <!-- kotogen:nuance -->
+    {{#Nuance}}<span class="grammar-nuance">{{Nuance}}</span>{{/Nuance}}
+    <!-- /kotogen:nuance -->
+  </div>
+
+  <div class="grammar-statement" lang="ja">
+    <!-- kotogen:furigana=always -->
+    {{furigana:cloze:Sentence}}
+    <!-- /kotogen:furigana -->
+    <!-- kotogen:furigana=back|never -->
+    {{kanji:cloze:Sentence}}
+    <!-- /kotogen:furigana -->
+  </div>
+  <!-- kotogen:hint -->
+  {{#Hint}}<span class="grammar-hint" id="grammar-hint" lang="ja">{{furigana::Hint}}</span>{{/Hint}}
+  <!-- /kotogen:hint -->
+  {{#Target}}<span id="target" hidden>{{Target}}</span>{{/Target}}
+  <!-- The answer, never shown here: the slot takes its room, so the back
+       fills the slot without moving a line. -->
+  <span id="grammar-answer" hidden>{{Answer}}</span>
+
+  <!-- kotogen:answer=type -->
+  <div class="grammar-typing" lang="ja">{{type:Answer}}</div>
+  <!-- /kotogen:answer -->
+
+  {{#Translation}}<div class="grammar-translation" id="translation">{{Translation}}</div>{{/Translation}}
+</div>
+<!-- The tags, read from here rather than written into a script: a tag holds
+     what it likes, and a backtick or a `${` in it would break the script. -->
+<span id="note-tags" hidden>{{Tags}}</span>
+
+<script>
+  (function () {
+    var card = document.getElementById("grammar-card");
+    if (!card) return;
+    var tags = document.getElementById("note-tags");
+    var tagList = tags ? tags.textContent.trim().split(/\s+/) : [];
+
+    // Length-preserving, so indexes found in the folded text hold in the original.
+    function fold(text) {
+      return text.replace(/[’ʼ]/g, "'").toLowerCase();
+    }
+    var sentence = document.getElementById("translation");
+    var extract = document.getElementById("target");
+    var target = extract ? extract.textContent.trim() : "";
+
+    // What holds, unseen, the room of what the other face shows.
+    function room(content) {
+      var span = document.createElement("span");
+      span.className = "grammar-room";
+      span.setAttribute("aria-hidden", "true");
+      span.appendChild(content);
+      return span;
+    }
+
+    // A gap too wide for the line shrinks - its slot and what hangs under
+    // it - by the same ratio on both faces, since they hold the same rooms.
+    // It leaves room for the punctuation after it: a line never starts with
+    // 、 or 。, so without that room the gap would push it, and the words
+    // before it, onto lines of their own.
+    function fit(gap) {
+      var statement = card.querySelector(".grammar-statement");
+      gap.style.removeProperty("font-size");
+      gap.style.removeProperty("max-width");
+      gap.classList.remove("is-wrapped");
+      var style = getComputedStyle(statement);
+      var size = parseFloat(style.fontSize);
+      var line = statement.clientWidth - parseFloat(style.paddingLeft) - parseFloat(style.paddingRight);
+      var next = gap.nextSibling;
+      var marks = next && next.nodeType === 3 ? /^[、。，．！？!?」』）)…]*/.exec(next.data)[0] : "";
+      var free = line - (marks.length + 0.2) * size;
+      if (line <= 0 || gap.offsetWidth <= free) return;
+      var ratio = Math.floor(free / gap.offsetWidth * 100) / 100 - 0.02;
+      gap.style.fontSize = Math.max(0.6, ratio) + "em";
+      // Smaller would not read: past 60% the gap wraps inside its slot.
+      if (ratio < 0.6) {
+        gap.classList.add("is-wrapped");
+        gap.style.maxWidth = free + "px";
+      }
+    }
+
+    // Fitted again when the line changes width or type size: a phone turned
+    // round, or Anki desktop styling its first card only after this script.
+    // A frame later, since the fit resizes what is watched.
+    function follow(gap) {
+      var statement = card.querySelector(".grammar-statement");
+      fit(gap);
+      if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(function () { fit(gap); });
+      }
+      if (!window.ResizeObserver) return;
+      var measured = statement.clientWidth + " " + getComputedStyle(statement).fontSize;
+      var queued = 0;
+      var watch = new ResizeObserver(function () {
+        if (queued) return;
+        queued = requestAnimationFrame(function () {
+          queued = 0;
+          if (!statement.isConnected) {
+            watch.disconnect();
+            return;
+          }
+          var now = statement.clientWidth + " " + getComputedStyle(statement).fontSize;
+          if (now === measured) return;
+          measured = now;
+          fit(gap);
+        });
+      });
+      watch.observe(statement);
+    }
+
+    // The marks after the gap stay on its line: a line never starts with 、,
+    // but nothing in the text stops one after a box like the gap's. The
+    // phrase splitter would join them to the words after: a break follows.
+    function hold(gap) {
+      var next = gap.nextSibling;
+      var marks = next && next.nodeType === 3 ? /^[、。，．！？!?」』）)…]*/.exec(next.data)[0] : "";
+      if (!marks) return;
+      var held = document.createElement("span");
+      held.className = "grammar-held";
+      gap.parentNode.insertBefore(held, gap);
+      held.appendChild(gap);
+      held.appendChild(document.createTextNode(marks));
+      next.data = next.data.slice(marks.length);
+      held.parentNode.insertBefore(document.createElement("wbr"), next);
+    }
+
+    // The gap carries its own question: the word to conjugate on its rule,
+    // and under the rule the meaning it has to render, hung there as a
+    // reading hangs over its kanji.
+    var gap = card.querySelector(".grammar-statement .cloze");
+    var under = null;
+    if (gap) {
+      var hint = document.getElementById("grammar-hint");
+      var answer = document.getElementById("grammar-answer");
+      var slot = document.createElement("span");
+      slot.className = "grammar-slot";
+      if (answer) slot.appendChild(room(document.createTextNode(answer.textContent.trim())));
+      if (hint) {
+        var shown = document.createElement("span");
+        shown.className = "grammar-shown";
+        shown.appendChild(hint);
+        slot.appendChild(shown);
+      }
+      gap.textContent = "";
+      gap.classList.add("is-open");
+      gap.appendChild(slot);
+      if (target) {
+        under = document.createElement("span");
+        under.className = "grammar-under";
+        // The language of the cards, which the template does not know:
+        // "unknown" rather than the Japanese of the statement around it.
+        under.lang = "";
+        under.textContent = target;
+        gap.appendChild(under);
+      }
+      hold(gap);
+      follow(gap);
+    }
+
+    var start = sentence && target ? fold(sentence.textContent).indexOf(fold(target)) : -1;
+    if (start >= 0) {
+      var text = sentence.textContent;
+      var mark = document.createElement("span");
+      mark.className = "target";
+      mark.textContent = text.slice(start, start + target.length);
+      sentence.textContent = "";
+      sentence.appendChild(document.createTextNode(text.slice(0, start)));
+      sentence.appendChild(mark);
+      sentence.appendChild(document.createTextNode(text.slice(start + target.length)));
+    }
+
+    // The register, and the family whose colour it takes on the vocabulary card.
+    var REGISTERS = {
+      "Register::常体": ["常体", "casual"],
+      "Register::丁寧体": ["丁寧体", "formal"],
+      "Register::敬語::尊敬語": ["尊敬語", "formal"],
+      "Register::敬語::謙譲語": ["謙譲語", "formal"]
+    };
+    var badge = document.getElementById("register");
+    if (badge) {
+      tagList.forEach(function (tag) {
+        if (!REGISTERS[tag]) return;
+        badge.textContent = REGISTERS[tag][0];
+        badge.classList.add(REGISTERS[tag][1]);
+        badge.hidden = false;
+      });
+    }
+    var brief = document.getElementById("grammar-brief");
+    if (brief && !brief.querySelector(":scope > :not([hidden])")) brief.hidden = true;
+
+    // kotogen:translation=on-click
+    // The meaning one gesture away, from the place it answers: the pill lies
+    // over the meaning veiled under the gap or, with none hung there, in the
+    // place of the translation. The sentence keeps the height of the back.
+    if (sentence) {
+      var reveal = document.createElement("button");
+      reveal.type = "button";
+      reveal.className = "grammar-reveal";
+      reveal.setAttribute("lang", "ja");
+      reveal.textContent = "訳";
+      sentence.hidden = true;
+      if (under) {
+        under.classList.add("is-veiled");
+        reveal.classList.add("is-over");
+        gap.appendChild(reveal);
+      } else {
+        sentence.parentNode.insertBefore(reveal, sentence);
+      }
+      reveal.addEventListener("click", function () {
+        sentence.hidden = false;
+        if (under) under.classList.remove("is-veiled");
+        reveal.parentNode.removeChild(reveal);
+      });
+    }
+    // /kotogen:translation
+  })();
+</script>

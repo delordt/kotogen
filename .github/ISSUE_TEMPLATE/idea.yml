@@ -1,0 +1,15 @@
+name: Idea or question
+description: Something kotogen could do, or something you would like to know.
+labels: ["idea"]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What you would like
+    validations:
+      required: true
+  - type: textarea
+    id: today
+    attributes:
+      label: How you go about it today
+      description: Optional.

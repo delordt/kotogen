@@ -1,0 +1,45 @@
+name: Wrong card
+description: A card kotogen made that says something wrong.
+labels: ["card"]
+body:
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Kind of card
+      options:
+        - Vocabulary
+        - Kanji
+        - Grammar
+        - Listening
+        - Reading
+    validations:
+      required: true
+  - type: textarea
+    id: card
+    attributes:
+      label: The card
+      description: Its fields as Anki shows them, or its line of the JSON Lines file.
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: wrong
+    attributes:
+      label: What is wrong
+    validations:
+      required: true
+  - type: dropdown
+    id: language
+    attributes:
+      label: Language of the cards
+      options:
+        - English
+        - French
+        - Japanese
+    validations:
+      required: true
+  - type: input
+    id: model
+    attributes:
+      label: Model
+      description: The AI model the run used, if you know it.

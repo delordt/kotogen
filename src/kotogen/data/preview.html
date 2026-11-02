@@ -1,0 +1,987 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-word="page_title">Card preview - kotogen</title>
+
+<!--
+  The shell of the preview: everything that is NOT a card. The cards themselves
+  each live in their own iframe, and that is deliberate.
+
+    - Anki has only one stylesheet per note type, and it is global: the four
+      sheets stacked in one same document would step on each other.
+    - The scripts of the templates look for their one `.choices-container`, their
+      one `#japanese-text`. One document per card, and they find again what they
+      expect from Anki.
+    - The mobile mode becomes honest: the width of the iframe IS the window
+      width, so the media queries really apply. A zoom would have lied about
+      exactly what one comes to check.
+
+  One card at a time, chosen by the tabs: a note type at the top, and the sample
+  to look at underneath when there are several. The left panel then shows only
+  the settings of THAT card - all of them at once was fifteen switches with no
+  visible effect on what is being looked at.
+
+  The JavaScript at the bottom does one serious thing only: remove the blocks
+  tagged `kotogen:` according to the position of the switches. That is the rule
+  of `kotogen/anki/templates.py`, copied out, and the page checks on load that
+  it lands on what Python rendered on its side.
+-->
+
+<style>
+:root {
+  --ground: #15171c;
+  --panel: #1c1f26;
+  --hollow: #101216;
+  --edge: #2c313b;
+  --ink: #e6e8ee;
+  --soft: #99a1b3;
+  --accent: #4f8cff;
+  --alert: #ff6b6b;
+  --badge: #ffffff;
+  /* The width of the window the card is rendered in: that of a screen, or that
+     of a phone. Nothing else changes between the two modes. */
+  --width: 900px;
+}
+body.mobile { --width: 390px; }
+
+/* The shell DOES NOT FOLLOW the palette of the cards, and that is on purpose:
+   what is judged is the card, not the page. A page turning entirely white at
+   the moment one flicks the palette makes one lose sight of the only thing that
+   was meant to change. The frame stays dark, the card goes light inside it - as
+   in Anki, where the card is a page of its own. */
+
+* { box-sizing: border-box; }
+/* The page does not scroll: its head stays laid down, and what scrolls does so
+   at home - the settings on one side, the card on the other. A tab bar that
+   goes away as soon as one goes down inside a reading card is a tab one has to
+   go and find again to change card. */
+html, body { height: 100%; }
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--ground);
+  color: var(--ink);
+  font: 14px/1.5 system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+.head { flex: 0 0 auto; }
+
+/* -- The top bar --------------------------------------------------------- */
+/* Three places: the modes on the left, what decides on the right, the name in
+   the middle. What decides holds the three buttons that act on EVERY card -
+   back to default, back to what is written, apply - beside the count they
+   change: the panel below shows one card, and a button acting further than
+   what it is laid among is the one thing a panel must not carry. Both sides carry the same `flex`, failing which the centre would
+   be the middle of what is left and the title would slide about according to
+   the length of the buttons. */
+.bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px 16px;
+  padding: 10px 16px;
+  background: var(--panel);
+}
+/* The sides never go below their content: the title goes off-centre rather than
+   a button breaking in two lines, and the bar folds by itself when the window
+   becomes too narrow for the three places. */
+.side {
+  flex: 1 1 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.side.end { justify-content: flex-end; }
+.bar button, .bar #state { white-space: nowrap; }
+.title { font-weight: 600; font-size: 15px; white-space: nowrap; }
+.sign { color: var(--accent); }
+/* Too narrow for three places: the name takes its own line, and the modes keep
+   the second one with what decides. Without this, the title ends up pushed
+   against the right edge by the side that stretches, which looks like nothing
+   at all. The threshold is that of the bar in French, the wider of the two
+   languages, with its three buttons on the right. */
+@media (max-width: 1200px) {
+  .title { order: -1; flex: 1 0 100%; text-align: center; }
+  .side { flex: 1 1 auto; }
+}
+
+button {
+  font: inherit;
+  color: var(--ink);
+  background: var(--hollow);
+  border: 1px solid var(--edge);
+  border-radius: 7px;
+  padding: 6px 11px;
+  cursor: pointer;
+}
+button:hover { border-color: var(--accent); }
+button.on { background: var(--accent); border-color: var(--accent); color: var(--badge); }
+button.primary { background: var(--accent); border-color: var(--accent); color: var(--badge); }
+button.primary[disabled], button[disabled] { background: var(--hollow);
+  color: var(--soft); border-color: var(--edge); cursor: default; }
+.pair { display: inline-flex; align-items: center; gap: 4px; }
+/* `hidden` weighs nothing against a `display` laid on the class: without this
+   line, the two mode buttons stayed on screen in the source view. */
+.pair[hidden] { display: none; }
+#state { font-size: 12px; color: var(--soft); }
+
+/* -- The tabs ------------------------------------------------------------ */
+/* The note type at the top, the sample underneath: two rows, and the second one
+   only appears where there are several samples to look at. */
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding: 0 16px;
+  background: var(--panel);
+}
+.tabs button { border-radius: 8px 8px 0 0; }
+#tabs { padding-top: 4px; border-bottom: 1px solid var(--edge); }
+#subtabs {
+  padding: 7px 16px;
+  background: var(--ground);
+  border-bottom: 1px solid var(--edge);
+}
+#subtabs button { border-radius: 7px; font-size: 13px; padding: 4px 10px; }
+
+/* -- What the page has to say -------------------------------------------- */
+.notes { padding: 8px 16px; font-size: 12px; color: var(--soft);
+  border-bottom: 1px solid var(--edge); background: var(--panel); }
+.notes p { margin: 2px 0; }
+.notes.danger { color: var(--alert); font-weight: 600; }
+
+/* -- The body: switches on the left, the card on the right --------------- */
+.body {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  align-items: stretch;
+  gap: 20px;
+  padding: 16px;
+}
+
+#panel {
+  flex: 0 0 264px;
+  overflow-y: auto;
+  background: var(--panel);
+  border: 1px solid var(--edge);
+  border-radius: 10px;
+  padding: 12px;
+}
+.group { margin: 0 0 14px; }
+.group > h2 {
+  margin: 0 0 6px;
+  font-size: 11px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--soft);
+}
+.setting { padding: 5px 0; }
+.setting .name { font-size: 12.5px; margin-bottom: 4px; }
+.setting .positions { display: flex; flex-wrap: wrap; gap: 4px; }
+.setting .positions button { padding: 3px 8px; font-size: 12px; border-radius: 6px; }
+.mark { color: var(--accent); }
+.foot { margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--edge);
+  font-size: 11.5px; color: var(--soft); }
+.foot p { margin: 0; }
+
+/* The card is rendered at the width of the mode, never stretched to that of the
+   screen: it is the size it will have, or it is not a preview. */
+#cards { flex: 1 1 auto; min-width: 0; overflow-y: auto; }
+.duo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 16px;
+}
+.frame {
+  background: var(--panel);
+  border: 1px solid var(--edge);
+  border-radius: 10px;
+  overflow: hidden;
+  width: var(--width);
+  max-width: 100%;
+}
+.frame > .label {
+  padding: 5px 10px;
+  font-size: 11.5px;
+  color: var(--soft);
+  border-bottom: 1px solid var(--edge);
+}
+.frame iframe { display: block; width: 100%; height: 220px; border: 0; }
+
+/* -- The source ---------------------------------------------------------- */
+/* What one pastes into Anki when one cannot push it there: the same block as
+   the card - frame, label, content - so that both views read as two ways of
+   looking at the same thing. The copy button lives in the label: above the text
+   it takes, and never lost at the bottom of a sixty-line template. */
+#cards > .word { max-width: 900px; margin: 0 auto 14px; font-size: 12.5px;
+  color: var(--soft); }
+.source { max-width: 900px; margin: 0 auto 14px; background: var(--panel);
+  border: 1px solid var(--edge); border-radius: 10px; overflow: hidden; }
+.source > .label { display: flex; align-items: center; gap: 10px;
+  padding: 6px 6px 6px 10px; font-size: 11.5px; color: var(--soft);
+  border-bottom: 1px solid var(--edge); }
+.source .what { color: var(--ink); font-weight: 600; white-space: nowrap; }
+.source .where { flex: 1 1 auto; min-width: 0; }
+.source .label button { padding: 3px 10px; font-size: 12px; border-radius: 6px; }
+/* The text scrolls at home: a front of `Reading` runs sixty lines, and the four
+   blocks stacked whole would force one to cross the first to reach the CSS.
+   `pre` without wrapping, because a wrapped line is no longer the one that will
+   be read in Anki. */
+.source pre { margin: 0; padding: 10px 12px; max-height: 42vh; overflow: auto;
+  background: var(--hollow); color: var(--ink);
+  font: 12px/1.55 ui-monospace, Consolas, "SFMono-Regular", monospace; }
+</style>
+</head>
+
+<body>
+
+<div class="head">
+<header class="bar">
+  <div class="side">
+    <div class="pair" id="views">
+      <button data-view="cards" data-word="cards">Cards</button>
+      <button data-view="source" data-word="source">Source</button>
+    </div>
+    <div class="pair" id="modes">
+      <button data-mode="desktop" data-word="desktop">Desktop</button>
+      <button data-mode="mobile" data-word="mobile">Mobile</button>
+    </div>
+  </div>
+
+  <div class="title"><span class="sign">kotogen</span> <span data-word="title">Card appearance</span></div>
+
+  <div class="side end">
+    <span id="state"></span>
+    <button id="defaults" data-word="reset">Put everything back to default</button>
+    <button id="revert" data-word="revert">Back to my settings</button>
+    <button id="apply" class="primary" data-word="apply">Apply</button>
+  </div>
+</header>
+
+<nav class="tabs" id="tabs"></nav>
+<nav class="tabs" id="subtabs" hidden></nav>
+
+<div class="notes danger" id="alert" hidden></div>
+<div class="notes" id="notes" hidden></div>
+</div>
+
+<div class="body">
+  <aside id="panel"></aside>
+  <main id="cards"></main>
+</div>
+
+<script>var DATA = /*DATA*/;</script>
+<script>
+(function () {
+  "use strict";
+
+  var D = DATA;
+
+  // `state` is what one LOOKS AT, `applied` what is written in the file of
+  // choices. The two part company on the first flick and meet again when one
+  // applies: that is the whole difference between trying and deciding.
+  var state = Object.assign({}, D.values);
+  var applied = Object.assign({}, D.values);
+
+  // Cards or source: what one looks at of the SAME card, and not one more
+  // setting. Nothing of it is remembered from one session to the next - unlike
+  // the screen mode: one reopens the preview to see one's cards, the source is
+  // what one comes for once, the day Anki does not answer.
+  var source = false;
+
+  // -- The words of the page ----------------------------------------------
+  //
+  // The page has no catalogue: its sentences travel in the payload, under the
+  // short names `preview._words()` gives them. The English stays written here
+  // all the same - in the node for what the markup carries (`data-word`), as
+  // the second argument of `word()` for the rest - so that a payload with an
+  // entry missing shows a sentence and not a name, and so that this file reads
+  // in English for whoever edits it.
+
+  function word(name, english, values) {
+    var text = (D.words && D.words[name]) || english;
+    if (values) {
+      Object.keys(values).forEach(function (key) {
+        // Only the keys handed in: the source paragraph carries a literal
+        // `{{Field}}`, which is Anki's syntax and must come out untouched.
+        text = text.split("{" + key + "}").join(values[key]);
+      });
+    }
+    return text;
+  }
+
+  // A sentence that agrees with a count. The payload carries it agreed for
+  // every count the page can reach, in a list (see `preview._words`): the page
+  // cannot tell which form a count takes, and the English rule written here is
+  // only the fallback of a payload that lost the entry.
+  function counted(name, count, one, many) {
+    var forms = D.words && D.words[name];
+    var text = (forms && forms[count]) || (count === 1 ? one : many);
+    return text.split("{count}").join(count);
+  }
+
+  function words() {
+    var nodes = document.querySelectorAll("[data-word]");
+    for (var i = 0; i < nodes.length; i++) {
+      nodes[i].textContent = word(nodes[i].getAttribute("data-word"),
+                                  nodes[i].textContent);
+    }
+  }
+
+  // -- The rule, copied out of kotogen/anki/templates.py ------------------
+  // It only knows how to remove a tagged block. Nothing is added, nothing is
+  // rewritten: what shows has always been read as it stands in the repository.
+
+  var OPENING = "[ \\t]*(?:<!--|/\\*|//)[ \\t]*kotogen:([\\w-]+)(?:=([\\w|-]+))?" +
+                "[ \\t]*(?:-->|\\*/)?[ \\t]*\\n?";
+
+  function closing(name) {
+    return new RegExp("[ \\t]*(?:<!--|/\\*|//)[ \\t]*/kotogen:" + name +
+                      "[ \\t]*(?:-->|\\*/)?[ \\t]*\\n?");
+  }
+
+  function valueOf(command, marker) {
+    var table = D.markers[command] || {};
+    if (!table[marker]) {
+      throw new Error("marker \"kotogen:" + marker + "\" unknown for " + command);
+    }
+    return state[table[marker]];
+  }
+
+  function trim(text, command) {
+    var re = new RegExp(OPENING, "g");
+    var position = 0;
+    while (true) {
+      re.lastIndex = position;
+      var opening = re.exec(text);
+      if (!opening) return text;
+      var name = opening[1], expected = opening[2];
+      var after = re.lastIndex;
+      var f = closing(name).exec(text.slice(after));
+      if (!f) throw new Error("block \"kotogen:" + name + "\" never closed");
+      var current = valueOf(command, name);
+      var keep = expected ? expected.split("|").indexOf(current) >= 0
+                          : current === "yes";
+      if (keep) {
+        // The block stays, markers included: we set off again just after its
+        // opening, failing which the loop would find it again endlessly.
+        position = after;
+      } else {
+        text = text.slice(0, opening.index) + text.slice(after + f.index + f[0].length);
+        position = opening.index;
+      }
+    }
+  }
+
+  // djb2, the same hash as the scripts of the templates and as
+  // `preview.fingerprint`.
+  function fingerprint(text) {
+    var h = 5381;
+    for (var i = 0; i < text.length; i++) h = ((h << 5) - h + text.charCodeAt(i)) | 0;
+    return h >>> 0;
+  }
+
+  // -- The views: a note type, a sample, a card ---------------------------
+  //
+  // A view is what a sub-tab shows: the front and the back of ONE card of ONE
+  // sample. The vocabulary has two (the two ways round of one same set of
+  // fields), the listening card too (the sound and the video, two samples of a
+  // single card), the grammar only one - and then the row of sub-tabs does not
+  // show, rather than offer a choice that is not one.
+
+  var VIEWS = {};       // command -> [ {key, label, faces:[card...]} ]
+
+  (function buildViews() {
+    var byKey = {};
+    D.samples.forEach(function (s) { byKey[s.key] = s; });
+    D.cards.forEach(function (c) {
+      var list = VIEWS[c.command] = VIEWS[c.command] || [];
+      var key = c.sample + "|" + c.card;
+      var view = list.filter(function (v) { return v.key === key; })[0];
+      if (!view) {
+        view = { key: key, sample: c.sample, card: c.card, faces: [] };
+        list.push(view);
+      }
+      view.faces.push(c);
+    });
+    // The label of the sub-tab says what tells the views apart from each other,
+    // and nothing else: the detail of the sample when there are several, the
+    // name of the card when there are several.
+    Object.keys(VIEWS).forEach(function (command) {
+      var list = VIEWS[command];
+      var samples = [], cards = [];
+      list.forEach(function (v) {
+        if (samples.indexOf(v.sample) < 0) samples.push(v.sample);
+        if (cards.indexOf(v.card) < 0) cards.push(v.card);
+      });
+      list.forEach(function (v) {
+        var pieces = [];
+        if (samples.length > 1) pieces.push(byKey[v.sample].detail);
+        if (cards.length > 1) pieces.push(v.card);
+        v.label = pieces.join(" - ");
+      });
+    });
+  })();
+
+  var TABS = D.groups.filter(function (g) { return VIEWS[g.key]; });
+  var tab = (TABS[0] || { key: "" }).key;
+  var chosen = {};      // command -> key of the view looked at last
+
+  function currentView() {
+    var list = VIEWS[tab] || [];
+    return list.filter(function (v) { return v.key === chosen[tab]; })[0] || list[0];
+  }
+
+  // -- The content of an iframe -------------------------------------------
+
+  // What the document of the card receives besides the template: enough to
+  // measure its own height and say it to the parent. Without it, the iframe
+  // keeps an arbitrary height and cuts the card off - or leaves a hole under it.
+  //
+  // The measure is that of the BODY, never that of the root: in an iframe,
+  // `documentElement.scrollHeight` equals the height of the window as soon as
+  // the content is shorter, so the iframe could never shrink again. Adding the
+  // blocks one by one does not work either: the replay button of the vocabulary
+  // is `position: fixed`, it goes down with the window, and every measure pushed
+  // the next one (the iframe grew without end).
+  //
+  // That button is still owed its room, which `room` gives back. It is laid
+  // against the bottom of the SCREEN, not of the card: on a phone the screen is
+  // taller than the card and the button waits in the empty space under it. The
+  // window of an iframe ends right under the last line, so it landed on that
+  // line - on every card, where a device shows it only on a card longer than
+  // the screen.
+  //
+  // `room` runs in the card, not here: `measure` lays its source in the
+  // iframe, so it reads nothing from this page.
+  function room() {
+    // The side as the stylesheet WROTE it. The browser answers a `top` in
+    // pixels even where nobody wrote one, and that answer grows with the
+    // window: counting an element anchored at the top - the mini-book in full
+    // screen, `top: 0; bottom: 0` - would be the endless growth again.
+    function written(el, side) {
+      var found = el.style[side] && el.style[side] !== "auto";
+      function walk(rules) {
+        for (var i = 0; i < rules.length && !found; i++) {
+          var r = rules[i];
+          // The selector first: a plain rule carries a `cssRules` too, empty,
+          // since CSS nesting - taken for an @media, it was never read.
+          if (r.selectorText) {
+            if (r.style[side] && r.style[side] !== "auto") {
+              try { found = el.matches(r.selectorText); } catch (e) { /* ::before */ }
+            }
+          } else if (r.cssRules && (!r.media || matchMedia(r.media.mediaText).matches)) {
+            walk(r.cssRules);
+          }
+        }
+      }
+      for (var i = 0; i < document.styleSheets.length && !found; i++) {
+        walk(document.styleSheets[i].cssRules);
+      }
+      return found;
+    }
+    var reserve = 0;
+    var all = document.body.getElementsByTagName("*");
+    for (var i = 0; i < all.length; i++) {
+      var el = all[i];
+      if (getComputedStyle(el).position !== "fixed" || !el.getClientRects().length) continue;
+      if (!written(el, "bottom") || written(el, "top")) continue;
+      reserve = Math.max(reserve,
+        el.offsetHeight + (parseFloat(getComputedStyle(el).bottom) || 0));
+    }
+    return reserve;
+  }
+
+  function measure(key) {
+    return '<script>(function(){' + room.toString() +
+      'function h(){parent.postMessage({kotogen:"height",key:' +
+      JSON.stringify(key) + ',h:document.body.scrollHeight+room()+2},"*");}' +
+      'window.addEventListener("load",h);setTimeout(h,60);setTimeout(h,500);' +
+      'document.addEventListener("click",function(){setTimeout(h,160);});' +
+      'if(window.ResizeObserver)new ResizeObserver(h).observe(document.body);' +
+      '})();<\/script>';
+  }
+
+  // Anki's replay button comes from the Python rendering, which lays Anki's
+  // markup in the place of the `{{tts}}` tag. Only its size is missing - Anki
+  // gives that in its own stylesheet, which the repository does not carry - and
+  // the voice.
+  //
+  // Anki reads with the system voice; the browser has its own, and
+  // `data-say` carries the kana the tag asked for. With no Japanese voice
+  // installed, the click does nothing at all: that is exactly the situation of
+  // Anki desktop under Linux, and it is what the setting serves to escape.
+  var TTS = '<style>' +
+    '.replay-button{display:inline-block;cursor:pointer;text-decoration:none;}' +
+    '.replay-button svg{width:40px;height:40px;vertical-align:middle;}' +
+    '</style><script>(function(){' +
+    'document.addEventListener("click",function(e){' +
+    'var b=e.target.closest?e.target.closest(".replay-button"):null;' +
+    'if(!b)return;e.preventDefault();' +
+    'var said=b.getAttribute("data-say")||"";' +
+    'if(!window.speechSynthesis||!said)return;' +
+    'var u=new SpeechSynthesisUtterance(said);u.lang="ja-JP";' +
+    'speechSynthesis.cancel();speechSynthesis.speak(u);' +
+    '});})();<\/script>';
+
+  function documentFor(card) {
+    var css = trim(D.styles[card.command].text, card.command);
+    var html = trim(card.html, card.command);
+    return '<!doctype html><html lang="ja"><head><meta charset="utf-8">' +
+      '<base href="' + document.baseURI + '">' +
+      '<style>' + css + '</style>' +
+      // Anki lays the card in a body that fills the window; here it is the
+      // window that takes the size of the card, hence no body margin.
+      '<style>html,body{margin:0;padding:0;}</style>' + TTS +
+      '</head><body class="card">' + html +
+      measure(card.key) + '</body></html>';
+  }
+
+  window.addEventListener("message", function (e) {
+    var m = e.data;
+    if (!m || m.kotogen !== "height") return;
+    var frame = document.getElementById("if-" + m.key);
+    if (frame && m.h > 40) frame.style.height = m.h + "px";
+  });
+
+  // -- The card on screen --------------------------------------------------
+  //
+  // One view, two iframes, remade on every change rather than keeping the
+  // fourteen cards alive behind the one being looked at. What has been unfolded
+  // or played in a card one leaves has no business surviving it: one comes back
+  // to it as Anki would show it, that is to say new.
+
+  function paint() {
+    if (source) return paintSource();
+    var view = currentView();
+    var host = document.getElementById("cards");
+    host.textContent = "";
+    if (!view) return;
+    var row = document.createElement("div");
+    row.className = "duo";
+    host.appendChild(row);
+    view.faces.forEach(function (c) {
+      var frame = document.createElement("div");
+      frame.className = "frame";
+      var label = document.createElement("div");
+      label.className = "label";
+      label.textContent = c.card + " - " + c.face;
+      var pane = document.createElement("iframe");
+      pane.id = "if-" + c.key;
+      pane.setAttribute("allowfullscreen", "");
+      pane.setAttribute("allow", "fullscreen");
+      frame.appendChild(label);
+      frame.appendChild(pane);
+      row.appendChild(frame);
+      // The srcdoc is laid after the insertion: an iframe outside the document
+      // loads nothing, and the height message would never arrive.
+      pane.srcdoc = documentFor(c);
+    });
+  }
+
+  // -- The source, when it cannot be pushed into Anki ---------------------
+  //
+  // The same texts as the iframes, with two differences that make everything:
+  // the fields are not substituted in them (`{{Expression}}` stays, that is what
+  // Anki expects) and the back keeps its `{{FrontSide}}`. They are trimmed by
+  // the same `trim` function as the cards, so what shows here is what
+  // `deck install` would have laid down - the guard rail of `check` holds for
+  // both.
+
+  function copy(text, button) {
+    var before = button.textContent;
+    function done(ok) {
+      button.textContent = ok ? word("copied", "Copied")
+                              : word("copy_refused", "Copy refused");
+      button.classList.toggle("on", ok);
+      setTimeout(function () {
+        button.textContent = before;
+        button.classList.remove("on");
+      }, 1500);
+    }
+    // 127.0.0.1 is a secure context, so the clipboard API is there; the fallback
+    // serves older browsers and the profiles where it is refused.
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(function () { done(true); },
+                                               function () { fallback(text, done); });
+    } else {
+      fallback(text, done);
+    }
+  }
+
+  function fallback(text, done) {
+    var box = document.createElement("textarea");
+    box.value = text;
+    box.setAttribute("readonly", "");
+    box.style.position = "fixed";
+    box.style.top = "-1000px";
+    document.body.appendChild(box);
+    box.select();
+    var ok = false;
+    try { ok = document.execCommand("copy"); } catch (e) { ok = false; }
+    document.body.removeChild(box);
+    done(ok);
+  }
+
+  function block(host, what, where, text) {
+    var frame = document.createElement("div");
+    frame.className = "source";
+    var label = document.createElement("div");
+    label.className = "label";
+    var name = document.createElement("span");
+    name.className = "what";
+    name.textContent = what;
+    var place = document.createElement("span");
+    place.className = "where";
+    place.textContent = where;
+    var button = document.createElement("button");
+    button.textContent = word("copy", "Copy");
+    button.addEventListener("click", function () { copy(text, button); });
+    label.appendChild(name);
+    label.appendChild(place);
+    label.appendChild(button);
+    var body = document.createElement("pre");
+    body.textContent = text;
+    frame.appendChild(label);
+    frame.appendChild(body);
+    host.appendChild(frame);
+  }
+
+  function paintSource() {
+    var view = currentView();
+    var host = document.getElementById("cards");
+    host.textContent = "";
+    if (!view) return;
+    var type = D.types[tab] || { notetype: tab, fields: [] };
+    var template = (D.sources[tab] || {})[view.card] || { front: "", back: "" };
+
+    var note = document.createElement("p");
+    note.className = "word";
+    note.textContent = word("source_word",
+      "What \"Templates > Install\" would lay down in Anki, your " +
+      "settings included - to be pasted by hand when AnkiConnect does not " +
+      "answer. The {{Field}} and {{FrontSide}} are Anki\u2019s syntax: they " +
+      "stay as they are.");
+    host.appendChild(note);
+
+    block(host, word("fields", "Fields"),
+          word("fields_where", "Manage Note Types > Fields... - in this order")
+          + (type.cloze ? word("fields_cloze", ", Cloze type") : ""),
+          (type.fields || []).join("\n"));
+    block(host, word("front", "Front"),
+          word("front_where", "Cards... > \"{card}\" > Front Template",
+               { card: view.card }),
+          trim(template.front, tab));
+    block(host, word("back", "Back"),
+          word("back_where", "Cards... > \"{card}\" > Back Template",
+               { card: view.card }),
+          trim(template.back, tab));
+    block(host, word("styling", "Styling"),
+          word("styling_where",
+               "Cards... > Styling - a single sheet for \"{notetype}\"",
+               { notetype: type.notetype }),
+          trim(D.styles[tab].text, tab));
+  }
+
+  // -- The tabs ------------------------------------------------------------
+
+  function tabs() {
+    var top = document.getElementById("tabs");
+    top.textContent = "";
+    TABS.forEach(function (g) {
+      var button = document.createElement("button");
+      button.textContent = g.label;
+      button.classList.toggle("on", g.key === tab);
+      button.addEventListener("click", function () { open_(g.key); });
+      top.appendChild(button);
+    });
+
+    var bottom = document.getElementById("subtabs");
+    bottom.textContent = "";
+    var list = VIEWS[tab] || [];
+    bottom.hidden = list.length < 2;
+    if (bottom.hidden) return;
+    var view = currentView();
+    list.forEach(function (v) {
+      var button = document.createElement("button");
+      button.textContent = v.label;
+      button.classList.toggle("on", view && v.key === view.key);
+      button.addEventListener("click", function () {
+        chosen[tab] = v.key;
+        tabs();
+        paint();
+      });
+      bottom.appendChild(button);
+    });
+  }
+
+  function open_(command) {
+    if (!VIEWS[command]) return;
+    tab = command;
+    tabs();
+    panel();
+    refreshPanel();
+    paint();
+  }
+
+  // -- The panel of switches -----------------------------------------------
+  //
+  // Those of the card displayed, and those that hold for all of them: setting
+  // the furigana of the vocabulary while looking at a reading card is flicking a
+  // switch and seeing nothing change.
+  //
+  // A setting the payload marks `panel: false` is drawn nowhere: it removes no
+  // block, so this page has nothing to show of it. It stays in `state` all the
+  // same and goes off with the others when Apply is pressed, because what is
+  // sent IS the file (see payload() on the Python side).
+
+  function mine() {
+    return D.settings.filter(function (r) {
+      return r.panel && (r.command === tab || r.command === D["global"]);
+    });
+  }
+
+  function panel() {
+    var host = document.getElementById("panel");
+    host.textContent = "";
+    D.groups.forEach(function (group) {
+      var inside = mine().filter(function (r) { return r.command === group.key; });
+      if (!inside.length) return;
+      var box = document.createElement("div");
+      box.className = "group";
+      var title = document.createElement("h2");
+      title.textContent = group.label;
+      box.appendChild(title);
+
+      inside.forEach(function (r) {
+        var line = document.createElement("div");
+        line.className = "setting";
+        var name = document.createElement("div");
+        name.className = "name";
+        name.textContent = r.label + " ";
+        var mark = document.createElement("span");
+        mark.className = "mark";
+        mark.id = "mark-" + r.key;
+        name.appendChild(mark);
+        line.appendChild(name);
+
+        var positions = document.createElement("div");
+        positions.className = "positions";
+        r.positions.forEach(function (position, rank) {
+          var button = document.createElement("button");
+          button.textContent = r.shown[rank];
+          button.dataset.key = r.key;
+          button.dataset.position = position;
+          button.addEventListener("click", function () { flick(r, position); });
+          positions.appendChild(button);
+        });
+        line.appendChild(positions);
+        box.appendChild(line);
+      });
+      host.appendChild(box);
+    });
+
+    var foot = document.createElement("div");
+    foot.className = "foot";
+    var note = document.createElement("p");
+    note.textContent = word("apply_word",
+      "Apply writes your settings, those of the other cards included. It is " +
+      "deck install that carries them into Anki afterwards.");
+    foot.appendChild(note);
+    host.appendChild(foot);
+  }
+
+  function refreshPanel() {
+    var buttons = document.querySelectorAll("#panel .positions button");
+    for (var i = 0; i < buttons.length; i++) {
+      var b = buttons[i];
+      b.classList.toggle("on", state[b.dataset.key] === b.dataset.position);
+    }
+    // The count bears on all of them, not on the six displayed: "Apply" writes
+    // the whole file, and keeping quiet about what was set under another tab
+    // would make the button say it has nothing to do.
+    var changes = 0;
+    D.settings.forEach(function (r) {
+      if (!r.panel) return;
+      var changed = state[r.key] !== applied[r.key];
+      if (changed) changes++;
+      var mark = document.getElementById("mark-" + r.key);
+      if (mark) mark.textContent = changed ? "!" : "";
+    });
+    // "1 setting(s)" reads like a forgotten slot: the count is agreed, and
+    // by the language rather than here (see `counted`).
+    document.getElementById("state").textContent = changes
+      ? counted("to_apply", changes, "{count} setting to apply",
+                "{count} settings to apply")
+      : word("as_written", "Your settings, as they are written");
+    document.getElementById("apply").disabled = !changes || !D.token;
+    document.getElementById("revert").disabled = !changes;
+    // Dimmed when there is nothing to put back, as the terminal leaves out its
+    // `z`: a button that would change nothing is one more to read past.
+    document.getElementById("defaults").disabled = D.settings.every(function (r) {
+      return !r.panel || state[r.key] === r["default"];
+    });
+  }
+
+  function flick(setting, position) {
+    if (state[setting.key] === position) return;
+    state[setting.key] = position;
+    refreshPanel();
+    paint();
+  }
+
+  // -- The top bar ---------------------------------------------------------
+
+  function mode(name) {
+    document.body.classList.toggle("mobile", name === "mobile");
+    var buttons = document.querySelectorAll("#modes button");
+    for (var i = 0; i < buttons.length; i++) {
+      buttons[i].classList.toggle("on", buttons[i].dataset.mode === name);
+    }
+    try { localStorage.setItem("kotogen-preview-mode", name); } catch (e) { /* private */ }
+    // The window of the card has changed width, so its layout has too: we remake
+    // it rather than let it measure a height from before.
+    paint();
+  }
+
+  document.getElementById("modes").addEventListener("click", function (e) {
+    if (e.target.dataset.mode) mode(e.target.dataset.mode);
+  });
+
+  // Screen width means nothing about a template one is reading: the two mode
+  // buttons go away with the cards, rather than stay doing nothing. The
+  // switches, for their part, stay - flicking one of them changes the source
+  // before one's eyes, and that is exactly what one comes to check.
+  function viewButtons() {
+    var current = source ? "source" : "cards";
+    var buttons = document.querySelectorAll("#views button");
+    for (var i = 0; i < buttons.length; i++) {
+      buttons[i].classList.toggle("on", buttons[i].dataset.view === current);
+    }
+    document.getElementById("modes").hidden = source;
+  }
+
+  function view(name) {
+    source = name === "source";
+    viewButtons();
+    paint();
+  }
+
+  document.getElementById("views").addEventListener("click", function (e) {
+    if (e.target.dataset.view) view(e.target.dataset.view);
+  });
+
+  document.getElementById("defaults").addEventListener("click", function () {
+    // What the panel shows, and only that: a button putting back what it does
+    // not display would send the cards of a French collection back to English.
+    D.settings.forEach(function (r) { if (r.panel) state[r.key] = r["default"]; });
+    refreshPanel();
+    paint();
+  });
+
+  document.getElementById("revert").addEventListener("click", function () {
+    state = Object.assign({}, applied);
+    refreshPanel();
+    paint();
+  });
+
+  document.getElementById("apply").addEventListener("click", function () {
+    var button = this;
+    button.disabled = true;
+    fetch("settings", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "X-Kotogen": D.token },
+      body: JSON.stringify(state)
+    }).then(function (r) {
+      if (!r.ok) {
+        throw new Error(word("refused", "the server refused ({status})",
+                             { status: r.status }));
+      }
+      applied = Object.assign({}, state);
+      refreshPanel();
+      document.getElementById("state").textContent =
+        word("applied", "Settings applied");
+    }).catch(function (err) {
+      say(document.getElementById("alert"),
+          [word("not_written",
+                "Settings not written: {reason}. The preview may have been " +
+                "closed in the terminal.", { reason: err.message })]);
+      button.disabled = false;
+    });
+  });
+
+  // -- What the page has to say --------------------------------------------
+
+  function say(host, lines) {
+    host.textContent = "";
+    lines.forEach(function (line) {
+      var p = document.createElement("p");
+      p.textContent = line;
+      host.appendChild(p);
+    });
+    host.hidden = !lines.length;
+  }
+
+  // The guard rail: the rule lives here AND in kotogen/anki/templates.py, and
+  // two implementations drift. Python rendered the cards on its side and sent
+  // only their fingerprint; if the one from here does not land on it, what is
+  // being shown is not what will go off into Anki, and saying so beats showing
+  // it.
+  function check() {
+    var guilty = [];
+    Object.keys(D.styles).forEach(function (command) {
+      if (fingerprint(trim(D.styles[command].text, command).trim())
+          !== D.styles[command].fingerprint) {
+        guilty.push("CSS " + command);
+      }
+    });
+    D.cards.forEach(function (c) {
+      if (fingerprint(trim(c.html, c.command).trim()) !== c.fingerprint) {
+        // The key, and not the name of the card: two samples can carry the same
+        // one (the text and the mini-book are both "Reading"), and an alarm that
+        // repeats itself without one knowing which is which does not help.
+        guilty.push(c.key);
+      }
+    });
+    if (guilty.length) {
+      say(document.getElementById("alert"), [
+        word("drifted",
+             "This preview does not render what kotogen would install: {guilty}.",
+             { guilty: guilty.join(", ") }),
+        word("drifted_why", "The rendering rule of the page has diverged from " +
+                            "that of kotogen/anki/templates.py.")
+      ]);
+    }
+  }
+
+  // -- Start ---------------------------------------------------------------
+
+  // The anchor is the note type of the last setting touched in the terminal:
+  // that is the card one wants to see what has just been done to.
+  if (D.anchor && VIEWS[D.anchor]) tab = D.anchor;
+
+  words();
+  tabs();
+  panel();
+  refreshPanel();
+  check();
+  say(document.getElementById("notes"), D.notes || []);
+
+  // The state of the two buttons, without rendering: it is `mode` that paints
+  // the first one, and painting here would have mounted the iframes only to
+  // remake them at once.
+  viewButtons();
+
+  var kept = "desktop";
+  try { kept = localStorage.getItem("kotogen-preview-mode") || kept; } catch (e) { /* private */ }
+  mode(kept);   // repaints, and that is the first rendering of the card
+})();
+</script>
+</body>
+</html>

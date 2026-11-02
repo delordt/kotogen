@@ -1,0 +1,186 @@
+/* What every note type shares: the palette, the page, the furigana, the focus.
+   `deck install` lays this sheet at the head of the style of each note type,
+   so a type's own sheet comes after it and can still say otherwise. */
+
+/* Colours as "R, G, B", so both rgb(var(--x)) and rgba(var(--x), a) work. */
+/* The dark colours, written once: on the page in the dark palette, on Anki's
+   night mode in the automatic one, on full screen in every palette (a class:
+   a selector a WebView refuses drops the whole rule). With them goes the
+   `color-scheme` of the native controls, said on `.card` too, as Anki
+   desktop's night mode says its own above `:root`. */
+/* kotogen:palette=dark */
+:root,
+.card,
+/* /kotogen:palette */
+/* kotogen:palette=auto */
+.card.nightMode,
+.card.night_mode,
+/* /kotogen:palette */
+.is-full-screen {
+  color-scheme: dark;
+  --background: 30, 30, 30;
+  --surface: 42, 42, 42;
+  --surface-button: 51, 51, 51;
+  --surface-hover: 58, 58, 58;
+  --surface-selected: 74, 74, 74;
+  --border-button: 85, 85, 85;
+  --border-selected: 138, 138, 138;
+  --switch: 85, 85, 85;
+
+  /* Every level of text reads at 4.5:1 or more (AA) on the page, and the faint
+     one in the box of the vocabulary example too. */
+  --text: 255, 255, 255;
+  /* Dark: white on this accent reads at 3.1:1. */
+  --on-accent: 30, 30, 30;
+  --text-light: 204, 204, 204;
+  --text-soft: 187, 187, 187;
+  --text-subtle: 170, 170, 170;
+  --text-faint: 144, 144, 144;
+  --text-faded: 133, 133, 133;
+
+  /* Green is the answer, and nothing else: the revealed gap, the right
+     choice, the line the answer comes from. What only acts - a switch, a
+     focus, a link - takes the accent. */
+  --correct: 76, 175, 80;
+  --error: 255, 107, 107;
+  --accent: 33, 150, 243;
+}
+/* kotogen:palette=light|auto */
+:root,
+.card {
+  color-scheme: light;
+  --background: 250, 250, 250;
+  --surface: 240, 240, 240;
+  --surface-button: 230, 230, 230;
+  --surface-hover: 232, 232, 232;
+  --surface-selected: 219, 219, 219;
+  --border-button: 200, 200, 200;
+  --border-selected: 150, 150, 150;
+  --switch: 190, 190, 190;
+
+  --text: 26, 26, 26;
+  --on-accent: 255, 255, 255;
+  --text-light: 55, 55, 55;
+  --text-soft: 70, 70, 70;
+  --text-subtle: 85, 85, 85;
+  --text-faint: 102, 102, 102;
+  --text-faded: 108, 108, 108;
+
+  --correct: 46, 125, 50;
+  --error: 198, 40, 40;
+  --accent: 21, 101, 192;
+}
+/* /kotogen:palette */
+
+/* In Anki the card IS the page: `.card` is the body. It takes no shadow nor
+   rounded corners, which would draw a panel ending halfway down the screen. */
+.card {
+  background-color: rgb(var(--background));
+  color: rgb(var(--text));
+  font-family: "Noto Sans JP", "Noto Sans CJK JP", "Source Han Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
+  font-size: 20px;
+  line-height: 1.6;
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Anki desktop paints its own canvas on a card in night mode
+   (`body.nightMode`, which outranks `.card`): the card keeps its palette. */
+.card.nightMode,
+.card.night_mode {
+  background-color: rgb(var(--background));
+  color: rgb(var(--text));
+}
+
+/* Japanese is never slanted: a font with no italic gets a synthetic one,
+   and a kanji leaning over reads as a misprint. */
+[lang="ja"] {
+  font-style: normal;
+  /* Lines break between phrases, never inside a word (降ってい / ます). */
+  word-break: auto-phrase;
+  /* A phrase wider than the whole line, which has nowhere else to break,
+     breaks inside: ローラーコースター in large type on a phone would otherwise
+     push the card sideways and bring the scroll bars. */
+  overflow-wrap: anywhere;
+}
+
+/* The reading sits centred over its kanji instead of spreading them apart
+   when it is the longer of the two (中 止). It never goes under 10px: below
+   that, a furigana on a phone is a grey smudge. */
+ruby {
+  ruby-align: center;
+}
+
+ruby rt {
+  font-size: max(0.5em, 10px);
+  font-style: normal;
+  font-weight: normal;
+  color: rgb(var(--text-subtle));
+}
+
+/* `!important`, as Anki desktop's own rule taking the ring off a button. */
+.card :focus-visible {
+  outline: 2px solid rgb(var(--accent)) !important;
+  outline-offset: 2px;
+}
+
+/* Anki desktop dresses every button, the card's too (margins, a size per
+   platform, corners, a shadow, a hover gradient): a card button starts from
+   the browser's, and its own rules, written under `.card`, outrank Anki's. */
+:where(.card) button {
+  box-sizing: border-box;
+  margin: 0;
+  padding: revert;
+  font-weight: revert;
+  color: revert;
+  background: revert;
+  border: revert;
+  cursor: revert;
+  -webkit-appearance: revert;
+  appearance: revert;
+}
+
+.card button {
+  font-size: revert;
+  border-radius: revert;
+  box-shadow: none;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+.card button:hover,
+.card button:active,
+.card button:disabled {
+  background-image: none;
+  box-shadow: none;
+}
+
+/* Read aloud, never drawn: the name of a control whose sign changes. */
+.card .visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+  .card {
+    padding: 14px;
+    font-size: 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card *,
+  .card *::before,
+  .card *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

@@ -1,0 +1,128 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "kotogen"
+# Read from `kotogen.__version__` (see [tool.setuptools.dynamic]): the program
+# prints that one, and the JSON Lines header carries it, so it is the one to bump.
+dynamic = ["version"]
+description = "AI-driven Anki card generator for learning Japanese"
+readme = "README.md"
+license = "AGPL-3.0-or-later"
+license-files = ["LICENSE"]
+authors = [{ name = "Tom Delord" }]
+requires-python = ">=3.10"
+keywords = ["anki", "japanese", "flashcards", "jlpt", "furigana", "llm", "language-learning"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: Console",
+    "Intended Audience :: Education",
+    "Natural Language :: English",
+    "Natural Language :: French",
+    "Natural Language :: Japanese",
+    # The systems and Pythons the CI runs the suite on.
+    "Operating System :: MacOS",
+    "Operating System :: Microsoft :: Windows",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Education :: Computer Aided Instruction (CAI)",
+]
+
+# The core (OpenRouter provider, TSV export, AnkiConnect) runs on the standard
+# library alone. fugashi + unidic-lite: the furigana safety net - it fills in
+# the readings of the kanji the AI forgot. Everything works without them, but
+# the forgotten kanji stay without furigana.
+dependencies = [
+    "fugashi>=1.3",
+    "unidic-lite>=1.0.8",
+]
+
+[project.urls]
+Homepage = "https://github.com/delordt/kotogen"
+Documentation = "https://github.com/delordt/kotogen/tree/HEAD/docs"
+Changelog = "https://github.com/delordt/kotogen/blob/HEAD/CHANGELOG.md"
+Issues = "https://github.com/delordt/kotogen/issues"
+
+[project.optional-dependencies]
+# Transcription of local audio files (the `audio` command on .mp3/.wav...).
+# Also needs FFmpeg on the PATH:  winget install ffmpeg
+audio = ["openai-whisper"]
+# Capture of NHK News Web Easy articles (the `audio` command on a URL).
+# After installing:  playwright install chromium
+# (on Linux: playwright install --with-deps chromium, for the system libraries
+#  without which Chromium installs but does not start)
+nhk = ["playwright>=1.45"]
+# YouTube videos (the `audio` command on a YouTube channel or URL). Also needs
+# FFmpeg on the PATH. The standard library reads the Atom feed that lists the
+# videos of a channel, but YouTube does not declare its media: resolving and
+# downloading them takes yt-dlp.
+# To be kept up to date more often than the rest: YouTube changes, and yt-dlp
+# follows.
+youtube = ["yt-dlp>=2024.7.1"]
+# Rendering the pages of a document as images for the mini-book of the reading
+# card (`reading --read-as book`, or a folder of images as input), and cutting
+# out the figures of past papers. numpy serves the latter only: on a scanned
+# booklet, the printed frames are found by counting the ink row by row
+# (`pdf_figures.scanned_items`), which PIL alone would do a thousand times
+# slower.
+pdf = ["pypdfium2>=5", "pillow>=10.3", "numpy>=1.24"]
+# Native providers (the OpenRouter default needs nothing).
+anthropic = ["anthropic>=0.40"]
+openai = ["openai>=1.50"]
+# The suite, and the linter the CI runs - at the version it runs.
+dev = ["pytest>=8", "ruff==0.17.3"]
+
+[project.scripts]
+kotogen = "kotogen.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.dynamic]
+version = { attr = "kotogen.__version__" }
+
+# Data files shipped with the package. Without these lines, a non-editable
+# install would leave them behind:
+#  - data/*.tsv: the JLPT level tables, and the level of the cards would become
+#    unknown again (see src/kotogen/data/jlpt_vocab.tsv);
+#  - data/preview.html: the shell of the card preview, without which the
+#    "Appearance" menu would have nothing left to open;
+#  - locales/*.json: the translations of the interface;
+#  - prompts/<folder>/*.md: the instructions sent to the model, one folder per
+#    language of the cards plus `structure/` - without them, nothing at all
+#    would work - and prompts/<lang>/wording.json, the fragments the code
+#    composes around them, which are instruction just the same.
+[tool.setuptools.package-data]
+kotogen = ["data/*.tsv", "data/preview.html", "locales/*.json"]
+"kotogen.prompts" = ["*/*.md", "*/*.json"]
+
+[tool.ruff]
+# The oldest Python the program supports: whatever a rule suggests has to run
+# there.
+target-version = "py310"
+# The width the code is written to, which is what the imports wrap at.
+line-length = 100
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+# What is wrong (pyflakes, syntax), then the order of the imports, the syntax of
+# the Pythons supported, and the known traps (bugbear).
+select = ["F", "E9", "I", "UP", "B"]
+# A zip here pairs lists whose lengths are checked beforehand, or cuts on
+# purpose: a `strict=` on each would say nothing.
+ignore = ["B905"]
+
+[tool.ruff.lint.isort]
+# `quoted as _quoted` stays beside the names imported with it, and an
+# import that fits on one line is written on one line.
+combine-as-imports = true
+split-on-trailing-comma = false
+
+[tool.ruff.lint.per-file-ignores]
+# The tests of the menus share their fixtures through one star import.
+"tests/test_menu_*.py" = ["F403", "F405"]
+"tests/test_getting_started.py" = ["F403", "F405"]

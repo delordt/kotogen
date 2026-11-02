@@ -1,0 +1,361 @@
+<div class="card-container">
+  <div class="card-head">
+    <!-- kotogen:badge -->
+    <div class="card-badges" hidden><span class="card-badge" id="card-level"></span></div>
+    <!-- /kotogen:badge -->
+    <div class="question">
+      {{furigana::Question}}
+    </div>
+  </div>
+
+  <div class="audio-player{{#Video}} has-video{{/Video}}">
+    {{Video}}{{Audio}}
+    <!-- kotogen:player=drawn -->
+    <div class="player-bar" lang="ja" hidden>
+      <button type="button" class="play-btn" aria-label="再生" aria-pressed="false">
+        <svg class="icon-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l12.5-7.5z"/></svg>
+        <svg class="icon-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4h4.5v16H6zM13.5 4H18v16h-4.5z"/></svg>
+      </button>
+      <div class="player-track" tabindex="0" role="slider" aria-label="再生位置" aria-valuemin="0" aria-valuemax="0" aria-valuenow="0">
+        <div class="player-rail"><div class="player-fill"></div></div>
+        <div class="player-knob"></div>
+      </div>
+      <span class="player-time"></span>
+      <!-- Named by its hidden first word, so that the speed it wears is read
+           with it. -->
+      <button type="button" class="player-speed"><span class="visually-hidden">再生速度</span><span data-rate="1">1×</span><span data-rate="0.75" hidden>¾×</span><span data-rate="0.5" hidden>½×</span></button>
+    </div>
+    <!-- /kotogen:player -->
+  </div>
+
+  {{#Image}}
+  <div class="image-container">
+    {{Image}}
+  </div>
+  {{/Image}}
+
+  {{#Decoy1}}
+
+  <div class="choices-container">
+    <div class="choices-seed" hidden>{{ID}}|{{Question}}</div>
+
+    {{#Decoy1}}
+    <div class="choice" tabindex="0" role="button" aria-pressed="false">
+      <span class="choice-letter"></span>
+      <span class="choice-text">{{furigana::Decoy1}}</span>
+    </div>
+    {{/Decoy1}}
+
+    {{#Decoy2}}
+    <div class="choice" tabindex="0" role="button" aria-pressed="false">
+      <span class="choice-letter"></span>
+      <span class="choice-text">{{furigana::Decoy2}}</span>
+    </div>
+    {{/Decoy2}}
+
+    {{#Decoy3}}
+    <div class="choice" tabindex="0" role="button" aria-pressed="false">
+      <span class="choice-letter"></span>
+      <span class="choice-text">{{furigana::Decoy3}}</span>
+    </div>
+    {{/Decoy3}}
+
+    <div class="choice" tabindex="0" role="button" aria-pressed="false" data-role="solution">
+      <span class="choice-letter"></span>
+      <span class="choice-text">{{furigana::Answer}}</span>
+    </div>
+  </div>
+  {{/Decoy1}}
+</div>
+
+<script>
+(function () {
+  // Anki's "Next day starts at" (Preferences > Review).
+  var ROLLOVER_HOUR = 4;
+  var LETTERS = 'ABCDEFGH';
+
+  function ankiDay() {
+    var d = new Date(Date.now() - ROLLOVER_HOUR * 3600000);
+    return d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate();
+  }
+
+  var imul = Math.imul || function (a, b) {
+    var al = a & 0xffff, bl = b & 0xffff;
+    return (al * bl + ((((a >>> 16) * bl + al * (b >>> 16)) << 16) >>> 0)) | 0;
+  };
+
+  function hash(text) {
+    var h = 5381;
+    for (var i = 0; i < text.length; i++) {
+      h = ((h << 5) - h + text.charCodeAt(i)) | 0;
+    }
+    return h >>> 0;
+  }
+
+  function seeded(a) {
+    return function () {
+      a = (a + 0x6D2B79F5) | 0;
+      var t = imul(a ^ (a >>> 15), 1 | a);
+      t = ((t + imul(t ^ (t >>> 7), 61 | t)) | 0) ^ t;
+      return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+    };
+  }
+
+  // kotogen:choices=four
+  function howMany(total) { return total; }
+  // /kotogen:choices
+  // kotogen:choices=two
+  function howMany(total) { return Math.min(2, total); }
+  // /kotogen:choices
+  // kotogen:choices=none
+  function howMany() { return 0; }
+  // /kotogen:choices
+  // kotogen:choices=alternate
+
+  function howMany(total, seed) {
+    var rank = /_(\d+)\s*\|/.exec(seed ? seed.textContent : '');
+    return (!rank || parseInt(rank[1], 10) % 2 === 1) ? total : 0;
+  }
+  // /kotogen:choices
+
+  function shuffle() {
+    var box = document.querySelector('.choices-container');
+    if (!box || box.classList.contains('is-ready')) return box;
+
+    var choices = [];
+    var all = box.querySelectorAll('.choice');
+    for (var n = 0; n < all.length; n++) choices.push(all[n]);
+    if (choices.length < 2) return box;
+
+    var seed = box.querySelector('.choices-seed');
+    var rand = seeded(hash((seed ? seed.textContent : '') + '|' + ankiDay()));
+
+    var kept = howMany(choices.length, seed);
+    if (kept < 2) {
+      if (box.parentNode) box.parentNode.removeChild(box);
+      return null;
+    }
+
+    while (choices.length > kept) {
+      var candidates = [];
+
+      for (var d = 0; d < choices.length; d++) {
+        if (!choices[d].getAttribute('data-role')) candidates.push(d);
+      }
+      if (!candidates.length) break;
+      var dropped = candidates[Math.floor(rand() * candidates.length)];
+      if (choices[dropped].parentNode) choices[dropped].parentNode.removeChild(choices[dropped]);
+      choices.splice(dropped, 1);
+    }
+
+    for (var i = choices.length - 1; i > 0; i--) {
+      var j = Math.floor(rand() * (i + 1));
+      var tmp = choices[i]; choices[i] = choices[j]; choices[j] = tmp;
+    }
+    for (var k = 0; k < choices.length; k++) {
+      choices[k].querySelector('.choice-letter').textContent = LETTERS.charAt(k);
+      box.appendChild(choices[k]);
+    }
+
+    box.classList.add('is-ready');
+    return box;
+  }
+
+  shuffle();
+})();
+</script>
+
+<script>
+(function () {
+  var box = document.querySelector('.choices-container');
+  if (!box || box.dataset.picking) return;
+  box.dataset.picking = '1';
+
+  // A second touch on the picked choice takes the pick back.
+  function pick(choice) {
+    if (box.classList.contains('is-revealed')) return;
+    var wasPicked = choice.classList.contains('is-picked');
+    var picked = box.querySelectorAll('.choice.is-picked');
+    for (var i = 0; i < picked.length; i++) {
+      picked[i].classList.remove('is-picked');
+      picked[i].setAttribute('aria-pressed', 'false');
+    }
+    if (!wasPicked) {
+      choice.classList.add('is-picked');
+      choice.setAttribute('aria-pressed', 'true');
+    }
+  }
+
+  function choiceOf(e) {
+    var choice = e.target.closest ? e.target.closest('.choice') : null;
+    return choice && box.contains(choice) ? choice : null;
+  }
+
+  box.addEventListener('click', function (e) {
+    var choice = choiceOf(e);
+    if (choice) pick(choice);
+  });
+  // A choice is a button to the keyboard: Enter and Space pick it, where they
+  // reach the card. Anki desktop keeps them to turn it, so there they never do.
+  box.addEventListener('keydown', function (e) {
+    if (e.key !== 'Enter' && e.key !== ' ') return;
+    var choice = choiceOf(e);
+    if (!choice) return;
+    e.preventDefault();
+    pick(choice);
+  });
+})();
+</script>
+
+<script>
+(function () {
+  var player = document.querySelector('.audio-player');
+  if (!player || player.dataset.watched || !('IntersectionObserver' in window)) return;
+  player.dataset.watched = '1';
+  var io = new IntersectionObserver(function (entries) {
+    player.classList.toggle('is-stuck', entries[0].intersectionRatio < 1);
+  }, { threshold: [1], rootMargin: '-1px 0px 0px 0px' });
+  io.observe(player);
+})();
+</script>
+
+<!-- kotogen:badge -->
+<!-- The tags, read from here rather than written into the script: a tag holds
+     what it likes, and a backtick or a `${` in it would break the script. -->
+<span id="note-tags" hidden>{{Tags}}</span>
+<script>
+(function () {
+  // The level the deck files the note under (`Level::N4`). A note filed under
+  // none shows no badge, and the row stays hidden.
+  var badge = document.getElementById('card-level');
+  var tags = document.getElementById('note-tags');
+  if (!badge || !tags) return;
+  var level = tags.textContent.trim().split(/\s+/).filter(function (tag) {
+    return tag.indexOf('Level::') === 0;
+  })[0];
+  if (!level) return;
+  badge.textContent = level.split('::').pop();
+  badge.parentNode.hidden = false;
+})();
+</script>
+<!-- /kotogen:badge -->
+
+<!-- kotogen:player=drawn -->
+<script>
+(function () {
+  // The note carries the whole tag, `<audio controls>`: it is the field Anki
+  // finds the media in. The script takes the controls off and drives the
+  // element from the bar; a script that does not run leaves the player of the
+  // system, which plays all the same.
+  var box = document.querySelector('.audio-player');
+  var bar = box ? box.querySelector('.player-bar') : null;
+  var media = box ? box.querySelector('audio, video') : null;
+  if (!bar || !media || bar.dataset.ready) return;
+  bar.dataset.ready = '1';
+
+  media.controls = false;
+  media.removeAttribute('controls');
+  box.classList.add('is-drawn');
+  bar.hidden = false;
+
+  var play = bar.querySelector('.play-btn');
+  var track = bar.querySelector('.player-track');
+  var fill = bar.querySelector('.player-fill');
+  var knob = bar.querySelector('.player-knob');
+  var time = bar.querySelector('.player-time');
+  var speed = bar.querySelector('.player-speed');
+
+  function clock(seconds) {
+    var s = Math.max(0, Math.floor(seconds || 0));
+    return Math.floor(s / 60) + ':' + (s % 60 < 10 ? '0' : '') + (s % 60);
+  }
+
+  function draw() {
+    var length = media.duration;
+    var known = isFinite(length) && length > 0;
+    var share = known ? Math.min(1, media.currentTime / length) * 100 : 0;
+    fill.style.width = share + '%';
+    knob.style.left = share + '%';
+    time.textContent = clock(media.currentTime) + (known ? ' / ' + clock(length) : '');
+    track.setAttribute('aria-valuemax', known ? Math.round(length) : 0);
+    track.setAttribute('aria-valuenow', Math.round(media.currentTime || 0));
+    track.setAttribute('aria-valuetext', time.textContent);
+    play.setAttribute('aria-pressed', media.paused ? 'false' : 'true');
+    box.classList.toggle('is-playing', !media.paused);
+  }
+
+  // The four progress reports a second the browser makes move the knob in
+  // jumps; while playing, it is drawn at every frame.
+  var frame = 0;
+  function trace() {
+    frame = 0;
+    draw();
+    if (!media.paused && window.requestAnimationFrame) {
+      frame = window.requestAnimationFrame(trace);
+    }
+  }
+
+  ['timeupdate', 'pause', 'ended', 'seeked', 'loadedmetadata', 'durationchange']
+    .forEach(function (name) { media.addEventListener(name, draw); });
+  media.addEventListener('play', function () { if (!frame) trace(); });
+
+  function toggle() {
+    if (media.paused) {
+      var playing = media.play();
+      if (playing && playing.catch) playing.catch(function () {});
+    } else {
+      media.pause();
+    }
+  }
+  play.addEventListener('click', toggle);
+  if (media.tagName === 'VIDEO') media.addEventListener('click', toggle);
+
+  // A touch on the bar moves the playhead there; a drag follows the finger.
+  function seekTo(clientX) {
+    var length = media.duration;
+    var r = track.getBoundingClientRect();
+    if (!(length > 0) || !r.width) return;
+    media.currentTime = Math.max(0, Math.min(1, (clientX - r.left) / r.width)) * length;
+    draw();
+  }
+  var dragging = false;
+  track.addEventListener('pointerdown', function (e) {
+    if (e.target.closest && e.target.closest('.player-tick')) return;
+    dragging = true;
+    if (track.setPointerCapture) track.setPointerCapture(e.pointerId);
+    seekTo(e.clientX);
+  });
+  track.addEventListener('pointermove', function (e) { if (dragging) seekTo(e.clientX); });
+  track.addEventListener('pointerup', function () { dragging = false; });
+  track.addEventListener('pointercancel', function () { dragging = false; });
+
+  // From the keyboard, a slider's keys: five seconds an arrow, Home and End
+  // for either end.
+  track.addEventListener('keydown', function (e) {
+    var length = media.duration;
+    if (!(length > 0)) return;
+    var steps = { ArrowLeft: -5, ArrowDown: -5, ArrowRight: 5, ArrowUp: 5 };
+    var to = e.key === 'Home' ? 0 : e.key === 'End' ? length
+      : steps[e.key] ? media.currentTime + steps[e.key] : null;
+    if (to === null) return;
+    e.preventDefault();
+    media.currentTime = Math.max(0, Math.min(length, to));
+    draw();
+  });
+
+  // The speeds are written in the bar, one shown at a time: the sign the
+  // button wears is in the template, not in the script.
+  speed.addEventListener('click', function () {
+    var rates = speed.querySelectorAll('[data-rate]');
+    var shown = 0;
+    for (var i = 0; i < rates.length; i++) if (!rates[i].hidden) shown = i;
+    var next = (shown + 1) % rates.length;
+    for (var j = 0; j < rates.length; j++) rates[j].hidden = j !== next;
+    media.playbackRate = parseFloat(rates[next].getAttribute('data-rate'));
+    speed.classList.toggle('is-slow', next !== 0);
+  });
+
+  draw();
+})();
+</script>
+<!-- /kotogen:player -->

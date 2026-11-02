@@ -1,0 +1,329 @@
+/* The palette, the page and the furigana are in `templates/common.css`, laid
+   at the head of this sheet: here are only the colours of this card. --on
+   and --kun colour the two kinds of readings, and the kanji inside each word
+   in the colour of the reading that word gives it. */
+/* kotogen:palette=dark */
+:root {
+/* /kotogen:palette */
+/* kotogen:palette=auto */
+.nightMode, .night_mode {
+/* /kotogen:palette */
+/* kotogen:palette=dark|auto */
+  --on: 255, 167, 38;
+  --kun: 77, 208, 225;
+}
+/* /kotogen:palette */
+/* kotogen:palette=light|auto */
+:root {
+  --on: 176, 74, 0;
+  --kun: 0, 110, 125;
+}
+/* /kotogen:palette */
+
+.kanji-card {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+/* The same face on both sides, at the same place, so nothing moves when the
+   card turns: the back only adds its badges under the kanji and its blocks
+   under them. It stands on the page itself, as the word of the vocabulary
+   card does. */
+.kanji-face {
+  text-align: center;
+  padding: 18px 20px 0;
+}
+
+.kanji-char {
+  display: block;
+  font-size: 6em;
+  line-height: 1.15;
+  font-weight: 500;
+}
+
+/* The meaning is the answer of the back, written as the vocabulary card
+   writes its own. */
+.kanji-meaning {
+  text-align: center;
+  padding: 4px 0 6px;
+  font-size: 1.7em;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+/* kotogen:badge */
+.kanji-badges {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.kanji-badge {
+  font-size: 0.66em;
+  font-weight: 700;
+  line-height: 1.5;
+  padding: 2px 9px;
+  border-radius: 4px;
+  letter-spacing: 0.03em;
+  background-color: rgba(var(--text), 0.1);
+  color: rgb(var(--text-soft));
+  white-space: nowrap;
+}
+/* /kotogen:badge */
+
+/* The strip of the readings, drawn as the strip of forms of the vocabulary
+   card: two rules, a cell for each kind, its sign under it. */
+.kanji-readings {
+  position: relative;
+  border-block: 1px solid rgba(var(--text), 0.12);
+}
+
+.reading-cells {
+  display: flex;
+}
+
+.reading-cell {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 0;
+  padding: 8px 6px 10px;
+  text-align: center;
+}
+
+.reading-cell + .reading-cell {
+  border-left: 1px solid rgba(var(--text), 0.12);
+}
+
+.reading-cell .reading-list {
+  line-height: 1.8;
+}
+
+.reading-label {
+  font-size: 0.6em;
+  letter-spacing: 0.05em;
+  color: rgb(var(--text-faint));
+}
+
+.reading-label.on {
+  color: rgba(var(--on), 0.85);
+}
+
+.reading-label.kun {
+  color: rgba(var(--kun), 0.85);
+}
+
+.reading {
+  margin: 0 7px;
+  font-size: 1.15em;
+  white-space: nowrap;
+}
+
+.reading.on {
+  color: rgb(var(--on));
+}
+
+.reading.kun {
+  color: rgb(var(--kun));
+}
+
+.okurigana {
+  color: rgb(var(--text-faint));
+}
+
+/* kotogen:other-readings=folded */
+/* The fold hangs on the lower rule of the strip, as the tab of the forms
+   does, and opens inside it. */
+.other-readings summary {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translate(-50%, 50%);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 12px;
+  line-height: 1.5;
+  background-color: rgb(var(--background));
+  border: 1px solid rgba(var(--text), 0.12);
+  border-radius: 999px;
+  cursor: pointer;
+  list-style: none;
+}
+
+.other-readings summary::-webkit-details-marker {
+  display: none;
+}
+
+.other-readings summary .reading-label {
+  font-size: 0.55em;
+}
+
+.other-readings summary::after {
+  content: "▾";
+  font-size: 0.55em;
+  color: rgb(var(--text-faint));
+}
+
+.other-readings[open] summary::after {
+  content: "▴";
+}
+
+.other-readings .reading-list {
+  display: block;
+  padding: 8px 6px 16px;
+  text-align: center;
+  font-size: 0.9em;
+  border-top: 1px solid rgba(var(--text), 0.12);
+}
+/* /kotogen:other-readings */
+
+/* kotogen:other-readings=shown */
+.other-readings-row {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  gap: 8px;
+  padding: 6px 6px 8px;
+  font-size: 0.9em;
+  border-top: 1px solid rgba(var(--text), 0.12);
+}
+/* /kotogen:other-readings */
+
+.kanji-words {
+  display: flex;
+  flex-direction: column;
+  padding-top: 4px;
+}
+
+.word-row {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 14px;
+  align-items: baseline;
+  padding: 7px 4px;
+}
+
+.word-row + .word-row {
+  border-top: 1px solid rgba(var(--text), 0.12);
+}
+
+.word {
+  font-size: 1.2em;
+}
+
+.kanji-hit {
+  font-weight: bold;
+}
+
+.kanji-hit.on {
+  color: rgb(var(--on));
+}
+
+.kanji-hit.kun {
+  color: rgb(var(--kun));
+}
+
+.word-meaning {
+  font-size: 0.85em;
+  color: rgb(var(--text-soft));
+}
+
+/* kotogen:words=untranslated */
+.word-meaning {
+  visibility: hidden;
+}
+/* /kotogen:words */
+
+.word-reading {
+  margin-right: 0;
+  font-size: 0.7em;
+}
+
+/* The composition, the look-alikes and the notes close the card, small, as
+   the notes close the vocabulary one. Their signs share one column, so the
+   three lines start at the same place whatever their length. */
+.kanji-aside {
+  display: grid;
+  grid-template-columns: 3.4em minmax(0, 1fr);
+  gap: 10px;
+  align-items: baseline;
+  padding: 0 4px;
+  font-size: 0.8em;
+  line-height: 1.9;
+  color: rgb(var(--text-soft));
+}
+
+.kanji-aside + .kanji-aside {
+  margin-top: -18px;
+}
+
+.aside-label {
+  text-align: right;
+  color: rgb(var(--text-faint));
+  white-space: nowrap;
+}
+
+/* kotogen:tags=yes */
+/* The width of the screen, so that it wraps late: the back keeps the room it
+   takes (its script measures it). */
+.tags-footer {
+  font-size: 10px;
+  color: rgb(var(--text-faint));
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0 20px;
+  text-align: center;
+}
+/* /kotogen:tags */
+
+/* A phone shows the whole back without scrolling: everything tightens, the
+   face of the front with it, so it still does not move when the card turns. */
+@media (max-width: 600px) {
+  .card {
+    font-size: 17px;
+  }
+
+  .kanji-card {
+    gap: 14px;
+  }
+
+  .kanji-face {
+    padding: 10px 14px 0;
+  }
+
+  .kanji-char {
+    font-size: 4.5em;
+  }
+
+  .kanji-meaning {
+    font-size: 1.45em;
+  }
+
+  .reading-cell {
+    padding: 4px 4px 8px;
+  }
+
+  .word-row {
+    gap: 10px;
+    padding: 4px;
+  }
+
+  .word {
+    font-size: 1.1em;
+  }
+
+  .kanji-aside {
+    line-height: 1.5;
+  }
+
+  .kanji-aside + .kanji-aside {
+    margin-top: -8px;
+  }
+}

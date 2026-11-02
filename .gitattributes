@@ -1,0 +1,16 @@
+# Line endings: LF everywhere in the repository, whatever system commits.
+# This is not fussiness. The templates of templates/ go into Anki as they are
+# (notetypes.py copies them there), and the instructions of prompts/*/*.md go
+# to the model as they are: a stray \r ends up there, without ever showing.
+* text=auto eol=lf
+
+# Binaries: never any conversion, it would corrupt them.
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.pdf binary
+*.mp3 binary
+*.wav binary
+*.m4a binary
+*.ico binary

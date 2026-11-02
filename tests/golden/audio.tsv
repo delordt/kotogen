@@ -1,0 +1,7 @@
+#separator:tab
+#html:true
+#deck:Japanese::Listening
+#notetype:Listening
+#tags column:15
+collection_01_001	<audio controls src="collection_01.mp3"></audio>		Qu'est-ce qui est montré ?	Une photo	Un livre	Une clé		Un gros sac	ねえ、 見[み]て。<br>わー、 大[おお]きい 荷物[にもつ]だ。	Regarde.<br>Ouah, quel gros sac.		2	collection.mp3 (00:04 → 00:09)	Level::N4
+collection_02_001	<audio controls src="collection_02.mp3"></audio>		Qu'est-ce qui est montré ?	Une photo	Un livre	Une clé		Un gros sac	ねえ、 見[み]て。<br>わー、 大[おお]きい 荷物[にもつ]だ。	Regarde.<br>Ouah, quel gros sac.	0.00 0.00	2	collection.mp3 (00:09 → 00:14)	Level::N4

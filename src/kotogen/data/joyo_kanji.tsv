@@ -1,0 +1,4416 @@
+# The Joyo kanji table (常用漢字表) - local reference table.
+# Source: 常用漢字表, Cabinet Notice No. 2 of 30 November 2010
+#         (平成22年内閣告示第2号), published by the Agency for Cultural Affairs:
+#         https://www.bunka.go.jp/kokugo_nihongo/sisaku/joho/joho/kijun/naikaku/kanji/
+# A cabinet notice is not a copyrighted work (Japanese Copyright Act, article 13),
+# and the site allows any use of what it publishes, commercial use included, with
+# the source cited as above.
+# Extracted from the official PDF (joyokanjihyo_20101130.pdf), in the order of
+# the table, which is the order of the readings. Two liberties only: the commas
+# between the examples are written 、, and a kun reading carries a dot where its
+# okurigana starts (まな.ぶ), placed from the examples the table gives.
+# One row per reading, 2136 kanji, 4388 readings (2352 on, 2036 kun). Columns:
+#   kanji <TAB> reading <TAB> use <TAB> examples <TAB> forms <TAB> notes
+# - reading: katakana for an on reading, hiragana for a kun reading.
+# - use: `common`, or `narrow` for a reading the table sets back by one
+#   character - "special, or of very narrow use" (法度 ハッ, a prefecture name).
+# - examples: the words the table gives for that reading, separated by 、, as
+#   printed: 〔副〕 and 〔接〕 mark an adverb and a conjunction, ○○ stands for a
+#   name (○○岳), a reading in brackets is a sound change (三羽（ば）). Ten
+#   readings have none in the table (朕 チン, 岡 おか...).
+# - forms: on the first row of a kanji only, the traditional forms the table
+#   prints beside it, in brackets (學). The PDF draws the one of 亀 (龜) with no
+#   text behind it, and it is written in by hand. A form that differs from the
+#   kanji by its glyph only (禍, 祝, and the allowed forms in square brackets)
+#   has no character of its own in the text, and is left out.
+# - notes: the remarks of the table about that reading, as printed. The layout
+#   does not always tell two remarks of one kanji apart: those are read as one,
+#   on the first of the two rows. A remark never passes to another kanji.
+亜	ア	common	亜流、亜麻、亜熱帯	（亞）	
+哀	アイ	common	哀愁、哀願、悲哀		
+哀	あわ.れ	common	哀れ、哀れな話、哀れがる		
+哀	あわ.れむ	common	哀れむ、哀れみ		
+挨	アイ	common	挨拶		
+愛	アイ	common	愛情、愛読、恋愛		愛媛（えひめ）県
+曖	アイ	common	曖昧		
+悪	アク	common	悪事、悪意、醜悪	（惡）	
+悪	オ	common	悪寒、好悪、憎悪		
+悪	わる.い	common	悪い、悪さ、悪者		
+握	アク	common	握手、握力、掌握		
+握	にぎ.る	common	握る、握り、一握り		
+圧	アツ	common	圧力、圧迫、気圧	（壓）	
+扱	あつか.う	common	扱う、扱い、客扱い		
+宛	あ.てる	common	宛てる、宛先		⇔当てる、充てる
+嵐	あらし	common	嵐、砂嵐		
+安	アン	common	安全、安価、不安		
+安	やす.い	common	安い、安らかだ		
+案	アン	common	案文、案内、新案		
+暗	アン	common	暗示、暗愚、明暗		
+暗	くら.い	common	暗い、暗がり		
+以	イ	common	以上、以内、以後		
+衣	イ	common	衣服、衣食住、作業衣		浴衣（ゆかた）
+衣	ころも	common	衣、羽衣		
+位	イ	common	位置、第一位、各位		「三位一体」、「従三位」は、「サンミイッタイ」、「ジュサンミ」。
+位	くらい	common	位、位取り、位する		
+囲	イ	common	囲碁、包囲、範囲	（圍）	
+囲	かこ.む	common	囲む、囲み		
+囲	かこ.う	common	囲う、囲い		
+医	イ	common	医学、医療、名医	（醫）	
+依	イ	common	依頼、依拠、依然		
+依	エ	narrow	帰依		
+委	イ	common	委任、委員、委細		
+委	ゆだ.ねる	common	委ねる		
+威	イ	common	威力、威圧、示威		
+為	イ	common	為政者、行為、作為	（爲）	為替（かわせ）
+畏	イ	common	畏敬、畏怖		
+畏	おそ.れる	common	畏れる、畏れ		⇔恐れる
+胃	イ	common	胃腸、胃酸、胃弱		
+尉	イ	common	尉官、一尉、大尉		
+異	イ	common	異論、異同、奇異		
+異	こと	common	異にする、異なる		
+移	イ	common	移転、移民、推移		
+移	うつ.る	common	移る、移り変わり		
+移	うつ.す	common	移す		
+萎	イ	common	萎縮		
+萎	な.える	common	萎える		
+偉	イ	common	偉大、偉人、偉観		
+偉	えら.い	common	偉い、偉ぶる		
+椅	イ	common	椅子		
+彙	イ	common	語彙		＊［（付）第２の３【剝】参照］
+意	イ	common	意見、意味、決意		意気地（いくじ）
+違	イ	common	違反、違法、相違		
+違	ちが.う	common	違う、違い、間違う		
+違	ちが.える	common	違える、見違える、間違える		
+維	イ	common	維持、維新、繊維		
+慰	イ	common	慰安、慰問、慰労		
+慰	なぐさ.める	common	慰める、慰め		
+慰	なぐさ.む	common	慰む、慰み		
+遺	イ	common	遺棄、遺産、遺失		
+遺	ユイ	narrow	遺言		「遺言」は、「イゴン」とも。
+緯	イ	common	緯度、北緯、経緯		
+域	イキ	common	域内、地域、区域		
+育	イク	common	育児、教育、発育		
+育	そだ.つ	common	育つ、育ち		
+育	そだ.てる	common	育てる、育て親		
+育	はぐく.む	common	育む		
+一	イチ	common	一度、一座、第一		一日（ついたち）一人（ひとり）
+一	イツ	common	一般、同一、統一		
+一	ひと	common	一息、一筋、一月目		
+一	ひと.つ	common	一つ		
+壱	イチ	common	壱万円	（壹）	
+逸	イツ	common	逸話、逸品、逸する	（逸）	
+茨	いばら	narrow			茨城県
+芋	いも	common	芋、里芋、焼き芋		
+引	イン	common	引力、引退、索引		
+引	ひ.く	common	引く、字引		⇔弾く
+引	ひ.ける	common	引ける		
+印	イン	common	印刷、印象、調印		
+印	しるし	common	印、目印、矢印		
+因	イン	common	因果、原因、要因		
+因	よ.る	common	因る、……に因る		
+咽	イン	common	咽喉		
+姻	イン	common	姻族、婚姻		
+員	イン	common	満員、定員、社員		
+院	イン	common	院内、議院、病院		
+淫	イン	common	淫行、淫乱		＊［（付）第２の３参照］
+淫	みだ.ら	common	淫らだ		
+陰	イン	common	陰気、陰性、光陰		
+陰	かげ	common	陰、日陰		⇔影
+陰	かげ.る	common	陰る、陰り		
+飲	イン	common	飲料、飲食、痛飲		
+飲	の.む	common	飲む、飲み水		
+隠	イン	common	隠居、隠忍、隠語	（隱）	
+隠	かく.す	common	隠す		
+隠	かく.れる	common	隠れる、雲隠れ		
+韻	イン	common	韻律、韻文、音韻		
+右	ウ	common	右岸、右折、右派		
+右	ユウ	common	左右、座右		
+右	みぎ	common	右、右手		
+宇	ウ	common	宇宙、気宇、堂宇		
+羽	ウ	common	羽毛、羽化、羽翼		
+羽	は	common	白羽の矢、一羽（わ）、三羽（ば）、六羽（ぱ）		「羽（は）」は、前に来る音によって「わ」、「ば」、「ぱ」になる。
+羽	はね	common	羽、羽飾り		
+雨	ウ	common	雨量、降雨、梅雨		五月雨（さみだれ）時雨（しぐれ）梅雨（つゆ）
+雨	あめ	common	雨、大雨		
+雨	あま	narrow	雨雲、雨戸、雨具		「春雨」、「小雨」、「霧雨」などは、「はるさめ」、「こさめ」、「きりさめ」。
+唄	うた	narrow	小唄、長唄		⇔歌
+鬱	ウツ	common	憂鬱		
+畝	うね	common	畝、畝間、畝織		
+浦	うら	common	浦、津々浦々		
+運	ウン	common	運動、運命、海運		
+運	はこ.ぶ	common	運ぶ		
+雲	ウン	common	雲海、風雲、積乱雲		
+雲	くも	common	雲、雲隠れ		
+永	エイ	common	永続、永久、永遠		
+永	なが.い	common	永い、日永		⇔長い
+泳	エイ	common	泳法、水泳、背泳		
+泳	およ.ぐ	common	泳ぐ、泳ぎ		
+英	エイ	common	英雄、英断、俊英		
+映	エイ	common	映画、上映、反映		
+映	うつ.る	common	映る、映り		⇔写る
+映	うつ.す	common	映す		⇔写す
+映	は.える	common	映える、夕映え		⇔栄える
+栄	エイ	common	栄枯、栄養、繁栄	（榮）	
+栄	さか.える	common	栄える、栄え		
+栄	は.え	common	栄えある、見栄え、出来栄え		⇔映え
+栄	は.える	common	栄える		⇔映える
+営	エイ	common	営業、経営、陣営	（營）	
+営	いとな.む	common	営む、営み		
+詠	エイ	common	詠嘆、詠草、朗詠		
+詠	よ.む	common	詠む		⇔読む
+影	エイ	common	影響、陰影、撮影		
+影	かげ	common	影、影絵、人影		⇔陰
+鋭	エイ	common	鋭利、鋭敏、精鋭		
+鋭	するど.い	common	鋭い、鋭さ		
+衛	エイ	common	衛生、護衛、守衛	（衞）	
+易	エキ	common	易者、貿易、不易		
+易	イ	common	容易、安易、難易		
+易	やさ.しい	common	易しい、易しさ		
+疫	エキ	common	疫病、悪疫、防疫		
+疫	ヤク	narrow	疫病神		
+益	エキ	common	有益、利益、益する		
+益	ヤク	narrow	御利益		
+液	エキ	common	液体、液状、血液		
+駅	エキ	common	駅長、駅伝、貨物駅	（驛）	
+悦	エツ	common	悦楽、喜悦		
+越	エツ	common	越境、超越、優越		
+越	こ.す	common	越す、年越し		⇔超す
+越	こ.える	common	越える、山越え		⇔超える
+謁	エツ	common	謁見、拝謁、謁する	（謁）	
+閲	エツ	common	閲覧、閲歴、校閲		
+円	エン	common	円卓、円熟、一円	（圓）	
+円	まる.い	common	円い、円さ、円み		⇔丸い
+延	エン	common	延長、延期、遅延		
+延	の.びる	common	延びる		⇔伸びる
+延	の.べる	common	延べる、延べ		⇔伸べる
+延	の.ばす	common	延ばす		⇔伸ばす
+沿	エン	common	沿海、沿線、沿革		
+沿	そ.う	common	沿う、川沿い		⇔添う
+炎	エン	common	炎上、炎天、火炎		
+炎	ほのお	common	炎		
+怨	エン	common	怨恨		
+怨	オン	common	怨念		
+宴	エン	common	宴会、宴席、酒宴		
+媛	エン	common	才媛		愛媛（えひめ）県
+援	エン	common	援助、応援、声援		
+園	エン	common	園芸、公園、楽園		
+園	その	common	学びの園、花園		
+煙	エン	common	煙突、煙霧、喫煙		
+煙	けむ.る	common	煙る		
+煙	けむり	common	煙		
+煙	けむ.い	common	煙い、煙たい、煙たがる		
+猿	エン	common	野猿、類人猿、犬猿の仲		
+猿	さ.る	common	猿		
+遠	エン	common	遠近、永遠、敬遠		
+遠	オン	narrow	久遠		
+遠	とお.い	common	遠い、遠出、遠ざかる		
+鉛	エン	common	鉛筆、亜鉛、黒鉛		
+鉛	なまり	common	鉛、鉛色		
+塩	エン	common	塩分、塩酸、食塩	（鹽）	
+塩	しお	common	塩、塩辛い		
+演	エン	common	演技、演奏、講演		
+縁	エン	common	縁故、縁日、血縁	（緣）	「因縁」は、「インネン」。
+縁	ふち	common	縁、縁取り、額縁		
+艶	エン	common	妖艶	（艷）	
+艶	つや	common	艶、色艶		
+汚	オ	common	汚点、汚物、汚名		
+汚	けが.す	common	汚す		
+汚	けが.れる	common	汚れる、汚れ		
+汚	けが.らわしい	common	汚らわしい		
+汚	よご.す	common	汚す、口汚し		
+汚	よご.れる	common	汚れる、汚れ、汚れ物		
+汚	きたな.い	common	汚い、汚らしい		
+王	オウ	common	王子、帝王		「親王」、「勤王」などは、「シンノウ」、「キンノウ」。
+凹	オウ	common	凹凸、凹面鏡、凹レンズ		凸凹（でこぼこ）
+央	オウ	common	中央		
+応	オウ	common	応答、応用、呼応	（應）	「反応」、「順応」などは、「ハンノウ」、「ジュンノウ」。
+応	こた.える	common	応える		⇔答える
+往	オウ	common	往復、往来、既往症		
+押	オウ	common	押収、押印、押韻		
+押	お.す	common	押す、押し		⇔推す
+押	お.さえる	common	押さえる、押さえ		⇔抑える
+旺	オウ	common	旺盛		
+欧	オウ	common	欧文、西欧、渡欧	（歐）	
+殴	オウ	common	殴打	（毆）	
+殴	なぐ.る	common	殴る		
+桜	オウ	common	桜花、観桜	（櫻）	
+桜	さくら	common	桜、桜色、葉桜		
+翁	オウ	common	老翁		
+奥	オウ	common	奥義、深奥	（奧）	「奥義」は、「おくギ」とも。
+奥	おく	common	奥、奥底、奥さん		
+横	オウ	common	横断、横領、専横	（橫）	
+横	よこ	common	横、横顔、横たわる		
+岡	おか	narrow			岡山県、静岡県、福岡県
+屋	オク	common	屋上、屋外、家屋		
+屋	や	common	屋根、花屋、楽屋		母屋（おもや）部屋（へや）⇔家
+億	オク	common	億万、一億		
+憶	オク	common	記憶、追憶		
+臆	オク	common	臆説、臆測、臆病		「臆説」、「臆測」は、「憶説」、「憶測」とも書く。
+虞	おそれ	common	虞		
+乙	オツ	common	乙種、甲乙		乙女（おとめ）
+俺	おれ	common	俺		
+卸	おろ.す	common	卸す		⇔下ろす、降ろす
+卸	おろし	common	卸、卸商		
+音	オン	common	音楽、発音、騒音		「観音」は、「カンノン」。
+音	イン	common	福音、母音		
+音	おと	common	音、物音		
+音	ね	common	音、音色		
+恩	オン	common	恩情、恩人、謝恩		
+温	オン	common	温暖、温厚、気温	（溫）	
+温	あたた.か	common	温かだ		⇔暖か
+温	あたた.かい	common	温かい		⇔暖かい
+温	あたた.まる	common	温まる		⇔暖まる
+温	あたた.める	common	温める		⇔暖める
+穏	オン	common	穏和、穏当、平穏	（穩）	「安穏」は、「アンノン」。
+穏	おだ.やか	common	穏やかだ		
+下	カ	common	下流、下降、落下		下手（へた）
+下	ゲ	common	下水、下車、上下		
+下	した	common	下、下見		
+下	しも	common	下、川下		
+下	もと	common	下、足下		⇔元、本、基
+下	さ.げる	common	下げる		⇔提げる
+下	さ.がる	common	下がる		
+下	くだ.る	common	下る、下り		
+下	くだ.す	common	下す		
+下	くだ.さる	common	下さる		
+下	お.ろす	common	下ろす、書き下ろす		⇔卸す、降ろす
+下	お.りる	common	下りる		⇔降りる
+化	カ	common	化石、化学、文化		
+化	ケ	common	化粧、化身、権化		
+化	ば.ける	common	化ける、お化け		
+化	ば.かす	common	化かす		
+火	カ	common	火災、灯火、発火		
+火	ひ	common	火、火花、炭火		⇔灯
+火	ほ	narrow	火影		
+加	カ	common	加入、加減、追加		
+加	くわ.える	common	加える		
+加	くわ.わる	common	加わる		
+可	カ	common	可否、可能、許可		
+仮	カ	common	仮面、仮定、仮装	（假）	仮名（かな）
+仮	ケ	narrow	仮病		
+仮	かり	common	仮の住まい、仮に、仮処分		
+何	カ	common	幾何学		
+何	なに	common	何、何者、何事		
+何	なん	narrow	何本、何十、何点		
+花	カ	common	花弁、花壇、落花		
+花	はな	common	花、花火、草花		⇔華
+佳	カ	common	佳作、佳人、絶佳		
+価	カ	common	価値、価格、評価	（價）	
+価	あたい	common	価		⇔値
+果	カ	common	果実、果断、結果		果物（くだもの）
+果	は.たす	common	果たす、果たして〔副〕		
+果	は.てる	common	果てる		
+果	は.て	common	果て		
+河	カ	common	河川、河口、運河		河岸（かし）河原（かわら）
+河	かわ	common	河		⇔川
+苛	カ	common	苛酷、苛烈		
+科	カ	common	科学、教科、罪科		
+架	カ	common	架橋、架空、書架		
+架	か.ける	common	架ける		⇔掛ける、懸ける、賭ける
+架	か.かる	common	架かる		⇔掛かる、懸かる
+夏	カ	common	夏季、初夏、盛夏		
+夏	ゲ	narrow	夏至		
+夏	なつ	common	夏、夏服、真夏		
+家	カ	common	家屋、家庭、作家		
+家	ケ	common	家来、本家、分家		
+家	いえ	common	家、家柄、家元		
+家	や	common	家主、借家		母家（おもや）⇔屋
+荷	カ	common	出荷、入荷		
+荷	に	common	荷、荷物、初荷		
+華	カ	common	華美、繁華、栄華		
+華	ケ	narrow	香華、散華		
+華	はな	common	華やかだ、華やぐ、華々しい		⇔花
+菓	カ	common	菓子、製菓、茶菓		
+貨	カ	common	貨物、貨幣、通貨		
+渦	カ	common	渦中		
+渦	うず	common	渦、渦潮、渦巻く		
+過	カ	common	過度、過失、通過		
+過	す.ぎる	common	過ぎる、昼過ぎ		
+過	す.ごす	common	過ごす		
+過	あやま.つ	common	過つ		
+過	あやま.ち	common	過ち		
+嫁	カ	common	再嫁、転嫁、嫁する		
+嫁	よめ	common	嫁、花嫁		
+嫁	とつ.ぐ	common	嫁ぐ、嫁ぎ先		
+暇	カ	common	余暇、休暇、寸暇		
+暇	ひま	common	暇、暇な時		
+禍	カ	common	禍福、禍根、災禍	（禍）	
+靴	カ	common	製靴		
+靴	くつ	common	靴、靴下、革靴		
+寡	カ	common	寡黙、寡婦、多寡		
+歌	カ	common	歌曲、唱歌、短歌		
+歌	うた	common	歌		⇔唄
+歌	うた.う	common	歌う		⇔謡う
+箇	カ	common	箇条、箇所		
+稼	カ	common	稼業、稼働		
+稼	かせ.ぐ	common	稼ぐ、稼ぎ		
+課	カ	common	課、日課、課する		
+蚊	か	common	蚊、蚊柱、やぶ蚊		蚊帳（かや）
+牙	ガ	common	牙城、歯牙		
+牙	ゲ	narrow	象牙		
+牙	きば	common	牙		
+瓦	ガ	common	瓦解		
+瓦	かわら	common	瓦、瓦屋根		
+我	ガ	common	我流、彼我、自我		
+我	われ	common	我、我々、我ら		
+我	わ	common	我が国		
+画	ガ	common	画家、図画、映画	（畫）	
+画	カク	common	画期的、計画、区画		
+芽	ガ	common	発芽、麦芽、肉芽		
+芽	め	common	芽、芽生える、新芽		
+賀	ガ	common	賀状、祝賀、賀する		
+雅	ガ	common	雅趣、優雅、風雅		
+餓	ガ	common	餓死、餓鬼、飢餓		
+介	カイ	common	介入、紹介、介する		
+回	カイ	common	回答、転回、次回		
+回	エ	narrow	回向		
+回	まわ.る	common	回る、回り、回り道		⇔周り
+回	まわ.す	common	回す、手回し		
+灰	カイ	common	灰白色、石灰		
+灰	はい	common	灰、灰色、火山灰		
+会	カイ	common	会話、会計、社会	（會）	
+会	エ	common	会釈、会得、法会		
+会	あ.う	common	会う		⇔合う、遭う
+快	カイ	common	快活、快晴、明快		
+快	こころよ.い	common	快い		
+戒	カイ	common	戒心、戒律、警戒		
+戒	いまし.める	common	戒める、戒め		
+改	カイ	common	改造、改革、更改		
+改	あらた.める	common	改める、改めて〔副〕		
+改	あらた.まる	common	改まる		
+怪	カイ	common	怪談、怪物、奇怪		
+怪	あや.しい	common	怪しい、怪しげだ		⇔妖しい
+怪	あや.しむ	common	怪しむ		
+拐	カイ	common	拐帯、誘拐		
+悔	カイ	common	悔恨、後悔	（悔）	
+悔	く.いる	common	悔いる、悔い		
+悔	く.やむ	common	悔やむ、お悔やみ		
+悔	くや.しい	common	悔しい、悔しがる		
+海	カイ	common	海岸、海水浴、航海	（海）	海女・海士（あま）
+海	うみ	common	海、海鳴り		海原（うなばら）
+界	カイ	common	境界、限界、世界		
+皆	カイ	common	皆無、皆勤、皆出席		
+皆	みな	common	皆、皆さん		
+械	カイ	common	機械		
+絵	カイ	common	絵画	（繪）	
+絵	エ	common	絵本、絵図、口絵		
+開	カイ	common	開始、開拓、展開		
+開	ひら.く	common	開く、川開き		
+開	ひら.ける	common	開ける		
+開	あ.く	common	開く		⇔空く、明く
+開	あ.ける	common	開ける、開けたて		⇔空ける、明ける
+階	カイ	common	階段、階級、地階		
+塊	カイ	common	塊状、山塊		
+塊	かたまり	common	塊		
+楷	カイ	common	楷書		
+解	カイ	common	解決、解禁、理解		
+解	ゲ	common	解脱、解熱剤、解毒剤		
+解	と.く	common	解く		⇔溶く
+解	と.かす	common	解かす		⇔溶かす
+解	と.ける	common	解ける		⇔溶ける
+潰	カイ	common	潰瘍		
+潰	つぶ.す	common	潰す		
+潰	つぶ.れる	common	潰れる		
+壊	カイ	common	壊滅、破壊、決壊	（壞）	
+壊	こわ.す	common	壊す		
+壊	こわ.れる	common	壊れる		
+懐	カイ	common	懐中、懐古、述懐	（懷）	
+懐	ふところ	common	懐、懐手、内懐		
+懐	なつ.かしい	common	懐かしい		
+懐	なつ.かしむ	common	懐かしむ		
+懐	なつ.く	common	懐く		
+懐	なつ.ける	common	懐ける		
+諧	カイ	common	俳諧		
+貝	かい	common	貝、貝細工、ほら貝		
+外	ガイ	common	外出、海外、除外		
+外	ゲ	common	外科、外題、外道		
+外	そと	common	外、外囲い		
+外	ほか	common	外、その外		⇔他
+外	はず.す	common	外す、踏み外す		
+外	はず.れる	common	外れる、町外れ		
+劾	ガイ	common	弾劾		
+害	ガイ	common	害悪、被害、損害		
+崖	ガイ	common	断崖		
+崖	がけ	common	崖下		
+涯	ガイ	common	生涯		
+街	ガイ	common	街頭、市街、商店街		
+街	カイ	narrow	街道		
+街	まち	common	街、街角		⇔町
+慨	ガイ	common	慨嘆、憤慨、感慨	（慨）	
+蓋	ガイ	common	頭蓋骨		
+蓋	ふた	common	蓋、火蓋		
+該	ガイ	common	該当、該博、当該		
+概	ガイ	common	概念、大概、概して	（槪）	
+骸	ガイ	common	形骸化、死骸		
+垣	かき	common	垣、垣根		
+柿	かき	common	柿		
+各	カク	common	各自、各種、各位		
+各	おのおの	common	各		「各々」とも書く。
+角	カク	common	角度、三角、頭角		
+角	かど	common	角、街角、四つ角		
+角	つの	common	角、角笛		
+拡	カク	common	拡大、拡張、拡声器	（擴）	
+革	カク	common	革新、改革、皮革		
+革	かわ	common	革、革靴		⇔皮
+格	カク	common	格式、規格、性格		
+格	コウ	narrow	格子		
+核	カク	common	核心、核反応、結核		
+殻	カク	common	甲殻、地殻	（殼）	
+殻	から	common	殻、貝殻		
+郭	カク	common	城郭、外郭、輪郭		
+覚	カク	common	覚悟、知覚、発覚	（覺）	
+覚	おぼ.える	common	覚える、覚え		
+覚	さ.ます	common	覚ます、目覚まし		
+覚	さ.める	common	覚める、目覚め		
+較	カク	common	比較		
+隔	カク	common	隔離、隔月、間隔		
+隔	へだ.てる	common	隔てる、隔て		
+隔	へだ.たる	common	隔たる、隔たり		
+閣	カク	common	閣議、閣僚、内閣		
+確	カク	common	確定、確認、正確		
+確	たし.か	common	確かだ、確かさ		
+確	たし.かめる	common	確かめる		
+獲	カク	common	獲得、捕獲、漁獲高		
+獲	え.る	common	獲る、獲物		⇔得る
+嚇	カク	common	威嚇		
+穫	カク	common	収穫		
+学	ガク	common	学習、科学、大学	（學）	
+学	まな.ぶ	common	学ぶ		
+岳	ガク	common	岳父、山岳	（嶽）	
+岳	たけ	common	○○岳		
+楽	ガク	common	楽隊、楽器、音楽	（樂）	神楽（かぐら）
+楽	ラク	common	楽園、快楽、娯楽		
+楽	たの.しい	common	楽しい、楽しさ、楽しげだ		
+楽	たの.しむ	common	楽しむ		
+額	ガク	common	額縁、金額、前額部		
+額	ひたい	common	額		
+顎	ガク	common	顎関節		
+顎	あご	common	顎		
+掛	か.ける	common	掛ける		⇔懸ける、架ける、賭ける
+掛	か.かる	common	掛かる		⇔係る、懸かる、架かる
+掛	かかり	common	掛		⇔係
+潟	かた	common	干潟、○○潟		
+括	カツ	common	括弧、一括、包括		
+活	カツ	common	活動、活力、生活		
+喝	カツ	common	喝破、一喝、恐喝	（喝）	
+渇	カツ	common	渇望、渇水	（渴）	
+渇	かわ.く	common	渇く、渇き		⇔乾く
+割	カツ	common	割愛、割拠、分割		
+割	わ.る	common	割る		
+割	わり	common	割がいい、割合、割に、五割		
+割	わ.れる	common	割れる、ひび割れ		
+割	さ.く	common	割く		⇔裂く
+葛	カツ	common	葛藤		＊［（付）第２の３参照］
+葛	くず	common	葛、葛湯		
+滑	カツ	common	滑走、滑降、円滑		
+滑	コツ	common	滑稽		
+滑	すべ.る	common	滑る、滑り		
+滑	なめ.らか	common	滑らかだ		
+褐	カツ	common	褐色、茶褐色	（褐）	
+轄	カツ	common	管轄、所轄、直轄		
+且	か.つ	common	且つ		
+株	かぶ	common	株、株式		
+釜	かま	common	釜		
+鎌	かま	common	鎌、鎌倉時代		
+刈	か.る	common	刈る、刈り入れ		
+干	カン	common	干渉、干潮、若干		
+干	ほ.す	common	干す、干し物		
+干	ひ.る	common	干上がる、干物、潮干狩り		
+刊	カン	common	刊行、発刊、週刊		
+甘	カン	common	甘言、甘受、甘味料		
+甘	あま.い	common	甘い、甘み		
+甘	あま.える	common	甘える		
+甘	あま.やかす	common	甘やかす		
+汗	カン	common	汗顔、発汗		
+汗	あせ	common	汗、汗ばむ		
+缶	カン	common	缶、缶詰、製缶	（罐）	
+完	カン	common	完全、完成、未完		
+肝	カン	common	肝臓、肝胆、肝要		
+肝	きも	common	肝、肝っ玉		
+官	カン	common	官庁、官能、教官		
+冠	カン	common	冠詞、王冠、栄冠		
+冠	かんむり	common	冠		
+巻	カン	common	巻頭、圧巻、一巻	（卷）	
+巻	ま.く	common	巻く、巻き貝		
+巻	まき	common	巻の一		
+看	カン	common	看護、看破、看板		
+陥	カン	common	陥落、陥没、欠陥	（陷）	
+陥	おちい.る	common	陥る		
+陥	おとしい.れる	common	陥れる		
+乾	カン	common	乾燥、乾杯、乾電池		
+乾	かわ.く	common	乾く		⇔渇く
+乾	かわ.かす	common	乾かす		
+勘	カン	common	勘弁、勘当		
+患	カン	common	患者、疾患		
+患	わずら.う	common	患う、長患い		⇔煩う
+貫	カン	common	貫通、縦貫、尺貫法		
+貫	つらぬ.く	common	貫く		
+寒	カン	common	寒暑、寒村、厳寒		
+寒	さむ.い	common	寒い、寒がる、寒空		
+喚	カン	common	喚問、召喚、叫喚		
+堪	カン	common	堪忍、堪能		「堪能」は、「タンノウ」とも。
+堪	た.える	common	堪える		⇔耐える
+換	カン	common	換気、換算、交換		
+換	か.える	common	換える		⇔代える、替える、変える
+換	か.わる	common	換わる		⇔代わる、替わる、変わる
+敢	カン	common	敢然、果敢、勇敢		
+棺	カン	common	棺おけ、石棺、出棺		
+款	カン	common	定款、借款、落款		
+間	カン	common	間隔、中間、時間		
+間	ケン	common	世間、人間		
+間	あいだ	common	間、間柄		
+間	ま	common	間、間違う、客間		
+閑	カン	common	閑静、閑却、繁閑		
+勧	カン	common	勧誘、勧奨、勧告	（勸）	
+勧	すす.める	common	勧める、勧め		⇔進める、薦める
+寛	カン	common	寛大、寛容、寛厳	（寬）	
+幹	カン	common	幹線、幹事、根幹		
+幹	みき	common	幹		
+感	カン	common	感心、感覚、直感		
+漢	カン	common	漢字、漢語、門外漢	（漢）	
+慣	カン	common	慣例、慣性、習慣		
+慣	な.れる	common	慣れる、慣れ		
+慣	な.らす	common	慣らす		
+管	カン	common	管理、管制、鉄管		
+管	くだ	common	管		
+関	カン	common	関節、関係、関する	（關）	
+関	せき	common	関、関取、関の山		
+関	かか.わる	common	関わる、関わり		
+歓	カン	common	歓迎、歓声、交歓	（歡）	
+監	カン	common	監視、監督、総監		
+緩	カン	common	緩和、緩慢、緩急		
+緩	ゆる.い	common	緩い		
+緩	ゆる.やか	common	緩やかだ		
+緩	ゆる.む	common	緩む、緩み		
+緩	ゆる.める	common	緩める		
+憾	カン	common	遺憾		
+還	カン	common	還元、生還、返還		
+館	カン	common	館内、旅館、図書館		
+館	やかた	common	館		
+環	カン	common	環状、環境、循環		
+簡	カン	common	簡単、簡易、書簡		
+観	カン	common	観察、客観、壮観	（觀）	
+韓	カン	common	韓国		
+艦	カン	common	艦船、艦隊、軍艦		
+鑑	カン	common	鑑賞、鑑定、年鑑		
+鑑	かんが.みる	common	鑑みる		
+丸	ガン	common	丸薬、弾丸、砲丸		
+丸	ま.る	common	丸、丸太、丸洗い		
+丸	まる.い	common	丸い、丸み、丸さ		⇔円い
+丸	まる.める	common	丸める		
+含	ガン	common	含有、含蓄、包含		
+含	ふく.む	common	含む、含み		
+含	ふく.める	common	含める		
+岸	ガン	common	岸壁、対岸、彼岸		河岸（かし）
+岸	きし	common	岸、向こう岸		
+岩	ガン	common	岩石、岩塩、火成岩		
+岩	いわ	common	岩、岩場		
+玩	ガン	common	玩具、愛玩		
+眼	ガン	common	眼球、眼力、主眼		眼鏡（めがね）
+眼	ゲン	narrow	開眼		
+眼	まなこ	common	眼、どんぐり眼、血眼		
+頑	ガン	common	頑強、頑健、頑固		
+顔	ガン	common	顔面、童顔、厚顔		
+顔	かお	common	顔、横顔、したり顔		笑顔（えがお）
+願	ガン	common	願望、祈願、志願		
+願	ねが.う	common	願う、願い、願わしい		
+企	キ	common	企画、企図、企業		
+企	くわだ.てる	common	企てる、企て		
+伎	キ	common	歌舞伎		
+危	キ	common	危険、危害、安危		
+危	あぶ.ない	common	危ない、危ながる		
+危	あや.うい	common	危うい、危うく		
+危	あや.ぶむ	common	危ぶむ		
+机	キ	common	机上、机辺		
+机	つくえ	common	机		
+気	キ	common	気体、気候、元気	（氣）	意気地（いくじ）浮気（うわき）
+気	ケ	common	気配、気色ばむ、火の気		
+岐	キ	common	岐路、分岐、多岐		岐阜（ぎふ）県
+希	キ	common	希望、希少、希薄		
+忌	キ	common	忌避、忌中、禁忌		
+忌	い.む	common	忌む		
+忌	い.まわしい	common	忌まわしい		
+汽	キ	common	汽車、汽船、汽笛		
+奇	キ	common	奇襲、奇数、珍奇		数奇屋（すきや）
+祈	キ	common	祈願、祈念	（祈）	
+祈	いの.る	common	祈る、祈り		
+季	キ	common	季節、四季、雨季		
+紀	キ	common	紀行、紀元、風紀		
+軌	キ	common	軌道、広軌、常軌		
+既	キ	common	既成、既婚、既往症	（既）	
+既	すで.に	common	既に		
+記	キ	common	記入、記号、伝記		
+記	しる.す	common	記す		
+起	キ	common	起立、起源、奮起		
+起	お.きる	common	起きる、早起き		
+起	お.こる	common	起こる		⇔興る
+起	お.こす	common	起こす		⇔興す
+飢	キ	common	飢餓		
+飢	う.える	common	飢える、飢え		
+鬼	キ	common	鬼神、鬼才、餓鬼		
+鬼	おに	common	鬼、鬼ごっこ、赤鬼		
+帰	キ	common	帰還、帰納、復帰	（歸）	
+帰	かえ.る	common	帰る、帰り		⇔返る
+帰	かえ.す	common	帰す		⇔返す
+基	キ	common	基礎、基準、基地		
+基	もと	common	基、基づく		⇔下、元、本
+基	もとい	common	基		
+寄	キ	common	寄宿、寄贈、寄港		数寄屋（すきや）
+寄	よ.る	common	寄る、近寄る、身寄り		最寄り（もより）
+寄	よ.せる	common	寄せる、人寄せ		寄席（よせ）
+規	キ	common	規則、規律、定規		
+亀	キ	common	亀裂	（龜）	
+亀	かめ	common	亀		
+喜	キ	common	喜劇、悲喜、歓喜		
+喜	よろこ.ぶ	common	喜ぶ、喜び、喜ばしい		
+幾	キ	common	幾何学		
+幾	いく	common	幾つ、幾ら、幾日		
+揮	キ	common	揮発油、指揮、発揮		
+期	キ	common	期間、期待、予期		
+期	ゴ	narrow	最期、この期に及んで		
+棋	キ	common	棋士、棋譜、将棋		
+貴	キ	common	貴重、貴下、騰貴		
+貴	たっと.い	common	貴い		⇔尊い
+貴	とうと.い	common	貴い		⇔尊い
+貴	たっと.ぶ	common	貴ぶ		⇔尊ぶ
+貴	とうと.ぶ	common	貴ぶ		⇔尊ぶ
+棄	キ	common	棄権、放棄、遺棄		
+毀	キ	common	毀損、毀誉		
+旗	キ	common	旗手、旗艦、国旗		
+旗	はた	common	旗、旗色、手旗		
+器	キ	common	器量、器用、陶器	（器）	
+器	うつわ	common	器		
+畿	キ	common	畿内、近畿		
+輝	キ	common	輝石、光輝		
+輝	かがや.く	common	輝く、輝き、輝かしい		
+機	キ	common	機械、機会、危機		
+機	はた	common	機、機織り		
+騎	キ	common	騎士、騎馬、一騎当千		
+技	ギ	common	技術、技師、特技		
+技	わざ	common	技		⇔業
+宜	ギ	common	適宜、便宜		
+偽	ギ	common	偽名、真偽、虚偽	（僞）	
+偽	いつわ.る	common	偽る、偽り		
+偽	にせ	common	偽、偽物、偽札		
+欺	ギ	common	詐欺		
+欺	あざむ.く	common	欺く		
+義	ギ	common	義理、意義、正義		
+疑	ギ	common	疑念、疑問、容疑		
+疑	うたが.う	common	疑う、疑い、疑わしい		
+儀	ギ	common	儀式、威儀、地球儀		
+戯	ギ	common	戯曲、遊戯、児戯	（戲）	
+戯	たわむ.れる	common	戯れる、戯れ		
+擬	ギ	common	擬音、擬人法、模擬		
+犠	ギ	common	犠牲、犠打	（犧）	
+議	ギ	common	議論、会議、異議		
+菊	キク	common	菊、菊花、白菊		
+吉	キチ	common	吉日、吉例、大吉		「吉日」は、「キツジツ」とも。
+吉	キツ	common	吉報、不吉		
+喫	キツ	common	喫煙、満喫、喫する		
+詰	キツ	common	詰問、難詰、面詰		
+詰	つ.める	common	詰める、詰め物		
+詰	つ.まる	common	詰まる、行き詰まる		
+詰	つ.む	common	詰む、詰み		
+却	キャク	common	却下、退却、売却		
+客	キャク	common	客間、客車、乗客		
+客	カク	common	客死、主客、旅客		
+脚	キャク	common	脚部、脚本、三脚		
+脚	キャ	narrow	脚立、行脚		
+脚	あし	common	脚、机の脚		⇔足
+逆	ギャク	common	逆上、逆転、順逆		
+逆	さか	common	逆立つ、逆さ、逆さま		
+逆	さか.らう	common	逆らう		
+虐	ギャク	common	虐待、虐殺、残虐		
+虐	しいた.げる	common	虐げる		
+九	キュウ	common	九百、三拝九拝		
+九	ク	common	九分九厘、九月		
+九	ここの	common	九日、九重		
+九	ここの.つ	common	九つ		
+久	キュウ	common	永久、持久、耐久		
+久	ク	narrow	久遠		
+久	ひさ.しい	common	久しい、久々		
+及	キュウ	common	及第、追及、普及		
+及	およ.ぶ	common	及ぶ、及び腰		
+及	およ.び	common	及び〔接〕		
+及	およ.ぼす	common	及ぼす		
+弓	キュウ	common	弓道、弓状、洋弓		
+弓	ゆみ	common	弓、弓矢		
+丘	キュウ	common	丘陵、砂丘		
+丘	おか	common	丘		
+旧	キュウ	common	旧道、新旧、復旧	（舊）	
+休	キュウ	common	休止、休憩、定休		
+休	やす.む	common	休む、休み		
+休	やす.まる	common	休まる		
+休	やす.める	common	休める、気休め		
+吸	キュウ	common	吸収、吸入、呼吸		
+吸	す.う	common	吸う		
+朽	キュウ	common	不朽、老朽、腐朽		
+朽	く.ちる	common	朽ちる		
+臼	キュウ	common	臼歯、脱臼		
+臼	うす	common	石臼		
+求	キュウ	common	求職、要求、追求		
+求	もと.める	common	求める、求め		
+究	キュウ	common	究明、研究、学究		
+究	きわ.める	common	究める		⇔窮める、極める
+泣	キュウ	common	号泣、感泣		
+泣	な.く	common	泣く、泣き沈む		
+急	キュウ	common	急速、急務、緊急		
+急	いそ.ぐ	common	急ぐ、急ぎ		
+級	キュウ	common	等級、上級、階級		
+糾	キュウ	common	糾弾、紛糾		
+宮	キュウ	common	宮殿、宮廷、離宮		
+宮	グウ	common	宮司、神宮、東宮		
+宮	ク	narrow			「宮内庁」などと使う。
+宮	みや	common	宮、宮様		
+救	キュウ	common	救助、救援、救急		
+救	すく.う	common	救う、救い		
+球	キュウ	common	球形、球技、地球		
+球	たま	common	球		⇔玉、弾
+給	キュウ	common	給水、配給、月給		
+嗅	キュウ	common	嗅覚		＊［（付）第２の３参照］
+嗅	か.ぐ	common	嗅ぐ		
+窮	キュウ	common	窮極、窮屈、困窮		
+窮	きわ.める	common	窮める		⇔究める、極める
+窮	きわ.まる	common	窮まる		⇔極まる
+牛	ギュウ	common	牛馬、牛乳、闘牛		
+牛	うし	common	牛		
+去	キョ	common	去年、去就、除去		
+去	コ	common	過去		
+去	さ.る	common	去る、去る○日		
+巨	キョ	common	巨大、巨匠、巨万		
+居	キョ	common	居住、居室、住居		居士（こじ）
+居	い.る	common	居る、芝居		
+拒	キョ	common	拒絶、拒否		
+拒	こば.む	common	拒む		
+拠	キョ	common	拠点、占拠、根拠	（據）	
+拠	コ	common	証拠		
+挙	キョ	common	挙手、挙国、壮挙	（擧）	
+挙	あ.げる	common	挙げる、挙げて〔副〕		⇔上げる、揚げる
+挙	あ.がる	common	挙がる		⇔上がる、揚がる
+虚	キョ	common	虚無、虚偽、空虚	（虛）	
+虚	コ	narrow	虚空、虚無僧		
+許	キョ	common	許可、許諾、特許		
+許	ゆる.す	common	許す、許し		
+距	キョ	common	距離		
+魚	ギョ	common	魚類、金魚、鮮魚		雑魚（ざこ）
+魚	うお	common	魚、魚市場		
+魚	さかな	common	魚、魚屋、煮魚		
+御	ギョ	common	御者、制御		
+御	ゴ	common	御飯、御用、御殿		
+御	おん	common	御中、御礼		
+漁	ギョ	common	漁業、漁船、漁村		
+漁	リョウ	common	漁師、大漁、不漁		「猟」の字音の転用。
+凶	キョウ	common	凶悪、凶作、吉凶		
+共	キョウ	common	共同、共通、公共		
+共	とも	common	共に、共々、共食い		
+叫	キョウ	common	叫喚、絶叫		
+叫	さけ.ぶ	common	叫ぶ、叫び		
+狂	キョウ	common	狂気、狂言、熱狂		
+狂	くる.う	common	狂う		
+狂	くる.おしい	common	狂おしい		
+京	キョウ	common	京風、上京、帰京		
+京	ケイ	common			「京浜」、「京阪」などと使う。
+享	キョウ	common	享有、享受、享楽		
+供	キョウ	common	供給、提供、自供		
+供	ク	narrow	供物、供養		
+供	そな.える	common	供える、お供え		⇔備える
+供	とも	common	供、子供		
+協	キョウ	common	協力、協会、妥協		
+況	キョウ	common	状況、実況、概況		
+峡	キョウ	common	峡谷、地峡、海峡	（峽）	
+挟	キョウ	common	挟撃	（挾）	
+挟	はさ.む	common	挟む		
+挟	はさ.まる	common	挟まる		
+狭	キョウ	common	狭量、広狭、偏狭	（狹）	
+狭	せま.い	common	狭い、狭苦しい		
+狭	せば.める	common	狭める		
+狭	せば.まる	common	狭まる		
+恐	キョウ	common	恐怖、恐縮、恐慌		
+恐	おそ.れる	common	恐れる、恐れ、恐らく		⇔畏れる
+恐	おそ.ろしい	common	恐ろしい		
+恭	キョウ	common	恭賀、恭順		
+恭	うやうや.しい	common	恭しい		
+胸	キョウ	common	胸囲、胸中、度胸		
+胸	むね	common	胸		
+胸	むな	narrow	胸板、胸毛、胸騒ぎ		
+脅	キョウ	common	脅迫、脅威		
+脅	おびや.かす	common	脅かす		
+脅	おど.す	common	脅す、脅し、脅し文句		
+脅	おど.かす	common	脅かす		
+強	キョウ	common	強弱、強要、勉強		
+強	ゴウ	common	強引、強情、強盗		
+強	つよ.い	common	強い、強がる		
+強	つよ.まる	common	強まる		
+強	つよ.める	common	強める		
+強	し.いる	common	強いる、無理強い		
+教	キョウ	common	教育、教訓、宗教		
+教	おし.える	common	教える、教え		
+教	おそ.わる	common	教わる		
+郷	キョウ	common	郷里、郷土、異郷	（鄕）	
+郷	ゴウ	common	郷士、近郷、在郷		
+境	キョウ	common	境界、境地、逆境		
+境	ケイ	narrow	境内		
+境	さかい	common	境、境目		
+橋	キョウ	common	橋脚、鉄橋、歩道橋		
+橋	はし	common	橋、丸木橋		
+矯	キョウ	common	矯正、奇矯		
+矯	た.める	common	矯める、矯め直す		
+鏡	キョウ	common	鏡台、望遠鏡、反射鏡		眼鏡（めがね）
+鏡	かがみ	common	鏡		
+競	キョウ	common	競争、競技、競泳		
+競	ケイ	common	競馬、競輪		
+競	きそ.う	common	競う		
+競	せ.る	common	競る、競り合う		
+響	キョウ	common	音響、影響、交響楽	（響）	
+響	ひび.く	common	響く、響き		
+驚	キョウ	common	驚異、驚嘆		
+驚	おどろ.く	common	驚く、驚き		
+驚	おどろ.かす	common	驚かす		
+仰	ギョウ	common	仰視、仰天、仰角		
+仰	コウ	narrow	信仰		
+仰	あお.ぐ	common	仰ぐ		
+仰	おお.せ	common	仰せ		
+暁	ギョウ	common	暁天、今暁、通暁	（曉）	
+暁	あかつき	common	暁		
+業	ギョウ	common	業績、職業、卒業		
+業	ゴウ	common	業病、罪業、自業自得		
+業	わざ	common	業、仕業、早業		⇔技
+凝	ギョウ	common	凝固、凝結、凝視		
+凝	こ.る	common	凝る、凝り性		
+凝	こ.らす	common	凝らす		
+曲	キョク	common	曲線、曲面、名曲		
+曲	ま.がる	common	曲がる		
+曲	ま.げる	common	曲げる		
+局	キョク	common	局部、時局、結局		
+極	キョク	common	極限、終極、積極的		
+極	ゴク	common	極上、極秘、至極		
+極	きわ.める	common	極める、極め付き、極めて〔副〕		⇔究める、窮める
+極	きわ.まる	common	極まる、極まり		⇔窮まる
+極	きわ.み	common	極み		
+玉	ギョク	common	玉座、玉石、宝玉		
+玉	たま	common	玉、目玉		⇔球、弾
+巾	キン	common	頭巾、雑巾		
+斤	キン	common	斤量		
+均	キン	common	均等、均一、平均		
+近	キン	common	近所、近代、接近		
+近	ちか.い	common	近い、近づく、近道		
+金	キン	common	金属、金銭、純金		
+金	コン	common	金色、金剛力、黄金		
+金	かね	common	金、金持ち、針金		
+金	かな	narrow	金物、金具、金縛り		
+菌	キン	common	細菌、殺菌、保菌者		
+勤	キン	common	勤務、勤勉、出勤	（勤）	
+勤	ゴン	narrow	勤行		
+勤	つと.める	common	勤める、勤め		⇔努める、務める
+勤	つと.まる	common	勤まる		⇔務まる
+琴	キン	common	琴線、木琴、手風琴		
+琴	こと	common	琴		
+筋	キン	common	筋肉、筋骨、鉄筋		
+筋	すじ	common	筋、筋書、大筋		
+僅	キン	common	僅差		＊［（付）第２の３参照］
+僅	わず.か	common	僅かだ		
+禁	キン	common	禁止、禁煙、厳禁		
+緊	キン	common	緊張、緊密、緊急		
+錦	キン	common	錦秋		
+錦	にしき	common	錦絵		
+謹	キン	common	謹慎、謹賀、謹呈	（謹）	
+謹	つつし.む	common	謹む、謹んで〔副〕		⇔慎む
+襟	キン	common	襟度、開襟、胸襟		
+襟	えり	common	襟、襟首		
+吟	ギン	common	吟味、詩吟、苦吟		
+銀	ギン	common	銀貨、銀行、水銀		
+区	ク	common	区別、区々、地区	（區）	
+句	ク	common	句集、字句、節句		
+苦	ク	common	苦心、苦労、辛苦		
+苦	くる.しい	common	苦しい、苦しがる、見苦しい		
+苦	くる.しむ	common	苦しむ、苦しみ		
+苦	くる.しめる	common	苦しめる		
+苦	にが.い	common	苦い、苦虫、苦々しい		
+苦	にが.る	common	苦り切る		
+駆	ク	common	駆使、駆逐、先駆	（驅）	
+駆	か.ける	common	駆ける、抜け駆け		
+駆	か.る	common	駆る、駆り立てる		
+具	グ	common	具体的、具備、道具		
+惧	グ	common	危惧		＊［（付）第２の３参照］
+愚	グ	common	愚問、愚鈍、暗愚		
+愚	おろ.か	common	愚かだ、愚かしい		
+空	クウ	common	空想、空港、上空		
+空	そら	common	空、空色、青空		
+空	あ.く	common	空く、空き巣		⇔開く、明く
+空	あ.ける	common	空ける		⇔開ける、明ける
+空	から	common	空、空手、空手形		
+偶	グウ	common	偶然、偶数、配偶者		
+遇	グウ	common	境遇、待遇、遇する		
+隅	グウ	common	一隅		
+隅	すみ	common	隅、片隅		
+串	くし	common	串刺し、串焼き		
+屈	クツ	common	屈辱、屈伸、不屈、理屈		
+掘	クツ	common	掘削、発掘、採掘		
+掘	ほ.る	common	掘る		
+窟	クツ	common	巣窟、洞窟		
+熊	くま	common	熊		
+繰	く.る	common	繰る、繰り返す		
+君	クン	common	君主、君臨、諸君		
+君	きみ	common	君、母君		
+訓	クン	common	訓練、教訓、音訓		
+勲	クン	common	勲功、勲章、殊勲	（勳）	
+薫	クン	common	薫風、薫陶	（薰）	
+薫	かお.る	common	薫る、薫り		⇔香る
+軍	グン	common	軍隊、軍備、空軍		
+郡	グン	common	郡部、○○郡		
+群	グン	common	群居、大群、抜群		
+群	む.れる	common	群れる		
+群	む.れ	common	群れ		
+群	むら	narrow	群すずめ、群千鳥、群がる		
+兄	ケイ	common	兄事、父兄、義兄		兄（にい）さん
+兄	キョウ	narrow	兄弟		「兄弟」は、「ケイテイ」と読むこともある。
+兄	あに	common	兄		
+刑	ケイ	common	刑罰、刑法、処刑		
+形	ケイ	common	形態、形成、図形		
+形	ギョウ	common	形相、人形		
+形	かた	common	形、形見、手形		⇔型
+形	かたち	common	形		
+系	ケイ	common	系統、系列、体系		
+径	ケイ	common	直径、直情径行	（徑）	
+茎	ケイ	common	球茎、地下茎	（莖）	
+茎	くき	common	茎、歯茎		
+係	ケイ	common	係累、係争、関係		
+係	かか.る	common	係る		⇔掛かる
+係	かかり	common	係、係員、庶務係		⇔掛
+型	ケイ	common	原型、模型、典型		
+型	かた	common	型、型紙、血液型		⇔形
+契	ケイ	common	契約、契機、黙契		
+契	ちぎ.る	common	契る、契り		
+計	ケイ	common	計算、計画、寒暖計		時計（とけい）
+計	はか.る	common	計る		⇔測る、量る、図る、謀る
+計	はか.らう	common	計らう、計らい		
+恵	ケイ	common	恵贈、恵与、恩恵	（惠）	
+恵	エ	common	恵方参り、知恵		
+恵	めぐ.む	common	恵む、恵み		
+啓	ケイ	common	啓発、啓示、拝啓		
+掲	ケイ	common	掲示、掲載、前掲	（揭）	
+掲	かか.げる	common	掲げる		
+渓	ケイ	common	渓谷、渓流、雪渓	（溪）	
+経	ケイ	common	経費、経済、経験	（經）	
+経	キョウ	common	経文、お経、写経		読経（どきょう）
+経	へ.る	common	経る		
+蛍	ケイ	common	蛍光灯、蛍光塗料	（螢）	
+蛍	ほた.る	common	蛍		
+敬	ケイ	common	敬意、敬服、尊敬		
+敬	うやま.う	common	敬う		
+景	ケイ	common	景気、風景、光景		景色（けしき）
+軽	ケイ	common	軽快、軽薄、軽率	（輕）	
+軽	かる.い	common	軽い、軽々と、手軽だ		
+軽	かろ.やか	common	軽やかだ		
+傾	ケイ	common	傾斜、傾倒、傾向		
+傾	かたむ.く	common	傾く、傾き		
+傾	かたむ.ける	common	傾ける		
+携	ケイ	common	携帯、必携、提携		
+携	たずさ.える	common	携える		
+携	たずさ.わる	common	携わる		
+継	ケイ	common	継続、継承、中継	（繼）	
+継	つ.ぐ	common	継ぐ、継ぎ		⇔接ぐ、次ぐ
+詣	ケイ	common	参詣		
+詣	もう.でる	common	詣でる、初詣		
+慶	ケイ	common	慶弔、慶祝、慶賀		
+憬	ケイ	common	憧憬		
+稽	ケイ	common	稽古、滑稽		＊［（付）第２の３参照］
+憩	ケイ	common	休憩		
+憩	いこ.い	common	憩い		
+憩	いこ.う	common	憩う		
+警	ケイ	common	警告、警戒、警察		
+鶏	ケイ	common	鶏卵、鶏舎、養鶏	（鷄）	
+鶏	にわとり	common	鶏		
+芸	ゲイ	common	芸術、芸能、文芸	（藝）	
+迎	ゲイ	common	迎合、歓迎、送迎		
+迎	むか.える	common	迎える、出迎え		
+鯨	ゲイ	common	鯨油、捕鯨		
+鯨	くじら	common	鯨		
+隙	ゲキ	common	間隙		
+隙	すき	common	隙間		「隙間」は、「透き間」とも書く。
+劇	ゲキ	common	劇薬、劇場、演劇		
+撃	ゲキ	common	撃退、攻撃、打撃	（擊）	
+撃	う.つ	common	撃つ、早撃ち		⇔打つ、討つ
+激	ゲキ	common	激動、感激、激する		
+激	はげ.しい	common	激しい、激しさ		
+桁	けた	common	桁違い、橋桁		
+欠	ケツ	common	欠乏、欠席、補欠	（缺）	
+欠	か.ける	common	欠ける		
+欠	か.く	common	欠く		
+穴	ケツ	common	穴居、墓穴		
+穴	あな	common	穴		
+血	ケツ	common	血液、血統、鮮血		
+血	ち	common	血、鼻血		
+決	ケツ	common	決裂、決意、解決		
+決	き.める	common	決める、取り決め		
+決	き.まる	common	決まる、決まり		
+結	ケツ	common	結論、結婚、連結		
+結	むす.ぶ	common	結ぶ、結び		
+結	ゆ.う	common	結う、元結		
+結	ゆ.わえる	common	結わえる		
+傑	ケツ	common	傑物、傑作、豪傑		
+潔	ケツ	common	潔白、清潔、純潔		
+潔	いさぎよ.い	common	潔い		
+月	ゲツ	common	月曜、明月、歳月		五月（さつき）五月雨（さみだれ）
+月	ガツ	common	正月、九月		
+月	つき	common	月、月見、三日月		
+犬	ケン	common	犬歯、愛犬、野犬		
+犬	いぬ	common	犬		
+件	ケン	common	件数、事件、条件		
+見	ケン	common	見学、見地、意見		
+見	み.る	common	見る、下見		⇔診る
+見	み.える	common	見える		
+見	み.せる	common	見せる、顔見せ		
+券	ケン	common	乗車券、旅券、債券		
+肩	ケン	common	肩章、双肩、比肩		
+肩	かた	common	肩		
+建	ケン	common	建築、建議、封建的		
+建	コン	narrow	建立		
+建	た.てる	common	建てる、建物、二階建て		⇔立てる
+建	た.つ	common	建つ、一戸建ち		⇔立つ
+研	ケン	common	研究、研修	（硏）	
+研	と.ぐ	common	研ぐ		
+県	ケン	common	県庁、県立、○○県	（縣）	
+倹	ケン	common	倹約、節倹、勤倹	（儉）	
+兼	ケン	common	兼用、兼任、兼職		
+兼	か.ねる	common	兼ねる		
+剣	ケン	common	剣道、剣舞、刀剣	（劍）	
+剣	つるぎ	common	剣		
+拳	ケン	common	拳銃、拳法		
+拳	こぶし	common	握り拳		
+軒	ケン	common	軒数、一軒		
+軒	のき	common	軒、軒先		
+健	ケン	common	健康、健闘、強健		
+健	すこ.やか	common	健やかだ		
+険	ケン	common	険悪、危険、保険	（險）	
+険	けわ.しい	common	険しい、険しさ		
+圏	ケン	common	圏内、圏外、成層圏	（圈）	
+堅	ケン	common	堅固、堅実、中堅		
+堅	かた.い	common	堅い		⇔硬い、固い
+検	ケン	common	検査、検討、点検	（檢）	
+嫌	ケン	common	嫌悪、嫌疑		
+嫌	ゲン	narrow	機嫌		
+嫌	きら.う	common	嫌う、嫌い		
+嫌	いや	common	嫌だ、嫌がる、嫌気がさす		
+献	ケン	common	献上、献身的、文献	（獻）	
+献	コン	narrow	献立、一献		
+絹	ケン	common	絹布、人絹		
+絹	きぬ	common	絹、薄絹		
+遣	ケン	common	遣外、派遣、分遣		
+遣	つか.う	common	遣う、金遣い		⇔使う
+遣	つか.わす	common	遣わす		
+権	ケン	common	権利、権威、人権	（權）	
+権	ゴン	narrow	権化、権現		
+憲	ケン	common	憲法、憲章、官憲		
+賢	ケン	common	賢人、賢明、先賢		
+賢	かしこ.い	common	賢い		
+謙	ケン	common	謙虚、謙譲		
+鍵	ケン	common	鍵盤		
+鍵	かぎ	common	鍵、鍵穴		
+繭	ケン	common	繭糸		
+繭	まゆ	common	繭、繭玉		
+顕	ケン	common	顕著、顕彰、顕微鏡	（顯）	
+験	ケン	common	試験、経験、実験	（驗）	
+験	ゲン	narrow	験がある、霊験		
+懸	ケン	common	懸垂、懸賞、懸命		
+懸	ケ	narrow	懸念、懸想		
+懸	か.ける	common	懸ける、命懸け		⇔掛ける、架ける、賭ける
+懸	か.かる	common	懸かる		⇔掛かる、架かる
+元	ゲン	common	元素、元気、多元		
+元	ガン	common	元祖、元日、元来		
+元	もと	common	元、元帳、家元		⇔下、本、基
+幻	ゲン	common	幻滅、幻覚、夢幻		
+幻	まぼろし	common	幻		
+玄	ゲン	common	玄米、玄関、幽玄		玄人（くろうと）
+言	ゲン	common	言行、言論、宣言		
+言	ゴン	common	言上、伝言、無言		
+言	い.う	common	言う、物言い		
+言	こと	common	言葉、寝言		
+弦	ゲン	common	上弦、正弦		
+弦	つ.る	common	弦		
+限	ゲン	common	限度、制限、期限		
+限	かぎ.る	common	限る、限り		
+原	ゲン	common	原因、原理、高原		
+原	はら	common	原、野原、松原		海原（うなばら）河原・川原（かわら）
+現	ゲン	common	現象、現在、表現		
+現	あらわ.れる	common	現れる、現れ		⇔表れる
+現	あらわ.す	common	現す		⇔表す、著す
+舷	ゲン	common	舷側、右舷		
+減	ゲン	common	減少、増減、加減		
+減	へ.る	common	減る、目減り		
+減	へ.らす	common	減らす、人減らし		
+源	ゲン	common	源泉、水源、資源		
+源	みなもと	common	源		
+厳	ゲン	common	厳格、厳重、威厳	（嚴）	
+厳	ゴン	narrow	荘厳		
+厳	おごそ.か	common	厳かだ		
+厳	きび.しい	common	厳しい、厳しさ		
+己	コ	common	自己、利己		
+己	キ	common	知己、克己		
+己	おのれ	common	己		
+戸	コ	common	戸外、戸籍、下戸		
+戸	と	common	戸、雨戸		
+古	コ	common	古代、古典、太古		
+古	ふる.い	common	古い、古株、古びる		
+古	ふる.す	common	使い古す		
+呼	コ	common	呼吸、呼応、点呼		
+呼	よ.ぶ	common	呼ぶ、呼び声		
+固	コ	common	固定、固有、堅固		
+固	かた.める	common	固める、固め		
+固	かた.まる	common	固まる、固まり		
+固	かた.い	common	固い、固さ		固唾（かたず）⇔堅い、硬い
+股	コ	common	股間、股関節		
+股	また	common	内股、大股		
+虎	コ	common	虎穴、猛虎		
+虎	とら	common	虎		
+孤	コ	common	孤児、孤独、孤立		
+弧	コ	common	弧状、括弧、円弧		
+故	コ	common	故郷、故意、事故		
+故	ゆえ	common	故、故に		
+枯	コ	common	枯死、枯淡、栄枯		
+枯	か.れる	common	枯れる、枯れ木		
+枯	か.らす	common	枯らす、木枯らし		
+個	コ	common	個人、個性、一個		
+庫	コ	common	倉庫、文庫、車庫		
+庫	ク	narrow	庫裏		
+湖	コ	common	湖水、湖沼、湖畔		
+湖	みずうみ	common	湖		
+雇	コ	common	雇用、雇員、解雇		
+雇	やと.う	common	雇う、日雇い		
+誇	コ	common	誇示、誇大、誇張		
+誇	ほこ.る	common	誇る、誇り、誇らしい		
+鼓	コ	common	鼓動、鼓舞、太鼓		
+鼓	つづみ	common	鼓、小鼓		
+錮	コ	common	禁錮		
+顧	コ	common	顧慮、顧問、回顧		
+顧	かえり.みる	common	顧みる		⇔省みる
+五	ゴ	common	五穀、五色、五目飯		五月（さつき）五月雨（さみだれ）
+五	いつ	common	五日		
+五	いつ.つ	common	五つ		
+互	ゴ	common	互角、互選、相互		
+互	たが.い	common	互い、互いに、互い違い		
+午	ゴ	common	午前、正午、子午線		
+呉	ゴ	common	呉服、呉越同舟		
+後	ゴ	common	後刻、前後、午後		
+後	コウ	common	後続、後悔、後輩		
+後	のち	common	後、後添い、後の世		
+後	うし.ろ	common	後ろ、後ろめたい		
+後	あと	common	後、後味、後回し		⇔跡、痕
+後	おく.れる	common	後れる、後れ毛、気後れ		⇔遅れる
+娯	ゴ	common	娯楽		
+悟	ゴ	common	悟性、覚悟、悔悟		
+悟	さと.る	common	悟る、悟り		
+碁	ゴ	common	碁石、碁盤、囲碁		
+語	ゴ	common	語学、新語、国語		
+語	かた.る	common	語る、物語		
+語	かた.らう	common	語らう、語らい		
+誤	ゴ	common	誤解、正誤、錯誤		
+誤	あやま.る	common	誤る、誤り		
+護	ゴ	common	護衛、救護、保護		
+口	コウ	common	口述、人口、開口		
+口	ク	common	口調、口伝、異口同音		
+口	くち	common	口、口絵、出口		
+工	コウ	common	工場、加工、人工		
+工	ク	common	工面、細工、大工		
+公	コウ	common	公平、公私、公園		
+公	おおやけ	common	公		
+勾	コウ	common	勾配、勾留		
+孔	コウ	common	鼻孔、気孔		
+功	コウ	common	功名、功績、成功		
+功	ク	narrow	功徳		
+巧	コウ	common	巧拙、巧妙、技巧		
+巧	たく.み	common	巧みな術		
+広	コウ	common	広大、広言、広義	（廣）	
+広	ひろ.い	common	広い、広場、広々と		
+広	ひろ.まる	common	広まる		
+広	ひろ.める	common	広める		
+広	ひろ.がる	common	広がる、広がり		
+広	ひろ.げる	common	広げる		
+甲	コウ	common	甲乙、装甲車		
+甲	カン	common	甲板、甲高い		「甲板」は、「コウハン」とも。
+交	コウ	common	交通、交番、社交		
+交	まじ.わる	common	交わる、交わり		
+交	まじ.える	common	交える		
+交	ま.じる	common	交じる		⇔混じる
+交	ま.ざる	common	交ざる		⇔混ざる
+交	ま.ぜる	common	交ぜる、交ぜ織り		⇔混ぜる
+交	か.う	common	飛び交う		
+交	か.わす	common	交わす		
+光	コウ	common	光線、栄光、観光		
+光	ひか.る	common	光る、光り輝く		
+光	ひかり	common	光、稲光		
+向	コウ	common	向上、傾向、趣向		
+向	む.く	common	向く、向き		
+向	む.ける	common	向ける、顔向け		
+向	む.かう	common	向かう、向かい		
+向	む.こう	common	向こう、向こう側		
+后	コウ	common	皇后、皇太后		
+好	コウ	common	好意、好敵手、良好		
+好	この.む	common	好む、好み、好ましい		
+好	す.く	common	好く、好き嫌い、好きな絵		
+江	コウ	common	江湖		
+江	え	common	入り江		
+考	コウ	common	考慮、思考、参考		
+考	かんが.える	common	考える、考え		
+行	コウ	common	行進、行為、旅行		
+行	ギョウ	common	行列、行政、修行		
+行	アン	narrow	行脚、行火		
+行	い.く	common	行く		⇔逝く
+行	ゆ.く	common	行く、行く末		行方（ゆくえ）⇔逝く
+行	おこな.う	common	行う、行い		
+坑	コウ	common	坑道、炭坑、廃坑		
+孝	コウ	common	孝行、孝心、不孝		
+抗	コウ	common	抗争、抗議、対抗		
+攻	コウ	common	攻守、攻撃、専攻		
+攻	せ.める	common	攻める		
+更	コウ	common	更新、更迭、変更		
+更	さら	common	更に、今更		
+更	ふ.ける	common	更ける、夜更け		
+更	ふ.かす	common	更かす、夜更かし		
+効	コウ	common	効果、効力、時効	（效）	
+効	き.く	common	効く、効き目		⇔利く
+幸	コウ	common	幸福、不幸、行幸		
+幸	さいわ.い	common	幸い、幸いな事		
+幸	さち	common	幸		
+幸	しあわ.せ	common	幸せ、幸せな人		
+拘	コウ	common	拘束、拘留、拘置		
+肯	コウ	common	肯定、首肯		
+侯	コウ	common	諸侯、王侯		
+厚	コウ	common	厚情、厚生、濃厚		
+厚	あつ.い	common	厚い、厚み		
+恒	コウ	common	恒常、恒例、恒久	（恆）	
+洪	コウ	common	洪水、洪積層		
+皇	コウ	common	皇帝、皇室、皇后		
+皇	オウ	common	法皇		「天皇」は、「テンノウ」。
+紅	コウ	common	紅白、紅茶、紅葉		紅葉（もみじ）
+紅	ク	narrow	真紅、深紅		
+紅	べに	common	紅、口紅		
+紅	くれない	common	紅		
+荒	コウ	common	荒天、荒廃、荒涼		
+荒	あら.い	common	荒い、荒波、荒々しい		⇔粗い
+荒	あ.れる	common	荒れる、荒れ地、大荒れ		
+荒	あ.らす	common	荒らす、倉庫荒らし		
+郊	コウ	common	郊外、近郊		
+香	コウ	common	香水、香気、線香		
+香	キョウ	narrow	香車		
+香	か	common	香、色香、移り香		
+香	かお.り	common	香り		⇔薫り
+香	かお.る	common	香る		⇔薫る
+候	コウ	common	候補、気候、測候所		
+候	そうろう	common	候文、居候		
+校	コウ	common	校閲、将校、学校		
+耕	コウ	common	耕作、耕地、農耕		
+耕	たがや.す	common	耕す		
+航	コウ	common	航海、航空、就航		
+貢	コウ	common	貢献		
+貢	ク	narrow	年貢		
+貢	みつ.ぐ	common	貢ぐ、貢ぎ物		
+降	コウ	common	降雨、降参、下降		
+降	お.りる	common	降りる、乗り降り		⇔下りる
+降	お.ろす	common	降ろす		⇔下ろす、卸す
+降	ふ.る	common	降る、大降り		
+高	コウ	common	高低、高級、最高		
+高	たか.い	common	高い、高台、高ぶる		
+高	たか	common	高、売上高		
+高	たか.まる	common	高まる、高まり		
+高	たか.める	common	高める		
+康	コウ	common	健康、小康		
+控	コウ	common	控除、控訴		
+控	ひか.える	common	控える、控え		
+梗	コウ	common	心筋梗塞、脳梗塞		
+黄	コウ	common	黄葉	（黃）	硫黄（いおう）
+黄	オウ	common	黄金、卵黄		
+黄	き	common	黄、黄色い、黄ばむ		
+黄	こ	narrow	黄金		
+喉	コウ	common	喉頭、咽喉		
+喉	のど	common	喉、喉元		
+慌	コウ	common	恐慌		
+慌	あわ.てる	common	慌てる、大慌て		
+慌	あわ.ただしい	common	慌ただしい、慌ただしさ、慌ただしげだ		
+港	コウ	common	港湾、漁港、出港		
+港	みなと	common	港		
+硬	コウ	common	硬度、硬貨、生硬		
+硬	かた.い	common	硬い、硬さ		⇔堅い、固い
+絞	コウ	common	絞殺、絞首刑		
+絞	しぼ.る	common	絞る、絞り上げる、絞り		⇔搾る
+絞	し.める	common	絞める		⇔締める
+絞	し.まる	common	絞まる		⇔締まる
+項	コウ	common	項目、事項、条項		
+溝	コウ	common	下水溝、排水溝		
+溝	みぞ	common	溝		
+鉱	コウ	common	鉱物、鉱山、鉄鉱	（鑛）	
+構	コウ	common	構造、構内、結構		
+構	かま.える	common	構える、構え		
+構	かま.う	common	構う、構わない		
+綱	コウ	common	綱紀、綱領、大綱		
+綱	つな	common	綱、横綱		
+酵	コウ	common	酵母		
+稿	コウ	common	草稿、原稿、投稿		
+興	コウ	common	興行、復興、振興		
+興	キョウ	common	興味、興趣、余興		
+興	おこ.る	common	興る		⇔起こる
+興	おこ.す	common	興す		⇔起こす
+衡	コウ	common	均衡、平衡、度量衡		
+鋼	コウ	common	鋼鉄、鋼材、製鋼		
+鋼	はがね	common	鋼		
+講	コウ	common	講義、講演、聴講		
+購	コウ	common	購入、購買、購読		
+乞	こ.う	common	乞う、命乞い		⇔請う
+号	ゴウ	common	号令、号外、番号	（號）	
+合	ゴウ	common	合同、合計、結合		
+合	ガッ	common	合併、合宿、合点		「合点」は、「ガテン」とも。
+合	カッ	narrow	合戦		
+合	あ.う	common	合う、落ち合う、試合		⇔会う、遭う
+合	あ.わす	common	合わす		
+合	あ.わせる	common	合わせる、問い合わせる		⇔併せる
+拷	ゴウ	common	拷問		
+剛	ゴウ	common	剛健、金剛力		
+傲	ゴウ	common	傲然、傲慢		
+豪	ゴウ	common	豪遊、豪雨、文豪		
+克	コク	common	克服、克明、克己		
+告	コク	common	告示、告白、報告		
+告	つ.げる	common	告げる		
+谷	コク	common	幽谷		
+谷	たに	common	谷、谷川		
+刻	コク	common	彫刻、時刻、深刻		
+刻	きざ.む	common	刻む、刻み		
+国	コク	common	国際、国家、外国	（國）	
+国	くに	common	国、島国		
+黒	コク	common	黒板、漆黒、暗黒	（黑）	
+黒	くろ	common	黒、真っ黒、白黒		
+黒	くろ.い	common	黒い、黒さ、腹黒い		
+穀	コク	common	穀物、雑穀、脱穀	（穀）	
+酷	コク	common	酷似、冷酷、残酷		
+獄	ゴク	common	獄舎、地獄、疑獄		
+骨	コツ	common	骨子、筋骨、老骨		
+骨	ほね	common	骨、骨折り		
+駒	こま	common	持ち駒		
+込	こ.む	common	込む		⇔混む
+込	こ.める	common	込める、やり込める		
+頃	ころ	common	頃、日頃		
+今	コン	common	今後、今日、今朝、今年、昨今		今日（きょう）今朝（けさ）今年（ことし）
+今	キン	common	今上		
+今	いま	common	今、今し方		
+困	コン	common	困難、困窮、貧困		
+困	こま.る	common	困る		
+昆	コン	common	昆虫、昆布		「昆布」は、「コブ」とも。
+恨	コン	common	遺恨、痛恨、悔恨		
+恨	うら.む	common	恨む、恨み		
+恨	うら.めしい	common	恨めしい		
+根	コン	common	根拠、根気、平方根		
+根	ね	common	根、根強い、屋根		
+婚	コン	common	婚約、結婚、新婚		
+混	コン	common	混合、混雑、混迷		
+混	ま.じる	common	混じる、混じり物		⇔交じる
+混	ま.ざる	common	混ざる		⇔交ざる
+混	ま.ぜる	common	混ぜる、混ぜ物		⇔交ぜる
+混	こ.む	common	混む、混み合う、人混み		⇔込む「混み合う」、「人混み」は、「込み合う」、「人込み」とも書く。
+痕	コン	common	痕跡、血痕		
+痕	あと	common	痕、傷痕		⇔跡、後
+紺	コン	common	紺青、紺屋、濃紺		「紺屋」は、「コウや」とも。
+魂	コン	common	魂胆、霊魂、商魂		
+魂	たましい	common	魂、負けじ魂		
+墾	コン	common	開墾		
+懇	コン	common	懇切、懇親会		
+懇	ねんご.ろ	common	懇ろだ		
+左	サ	common	左右、左翼、左遷		
+左	ひだり	common	左、左利き		
+佐	サ	common	佐幕、補佐、大佐		
+沙	サ	common	沙汰		
+査	サ	common	査察、調査、巡査		
+砂	サ	common	砂丘、砂糖		砂利（じゃり）
+砂	シャ	common	土砂		
+砂	すな	common	砂、砂場		
+唆	サ	common	教唆、示唆		
+唆	そそのか.す	common	唆す		
+差	サ	common	差異、差別、誤差		差し支える（さしつかえる）
+差	さ.す	common	差す		⇔刺す、指す、挿す
+詐	サ	common	詐欺、詐取、詐称		
+鎖	サ	common	鎖国、連鎖、封鎖		
+鎖	くさり	common	鎖		
+座	ザ	common	座席、座談、星座		
+座	すわ.る	common	座る、座り込み		⇔据わる
+挫	ザ	common	挫折、頓挫		
+才	サイ	common	才能、才覚、秀才		
+再	サイ	common	再度、再選、再出発		
+再	サ	narrow	再来年、再来月、再来週		
+再	ふたた.び	common	再び		
+災	サイ	common	災害、災難、火災		
+災	わざわ.い	common	災い		
+妻	サイ	common	妻子、夫妻、良妻		
+妻	つま	common	妻、人妻		
+采	サイ	common	采配、喝采		
+砕	サイ	common	砕石、砕氷、粉砕	（碎）	
+砕	くだ.く	common	砕く		
+砕	くだ.ける	common	砕ける		
+宰	サイ	common	宰領、宰相、主宰		
+栽	サイ	common	栽培、盆栽		
+彩	サイ	common	彩色、色彩、淡彩		
+彩	いろど.る	common	彩る、彩り		
+採	サイ	common	採集、採用、採光		
+採	と.る	common	採る		⇔取る、執る、捕る
+済	サイ	common	返済、救済、経済	（濟）	
+済	す.む	common	済む、使用済み		
+済	す.ます	common	済ます		
+祭	サイ	common	祭礼、文化祭		
+祭	まつ.る	common	祭る、祭り上げる		
+祭	まつ.り	common	祭り、秋祭り		
+斎	サイ	common	斎場、潔斎、書斎	（齋）	
+細	サイ	common	細心、詳細、零細		
+細	ほそ.い	common	細い、細腕、心細い		
+細	ほそ.る	common	細る		
+細	こま.か	common	細かだ		
+細	こま.かい	common	細かい		
+菜	サイ	common	菜園、菜食、野菜		
+菜	な	common	菜、青菜		
+最	サイ	common	最大、最近、最先端		最寄り（もより）
+最	もっと.も	common	最も		
+裁	サイ	common	裁縫、裁判、体裁		
+裁	た.つ	common	裁つ、裁ち物		⇔断つ、絶つ
+裁	さば.く	common	裁く、裁き		
+債	サイ	common	債務、負債、公債		
+催	サイ	common	催眠、開催、主催		
+催	もよお.す	common	催す、催し		
+塞	サイ	common	要塞		
+塞	ソク	common	脳梗塞、閉塞		
+塞	ふさ.ぐ	common	塞ぐ		
+塞	ふさ.がる	common	塞がる		
+歳	サイ	common	歳末、歳月、二十歳		二十歳（はたち）
+歳	セイ	narrow	歳暮		
+載	サイ	common	積載、掲載、記載		
+載	の.せる	common	載せる		⇔乗せる
+載	の.る	common	載る		⇔乗る
+際	サイ	common	際限、交際、この際		
+際	きわ	common	際、際立つ、窓際		
+埼	さい	narrow			埼玉県
+在	ザイ	common	在留、在宅、存在		
+在	あ.る	common	在る、在りし日		⇔有る
+材	ザイ	common	材木、材料、人材		
+剤	ザイ	common	薬剤師、錠剤、消化剤	（劑）	
+財	ザイ	common	財産、私財、文化財		
+財	サイ	narrow	財布		
+罪	ザイ	common	罪状、犯罪、謝罪		
+罪	つみ	common	罪		
+崎	さき	common	○○崎		
+作	サク	common	作為、著作、豊作		
+作	サ	common	作業、作用、動作		
+作	つく.る	common	作る		⇔造る、創る
+削	サク	common	削除、削減、添削		
+削	けず.る	common	削る		
+昨	サク	common	昨日、昨年、一昨日		昨日（きのう）
+柵	サク	common	鉄柵		
+索	サク	common	索引、思索、鉄索		
+策	サク	common	策略、政策、対策		
+酢	サク	common	酢酸		
+酢	す	common	酢、酢の物		
+搾	サク	common	搾取、圧搾		
+搾	しぼ.る	common	搾る		⇔絞る
+錯	サク	common	錯誤、錯覚、交錯		
+咲	さ.く	common	咲く、遅咲き		
+冊	サツ	common	冊子、別冊		
+冊	サク	common	短冊		
+札	サツ	common	札入れ、表札、入札		
+札	ふだ	common	札、名札		
+刷	サツ	common	刷新、印刷、増刷		
+刷	す.る	common	刷る		
+刹	サツ	common	古刹、名刹		
+刹	セツ	common	刹那		
+拶	サツ	common	挨拶		
+殺	サツ	common	殺人、殺到、黙殺	（殺）	
+殺	サイ	narrow	相殺		
+殺	セツ	narrow	殺生		
+殺	ころ.す	common	殺す、殺し、見殺し		
+察	サツ	common	察知、観察、考察		
+撮	サツ	common	撮影		
+撮	と.る	common	撮る		
+擦	サツ	common	擦過傷、摩擦		
+擦	す.る	common	擦る、擦り傷		
+擦	す.れる	common	擦れる、靴擦れ		
+雑	ザツ	common	雑談、雑音、混雑	（雜）	雑魚（ざこ）
+雑	ゾウ	common	雑炊、雑木林、雑兵		
+皿	さら	common	皿、灰皿		
+三	サン	common	三角、三流、再三		三味線（しゃみせん）
+三	み	common	三日月、三日（みっか）		
+三	み.つ	common	三つ指		
+三	みっ.つ	common	三つ		
+山	サン	common	山脈、高山、登山		山車（だし）
+山	やま	common	山		築山（つきやま）
+参	サン	common	参加、参万円、降参	（參）	
+参	まい.る	common	参る、寺参り		
+桟	サン	common	桟、桟橋	（棧）	桟敷（さじき）
+蚕	サン	common	蚕糸、蚕食、養蚕	（蠶）	
+蚕	かいこ	common	蚕		
+惨	サン	common	惨劇、悲惨、陰惨	（慘）	
+惨	ザン	common	惨死、惨殺		
+惨	みじ.め	common	惨めだ		
+産	サン	common	産業、生産、出産		土産（みやげ）
+産	う.む	common	産む、産み月		⇔生む
+産	う.まれる	common	産まれる		⇔生まれる
+産	うぶ	common	産湯、産着、産毛		
+傘	サン	common	傘下、落下傘		
+傘	かさ	common	傘、雨傘、日傘		
+散	サン	common	散歩、散文、解散		
+散	ち.る	common	散る、散り散りに		
+散	ち.らす	common	散らす		
+散	ち.らかす	common	散らかす		
+散	ち.らかる	common	散らかる		
+算	サン	common	算数、計算、予算		
+酸	サン	common	酸味、酸素、辛酸		
+酸	す.い	common	酸い、酸っぱい		
+賛	サン	common	賛成、賛同、称賛	（贊）	
+残	ザン	common	残留、残念、敗残	（殘）	名残（なごり）
+残	のこ.る	common	残る、残り		
+残	のこ.す	common	残す、食べ残し		
+斬	ザン	common	斬殺、斬新		
+斬	き.る	common	斬る		⇔切る
+暫	ザン	common	暫時、暫定		
+士	シ	common	士官、武士、紳士		海士（あま）居士（こじ）博士（はかせ）
+子	シ	common	子孫、女子、帽子		
+子	ス	common	金子、扇子、様子		
+子	こ	common	子、親子、年子		迷子（まいご）息子（むすこ）
+支	シ	common	支持、支障、支店		差し支える（さしつかえる）
+支	ささ.える	common	支える、支え		
+止	シ	common	止宿、静止、中止		波止場（はとば）
+止	と.まる	common	止まる、行き止まり		⇔留まる、泊まる
+止	と.める	common	止める、歯止め		⇔留める、泊める
+氏	シ	common	氏名、姓氏、某氏		
+氏	うじ	common	氏、氏神		
+仕	シ	common	仕事、出仕		
+仕	ジ	narrow	給仕		
+仕	つか.える	common	仕える		
+史	シ	common	史学、歴史、国史		
+司	シ	common	司会、司令、上司		
+四	シ	common	四角、四季、四十七士		
+四	よ	common	四人、四日（よっか）、四月目		
+四	よ.つ	common	四つ角		
+四	よっ.つ	common	四つ		
+四	よん	common	四回、四階		
+市	シ	common	市民、市況、都市		
+市	いち	common	市、競り市		
+矢	シ	common	一矢を報いる		
+矢	や	common	矢、矢印、矢面		
+旨	シ	common	要旨、趣旨、本旨		
+旨	むね	common	旨		
+死	シ	common	死亡、死角、必死		
+死	し.ぬ	common	死ぬ、死に絶える		
+糸	シ	common	綿糸、蚕糸、製糸	（絲）	
+糸	いと	common	糸、糸目、毛糸		
+至	シ	common	至当、夏至、冬至		
+至	いた.る	common	至る、至って〔副〕		
+伺	シ	common	伺候		
+伺	うかが.う	common	伺う、伺い		
+志	シ	common	志望、有志、寸志		
+志	こころざ.す	common	志す		
+志	こころざし	common	志		
+私	シ	common	私立、私腹、公私		
+私	わたくし	common	私、私する		
+私	わたし	common	私		
+使	シ	common	使役、使者、駆使		
+使	つか.う	common	使う、使い		⇔遣う
+刺	シ	common	刺激、名刺、風刺		
+刺	さ.す	common	刺す、刺し殺す		⇔差す、指す、挿す
+刺	さ.さる	common	刺さる		
+始	シ	common	始終、年始、開始		
+始	はじ.める	common	始める、始め		⇔初め、初めて
+始	はじ.まる	common	始まる、始まり		
+姉	シ	common	姉妹、諸姉		姉（ねえ）さん
+姉	あね	common	姉、姉上		
+枝	シ	common	枝葉		
+枝	えだ	common	枝		
+祉	シ	common	福祉	（祉）	
+肢	シ	common	肢体、下肢、選択肢		
+姿	シ	common	姿勢、容姿、雄姿		
+姿	すがた	common	姿		
+思	シ	common	思想、意思、相思		
+思	おも.う	common	思う、思い、思わしい		
+指	シ	common	指示、指導、屈指		
+指	ゆび	common	指、指先		
+指	さ.す	common	指す、指図、名指し		⇔差す、刺す、挿す
+施	シ	common	施設、施政、実施		
+施	セ	common	施主、施療、布施		
+施	ほどこ.す	common	施す、施し		
+師	シ	common	師匠、教師、医師		師走（しわす）
+恣	シ	common	恣意的		＊［（付）第２の３参照］
+紙	シ	common	紙面、用紙、新聞紙		
+紙	かみ	common	紙、紙くず、厚紙		
+脂	シ	common	脂肪、油脂、樹脂		
+脂	あぶら	common	脂、脂ぎる		⇔油
+視	シ	common	視覚、視力、注視	（視）	
+紫	シ	common	紫紺、紫煙、紫外線		
+紫	むらさき	common	紫、紫色		
+詞	シ	common	歌詞、作詞、品詞		祝詞（のりと）
+歯	シ	common	歯科、乳歯、義歯	（齒）	
+歯	は	common	歯、入れ歯		
+嗣	シ	common	嗣子、嫡嗣		
+試	シ	common	試験、試作、追試		
+試	こころ.みる	common	試みる、試み		
+試	ため.す	common	試す、試し		
+詩	シ	common	詩情、詩人、詩歌		「詩歌」は、「シイカ」とも。
+資	シ	common	資本、資格、物資		
+飼	シ	common	飼育、飼料		
+飼	か.う	common	飼う		
+誌	シ	common	誌面、日誌、雑誌		
+雌	シ	common	雌雄、雌伏		
+雌	め	common	雌花、雌牛、雌しべ		
+雌	めす	common	雌、雌犬		
+摯	シ	common	真摯		
+賜	シ	common	賜暇、下賜、恩賜		
+賜	たまわ.る	common	賜る		
+諮	シ	common	諮問		
+諮	はか.る	common	諮る		
+示	ジ	common	示威、示談、指示		
+示	シ	common	示唆		
+示	しめ.す	common	示す、示し		
+字	ジ	common	字画、文字、活字		
+字	あざ	common	字、大字		
+寺	ジ	common	寺院、社寺、末寺		
+寺	てら	common	寺、尼寺		
+次	ジ	common	次回、次元、目次		
+次	シ	common	次第		
+次	つ.ぐ	common	次ぐ、次いで〔副〕		⇔継ぐ
+次	つぎ	common	次、次に、次々と		
+耳	ジ	common	耳鼻科、中耳炎		
+耳	みみ	common	耳、早耳		
+自	ジ	common	自分、自由、各自		
+自	シ	common	自然		
+自	みずか.ら	common	自ら		
+似	ジ	common	類似、酷似、疑似		
+似	に.る	common	似る、似顔		
+児	ジ	common	児童、幼児、優良児	（兒）	稚児（ちご）鹿児島（かごしま）県
+児	ニ	narrow	小児科		
+事	ジ	common	事物、無事、師事		
+事	ズ	narrow	好事家		
+事	こと	common	事、仕事、出来事		
+侍	ジ	common	侍従、侍女、侍医		
+侍	さむらい	common	侍		
+治	ジ	common	政治、療治		
+治	チ	common	治安、治水、自治		
+治	おさ.める	common	治める		⇔修める
+治	おさ.まる	common	治まる		⇔修まる
+治	なお.る	common	治る		⇔直る
+治	なお.す	common	治す		⇔直す
+持	ジ	common	持参、持続、支持		
+持	も.つ	common	持つ		
+時	ジ	common	時間、時候、当時		時雨（しぐれ）時計（とけい）
+時	とき	common	時、時めく、時々		
+滋	ジ	common	滋味、滋養		滋賀（しが）県
+慈	ジ	common	慈愛、慈善、慈悲		
+慈	いつく.しむ	common	慈しむ、慈しみ		
+辞	ジ	common	辞書、辞職、式辞	（辭）	
+辞	や.める	common	辞める		
+磁	ジ	common	磁石、磁気、陶磁器		
+餌	ジ	common	好餌、食餌		［餌］＝許容字体、＊［（付）第２の３参照］
+餌	えさ	common	餌		
+餌	え	common	餌食		
+璽	ジ	common	御璽、国璽		
+鹿	しか	common	鹿		
+鹿	か	narrow	鹿の子		
+式	シキ	common	式典、形式、数式		
+識	シキ	common	識別、意識、知識		
+軸	ジク	common	軸、車軸、地軸		
+七	シチ	common	七五三、七福神		七夕（たなばた）
+七	なな	common	七月目		
+七	なな.つ	common	七つ		
+七	なの	narrow	七日		「七日」は、「なぬか」とも。
+𠮟	シツ	common	𠮟責		
+𠮟	しか.る	common	𠮟る		
+失	シツ	common	失望、失敗、消失		
+失	うしな.う	common	失う		
+室	シツ	common	室内、皇室、居室		
+室	むろ	common	室、室咲き		
+疾	シツ	common	疾患、疾走、悪疾		
+執	シツ	common	執務、執筆、確執		
+執	シュウ	common	執念、執心、我執		
+執	と.る	common	執る		⇔取る、採る
+湿	シツ	common	湿度、湿地、多湿	（濕）	
+湿	しめ.る	common	湿る、湿り		
+湿	しめ.す	common	湿す		
+嫉	シツ	common	嫉妬		
+漆	シツ	common	漆器、漆黒、乾漆		
+漆	うるし	common	漆		
+質	シツ	common	質問、質実、本質		
+質	シチ	common	質屋、人質		
+質	チ	narrow	言質		
+実	ジツ	common	実力、充実、実に	（實）	
+実	み	common	実、実入り		
+実	みの.る	common	実る、実り		
+芝	しば	common	芝、芝居		芝生（しばふ）
+写	シャ	common	写真、描写、映写	（寫）	
+写	うつ.す	common	写す、写し		⇔映す
+写	うつ.る	common	写る、写り		⇔映る
+社	シャ	common	社会、会社、神社	（社）	
+社	やしろ	common	社		
+車	シャ	common	車輪、車庫、電車		山車（だし）
+車	くるま	common	車、歯車		
+舎	シャ	common	舎監、校舎、寄宿舎		田舎（いなか）
+者	シャ	common	医者、前者、第三者	（者）	猛者（もさ）
+者	もの	common	者、若者		
+射	シャ	common	射撃、発射、日射病		
+射	い.る	common	射る		
+捨	シャ	common	捨象、取捨、喜捨		
+捨	す.てる	common	捨てる、捨て子		
+赦	シャ	common	赦免、大赦、恩赦		
+斜	シャ	common	斜面、斜線、傾斜		
+斜	なな.め	common	斜め		
+煮	シャ	common	煮沸	（煮）	
+煮	に.る	common	煮る、雑煮		
+煮	に.える	common	煮える、生煮え		
+煮	に.やす	common	業を煮やす		
+遮	シャ	common	遮断		
+遮	さえぎ.る	common	遮る		
+謝	シャ	common	謝絶、感謝、陳謝		
+謝	あやま.る	common	謝る、平謝り		
+邪	ジャ	common	邪悪、邪推、正邪		風邪（かぜ）
+蛇	ジャ	common	蛇の目、蛇腹、大蛇		
+蛇	ダ	common	蛇行、蛇足、長蛇		
+蛇	へび	common	蛇		
+尺	シャク	common	尺度、尺貫法		
+借	シャク	common	借用、借金、貸借		
+借	か.りる	common	借りる、借り		
+酌	シャク	common	酌量、晩酌		
+酌	く.む	common	酌む、酌み交わす		
+釈	シャク	common	釈明、釈放、解釈	（釋）	
+爵	シャク	common	爵位		
+若	ジャク	common	若年、若干、自若		
+若	ニャク	narrow	老若		「老若」は、「ロウジャク」とも。
+若	わか.い	common	若い、若者、若々しい		若人（わこうど）
+若	も.しくは	common	若しくは		
+弱	ジャク	common	弱点、弱小、強弱		
+弱	よわ.い	common	弱い、弱虫、足弱		
+弱	よわ.る	common	弱る		
+弱	よわ.まる	common	弱まる		
+弱	よわ.める	common	弱める		
+寂	ジャク	common	寂滅、静寂、閑寂		
+寂	セキ	narrow	寂然、寂として		「寂然」は、「ジャクネン」とも。
+寂	さび	common	寂		
+寂	さび.しい	common	寂しい、寂しがる		
+寂	さび.れる	common	寂れる		
+手	シュ	common	手腕、挙手、選手		上手（じょうず）下手（へた）手伝（てつだ）う
+手	て	common	手、手柄、素手		
+手	た	narrow	手綱、手繰る		
+主	シュ	common	主人、主権、施主		
+主	ス	narrow	法主、坊主		「法主（ホッス）」は、「ホウシュ」、「ホッシュ」とも。
+主	ぬし	common	主、地主		
+主	おも	common	主な人々		
+守	シュ	common	守備、保守、攻守		
+守	ス	narrow	留守		
+守	まも.る	common	守る、守り		
+守	も.り	common	お守り、子守、灯台守		
+朱	シュ	common	朱肉、朱筆、朱塗り		
+取	シュ	common	取捨、取材、聴取		
+取	と.る	common	取る		⇔採る、執る、捕る
+狩	シュ	common	狩猟		
+狩	か.る	common	狩る、狩り込み		
+狩	か.り	common	狩り、ぶどう狩り		
+首	シュ	common	首尾、首席、自首		
+首	くび	common	首、首飾り		
+殊	シュ	common	殊勝、殊勲、特殊		
+殊	こと	common	殊に、殊の外、殊更		
+珠	シュ	common	珠玉、珠算、真珠		数珠（じゅず）
+酒	シュ	common	酒宴、飲酒、洋酒		お神酒（みき）
+酒	さけ	common	酒、酒好き、甘酒		
+酒	さか	narrow	酒屋、酒場、酒盛り		
+腫	シュ	common	腫瘍		
+腫	は.れる	common	腫れる、腫れ		
+腫	は.らす	common	腫らす		
+種	シュ	common	種類、人種、品種		
+種	たね	common	種、菜種、一粒種		
+趣	シュ	common	趣向、趣味、興趣		
+趣	おもむき	common	趣		
+寿	ジュ	common	寿命、長寿、米寿	（壽）	
+寿	ことぶき	common	寿		
+受	ジュ	common	受諾、受験、甘受		
+受	う.ける	common	受ける、受付		⇔請ける
+受	う.かる	common	受かる		
+呪	ジュ	common	呪縛、呪文		
+呪	のろ.う	common	呪う		
+授	ジュ	common	授与、伝授、教授		
+授	さず.ける	common	授ける		
+授	さず.かる	common	授かる		
+需	ジュ	common	需要、需給、必需品		
+儒	ジュ	common	儒学、儒教、儒者		
+樹	ジュ	common	樹木、樹立、街路樹		
+収	シュウ	common	収穫、収入、回収	（收）	
+収	おさ.める	common	収める		⇔納める
+収	おさ.まる	common	収まる		⇔納まる
+囚	シュウ	common	囚人、死刑囚		
+州	シュウ	common	州議会、六大州		
+州	す	common	州、中州、三角州		
+舟	シュウ	common	舟運、舟艇、舟航		
+舟	ふね	common	舟、小舟、渡し舟		⇔船
+舟	ふな	narrow	舟遊び、舟宿、舟歌		
+秀	シュウ	common	秀逸、秀才、優秀		
+秀	ひい.でる	common	秀でる		
+周	シュウ	common	周知、周囲、円周		
+周	まわ.り	common	周り		⇔回り
+宗	シュウ	common	宗教、宗派、改宗		
+宗	ソウ	common	宗家、宗匠		
+拾	シュウ	common	拾得、収拾		
+拾	ジュウ	common	拾万円		
+拾	ひろ.う	common	拾う、拾い物		
+秋	シュウ	common	秋季、秋分、晩秋		
+秋	あき	common	秋		
+臭	シュウ	common	臭気、悪臭、俗臭	（臭）	
+臭	くさ.い	common	臭い、臭み、臭さ		
+臭	にお.う	common	臭う、臭い		⇔匂う
+修	シュウ	common	修飾、修養、改修		
+修	シュ	narrow	修行		
+修	おさ.める	common	修める		⇔治める
+修	おさ.まる	common	修まる		⇔治まる
+袖	シュウ	common	領袖		
+袖	そで	common	袖、半袖		
+終	シュウ	common	終了、終日、最終		
+終	お.わる	common	終わる、終わり		
+終	お.える	common	終える		
+羞	シュウ	common	羞恥心		
+習	シュウ	common	習得、習慣、練習		
+習	なら.う	common	習う、手習い		⇔倣う
+週	シュウ	common	週刊、週末、毎週		
+就	シュウ	common	就任、就寝、去就		
+就	ジュ	narrow	成就		
+就	つ.く	common	就く		⇔着く、付く
+就	つ.ける	common	就ける		⇔着ける、付ける
+衆	シュウ	common	衆寡、民衆、聴衆		
+衆	シュ	narrow	衆生		
+集	シュウ	common	集合、集結、全集		
+集	あつ.まる	common	集まる、集まり		
+集	あつ.める	common	集める、人集め		
+集	つど.う	common	集う、集い		
+愁	シュウ	common	愁傷、哀愁、憂愁		
+愁	うれ.える	common	愁える		⇔憂える
+愁	うれ.い	common	愁い		⇔憂い
+酬	シュウ	common	報酬、応酬		
+醜	シュウ	common	醜悪、醜態、美醜		
+醜	みにく.い	common	醜い、醜さ		
+蹴	シュウ	common	一蹴		
+蹴	け.る	common	蹴る、蹴散らす		
+襲	シュウ	common	襲撃、襲名、世襲		
+襲	おそ.う	common	襲う		
+十	ジュウ	common	十字架、十文字		十重二十重（とえはたえ）二十・二十歳（はたち）二十日（はつか）
+十	ジッ	common	十回		「ジュッ」とも。
+十	とお	common	十、十日		
+十	と	common	十色、十重		
+汁	ジュウ	common	果汁、墨汁		
+汁	し.る	common	汁、汁粉		
+充	ジュウ	common	充実、充電、補充		
+充	あ.てる	common	充てる		⇔当てる、宛てる
+住	ジュウ	common	住所、安住、衣食住		
+住	す.む	common	住む		
+住	す.まう	common	住まう、住まい		
+柔	ジュウ	common	柔軟、柔道、懐柔		
+柔	ニュウ	common	柔和、柔弱		
+柔	やわ.らか	common	柔らかだ		⇔軟らか
+柔	やわ.らかい	common	柔らかい		⇔軟らかい
+重	ジュウ	common	重量、重大、二重		
+重	チョウ	common	重畳、慎重、貴重		
+重	え	common	一重、八重桜		十重二十重（とえはたえ）
+重	おも.い	common	重い、重たい		
+重	かさ.ねる	common	重ねる、重ね着		
+重	かさ.なる	common	重なる		
+従	ジュウ	common	従事、従順、服従	（從）	
+従	ショウ	narrow	従容		
+従	ジュ	narrow	従○位		
+従	したが.う	common	従う		
+従	したが.える	common	従える		
+渋	ジュウ	common	渋滞、苦渋	（澁）	
+渋	しぶ	common	渋、渋紙		
+渋	しぶ.い	common	渋い、渋さ、渋み		
+渋	しぶ.る	common	渋る		
+銃	ジュウ	common	銃砲、銃弾、小銃		
+獣	ジュウ	common	獣類、猛獣、鳥獣	（獸）	
+獣	けもの	common	獣		
+縦	ジュウ	common	縦横、縦断、操縦	（縱）	
+縦	たて	common	縦		
+叔	シュク	common	伯叔		叔父（おじ）叔母（おば）
+祝	シュク	common	祝賀、祝日、慶祝	（祝）	祝詞（のりと）
+祝	シュウ	narrow	祝儀、祝言		
+祝	いわ.う	common	祝う		
+宿	シュク	common	宿泊、宿題、合宿		
+宿	やど	common	宿、宿屋		
+宿	やど.る	common	宿る、雨宿り		
+宿	やど.す	common	宿す		
+淑	シュク	common	淑女、貞淑、私淑		
+粛	シュク	common	粛清、静粛、自粛	（肅）	
+縮	シュク	common	縮小、縮図、短縮		
+縮	ちぢ.む	common	縮む、伸び縮み		
+縮	ちぢ.まる	common	縮まる		
+縮	ちぢ.める	common	縮める		
+縮	ちぢ.れる	common	縮れる、縮れ毛		
+縮	ちぢ.らす	common	縮らす		
+塾	ジュク	common	塾、私塾		
+熟	ジュク	common	熟練、熟慮、成熟		
+熟	う.れる	common	熟れる		
+出	シュツ	common	出入、出現、提出		
+出	スイ	narrow	出納		
+出	で.る	common	出る、出窓、遠出		
+出	だ.す	common	出す		
+述	ジュツ	common	叙述、陳述、著述		
+述	の.べる	common	述べる		
+術	ジュツ	common	術策、技術、芸術		
+俊	シュン	common	俊敏、俊秀、俊才		
+春	シュン	common	春季、立春、青春		
+春	は.る	common	春、春めく		
+瞬	シュン	common	瞬間、瞬時、一瞬		
+瞬	またた.く	common	瞬く、瞬き		
+旬	ジュン	common	旬刊、上旬		
+旬	シュン	narrow	旬、旬の野菜		
+巡	ジュン	common	巡回、巡業、一巡		
+巡	めぐ.る	common	巡る、巡り歩く		お巡（まわ）りさん
+盾	ジュン	common	矛盾		
+盾	たて	common	盾、後ろ盾		
+准	ジュン	common	准将、批准		
+殉	ジュン	common	殉死、殉職、殉難		
+純	ジュン	common	純真、純粋、不純		
+循	ジュン	common	循環、因循		
+順	ジュン	common	順序、順調、従順		
+準	ジュン	common	準備、基準、標準		
+潤	ジュン	common	潤色、潤沢、湿潤		
+潤	うるお.う	common	潤う、潤い		
+潤	うるお.す	common	潤す		
+潤	うる.む	common	潤む		
+遵	ジュン	common	遵守、遵法		
+処	ショ	common	処置、処罰、処女	（處）	
+初	ショ	common	初期、初心者、最初		
+初	はじ.め	common	初め		⇔始め
+初	はじ.めて	common	初めて〔副〕		
+初	はつ	common	初の受賞、初雪、初耳		
+初	うい	common	初陣、初々しい		
+初	そ.める	common	書き初め、出初め式		
+所	ショ	common	所得、住所、近所		
+所	ところ	common	所、台所		
+書	ショ	common	書画、書籍、読書		
+書	か.く	common	書く		⇔描く
+庶	ショ	common	庶民、庶務		
+暑	ショ	common	暑気、残暑、避暑	（暑）	
+暑	あつ.い	common	暑い、暑さ		⇔熱い
+署	ショ	common	署名、署長、警察署	（署）	
+緒	ショ	common	緒戦、由緒、端緒	（緖）	
+緒	チョ	narrow	情緒		「情緒」は、「ジョウショ」とも。
+緒	お	common	緒、鼻緒		
+諸	ショ	common	諸君、諸国、諸般	（諸）	
+女	ジョ	common	女子、女流、少女		海女（あま）
+女	ニョ	common	女人、天女、善男善女		
+女	ニョウ	narrow	女房		
+女	おんな	common	女、女心、女らしい		
+女	め	common	女神、女々しい		乙女（おとめ）
+如	ジョ	common	欠如、突如、躍如		
+如	ニョ	common	如実、如来、不如意		
+助	ジョ	common	助力、助監督、救助		
+助	たす.ける	common	助ける、助け		
+助	たす.かる	common	助かる、大助かり		
+助	すけ	common	助太刀		
+序	ジョ	common	序幕、順序、秩序		
+叙	ジョ	common	叙述、叙景、叙勲	（敍）	
+徐	ジョ	common	徐行、徐々に		
+除	ジョ	common	除外、除数、解除		
+除	ジ	narrow	掃除		
+除	のぞ.く	common	除く		
+小	ショウ	common	小心、大小、縮小		小豆（あずき）
+小	ちい.さい	common	小さい、小さな		
+小	こ	common	小型、小鳥、小切手		
+小	お	common	小川、小暗い		
+升	ショウ	common			
+升	ます	common	升、升目		
+少	ショウ	common	少年、多少、減少		
+少	すく.ない	common	少ない		
+少	すこ.し	common	少し		
+召	ショウ	common	召喚、国会の召集		
+召	め.す	common	召す、召し上がる		
+匠	ショウ	common	師匠、巨匠、意匠		
+床	ショウ	common	起床、病床、温床		
+床	とこ	common	床、床の間、寝床		
+床	ゆか	common	床、床下		
+抄	ショウ	common	抄録、抄本、抄訳		
+肖	ショウ	common	肖像、不肖		
+尚	ショウ	common	尚早、高尚		
+招	ショウ	common	招待、招致、招請		
+招	まね.く	common	招く、招き		
+承	ショウ	common	承知、承諾、継承		
+承	うけたまわ.る	common	承る		
+昇	ショウ	common	昇降、昇進、上昇		
+昇	のぼ.る	common	昇る		⇔上る、登る
+松	ショウ	common	松竹梅、白砂青松		
+松	まつ	common	松、松原、門松		
+沼	ショウ	common	沼沢、湖沼		
+沼	ぬま	common	沼、沼地		
+昭	ショウ	common	昭和		
+宵	ショウ	common	徹宵		
+宵	よい	common	宵		
+将	ショウ	common	将来、将棋、大将	（將）	
+消	ショウ	common	消滅、消極的、費消		
+消	き.える	common	消える、立ち消え		
+消	け.す	common	消す、消しゴム		
+症	ショウ	common	症状、炎症、重症		
+祥	ショウ	common	発祥、吉祥、不祥事	（祥）	
+称	ショウ	common	称賛、名称、称する	（稱）	
+笑	ショウ	common	笑覧、微笑、談笑		
+笑	わら.う	common	笑う、大笑い		
+笑	え.む	common	ほくそ笑む、笑み		笑顔（えがお）
+唱	ショウ	common	唱歌、合唱、提唱		
+唱	とな.える	common	唱える		
+商	ショウ	common	商売、商業、貿易商		
+商	あきな.う	common	商う、商い		
+渉	ショウ	common	渉外、干渉、交渉	（涉）	
+章	ショウ	common	憲章、勲章、文章		
+紹	ショウ	common	紹介		
+訟	ショウ	common	訴訟		
+勝	ショウ	common	勝敗、優勝、名勝		
+勝	か.つ	common	勝つ、勝ち、勝手		
+勝	まさ.る	common	勝る、男勝り		
+掌	ショウ	common	掌中、職掌、車掌		
+晶	ショウ	common	結晶、水晶		
+焼	ショウ	common	焼却、燃焼、全焼	（燒）	
+焼	や.く	common	焼く、炭焼き		
+焼	や.ける	common	焼ける、夕焼け		
+焦	ショウ	common	焦土、焦慮、焦心		
+焦	こ.げる	common	焦げる、黒焦げ		
+焦	こ.がす	common	焦がす		
+焦	こ.がれる	common	焦がれる		
+焦	あせ.る	common	焦る、焦り		
+硝	ショウ	common	硝石、硝酸		
+粧	ショウ	common	化粧		
+詔	ショウ	common	詔勅、詔書		
+詔	みことのり	common	詔		
+証	ショウ	common	証拠、証明、免許証	（證）	
+象	ショウ	common	象徴、対象、現象		
+象	ゾウ	common	象眼、巨象		
+傷	ショウ	common	傷害、負傷、感傷		
+傷	きず	common	傷、古傷、傷つく		
+傷	いた.む	common	傷む		⇔痛む、悼む
+傷	いた.める	common	傷める		⇔痛める
+奨	ショウ	common	奨励、奨学金、推奨	（奬）	
+照	ショウ	common	照明、照会、対照的		
+照	て.る	common	照る、日照り		
+照	て.らす	common	照らす		
+照	て.れる	common	照れる		
+詳	ショウ	common	詳細、詳報、未詳		
+詳	くわ.しい	common	詳しい、詳しさ		
+彰	ショウ	common	表彰、顕彰		
+障	ショウ	common	障害、障子、故障		
+障	さわ.る	common	障る、差し障り		
+憧	ショウ	common	憧憬		「憧憬」は、「ドウケイ」とも。
+憧	あこが.れる	common	憧れる、憧れ		
+衝	ショウ	common	衝突、衝動、折衝		
+賞	ショウ	common	賞罰、賞与、懸賞		
+償	ショウ	common	償金、弁償、代償		
+償	つぐな.う	common	償う、償い		
+礁	ショウ	common	岩礁、暗礁、さんご礁		
+鐘	ショウ	common	半鐘、警鐘		
+鐘	かね	common	鐘		
+上	ジョウ	common	上旬、上昇、地上		上手（じょうず）
+上	ショウ	narrow	上人、身上を潰す		「身上」は、「シンショウ」と「シンジョウ」とで、意味が違う。
+上	うえ	common	上、身の上		
+上	うわ	narrow	上着、上積み		
+上	かみ	common	上、川上		
+上	あ.げる	common	上げる、売り上げ		⇔揚げる、挙げる
+上	あ.がる	common	上がる、上がり		⇔揚がる、挙がる
+上	のぼ.る	common	上る、上り		⇔昇る、登る
+上	のぼ.せる	common	上せる		
+上	のぼ.す	common	上す		
+丈	ジョウ	common	丈六、丈夫な体		
+丈	たけ	common	丈、背丈		
+冗	ジョウ	common	冗談、冗長、冗費		
+条	ジョウ	common	条理、条約、箇条	（條）	
+状	ジョウ	common	状態、白状、免状	（狀）	
+乗	ジョウ	common	乗数、乗車、大乗的	（乘）	
+乗	の.る	common	乗る、乗り物		⇔載る
+乗	の.せる	common	乗せる		⇔載せる
+城	ジョウ	common	城内、城下町、落城		茨城（いばらき）県、宮城（みやぎ）県
+城	しろ	common	城、城跡		
+浄	ジョウ	common	浄化、清浄、不浄	（淨）	
+剰	ジョウ	common	剰余、過剰、余剰	（剩）	
+常	ジョウ	common	常備、日常、非常		
+常	つね	common	常、常に、常々		
+常	とこ	common	常夏		
+情	ジョウ	common	情報、情熱、人情		
+情	セイ	narrow	風情		
+情	なさ.け	common	情け		
+場	ジョウ	common	場内、会場、入場		
+場	ば	common	場、場所、広場		
+畳	ジョウ	common	畳語、重畳	（疊）	
+畳	たた.む	common	畳む、折り畳み		
+畳	たたみ	common	畳、畳表、青畳		
+蒸	ジョウ	common	蒸気、蒸発		
+蒸	む.す	common	蒸す、蒸し暑い		
+蒸	む.れる	common	蒸れる		
+蒸	む.らす	common	蒸らす		
+縄	ジョウ	common	縄文、自縄自縛	（繩）	
+縄	なわ	common	縄、縄張		
+壌	ジョウ	common	土壌	（壤）	
+嬢	ジョウ	common	令嬢、愛嬢、お嬢さん	（孃）	
+錠	ジョウ	common	錠前、錠剤、手錠		
+譲	ジョウ	common	譲渡、譲歩、謙譲	（讓）	
+譲	ゆず.る	common	譲る、親譲り		
+醸	ジョウ	common	醸造、醸成	（釀）	
+醸	かも.す	common	醸す、醸し出す		
+色	ショク	common	原色、特色、物色		景色（けしき）
+色	シキ	common	色彩、色調、色欲		
+色	いろ	common	色、桜色、色づく		
+拭	ショク	common	払拭		
+拭	ふ.く	common	拭く		
+拭	ぬぐ.う	common	拭う		
+食	ショク	common	食事、食料、会食		
+食	ジキ	narrow	断食		
+食	く.う	common	食う、食い物		
+食	く.らう	common	食らう		
+食	た.べる	common	食べる、食べ物		
+植	ショク	common	植樹、植物、誤植		
+植	う.える	common	植える、植木		
+植	う.わる	common	植わる		
+殖	ショク	common	生殖、利殖、学殖		
+殖	ふ.える	common	殖える		⇔増える
+殖	ふ.やす	common	殖やす		⇔増やす
+飾	ショク	common	装飾、修飾、服飾		
+飾	かざ.る	common	飾る、飾り		
+触	ショク	common	触媒、触発、接触	（觸）	
+触	ふ.れる	common	触れる		
+触	さわ.る	common	触る		
+嘱	ショク	common	嘱託、委嘱	（囑）	
+織	ショク	common	織機、染織、紡織		
+織	シキ	common	組織		
+織	お.る	common	織る、織物		
+職	ショク	common	職業、職務、就職		
+辱	ジョク	common	恥辱、雪辱、屈辱		
+辱	はずかし.める	common	辱める、辱め		
+尻	しり	common	尻、尻込み、目尻		尻尾（しっぽ）
+心	シン	common	心身、感心、中心		
+心	こころ	common	心、心得る、親心		心地（ここち）
+申	シン	common	申告、申請、内申書		
+申	もう.す	common	申す、申し上げる		
+伸	シン	common	伸縮、屈伸、追伸		
+伸	の.びる	common	伸びる、背伸び		⇔延びる
+伸	の.ばす	common	伸ばす		⇔延ばす
+伸	の.べる	common	伸べる		⇔延べる
+臣	シン	common	臣下、君臣		
+臣	ジン	common	大臣		
+芯	シン	common	芯		
+身	シン	common	身体、単身、等身大		
+身	み	common	身、身内、親身		
+辛	シン	common	辛苦、辛酸、香辛料		
+辛	から.い	common	辛い、辛み、辛うじて		
+侵	シン	common	侵入、侵害、不可侵		
+侵	おか.す	common	侵す		⇔犯す、冒す
+信	シン	common	信用、信頼、通信		
+津	シン	common	興味津々		
+津	つ	common	津波、津々浦々		
+神	シン	common	神聖、神経、精神	（神）	お神酒（みき）神楽（かぐら）神奈川（かながわ）県
+神	ジン	common	神社、神宮、神通力		
+神	かみ	common	神、神様、貧乏神		
+神	かん	narrow	神主		
+神	こう	narrow	神々しい		
+唇	シン	common	口唇		
+唇	くちび.る	common	唇		
+娠	シン	common	妊娠		
+振	シン	common	振動、振興、不振		
+振	ふ.る	common	振る、振り		
+振	ふ.るう	common	振るう		⇔奮う、震う
+振	ふ.れる	common	振れる		
+浸	シン	common	浸水、浸透		
+浸	ひた.す	common	浸す、水浸し		
+浸	ひた.る	common	浸る		
+真	シン	common	真偽、写真、純真	（眞）	
+真	ま	common	真南、真新しい、真っ先、真ん中		真面目（まじめ）真っ赤（まっか）真っ青（まっさお）
+針	シン	common	針路、運針、秒針		
+針	はり	common	針、針金		
+深	シン	common	深山、深夜、水深		
+深	ふか.い	common	深い、深入り、深み		
+深	ふか.まる	common	深まる		
+深	ふか.める	common	深める		
+紳	シン	common	紳士		
+進	シン	common	進級、進言、前進		
+進	すす.む	common	進む、進み		
+進	すす.める	common	進める		⇔勧める、薦める
+森	シン	common	森林、森閑、森厳		
+森	もり	common	森		
+診	シン	common	診察、診療、往診		
+診	み.る	common	診る		⇔見る
+寝	シン	common	寝室、寝具、就寝	（寢）	
+寝	ね.る	common	寝る、寝入る、昼寝		
+寝	ね.かす	common	寝かす		
+慎	シン	common	慎重、謹慎	（愼）	
+慎	つつし.む	common	慎む、慎み		⇔謹む
+新	シン	common	新旧、新聞、革新		
+新	あたら.しい	common	新しい、新しさ、新しがる		
+新	あら.た	common	新ただ		
+新	にい	common	新妻、新盆		
+審	シン	common	審判、審議、不審		
+震	シン	common	震動、震災、地震		
+震	ふる.う	common	震う、身震い		⇔奮う、振るう
+震	ふる.える	common	震える、震え		
+薪	シン	common	薪炭、薪水		
+薪	たきぎ	common	薪		
+親	シン	common	親族、親友、肉親		
+親	おや	common	親、親子、父親		
+親	した.しい	common	親しい、親しさ		
+親	した.しむ	common	親しむ		
+人	ジン	common	人道、人員、成人		玄人（くろうと）素人（しろうと）仲人（なこうど）
+人	ニン	common	人間、人情、人形		
+人	ひと	common	人、人手、旅人		若人（わこうど）大人（おとな）一人（ひとり）二人（ふたり）
+刃	ジン	common	白刃、凶刃、自刃		
+刃	は	common	刃、刃物、両刃		
+仁	ジン	common	仁義、仁術		
+仁	ニ	narrow	仁王		
+尽	ジン	common	尽力、無尽蔵	（盡）	
+尽	つ.くす	common	尽くす、心尽くし		
+尽	つ.きる	common	尽きる		
+尽	つ.かす	common	愛想を尽かす		
+迅	ジン	common	迅速、疾風迅雷		
+甚	ジン	common	甚大、激甚、幸甚		
+甚	はなは.だ	common	甚だ		
+甚	はなは.だしい	common	甚だしい		
+陣	ジン	common	陣頭、陣痛、円陣		
+尋	ジン	common	尋問、尋常、千尋		
+尋	たず.ねる	common	尋ねる、尋ね人		⇔訪ねる
+腎	ジン	common	腎臓、肝腎		「肝腎」は、「肝心」とも書く。
+須	ス	common	必須		
+図	ズ	common	図画、図表、地図	（圖）	
+図	ト	common	図書、意図、壮図		
+図	はか.る	common	図る		⇔計る、測る、量る、謀る
+水	スイ	common	水分、水陸、海水		
+水	みず	common	水、水色、水浴び		清水（しみず）
+吹	スイ	common	吹奏、吹鳴、鼓吹		息吹（いぶき）吹雪（ふぶき）
+吹	ふ.く	common	吹く		⇔噴く
+垂	スイ	common	垂直、懸垂、胃下垂		
+垂	た.れる	common	垂れる、雨垂れ		
+垂	た.らす	common	垂らす		
+炊	スイ	common	炊事、自炊、雑炊		
+炊	た.く	common	炊く、飯炊き		
+帥	スイ	common	統帥、元帥		
+粋	スイ	common	粋人、純粋、精粋	（粹）	
+粋	いき	common	粋		
+衰	スイ	common	衰弱、盛衰、老衰		
+衰	おとろ.える	common	衰える、衰え		
+推	スイ	common	推進、推薦		
+推	お.す	common	推す		⇔押す
+酔	スイ	common	酔漢、麻酔、心酔	（醉）	
+酔	よ.う	common	酔う、酔い、二日酔い		
+遂	スイ	common	遂行、未遂、完遂		
+遂	と.げる	common	遂げる		
+睡	スイ	common	睡眠、熟睡、午睡		
+穂	スイ	common	穂状、出穂期	（穗）	
+穂	ほ	common	穂、稲穂		
+随	ズイ	common	随行、随意、追随	（隨）	
+髄	ズイ	common	骨髄、脳髄、真髄	（髓）	
+枢	スウ	common	枢軸、枢要、中枢	（樞）	
+崇	スウ	common	崇拝、崇高		
+数	スウ	common	数字、数量、年数	（數）	数珠（じゅず）
+数	ス	narrow	人数		数寄屋・数奇屋（すきや）「人数」は、「ニンズウ」とも。
+数	かず	common	数		
+数	かぞ.える	common	数える、数え年		
+据	す.える	common	据える、据え置く		
+据	す.わる	common	据わる、据わり		⇔座る
+杉	すぎ	common	杉、杉並木		
+裾	すそ	common	裾、裾野		
+寸	スン	common	寸法、寸暇、一寸先		
+瀬	せ	common	瀬、浅瀬、立つ瀬	（瀨）	
+是	ゼ	common	是非、是認、国是		
+井	セイ	common	油井、市井		
+井	ショウ	narrow	天井		
+井	い	common	井戸		
+世	セイ	common	世紀、時世、処世		
+世	セ	common	世界、世間、出世		
+世	よ	common	世、世の中		
+正	セイ	common	正義、正誤、訂正		
+正	ショウ	common	正直、正面、正月		
+正	ただ.しい	common	正しい、正しさ		
+正	ただ.す	common	正す		
+正	まさ	common	正に、正夢		
+生	セイ	common	生活、発生、先生		芝生（しばふ）弥生（やよい）
+生	ショウ	common	生滅、一生、誕生		
+生	い.きる	common	生きる、長生き		
+生	い.かす	common	生かす		
+生	い.ける	common	生ける、生け捕り		
+生	う.まれる	common	生まれる、生まれ		⇔産まれる
+生	う.む	common	生む		⇔産む
+生	お.う	common	生い立ち、生い茂る		
+生	は.える	common	生える、芽生える		
+生	は.やす	common	生やす		
+生	き	common	生糸、生地、生一本		
+生	なま	common	生の野菜、生水、生々しい		
+成	セイ	common	成功、完成、賛成		
+成	ジョウ	narrow	成就、成仏		
+成	な.る	common	成る、成り立つ		
+成	な.す	common	成す、成し遂げる		
+西	セイ	common	西暦、西部、北西		
+西	サイ	common	西国、東西		
+西	にし	common	西、西日		
+声	セイ	common	声楽、声援、名声	（聲）	
+声	ショウ	narrow	大音声		
+声	こえ	common	声、呼び声、歌声		
+声	こわ	narrow	声色		
+制	セイ	common	制度、制限、統制		
+姓	セイ	common	姓名、改姓、同姓		
+姓	ショウ	common	百姓		
+征	セイ	common	征服、遠征、出征		
+性	セイ	common	性質、理性、男性		
+性	ショウ	common	性分、相性、根性		
+青	セイ	common	青天、青銅、青年		
+青	ショウ	narrow	緑青、紺青、群青		
+青	あお	common	青、青ざめる		真っ青（まっさお）
+青	あお.い	common	青い、青さ		
+斉	セイ	common	斉唱、一斉	（齊）	
+政	セイ	common	政治、行政、家政		
+政	ショウ	narrow	摂政		
+政	まつりごと	common	政		
+星	セイ	common	星座、流星、衛星		
+星	ショウ	narrow	明星		
+星	ほし	common	星、黒星		
+牲	セイ	common	犠牲		
+省	セイ	common	反省、内省、帰省		
+省	ショウ	common	省略、各省		
+省	かえり.みる	common	省みる		⇔顧みる
+省	はぶ.く	common	省く		
+凄	セイ	common	凄惨、凄絶		
+逝	セイ	common	逝去、急逝、長逝		
+逝	ゆ.く	common	逝く		⇔行く
+逝	い.く	common	逝く		⇔行く
+清	セイ	common	清潔、清算、粛清		清水（しみず）
+清	ショウ	narrow	六根清浄		
+清	きよ.い	common	清い、清らかだ		
+清	きよ.まる	common	清まる		
+清	きよ.める	common	清める		
+盛	セイ	common	盛大、隆盛、全盛		
+盛	ジョウ	narrow	繁盛		
+盛	も.る	common	盛る、盛り上がる		
+盛	さか.る	common	燃え盛る、盛り、花盛り		
+盛	さか.ん	common	盛んだ、盛んに		
+婿	セイ	common	女婿		
+婿	むこ	common	婿、花婿		
+晴	セイ	common	晴天、晴雨、快晴		
+晴	は.れる	common	晴れる、晴れ、晴れやかだ		
+晴	は.らす	common	晴らす、気晴らし		
+勢	セイ	common	勢力、優勢、情勢		
+勢	いきお.い	common	勢い		
+聖	セイ	common	聖書、聖人、神聖		
+誠	セイ	common	誠実、誠意、至誠		
+誠	まこと	common	誠、誠に		
+精	セイ	common	精米、精密、精力		
+精	ショウ	narrow	精進、不精		
+製	セイ	common	製造、製鉄、鉄製		
+誓	セイ	common	誓約、誓詞、宣誓		
+誓	ちか.う	common	誓う、誓い		
+静	セイ	common	静止、静穏、安静	（靜）	
+静	ジョウ	narrow	静脈		
+静	しず	common	静々と、静けさ		
+静	しず.か	common	静かだ		
+静	しず.まる	common	静まる		⇔鎮まる
+静	しず.める	common	静める		⇔鎮める、沈める
+請	セイ	common	請求、請願、申請		
+請	シン	narrow	普請		
+請	こ.う	common	請う		⇔乞う
+請	う.ける	common	請ける、請負、下請け		⇔受ける
+整	セイ	common	整理、整列、調整		
+整	ととの.える	common	整える		⇔調える
+整	ととの.う	common	整う		⇔調う
+醒	セイ	common	覚醒		
+税	ゼイ	common	税金、免税、関税		
+夕	セキ	common	今夕、一朝一夕		七夕（たなばた）
+夕	ゆう	common	夕方、夕日、夕べ		
+斥	セキ	common	斥候、排斥		
+石	セキ	common	石材、岩石、宝石		
+石	シャク	narrow	磁石		
+石	コク	narrow	石高、千石船		
+石	いし	common	石、小石		
+赤	セキ	common	赤道、赤貧、発赤		
+赤	シャク	narrow	赤銅		
+赤	あか	common	赤、赤字、赤ん坊		真っ赤（まっか）
+赤	あか.い	common	赤い		
+赤	あか.らむ	common	赤らむ		
+赤	あか.らめる	common	赤らめる		
+昔	セキ	common	昔日、昔年、昔時		
+昔	シャク	narrow	今昔		
+昔	むかし	common	昔、昔話		
+析	セキ	common	析出、分析、解析		
+席	セキ	common	席上、座席、出席		寄席（よせ）
+脊	セキ	common	脊髄、脊柱		
+隻	セキ	common	隻手、数隻		
+惜	セキ	common	惜敗、痛惜、愛惜		
+惜	お.しい	common	惜しい		
+惜	お.しむ	common	惜しむ、負け惜しみ		
+戚	セキ	common	親戚		
+責	セキ	common	責務、責任、職責		
+責	せ.める	common	責める、責め		
+跡	セキ	common	追跡、旧跡、遺跡		
+跡	あと	common	跡、足跡、屋敷跡		⇔後、痕
+積	セキ	common	積雪、蓄積、面積		
+積	つ.む	common	積む、下積み		
+積	つ.もる	common	積もる、見積書		
+績	セキ	common	紡績、成績、業績		
+籍	セキ	common	書籍、戸籍、本籍		
+切	セツ	common	切断、親切、切に		
+切	サイ	narrow	一切		
+切	き.る	common	切る		⇔斬る
+切	き.れる	common	切れる		
+折	セツ	common	折衷、折衝、屈折		
+折	お.る	common	折る、折り紙、折り箱		
+折	おり	common	折、……する折		
+折	お.れる	common	折れる、名折れ		
+拙	セツ	common	拙劣、拙速、巧拙		
+拙	つたな.い	common	拙い		
+窃	セツ	common	窃盗、窃取	（竊）	
+接	セツ	common	接触、接待、直接		
+接	つ.ぐ	common	接ぐ、接ぎ木、骨接ぎ		⇔継ぐ
+設	セツ	common	設立、設備、建設		
+設	もう.ける	common	設ける		
+雪	セツ	common	雪辱、降雪、積雪		雪崩（なだれ）吹雪（ふぶき）
+雪	ゆき	common	雪、雪解け、初雪		
+摂	セツ	common	摂取、摂生	（攝）	
+節	セツ	common	節約、季節、関節	（節）	
+節	セチ	narrow	お節料理		
+節	ふし	common	節、節穴		
+説	セツ	common	説明、小説、演説		
+説	ゼイ	narrow	遊説		
+説	と.く	common	説く		
+舌	ゼツ	common	舌端、弁舌、筆舌		
+舌	した	common	舌、猫舌、二枚舌		
+絶	ゼツ	common	絶妙、絶食、断絶		
+絶	た.える	common	絶える		
+絶	た.やす	common	絶やす		
+絶	た.つ	common	絶つ		⇔裁つ、断つ
+千	セン	common	千円、千人力、千差万別		
+千	ち	common	千草、千々に		
+川	セン	common	川柳、河川		
+川	かわ	common	川、川岸、小川		川原（かわら）⇔河
+仙	セン	common	仙骨、仙人、酒仙		
+占	セン	common	占拠、占星術、独占		
+占	し.める	common	占める、買い占め		
+占	うらな.う	common	占う、占い		
+先	セン	common	先方、先生、率先		
+先	さき	common	先、先立つ		
+宣	セン	common	宣言、宣誓、宣伝		
+専	セン	common	専門、専属、専用	（專）	
+専	もっぱ.ら	common	専ら		
+泉	セン	common	泉水、源泉、温泉		
+泉	いずみ	common	泉		
+浅	セン	common	浅薄、浅学、深浅	（淺）	
+浅	あさ.い	common	浅い、浅瀬、遠浅		
+洗	セン	common	洗面、洗練、洗剤		
+洗	あら.う	common	洗う		
+染	セン	common	染色、染料、汚染		
+染	そ.める	common	染める、染め物		
+染	そ.まる	common	染まる		
+染	し.みる	common	染みる、油染みる		
+染	し.み	common	染み、染み抜き		
+扇	セン	common	扇子、扇風機、扇状地		
+扇	おうぎ	common	扇、舞扇		
+栓	セン	common	栓、給水栓、消火栓		
+旋	セン	common	旋回、旋律、周旋		
+船	セン	common	船舶、乗船、汽船		
+船	ふね	common	船、大船、親船		⇔舟
+船	ふな	narrow	船旅、船賃		
+戦	セン	common	戦争、苦戦、論戦	（戰）	
+戦	いくさ	common	戦、勝ち戦		
+戦	たたか.う	common	戦う、戦い		⇔闘う
+煎	セン	common	煎茶		＊［（付）第２の３参照］
+煎	い.る	common	煎る、煎り豆		
+羨	セン	common	羨望		
+羨	うらや.む	common	羨む		
+羨	うらや.ましい	common	羨ましい		
+腺	セン	common	前立腺、涙腺		
+詮	セン	common	詮索、所詮		＊［（付）第２の３参照］
+践	セン	common	実践	（踐）	
+箋	セン	common	処方箋、便箋		＊［（付）第２の３参照］
+銭	セン	common	銭湯、金銭	（錢）	
+銭	ぜに	common	銭、銭入れ、小銭		
+潜	セン	common	潜水、潜在的、沈潜	（潛）	
+潜	ひそ.む	common	潜む		
+潜	もぐ.る	common	潜る、潜り込む		
+線	セン	common	線路、点線、光線		
+遷	セン	common	遷延、遷都、変遷		
+選	セン	common	選択、選挙、当選		
+選	えら.ぶ	common	選ぶ		
+薦	セン	common	推薦、自薦		
+薦	すす.める	common	薦める		⇔進める、勧める
+繊	セン	common	繊細、繊維、化繊	（纖）	
+鮮	セン	common	鮮魚、鮮明、新鮮		
+鮮	あざ.やか	common	鮮やかだ		
+全	ゼン	common	全部、全国、完全		
+全	まった.く	common	全く、全うする		
+全	すべ.て	common	全て		
+前	ゼン	common	前後、以前、空前		
+前	まえ	common	前、前向き、名前		
+善	ゼン	common	善悪、善処、慈善		
+善	よ.い	common	善い		⇔良い
+然	ゼン	common	当然、自然、必然		
+然	ネン	common	天然		
+禅	ゼン	common	禅宗、禅寺、座禅	（禪）	
+漸	ゼン	common	漸次、漸進的、東漸		
+膳	ゼン	common	膳、配膳		
+繕	ゼン	common	修繕、営繕		
+繕	つくろ.う	common	繕う、繕い		
+狙	ソ	common	狙撃		
+狙	ねら.う	common	狙う、狙い		
+阻	ソ	common	阻止、阻害、険阻		
+阻	はば.む	common	阻む		
+祖	ソ	common	祖父、祖述、元祖	（祖）	
+租	ソ	common	租税、公租公課		
+素	ソ	common	素材、元素、平素		素人（しろうと）
+素	ス	common	素顔、素手、素性		
+措	ソ	common	措置、措辞、挙措		
+粗	ソ	common	粗密、粗野、精粗		
+粗	あら.い	common	粗い		⇔荒い
+組	ソ	common	組織、組成、改組		
+組	く.む	common	組む、組み込む		
+組	くみ	common	組、組長、赤組		
+疎	ソ	common	疎密、疎外、親疎		
+疎	うと.い	common	疎い		
+疎	うと.む	common	疎む、疎ましい		
+訴	ソ	common	訴訟、告訴、哀訴		
+訴	うった.える	common	訴える、訴え		
+塑	ソ	common	塑像、彫塑、可塑性		
+遡	ソ	common	遡及、遡上		［遡］＝許容字体、＊［（付）第２の１参照］
+遡	さかのぼ.る	common	遡る		
+礎	ソ	common	礎石、基礎、定礎		
+礎	いしずえ	common	礎		
+双	ソウ	common	双肩、双方、無双	（雙）	
+双	ふた	common	双子、双葉		⇔二
+壮	ソウ	common	壮大、壮健、強壮	（壯）	
+早	ソウ	common	早朝、早晩、早々に		早乙女（さおとめ）早苗（さなえ）
+早	サッ	narrow	早速、早急		
+早	はや.い	common	早い、早口、素早い		⇔速い
+早	はや.まる	common	早まる		⇔速まる
+早	はや.める	common	早める		⇔速める
+争	ソウ	common	争議、競争、紛争	（爭）	
+争	あらそ.う	common	争う、争い		
+走	ソウ	common	走行、競走、滑走		
+走	はし.る	common	走る、先走る		師走（しわす）
+奏	ソウ	common	奏楽、演奏、合奏		
+奏	かな.でる	common	奏でる		
+相	ソウ	common	相当、相談、真相		相撲（すもう）
+相	ショウ	common	首相、宰相		
+相	あい	common	相手、相宿		
+荘	ソウ	common	荘厳、荘重、別荘	（莊）	
+草	ソウ	common	草案、雑草、牧草		草履（ぞうり）
+草	くさ	common	草、草花、語り草		
+送	ソウ	common	送別、放送、運送		
+送	おく.る	common	送る、見送り		⇔贈る
+倉	ソウ	common	倉庫、穀倉		
+倉	くら	common	倉、倉敷料		⇔蔵
+捜	ソウ	common	捜索、捜査	（搜）	
+捜	さが.す	common	捜す		⇔探す
+挿	ソウ	common	挿入、挿話	（插）	
+挿	さ.す	common	挿す、挿絵、挿し木		⇔差す、刺す、指す
+桑	ソウ	common	桑園		
+桑	くわ	common	桑、桑畑		
+巣	ソウ	common	営巣、卵巣、病巣	（巢）	
+巣	す	common	巣、巣箱、巣立つ		
+掃	ソウ	common	掃除、清掃、一掃		
+掃	は.く	common	掃く		
+曹	ソウ	common	法曹、法曹界、陸曹		
+曽	ソウ	common	曽祖父、曽孫	（曾）	
+曽	ゾ	narrow	未曽有		
+爽	ソウ	common	爽快		
+爽	さわ.やか	common	爽やかだ		
+窓	ソウ	common	車窓、同窓、深窓		
+窓	まど	common	窓、窓口、出窓		
+創	ソウ	common	創造、独創、刀創		
+創	つく.る	common	創る		⇔作る、造る
+喪	ソウ	common	喪失		
+喪	も	common	喪、喪服、喪主		
+痩	ソウ	common	痩身	（瘦）	
+痩	や.せる	common	痩せる		
+葬	ソウ	common	葬儀、埋葬、会葬		
+葬	ほうむ.る	common	葬る		
+装	ソウ	common	装置、服装、変装	（裝）	
+装	ショウ	common	装束、衣装		
+装	よそお.う	common	装う、装い		
+僧	ソウ	common	僧院、高僧、尼僧	（僧）	
+想	ソウ	common	想像、感想、予想		
+想	ソ	narrow	愛想		
+層	ソウ	common	層雲、高層、断層	（層）	
+総	ソウ	common	総合、総意、総括	（總）	
+遭	ソウ	common	遭遇、遭難		
+遭	あ.う	common	遭う		⇔合う、会う
+槽	ソウ	common	水槽、浴槽		
+踪	ソウ	common	失踪		
+操	ソウ	common	操縦、操作、節操		
+操	みさお	common	操		
+操	あやつ.る	common	操る、操り人形		
+燥	ソウ	common	乾燥、焦燥、高燥		
+霜	ソウ	common	霜害、晩霜		
+霜	しも	common	霜、霜柱、初霜		
+騒	ソウ	common	騒動、騒音、物騒	（騷）	
+騒	さわ.ぐ	common	騒ぐ、騒ぎ、騒がしい		
+藻	ソウ	common	藻類、海藻、詞藻		
+藻	も	common	藻		
+造	ゾウ	common	造船、造花、構造		
+造	つく.る	common	造る		⇔作る、創る
+像	ゾウ	common	肖像、現像、想像		
+増	ゾウ	common	増減、増加、激増	（增）	
+増	ま.す	common	増す、水増し		
+増	ふ.える	common	増える		⇔殖える
+増	ふ.やす	common	増やす		⇔殖やす
+憎	ゾウ	common	憎悪、愛憎	（憎）	
+憎	にく.む	common	憎む		
+憎	にく.い	common	憎い、憎さ		
+憎	にく.らしい	common	憎らしい		
+憎	にく.しみ	common	憎しみ		
+蔵	ゾウ	common	蔵書、貯蔵、土蔵	（藏）	
+蔵	くら	common	蔵、酒蔵		⇔倉
+贈	ゾウ	common	贈与、贈呈、贈答	（贈）	
+贈	ソウ	narrow	寄贈		「寄贈」は、「キゾウ」とも。
+贈	おく.る	common	贈る、贈り物		⇔送る
+臓	ゾウ	common	臓器、内臓、心臓	（臟）	
+即	ソク	common	即応、即席、即興	（卽）	
+束	ソク	common	束縛、結束、約束		
+束	たば	common	束、花束、束ねる		
+足	ソク	common	足跡、遠足、補足		足袋（たび）
+足	あし	common	足、足音、素足		⇔脚
+足	た.りる	common	足りる		
+足	た.る	common	舌足らず		
+足	た.す	common	足す		
+促	ソク	common	促進、促成、催促		
+促	うなが.す	common	促す		
+則	ソク	common	法則、鉄則、変則		
+息	ソク	common	休息、消息、子息		息吹（いぶき）息子（むすこ）
+息	いき	common	息、息巻く、吐息		
+捉	ソク	common	捕捉		
+捉	とら.える	common	捉える		⇔捕らえる
+速	ソク	common	速度、敏速、時速		
+速	はや.い	common	速い、速さ		⇔早い
+速	はや.める	common	速める		⇔早める
+速	はや.まる	common	速まる		⇔早まる
+速	すみ.やか	common	速やかだ		
+側	ソク	common	側面、側近、側壁		
+側	がわ	common	側、裏側、片側		「かわ」とも。
+測	ソク	common	測量、目測、推測		
+測	はか.る	common	測る		⇔計る、量る、図る
+俗	ゾク	common	俗事、風俗、民俗		
+族	ゾク	common	一族、家族、民族		
+属	ゾク	common	属性、従属、金属	（屬）	
+賊	ゾク	common	賊軍、盗賊		
+続	ゾク	common	続出、続行、連続	（續）	
+続	つづ.く	common	続く、続き		
+続	つづ.ける	common	続ける		
+卒	ソツ	common	卒業、卒中、兵卒		
+率	ソツ	common	率先、引率、軽率		
+率	リツ	common	比率、能率、百分率		
+率	ひき.いる	common	率いる		
+存	ソン	common	存在、存続、既存		
+存	ゾン	common	存分、保存、存じます		
+村	ソン	common	村長、村落、農村		
+村	むら	common	村、村里、村芝居		
+孫	ソン	common	子孫、嫡孫		
+孫	まご	common	孫		
+尊	ソン	common	尊敬、尊大、本尊		
+尊	たっと.い	common	尊い		⇔貴い
+尊	とうと.い	common	尊い		⇔貴い
+尊	たっと.ぶ	common	尊ぶ		⇔貴ぶ
+尊	とうと.ぶ	common	尊ぶ		⇔貴ぶ
+損	ソン	common	損失、欠損、破損		
+損	そこ.なう	common	損なう、見損なう		
+損	そこ.ねる	common	損ねる		
+遜	ソン	common	謙遜、不遜		［遜］＝許容字体、＊［（付）第２の１参照］
+他	タ	common	他国、自他、排他的		
+他	ほか	common	他、○○の他		⇔外
+多	タ	common	多少、多数、雑多		
+多	おお.い	common	多い		
+汰	タ	common	沙汰		
+打	ダ	common	打撃、打破、乱打		
+打	う.つ	common	打つ		⇔撃つ、討つ
+妥	ダ	common	妥当、妥結、妥協		
+唾	ダ	common	唾液、唾棄		固唾（かたず）
+唾	つば	common	唾、眉唾		「唾」は、「つばき」とも。
+堕	ダ	common	堕落	（墮）	
+惰	ダ	common	惰眠、惰気、怠惰		
+駄	ダ	common	駄菓子、駄作、無駄		
+太	タイ	common	太陽、太鼓、皇太子		太刀（たち）
+太	タ	common	丸太		
+太	ふと.い	common	太い		
+太	ふと.る	common	太る		
+対	タイ	common	対立、絶対、反対	（對）	
+対	ツイ	common	対句、一対		
+体	タイ	common	体格、人体、主体	（體）	
+体	テイ	common	体裁、風体		
+体	からだ	common	体、体つき		
+耐	タイ	common	耐久、耐火、忍耐		
+耐	た.える	common	耐える		⇔堪える
+待	タイ	common	待機、待遇、期待		
+待	ま.つ	common	待つ、待ち遠しい		
+怠	タイ	common	怠惰、怠慢		
+怠	おこた.る	common	怠る		
+怠	なま.ける	common	怠ける、怠け者		
+胎	タイ	common	胎児、受胎、母胎		
+退	タイ	common	退却、退屈、進退		立ち退く（たちのく）
+退	しりぞ.く	common	退く		
+退	しりぞ.ける	common	退ける		
+帯	タイ	common	携帯、地帯、連帯	（帶）	
+帯	お.びる	common	帯びる		
+帯	おび	common	帯、角帯		
+泰	タイ	common	泰然、泰斗、安泰		
+堆	タイ	common	堆積		
+袋	タイ	common	風袋、郵袋		足袋（たび）
+袋	ふくろ	common	袋、紙袋		
+逮	タイ	common	逮捕、逮夜		
+替	タイ	common	代替		為替（かわせ）
+替	か.える	common	替える、両替		⇔換える、代える、変える
+替	か.わる	common	替わる		⇔換わる、代わる、変わる
+貸	タイ	common	貸借、貸与、賃貸		
+貸	か.す	common	貸す、貸し		
+隊	タイ	common	隊列、軍隊、部隊		
+滞	タイ	common	滞在、滞貨、沈滞	（滯）	
+滞	とどこお.る	common	滞る		
+態	タイ	common	態勢、形態、容態		
+戴	タイ	common	戴冠、頂戴		
+大	ダイ	common	大小、大胆、拡大		大人（おとな）大和（やまと）
+大	タイ	common	大衆、大した、大して		
+大	おお	common	大型、大通り、大水		
+大	おお.きい	common	大きい、大きさ、大きな		
+大	おお.いに	common	大いに		
+代	ダイ	common	代理、世代、現代		
+代	タイ	common	代謝、交代		
+代	か.わる	common	代わる、代わり		⇔換わる、替わる、変わる
+代	か.える	common	代える		⇔換える、替える、変える
+代	よ	common	代、神代		
+代	しろ	common	代物、苗代		
+台	ダイ	common	台地、灯台、一台	（臺）	
+台	タイ	common	台風、舞台		
+第	ダイ	common	第一、第三者、及第		
+題	ダイ	common	題名、問題、出題		
+滝	たき	common	滝、滝つぼ	（瀧）	
+宅	タク	common	宅地、自宅、帰宅		
+択	タク	common	選択、採択、二者択一	（擇）	
+沢	タク	common	光沢、潤沢	（澤）	
+沢	さわ	common	沢		
+卓	タク	common	卓越、卓球、食卓		
+拓	タク	common	拓本、開拓		
+託	タク	common	託宣、委託、結託		
+濯	タク	common	洗濯		
+諾	ダク	common	諾否、承諾、快諾		
+濁	ダク	common	濁流、濁音、清濁		
+濁	にご.る	common	濁る、濁り		
+濁	にご.す	common	濁す		
+但	ただ.し	common	但し、但し書き		
+達	タツ	common	達人、調達、伝達		友達（ともだち）
+脱	ダツ	common	脱衣、脱出、虚脱		
+脱	ぬ.ぐ	common	脱ぐ		
+脱	ぬ.げる	common	脱げる		
+奪	ダツ	common	奪回、奪取、争奪		
+奪	うば.う	common	奪う、奪い取る		
+棚	たな	common	棚、戸棚、大陸棚		
+誰	だれ	common	誰		
+丹	タン	common	丹念、丹精		
+旦	タン	common	一旦、元旦		
+旦	ダン	common	旦那		
+担	タン	common	担当、担架、負担	（擔）	
+担	かつ.ぐ	common	担ぐ		
+担	にな.う	common	担う		
+単	タン	common	単独、単位、簡単	（單）	
+炭	タン	common	炭鉱、木炭、石炭		
+炭	すみ	common	炭、炭火、消し炭		
+胆	タン	common	大胆、落胆、魂胆	（膽）	
+探	タン	common	探求、探訪、探知		
+探	さぐ.る	common	探る、探り		
+探	さが.す	common	探す		⇔捜す
+淡	タン	common	淡水、濃淡、冷淡		
+淡	あわ.い	common	淡い、淡雪		
+短	タン	common	短歌、短所、長短		
+短	みじか.い	common	短い		
+嘆	タン	common	嘆息、嘆願、驚嘆	（嘆）	
+嘆	なげ.く	common	嘆く、嘆き		
+嘆	なげ.かわしい	common	嘆かわしい		
+端	タン	common	端正、末端、極端		
+端	はし	common	端、片端		
+端	は	common	端数、半端、軒端		
+端	はた	common	端、川端、道端		
+綻	タン	common	破綻		
+綻	ほころ.びる	common	綻びる		
+誕	タン	common	誕生、生誕		
+鍛	タン	common	鍛錬		鍛冶（かじ）
+鍛	きた.える	common	鍛える、鍛え方		
+団	ダン	common	団結、団地、集団	（團）	
+団	トン	narrow	布団		
+男	ダン	common	男子、男女、男性		
+男	ナン	common	長男、美男、善男善女		
+男	おとこ	common	男、男らしい		
+段	ダン	common	段落、階段、手段		
+断	ダン	common	断絶、断定、判断	（斷）	
+断	た.つ	common	断つ、塩断ち		⇔裁つ、絶つ
+断	ことわ.る	common	断る、断り		
+弾	ダン	common	弾力、弾圧、爆弾	（彈）	
+弾	ひ.く	common	弾く、弾き手		⇔引く
+弾	はず.む	common	弾む、弾み		
+弾	たま	common	弾		⇔玉、球
+暖	ダン	common	暖流、暖房、温暖		
+暖	あたた.か	common	暖かだ		⇔温か
+暖	あたた.かい	common	暖かい		⇔温かい
+暖	あたた.まる	common	暖まる		⇔温まる
+暖	あたた.める	common	暖める		⇔温める
+談	ダン	common	談話、談判、相談		
+壇	ダン	common	壇上、花壇、文壇		
+壇	タン	narrow	土壇場		
+地	チ	common	地下、天地、境地		心地（ここち）
+地	ジ	common	地面、地震、地元		意気地（いくじ）
+池	チ	common	貯水池、電池		
+池	いけ	common	池、古池		
+知	チ	common	知識、知人、通知		
+知	し.る	common	知る、物知り		
+値	チ	common	価値、数値、絶対値		
+値	ね	common	値、値段		
+値	あたい	common	値、値する		⇔価
+恥	チ	common	恥辱、無恥、破廉恥		
+恥	は.じる	common	恥じる、恥じ入る		
+恥	はじ	common	恥、生き恥		
+恥	は.じらう	common	恥じらう、恥じらい		
+恥	は.ずかしい	common	恥ずかしい		
+致	チ	common	誘致、合致、風致		
+致	いた.す	common	致す		
+遅	チ	common	遅延、遅刻、遅速	（遲）	
+遅	おく.れる	common	遅れる、遅れ		⇔後れる
+遅	おく.らす	common	遅らす		
+遅	おそ.い	common	遅い、遅咲き		
+痴	チ	common	痴情、愚痴	（癡）	
+稚	チ	common	稚魚、稚拙、幼稚		稚児（ちご）
+置	チ	common	位置、放置、処置		
+置	お.く	common	置く		
+緻	チ	common	緻密、精緻		
+竹	チク	common	竹林、竹馬の友、爆竹		竹刀（しない）
+竹	たけ	common	竹、竹やぶ、さお竹		
+畜	チク	common	畜産、牧畜、家畜		
+逐	チク	common	逐次、逐一、駆逐		
+蓄	チク	common	蓄積、蓄電池、貯蓄		
+蓄	たくわ.える	common	蓄える、蓄え		
+築	チク	common	築港、建築、改築		築山（つきやま）
+築	きず.く	common	築く、築き上げる		
+秩	チツ	common	秩序		
+窒	チツ	common	窒息、窒素		
+茶	チャ	common	茶色、茶番劇、番茶		
+茶	サ	common	茶菓、茶話会、喫茶		
+着	チャク	common	着用、着手、土着		
+着	ジャク	narrow	愛着、執着		「愛着」、「執着」は、「アイチャク」、「シュウチャク」とも。
+着	き.る	common	着る、着物、晴れ着		
+着	き.せる	common	着せる、お仕着せ		
+着	つ.く	common	着く、船着き場		⇔付く、就く
+着	つ.ける	common	着ける		⇔付ける、就ける
+嫡	チャク	common	嫡子、嫡流		
+中	チュウ	common	中央、中毒、胸中		
+中	ジュウ	narrow	○○中		
+中	なか	common	中、中庭、真ん中		⇔仲
+仲	チュウ	common	仲介、仲裁、伯仲		
+仲	なか	common	仲、仲間		仲人（なこうど）⇔中
+虫	チュウ	common	虫類、幼虫、害虫	（蟲）	
+虫	むし	common	虫、毛虫		
+沖	チュウ	common	沖積層、沖天、沖する		
+沖	おき	common	沖		
+宙	チュウ	common	宙返り、宇宙		
+忠	チュウ	common	忠実、忠勤、誠忠		
+抽	チュウ	common	抽出、抽象		
+注	チュウ	common	注入、注意、発注		
+注	そそ.ぐ	common	注ぐ		
+昼	チュウ	common	昼夜、昼食、白昼	（晝）	
+昼	ひ.る	common	昼、昼寝、真昼		
+柱	チュウ	common	支柱、円柱、電柱		
+柱	はしら	common	柱、帆柱、大黒柱		
+衷	チュウ	common	衷心、折衷、苦衷		
+酎	チュウ	common	焼酎		
+鋳	チュウ	common	鋳造、鋳鉄、改鋳	（鑄）	
+鋳	い.る	common	鋳る、鋳物、鋳型		
+駐	チュウ	common	駐車、駐在、進駐		
+著	チョ	common	著名、著作、顕著	（著）	
+著	あらわ.す	common	著す		⇔表す、現す
+著	いちじる.しい	common	著しい、著しさ		
+貯	チョ	common	貯蓄、貯金、貯水池		
+丁	チョウ	common	丁数、落丁、二丁目		
+丁	テイ	common	丁字路、甲乙丙丁		
+弔	チョウ	common	弔問、弔辞、慶弔		
+弔	とむら.う	common	弔う、弔い		
+庁	チョウ	common	庁舎、官庁、県庁	（廳）	
+兆	チョウ	common	兆候、前兆、億兆		
+兆	きざ.す	common	兆す		
+兆	きざ.し	common	兆し		
+町	チョウ	common	町会、市町村		
+町	まち	common	町、町外れ		⇔街
+長	チョウ	common	長女、長所、成長		
+長	なが.い	common	長い、長さ		⇔永い
+挑	チョウ	common	挑戦、挑発		
+挑	いど.む	common	挑む		
+帳	チョウ	common	帳面、帳簿、通帳		蚊帳（かや）
+張	チョウ	common	張力、拡張、主張		
+張	は.る	common	張る、欲張る、引っ張る		⇔貼る
+彫	チョウ	common	彫刻、彫塑、木彫		
+彫	ほ.る	common	彫る、木彫り		
+眺	チョウ	common	眺望		
+眺	なが.める	common	眺める、眺め		
+釣	チョウ	common	釣果、釣魚、釣艇		
+釣	つ.る	common	釣る、釣り、釣り合い		
+頂	チョウ	common	頂上、頂点、絶頂		
+頂	いただ.く	common	頂く、頂き物		
+頂	いただき	common	頂		「山頂」の意。
+鳥	チョウ	common	鳥類、野鳥、一石二鳥		鳥取（とっとり）県
+鳥	とり	common	鳥、鳥居、小鳥		
+朝	チョウ	common	朝食、早朝、今朝		今朝（けさ）
+朝	あさ	common	朝、朝日、毎朝		
+貼	チョウ	common	貼付		「貼付」は、「テンプ」とも。
+貼	は.る	common	貼る		⇔張る
+超	チョウ	common	超越、超過、入超		
+超	こ.える	common	超える		⇔越える
+超	こ.す	common	超す		⇔越す
+腸	チョウ	common	腸炎、大腸、胃腸		
+跳	チョウ	common	跳躍		
+跳	は.ねる	common	跳ねる		
+跳	と.ぶ	common	跳ぶ、縄跳び		⇔飛ぶ
+徴	チョウ	common	徴収、特徴、象徴	（徵）	
+嘲	チョウ	common	嘲笑、自嘲		＊［（付）第２の３参照］
+嘲	あざけ.る	common	嘲る		
+潮	チョウ	common	潮流、満潮、風潮		
+潮	しお	common	潮、潮風		
+澄	チョウ	common	清澄		
+澄	す.む	common	澄む、上澄み		
+澄	す.ます	common	澄ます、澄まし顔		
+調	チョウ	common	調和、調査、好調		
+調	しら.べる	common	調べる、調べ		
+調	ととの.う	common	調う		⇔整う
+調	ととの.える	common	調える		⇔整える
+聴	チョウ	common	聴覚、聴衆、傍聴	（聽）	
+聴	き.く	common	聴く		⇔聞く
+懲	チョウ	common	懲罰、懲戒、懲役	（懲）	
+懲	こ.りる	common	懲りる、性懲りもなく		
+懲	こ.らす	common	懲らす		
+懲	こ.らしめる	common	懲らしめる		
+直	チョク	common	直立、直接、実直		
+直	ジキ	common	直訴、直筆、正直		
+直	ただ.ちに	common	直ちに		
+直	なお.す	common	直す、手直し		⇔治す
+直	なお.る	common	直る、仲直り		⇔治る
+勅	チョク	common	勅語、勅使、詔勅	（敕）	
+捗	チョク	common	進捗		＊［（付）第２の３参照］
+沈	チン	common	沈滞、沈黙、浮沈		
+沈	しず.む	common	沈む、浮き沈み		
+沈	しず.める	common	沈める		⇔静める、鎮める
+珍	チン	common	珍客、珍重、珍妙		
+珍	めずら.しい	common	珍しい、珍しさ、珍しがる		
+朕	チン	common			
+陳	チン	common	陳列、陳謝、開陳		
+賃	チン	common	賃金、賃上げ、運賃		
+鎮	チン	common	鎮座、鎮静、重鎮	（鎭）	
+鎮	しず.める	common	鎮める		⇔静める、沈める
+鎮	しず.まる	common	鎮まる		⇔静まる
+追	ツイ	common	追跡、追放、訴追		
+追	お.う	common	追う		
+椎	ツイ	common	椎間板、脊椎		
+墜	ツイ	common	墜落、墜死、撃墜		
+通	ツウ	common	通行、通読、普通		
+通	ツ	narrow	通夜		
+通	とお.る	common	通る、通り		
+通	とお.す	common	通す、通し		
+通	かよ.う	common	通う、通い		
+痛	ツウ	common	痛快、苦痛、心痛		
+痛	いた.い	common	痛い、痛さ		
+痛	いた.む	common	痛む、痛み、痛ましい		⇔傷む、悼む
+痛	いた.める	common	痛める		⇔傷める
+塚	つか	common	塚、貝塚	（塚）	
+漬	つ.ける	common	漬ける、漬物		
+漬	つ.かる	common	漬かる		
+坪	つぼ	common	坪数、建坪		
+爪	つめ	common	爪、生爪		
+爪	つま	narrow	爪先、爪弾く		
+鶴	つ.る	common	鶴、千羽鶴		
+低	テイ	common	低級、低気圧、高低		
+低	ひく.い	common	低い、低さ		
+低	ひく.める	common	低める		
+低	ひく.まる	common	低まる		
+呈	テイ	common	呈上、進呈、贈呈		
+廷	テイ	common	宮廷、法廷、出廷		
+弟	テイ	common	弟妹、義弟、子弟		
+弟	ダイ	narrow	兄弟		
+弟	デ	narrow	弟子		
+弟	おとうと	common	弟		
+定	テイ	common	定価、安定、決定		
+定	ジョウ	common	定石、定紋、必定		
+定	さだ.める	common	定める、定め		
+定	さだ.まる	common	定まる		
+定	さだ.か	common	定かだ		
+底	テイ	common	底流、海底、到底		
+底	そこ	common	底、奥底		
+抵	テイ	common	抵抗、抵触、大抵		
+邸	テイ	common	邸宅、邸内、私邸		
+亭	テイ	common	亭主、料亭		
+貞	テイ	common	貞淑、貞操、貞節		
+帝	テイ	common	帝王、帝国、皇帝		
+訂	テイ	common	訂正、改訂		
+庭	テイ	common	庭園、校庭、家庭		
+庭	にわ	common	庭、庭先		
+逓	テイ	common	逓信、逓送、逓減	（遞）	
+停	テイ	common	停止、停車、調停		
+偵	テイ	common	偵察、探偵、内偵		
+堤	テイ	common	堤防、防波堤		
+堤	つつみ	common	堤		
+提	テイ	common	提供、提案、前提		
+提	さ.げる	common	提げる、手提げ		⇔下げる
+程	テイ	common	程度、日程、過程		
+程	ほど	common	程、程遠い、身の程		
+艇	テイ	common	艦艇、舟艇、競艇		
+締	テイ	common	締結		
+締	し.まる	common	締まる、締まり		⇔閉まる、絞まる
+締	し.める	common	締める、締め切る、引き締め		⇔閉める、絞める
+諦	テイ	common	諦観、諦念		
+諦	あきら.める	common	諦める		
+泥	デイ	common	泥土、雲泥、拘泥		
+泥	どろ	common	泥、泥沼、泥棒		
+的	テキ	common	的中、目的、科学的		
+的	まと	common	的、的外れ		
+笛	テキ	common	汽笛、警笛、牧笛		
+笛	ふえ	common	笛、口笛		
+摘	テキ	common	摘要、摘発、指摘		
+摘	つ.む	common	摘む、摘み草		
+滴	テキ	common	水滴、点滴、一滴		
+滴	しずく	common	滴		
+滴	したた.る	common	滴る、滴り		
+適	テキ	common	適切、適度、快適		
+敵	テキ	common	敵、敵意、匹敵		
+敵	かたき	common	敵、敵役、商売敵		
+溺	デキ	common	溺愛、溺死		＊［（付）第２の３参照］
+溺	おぼ.れる	common	溺れる		
+迭	テツ	common	更迭		
+哲	テツ	common	哲学、哲人、先哲		
+鉄	テツ	common	鉄道、鉄筋、鋼鉄	（鐵）	
+徹	テツ	common	徹底、徹夜、貫徹		
+撤	テツ	common	撤去、撤回、撤兵		
+天	テン	common	天地、天然、雨天		
+天	あめ	common	天		
+天	あま	narrow	天の川、天下り		
+典	テン	common	典拠、古典、式典		
+店	テン	common	店舗、開店、本店		
+店	みせ	common	店、夜店		
+点	テン	common	点線、点火、採点	（點）	
+展	テン	common	展示、展開、発展		
+添	テン	common	添加、添付、添削		
+添	そ.える	common	添える、添え手紙		
+添	そ.う	common	添う、付き添う		⇔沿う
+転	テン	common	転出、回転、運転	（轉）	
+転	ころ.がる	common	転がる		
+転	ころ.げる	common	転げる		
+転	ころ.がす	common	転がす		
+転	ころ.ぶ	common	転ぶ		
+塡	テン	common	装塡、補塡		＊［（付）第２の３参照］
+田	デン	common	田地、水田、油田		田舎（いなか）
+田	た	common	田、田植え		
+伝	デン	common	伝言、伝統、宣伝	（傳）	伝馬船（てんません）
+伝	つた.わる	common	伝わる		
+伝	つた.える	common	伝える、言い伝え		
+伝	つた.う	common	伝う		手伝（てつだ）う
+殿	デン	common	殿堂、宮殿、貴殿		
+殿	テン	common	御殿		
+殿	との	common	殿様、殿方		
+殿	どの	common	○○殿		
+電	デン	common	電気、電報、発電		
+斗	ト	common	斗酒、北斗七星		
+吐	ト	common	吐露、吐血、音吐朗々		
+吐	は.く	common	吐く、吐き気		
+妬	ト	common	嫉妬		
+妬	ねた.む	common	妬む		
+徒	ト	common	徒歩、徒労、信徒		
+途	ト	common	途上、帰途、前途		
+都	ト	common	都会、都心、首都	（都）	
+都	ツ	common	都合、都度		
+都	みやこ	common	都、都落ち		
+渡	ト	common	渡航、渡河、譲渡		
+渡	わた.る	common	渡る、渡り		
+渡	わた.す	common	渡す、渡し		
+塗	ト	common	塗布、塗装、塗料		
+塗	ぬ.る	common	塗る、塗り		
+賭	ト	common	賭場、賭博		＊［（付）第２の３参照］
+賭	か.ける	common	賭ける、賭け		⇔掛ける、懸ける、架ける
+土	ド	common	土木、国土、粘土		土産（みやげ）
+土	ト	common	土地		
+土	つち	common	土、赤土		
+奴	ド	common	奴隷、守銭奴		
+努	ド	common	努力		
+努	つと.める	common	努める、努めて〔副〕		⇔勤める、務める
+度	ド	common	度胸、制度、限度		
+度	ト	narrow	法度		
+度	タク	narrow	支度		
+度	たび	common	度、度重なる、この度		
+怒	ド	common	怒号、怒気、激怒		
+怒	いか.る	common	怒る、怒り、怒り狂う		
+怒	おこ.る	common	怒る		
+刀	トウ	common	刀剣、短刀、名刀		太刀（たち）竹刀（しない）
+刀	かたな	common	刀		
+冬	トウ	common	冬季、冬至、越冬		
+冬	ふゆ	common	冬、冬枯れ		
+灯	トウ	common	灯火、電灯、点灯	（燈）	
+灯	ひ	common	灯		⇔火
+当	トウ	common	当惑、当然、妥当	（當）	
+当	あ.たる	common	当たる、当たり		
+当	あ.てる	common	当てる、当て		⇔宛てる、充てる
+投	トウ	common	投資、投下、暴投		投網（とあみ）
+投	な.げる	common	投げる、身投げ		
+豆	トウ	common	豆腐、納豆		小豆（あずき）
+豆	ズ	narrow	大豆		
+豆	まめ	common	豆、豆粒、煮豆		
+東	トウ	common	東西、東国、以東		
+東	ひがし	common	東、東側		
+到	トウ	common	到着、到底、周到		
+逃	トウ	common	逃走、逃亡、逃避		
+逃	に.げる	common	逃げる、夜逃げ		
+逃	に.がす	common	逃がす		
+逃	のが.す	common	逃す、見逃す		
+逃	のが.れる	common	逃れる、一時逃れ		
+倒	トウ	common	倒産、圧倒、傾倒		
+倒	たお.れる	common	倒れる、共倒れ		
+倒	たお.す	common	倒す		
+凍	トウ	common	凍結、凍死、冷凍		
+凍	こお.る	common	凍る、凍り付く		
+凍	こご.える	common	凍える、凍え死に		
+唐	トウ	common	唐本、唐突		
+唐	から	common	唐織、唐草模様		
+島	トウ	common	島民、半島、列島		
+島	しま	common	島、島国、離れ島		
+桃	トウ	common	桃源郷、白桃、桜桃		
+桃	もも	common	桃、桃色		
+討	トウ	common	討伐、討論、検討		
+討	う.つ	common	討つ、敵討ち		⇔打つ、撃つ
+透	トウ	common	透写、透明、浸透		
+透	す.く	common	透く		
+透	す.かす	common	透かす、透かし		
+透	す.ける	common	透ける		
+党	トウ	common	党派、政党、徒党	（黨）	
+悼	トウ	common	悼辞、哀悼、追悼		
+悼	いた.む	common	悼む		⇔痛む、傷む
+盗	トウ	common	盗難、盗用、強盗	（盜）	
+盗	ぬす.む	common	盗む、盗み		
+陶	トウ	common	陶器、陶酔、薫陶		
+塔	トウ	common	五重の塔、石塔		
+搭	トウ	common	搭載、搭乗、搭乗券		
+棟	トウ	common	上棟、病棟		
+棟	むね	common	棟、別棟		
+棟	むな	narrow	棟木		
+湯	トウ	common	湯治、熱湯、微温湯		
+湯	ゆ	common	湯、湯水、煮え湯		
+痘	トウ	common	種痘、水痘、天然痘		
+登	トウ	common	登壇、登校、登記		
+登	ト	common	登山、登城		
+登	のぼ.る	common	登る、山登り		⇔上る、昇る
+答	トウ	common	答弁、応答、問答		
+答	こた.える	common	答える		⇔応える
+答	こた.え	common	答え		
+等	トウ	common	等分、等級、平等		
+等	ひと.しい	common	等しい		
+筒	トウ	common	封筒、水筒、円筒形		
+筒	つつ	common	筒、筒抜け		
+統	トウ	common	統一、統計、伝統		
+統	す.べる	common	統べる		
+稲	トウ	common	水稲、陸稲	（稻）	
+稲	いね	common	稲、稲刈り		
+稲	いな	narrow	稲作、稲穂		
+踏	トウ	common	踏破、踏襲、高踏的		
+踏	ふ.む	common	踏む、足踏み		
+踏	ふ.まえる	common	踏まえる		
+糖	トウ	common	糖分、砂糖、製糖		
+頭	トウ	common	頭部、年頭、船頭		
+頭	ズ	common	頭脳、頭上、頭痛		
+頭	ト	narrow	音頭		
+頭	あたま	common	頭、頭金、頭打ち		
+頭	かしら	common	頭、頭文字、旗頭		
+謄	トウ	common	謄写、謄本		
+藤	トウ	common	葛藤		
+藤	ふじ	common	藤、藤色		
+闘	トウ	common	闘争、闘志、戦闘	（鬭）	
+闘	たたか.う	common	闘う、闘い		⇔戦う
+騰	トウ	common	騰貴、暴騰、沸騰		
+同	ドウ	common	同情、異同、混同		
+同	おな.じ	common	同じ、同じだ、同い年		
+洞	ドウ	common	洞穴、洞察、空洞		
+洞	ほら	common	洞穴		
+胴	ドウ	common	胴体、双胴船		
+動	ドウ	common	動物、活動、騒動		
+動	うご.く	common	動く、動き		
+動	うご.かす	common	動かす		
+堂	ドウ	common	堂々と、殿堂、母堂		
+童	ドウ	common	童話、童心、児童		
+童	わらべ	common	童、童歌		
+道	ドウ	common	道路、道徳、報道		
+道	トウ	narrow	神道		
+道	みち	common	道、近道		
+働	ドウ	common	労働、実働		
+働	はたら.く	common	働く、働き		
+銅	ドウ	common	銅器、銅像、青銅		
+導	ドウ	common	導入、指導、半導体		
+導	みちび.く	common	導く、導き		
+瞳	ドウ	common	瞳孔		
+瞳	ひとみ	common	瞳		
+峠	とうげ	common	峠、峠道		
+匿	トク	common	匿名、隠匿		
+特	トク	common	特殊、特産、独特		
+得	トク	common	得意、会得、損得		
+得	え.る	common	得る		⇔獲る
+得	う.る	common	得るところ、書き得る		
+督	トク	common	督促、督励、監督		
+徳	トク	common	徳義、徳用、道徳	（德）	
+篤	トク	common	篤農、危篤、懇篤		
+毒	ドク	common	毒薬、毒舌、中毒		
+独	ドク	common	独立、独断、単独	（獨）	
+独	ひと.り	common	独り、独り者		
+読	ドク	common	読書、音読、購読	（讀）	読経（どきょう）
+読	トク	common	読本		
+読	トウ	narrow	読点、句読点		
+読	よ.む	common	読む、読み		⇔詠む
+栃	とち	narrow			栃木県
+凸	トツ	common	凸版、凸レンズ、凹凸		凸凹（でこぼこ）
+突	トツ	common	突然、突端、衝突	（突）	
+突	つ.く	common	突く、一突き		
+届	とど.ける	common	届ける、届け	（屆）	
+届	とど.く	common	届く、行き届く		
+屯	トン	common	駐屯、駐屯地		
+豚	トン	common	養豚		
+豚	ぶた	common	豚、子豚		
+頓	トン	common	頓着、整頓		
+貪	ドン	common	貪欲		
+貪	むさぼ.る	common	貪る		
+鈍	ドン	common	鈍感、鈍角、愚鈍		
+鈍	にぶ.い	common	鈍い、鈍さ		
+鈍	にぶ.る	common	鈍る		
+曇	ドン	common	曇天		
+曇	くも.る	common	曇る、曇り		
+丼	どんぶり	common	丼、丼飯		
+丼	どん	narrow	牛丼、天丼		
+那	ナ	common	刹那、旦那		
+奈	ナ	common	奈落		
+内	ナイ	common	内外、内容、家内		
+内	ダイ	narrow	内裏、参内		
+内	うち	common	内、内側、内気		
+梨	なし	common	梨		
+謎	なぞ	common	謎		［謎］＝許容字体、＊［（付）第２の１参照］
+鍋	なべ	common	鍋、鍋料理		
+南	ナン	common	南北、南端、指南		
+南	ナ	narrow	南無		
+南	みなみ	common	南、南向き		
+軟	ナン	common	軟化、軟弱、硬軟		
+軟	やわ.らか	common	軟らかだ		⇔柔らか
+軟	やわ.らかい	common	軟らかい		⇔柔らかい
+難	ナン	common	難易、困難、非難	（難）	
+難	かた.い	common	許し難い、有り難い		
+難	むずか.しい	common	難しい、難しさ		「むつかしい」とも。
+二	ニ	common	二番目、二分、十二月		十重二十重（とえはたえ）二十・二十歳（はたち）二十日（はつか）二人（ふたり）二日（ふつか）⇔双
+二	ふた	common	二重まぶた		
+二	ふた.つ	common	二つ		
+尼	ニ	common	尼僧、修道尼		
+尼	あま	common	尼、尼寺		
+弐	ニ	common	弐万円	（貳）	
+匂	にお.う	common	匂う、匂い		⇔臭う
+肉	ニク	common	肉類、肉薄、筋肉		
+虹	にじ	common	虹		
+日	ニチ	common	日時、日光、毎日		明日（あす）昨日（きのう）今日（きょう）
+日	ジツ	common	連日、平日、休日		
+日	ひ	common	日、日帰り、月曜日		一日（ついたち）二十日（はつか）日和（ひより）二日（ふつか）
+日	か	common	三日、十日		
+入	ニュウ	common	入学、侵入、収入		
+入	い.る	common	寝入る、大入り、気に入る		⇔要る
+入	い.れる	common	入れる、入れ物		
+入	はい.る	common	入る		
+乳	ニュウ	common	乳児、乳液、牛乳		乳母（うば）
+乳	ちち	common	乳		
+乳	ち	common	乳首、乳飲み子		
+尿	ニョウ	common	尿意、尿素、夜尿症		
+任	ニン	common	任意、任務、責任		
+任	まか.せる	common	任せる、人任せ		
+任	まか.す	common	任す		
+妊	ニン	common	妊娠、懐妊、不妊		
+忍	ニン	common	忍者、忍耐、残忍		
+忍	しの.ぶ	common	忍ぶ、忍び足、忍びやかだ		
+忍	しの.ばせる	common	忍ばせる		
+認	ニン	common	認識、承認、否認		
+認	みと.める	common	認める		
+寧	ネイ	common	安寧、丁寧		
+熱	ネツ	common	熱病、熱湯、情熱		
+熱	あつ.い	common	熱い、熱さ		⇔暑い
+年	ネン	common	年代、少年、豊年		
+年	とし	common	年、年子、年寄り		今年（ことし）
+念	ネン	common	念願、信念、断念		
+捻	ネン	common	捻挫、捻出		
+粘	ネン	common	粘土、粘液、粘着		
+粘	ねば.る	common	粘る、粘り、粘り強い		
+燃	ネン	common	燃焼、燃料、可燃性		
+燃	も.える	common	燃える、燃え尽きる		
+燃	も.やす	common	燃やす		
+燃	も.す	common	燃す		
+悩	ノウ	common	悩殺、苦悩、煩悩	（惱）	
+悩	なや.む	common	悩む、悩み、悩ましい		
+悩	なや.ます	common	悩ます		
+納	ノウ	common	納入、納涼、収納		
+納	ナッ	narrow	納得、納豆		
+納	ナ	narrow	納屋		
+納	ナン	narrow	納戸		
+納	トウ	narrow	出納		
+納	おさ.める	common	納める、御用納め		⇔収める
+納	おさ.まる	common	納まる、納まり		⇔収まる
+能	ノウ	common	能力、芸能、効能		
+脳	ノウ	common	脳髄、首脳、頭脳	（腦）	
+農	ノウ	common	農業、農具、酪農		
+濃	ノウ	common	濃厚、濃紺、濃淡		
+濃	こ.い	common	濃い、濃さ		
+把	ハ	common	把握、把持、一把（ワ）、三把（バ）、十把（パ）		「把（ハ）」は、前に来る音によって「ワ」、「バ」、「パ」になる。
+波	ハ	common	波浪、波及、電波		波止場（はとば）
+波	なみ	common	波、波立つ、荒波		
+派	ハ	common	派遣、派生、流派		
+破	ハ	common	破壊、破産、撃破、破棄		
+破	やぶ.る	common	破る、型破り		
+破	やぶ.れる	common	破れる、破れ		⇔敗れる
+覇	ハ	common	覇権、覇者、制覇	（霸）	
+馬	バ	common	馬車、競馬、乗馬		伝馬船（てんません）
+馬	うま	common	馬、馬小屋		
+馬	ま	narrow	馬子、絵馬		
+婆	バ	common	老婆、産婆役		
+罵	バ	common	罵声、罵倒		
+罵	ののし.る	common	罵る		
+拝	ハイ	common	拝見、拝礼、崇拝	（拜）	
+拝	おが.む	common	拝む、拝み倒す		
+杯	ハイ	common	祝杯、銀杯、一杯		
+杯	さかずき	common	杯		
+背	ハイ	common	背後、背景、腹背		
+背	せ	common	背、背丈、背中		
+背	せい	common	背、上背		
+背	そむ.く	common	背く		
+背	そむ.ける	common	背ける		
+肺	ハイ	common	肺臓、肺炎、肺活量		
+俳	ハイ	common	俳優、俳句、俳味		
+配	ハイ	common	配分、交配、心配		
+配	くば.る	common	配る		
+排	ハイ	common	排斥、排気、排除		
+敗	ハイ	common	敗北、腐敗、失敗		
+敗	やぶ.れる	common	敗れる		⇔破れる
+廃	ハイ	common	廃止、廃物、荒廃	（廢）	
+廃	すた.れる	common	廃れる		
+廃	すた.る	common	廃る、はやり廃り		
+輩	ハイ	common	輩出、同輩、先輩		
+売	バイ	common	売買、売品、商売	（賣）	
+売	う.る	common	売る、売り出す		
+売	う.れる	common	売れる、売れ行き		
+倍	バイ	common	倍率、倍加、二倍		
+梅	バイ	common	梅園、梅雨、紅梅	（梅）	梅雨（つゆ）
+梅	うめ	common	梅、梅見、梅酒		
+培	バイ	common	培養、栽培		
+培	つちか.う	common	培う		
+陪	バイ	common	陪席、陪食、陪審		
+媒	バイ	common	媒介、媒体、触媒		
+買	バイ	common	買収、売買、購買		
+買	か.う	common	買う、買い物		
+賠	バイ	common	賠償		
+白	ハク	common	白髪、紅白、明白		白髪（しらが）
+白	ビャク	common	黒白		
+白	しろ	common	白、白黒、真っ白		
+白	しら	narrow	白壁、白む、白ける		
+白	しろ.い	common	白い		
+伯	ハク	common	伯仲、画伯		伯父（おじ）伯母（おば）
+拍	ハク	common	拍手、拍車、一拍		
+拍	ヒョウ	narrow	拍子		
+泊	ハク	common	宿泊、停泊、外泊		
+泊	と.まる	common	泊まる、泊まり		⇔止まる、留まる
+泊	と.める	common	泊める		⇔止める、留める
+迫	ハク	common	迫害、脅迫、切迫		
+迫	せま.る	common	迫る		
+剝	ハク	common	剝製、剝奪		＊［（付）第２の３参照］
+剝	は.がす	common	剝がす		
+剝	は.ぐ	common	剝ぐ		
+剝	は.がれる	common	剝がれる		
+剝	は.げる	common	剝げる		
+舶	ハク	common	舶来、船舶		
+博	ハク	common	博識、博覧、博士号		博士（はかせ）
+博	バク	narrow	博労、博徒		
+薄	ハク	common	薄情、薄謝、軽薄		
+薄	うす.い	common	薄い、薄着、品薄		
+薄	うす.める	common	薄める		
+薄	うす.まる	common	薄まる		
+薄	うす.らぐ	common	薄らぐ		
+薄	うす.れる	common	薄れる		
+麦	バク	common	麦芽、麦秋、精麦	（麥）	
+麦	むぎ	common	麦、麦粉、小麦		
+漠	バク	common	漠然、広漠、砂漠		
+縛	バク	common	束縛、捕縛		
+縛	しば.る	common	縛る、金縛り		
+爆	バク	common	爆発、爆弾、原爆		
+箱	はこ	common	箱、箱庭、小箱		
+箸	はし	common	箸		＊［（付）第２の３【賭】参照］
+畑	はた	common	畑、畑作		
+畑	はたけ	common	畑、畑違い、麦畑		
+肌	はだ	common	肌、肌色、地肌		
+八	ハチ	common	八月、八方		
+八	や	common	八重桜		八百屋（やおや）八百長（やおちょう）
+八	や.つ	common	八つ当たり		
+八	やっ.つ	common	八つ		
+八	よう	narrow	八日		
+鉢	ハチ	common	鉢、植木鉢		
+鉢	ハツ	narrow	衣鉢		
+発	ハツ	common	発明、発射、突発	（發）	
+発	ホツ	common	発作、発端、発起		
+髪	ハツ	common	頭髪、白髪、整髪	（髮）	白髪（しらが）
+髪	かみ	common	髪、髪結い、日本髪		
+伐	バツ	common	伐採、征伐、殺伐		
+抜	バツ	common	抜群、選抜	（拔）	
+抜	ぬ.く	common	抜く、くぎ抜き		
+抜	ぬ.ける	common	抜ける、気抜け		
+抜	ぬ.かす	common	抜かす		
+抜	ぬ.かる	common	抜かる、抜かり		
+罰	バツ	common	罰金、処罰、天罰		
+罰	バチ	common	罰当たり		
+閥	バツ	common	門閥、財閥、派閥		
+反	ハン	common	反映、反対、違反		
+反	ホン	narrow	謀反		
+反	タン	narrow	反物		
+反	そ.る	common	反る、反り		
+反	そ.らす	common	反らす		
+半	ハン	common	半分、半面、大半		
+半	なか.ば	common	半ば		
+氾	ハン	common	氾濫		
+犯	ハン	common	犯罪、共犯、侵犯		
+犯	おか.す	common	犯す		⇔侵す、冒す
+帆	ハン	common	帆船、帆走、出帆		
+帆	ほ	common	帆、帆柱、帆前船		
+汎	ハン	common	汎用		
+伴	ハン	common	同伴、随伴		
+伴	バン	common	伴奏、伴食		
+伴	ともな.う	common	伴う		
+判	ハン	common	判定、判明、裁判		
+判	バン	common	Ａ判、大判		
+坂	ハン	common	急坂		
+坂	さか	common	坂、坂道、下り坂		
+阪	ハン	common	阪神、京阪		大阪（おおさか）府
+板	ハン	common	乾板、鉄板		
+板	バン	common	黒板、掲示板		
+板	いた	common	板、板前		
+版	ハン	common	版画、写真版、出版		
+班	ハン	common	班長、救護班		
+畔	ハン	common	湖畔		
+般	ハン	common	諸般、一般、先般		
+販	ハン	common	販売、販路、市販		
+斑	ハン	common	斑点		
+飯	ハン	common	御飯、炊飯、赤飯		
+飯	めし	common	飯、飯粒、五目飯		
+搬	ハン	common	搬入、搬出、運搬		
+煩	ハン	common	煩雑		
+煩	ボン	narrow	煩悩		
+煩	わずら.う	common	煩う、煩い、煩わしい		⇔患う
+煩	わずら.わす	common	煩わす		
+頒	ハン	common	頒布、頒価		
+範	ハン	common	範囲、師範、模範		
+繁	ハン	common	繁栄、繁茂、繁華街	（繁）	
+藩	ハン	common	藩主、廃藩		
+晩	バン	common	晩夏、今晩、早晩	（晚）	
+番	バン	common	番人、番組、順番		
+蛮	バン	common	蛮行、蛮人、野蛮	（蠻）	
+盤	バン	common	基盤、円盤、碁盤		
+比	ヒ	common	比較、比例、無比		
+比	くら.べる	common	比べる、背比べ		
+皮	ヒ	common	皮膚、皮相、樹皮		
+皮	かわ	common	皮、毛皮		⇔革
+妃	ヒ	common	妃殿下、王妃		
+否	ヒ	common	否定、適否、安否		
+否	いな	common	否、否めない		
+批	ヒ	common	批判、批評、批准		
+彼	ヒ	common	彼我、彼岸		
+彼	かれ	common	彼、彼ら		
+彼	かの	narrow	彼女		
+披	ヒ	common	披見、披露、直披		
+肥	ヒ	common	肥大、肥料、施肥		
+肥	こ.える	common	肥える		
+肥	こえ	common	肥、下肥		
+肥	こ.やす	common	肥やす		
+肥	こ.やし	common	肥やし		
+非	ヒ	common	非難、非常、是非		
+卑	ヒ	common	卑近、卑屈、卑下	（卑）	
+卑	いや.しい	common	卑しい、卑しさ		
+卑	いや.しむ	common	卑しむ		
+卑	いや.しめる	common	卑しめる		
+飛	ヒ	common	飛行、飛躍、雄飛		
+飛	と.ぶ	common	飛ぶ、飛び火		⇔跳ぶ
+飛	と.ばす	common	飛ばす		
+疲	ヒ	common	疲労、疲弊		
+疲	つか.れる	common	疲れる、疲れ		
+秘	ヒ	common	秘密、秘書、神秘	（祕）	
+秘	ひ.める	common	秘める		
+被	ヒ	common	被服、被害、被告		
+被	こうむ.る	common	被る		
+悲	ヒ	common	悲喜、悲劇、慈悲		
+悲	かな.しい	common	悲しい、悲しがる		
+悲	かな.しむ	common	悲しむ、悲しみ		
+扉	ヒ	common	開扉、門扉		
+扉	とびら	common	扉		
+費	ヒ	common	費用、消費、旅費		
+費	つい.やす	common	費やす		
+費	つい.える	common	費える、費え		
+碑	ヒ	common	碑銘、石碑、記念碑	（碑）	
+罷	ヒ	common	罷業、罷免		
+避	ヒ	common	避難、逃避、不可避		
+避	さ.ける	common	避ける		
+尾	ビ	common	尾行、首尾、末尾		尻尾（しっぽ）
+尾	お	common	尾、尾頭付き、尾根		
+眉	ビ	common	眉目、焦眉		
+眉	ミ	narrow	眉間		
+眉	まゆ	common	眉毛		
+美	ビ	common	美醜、美術、賛美		
+美	うつく.しい	common	美しい、美しさ		
+備	ビ	common	備考、守備、準備		
+備	そな.える	common	備える、備え		⇔供える
+備	そな.わる	common	備わる		
+微	ビ	common	微細、微笑、衰微		
+鼻	ビ	common	鼻音、鼻孔、耳鼻科		
+鼻	はな	common	鼻、鼻血、小鼻		
+膝	ひざ	common	膝、膝頭		
+肘	ひじ	common	肘、肘掛け		
+匹	ヒツ	common	匹敵、匹夫、馬匹		
+匹	ひき	common	数匹		
+必	ヒツ	common	必然、必死、必要		
+必	かなら.ず	common	必ず、必ずしも		
+泌	ヒツ	common	分泌		「分泌」は、「ブンピ」とも。
+泌	ヒ	common	泌尿器		
+筆	ヒツ	common	筆力、筆記、毛筆		
+筆	ふで	common	筆、筆先		
+姫	ひめ	common	姫、姫松		
+百	ヒャク	common	百貨店、百科全書、数百		八百屋（やおや）八百長（やおちょう）
+氷	ヒョウ	common	氷点、氷山、結氷		
+氷	こおり	common	氷		
+氷	ひ	common	氷雨		
+表	ヒョウ	common	表面、代表、発表		
+表	おもて	common	表、表門、裏表		⇔面
+表	あらわ.す	common	表す		⇔現す、著す
+表	あらわ.れる	common	表れる		⇔現れる
+俵	ヒョウ	common	一俵、土俵		
+俵	たわら	common	俵、米俵		
+票	ヒョウ	common	票決、投票、伝票		
+評	ヒョウ	common	評価、評判、定評		
+漂	ヒョウ	common	漂着、漂白、漂流		
+漂	ただよ.う	common	漂う		
+標	ヒョウ	common	標準、標本、目標		
+苗	ビョウ	common	種苗、痘苗		
+苗	なえ	common	苗、苗木		早苗（さなえ）
+苗	なわ	narrow	苗代		
+秒	ビョウ	common	秒針、秒速、寸秒		
+病	ビョウ	common	病気、病根、看病		
+病	ヘイ	narrow	疾病		
+病	や.む	common	病む、病み付き		
+病	やまい	common	病		
+描	ビョウ	common	描写、素描、点描		
+描	えが.く	common	描く、描き出す		
+描	か.く	common	描く、絵描き		⇔書く
+猫	ビョウ	common	愛猫		
+猫	ねこ	common	猫		
+品	ヒン	common	品評、作品、上品		
+品	しな	common	品、品物、手品		
+浜	ヒン	common	海浜	（濱）	
+浜	はま	common	浜、浜辺、砂浜		
+貧	ヒン	common	貧富、貧弱、清貧		
+貧	ビン	common	貧乏		
+貧	まず.しい	common	貧しい、貧しさ		
+賓	ヒン	common	賓客、主賓、来賓	（賓）	
+頻	ヒン	common	頻度、頻発、頻繁	（頻）	
+敏	ビン	common	敏速、機敏、鋭敏	（敏）	
+瓶	ビン	common	瓶、瓶詰、花瓶	（甁）	
+不	フ	common	不当、不利、不賛成		
+不	ブ	common	不作法、不用心		
+夫	フ	common	夫妻、農夫、凡夫		
+夫	フウ	narrow	夫婦、工夫		
+夫	おっと	common	夫		
+父	フ	common	父母、父兄、祖父		叔父・伯父（おじ）父（とう）さん
+父	ちち	common	父、父親		
+付	フ	common	付与、交付、給付		
+付	つ.ける	common	付ける、名付け		⇔着ける、就ける
+付	つ.く	common	付く、気付く		⇔着く、就く
+布	フ	common	布陣、綿布、分布		
+布	ぬの	common	布、布地、布目		
+扶	フ	common	扶助、扶養、扶育		
+府	フ	common	府県、首府、政府		
+怖	フ	common	恐怖		
+怖	こわ.い	common	怖い、怖がる		
+阜	フ	narrow			岐阜県
+附	フ	common	附属、寄附		
+訃	フ	common	訃報		
+負	フ	common	負担、負傷、勝負		
+負	ま.ける	common	負ける、負け		
+負	ま.かす	common	負かす		
+負	お.う	common	負う、負い目、背負う		
+赴	フ	common	赴任		
+赴	おもむ.く	common	赴く		
+浮	フ	common	浮沈、浮力、浮薄		浮気（うわき）浮（うわ）つく
+浮	う.く	common	浮く、浮き、浮世絵		
+浮	う.かれる	common	浮かれる		
+浮	う.かぶ	common	浮かぶ		
+浮	う.かべる	common	浮かべる		
+婦	フ	common	婦人、夫婦、主婦		
+符	フ	common	符号、切符、音符		
+富	フ	common	富強、富裕、貧富		富山（とやま）県
+富	フウ	narrow	富貴		「富貴」は、「フッキ」とも。
+富	と.む	common	富む、富み栄える		
+富	とみ	common	富		
+普	フ	common	普通、普遍、普請		
+腐	フ	common	腐心、腐敗、陳腐		
+腐	くさ.る	common	腐る		
+腐	くさ.れる	common	腐れ縁、ふて腐れる		
+腐	くさ.らす	common	腐らす		
+敷	フ	common	敷設		
+敷	し.く	common	敷く、敷石、屋敷		桟敷（さじき）
+膚	フ	common	皮膚、完膚		
+賦	フ	common	賦役、月賦、天賦		
+譜	フ	common	系譜、楽譜、年譜		
+侮	ブ	common	侮辱、軽侮	（侮）	
+侮	あなど.る	common	侮る、侮り		
+武	ブ	common	武力、武士、文武		
+武	ム	common	武者人形、荒武者		
+部	ブ	common	部分、全部、本部		部屋（へや）
+舞	ブ	common	舞踏、舞台、鼓舞		
+舞	ま.う	common	舞う、舞い上がる		
+舞	まい	common	舞、舞扇		
+封	フウ	common	封鎖、封書、密封		
+封	ホウ	common	封建的、素封家		
+風	フウ	common	風力、風俗、強風		風邪（かぜ）
+風	フ	narrow	風情、中風		
+風	かぜ	common	風、そよ風		
+風	かざ	narrow	風上、風車		
+伏	フク	common	伏線、起伏、潜伏		
+伏	ふ.せる	common	伏せる、うつ伏せ		
+伏	ふ.す	common	伏す、伏し拝む		
+服	フク	common	服装、服従、洋服		
+副	フク	common	副業、副作用、正副		
+幅	フク	common	幅員、振幅、全幅		
+幅	はば	common	幅、横幅		
+復	フク	common	復活、往復、報復		
+福	フク	common	福祉、福徳、幸福	（福）	
+腹	フク	common	腹案、空腹、山腹		
+腹	はら	common	腹、腹芸、太っ腹		
+複	フク	common	複数、複雑、重複		
+覆	フク	common	覆面、転覆		
+覆	おお.う	common	覆う、覆い		
+覆	くつがえ.す	common	覆す		
+覆	くつがえ.る	common	覆る		
+払	フツ	common	払暁、払底	（拂）	
+払	はら.う	common	払う、払い、月払い		
+沸	フツ	common	沸騰、沸点、煮沸		
+沸	わ.く	common	沸く、沸き上がる		⇔湧く
+沸	わ.かす	common	沸かす、湯沸かし		
+仏	ブツ	common	仏事、仏像、念仏	（佛）	
+仏	ほとけ	common	仏、仏様、生き仏		
+物	ブツ	common	物質、人物、動物		
+物	モツ	common	食物、進物、禁物		
+物	もの	common	物、物語、品物		果物（くだもの）
+粉	フン	common	粉末、粉砕、粉飾		
+粉	こ	common	粉、小麦粉		
+粉	こな	common	粉、粉雪		
+紛	フン	common	紛失、紛争、内紛		
+紛	まぎ.れる	common	紛れる、紛れ		
+紛	まぎ.らす	common	紛らす		
+紛	まぎ.らわす	common	紛らわす		
+紛	まぎ.らわしい	common	紛らわしい		
+雰	フン	common	雰囲気		
+噴	フン	common	噴火、噴出、噴水		
+噴	ふ.く	common	噴く、噴き出す		⇔吹く
+墳	フン	common	墳墓、古墳		
+憤	フン	common	憤慨、義憤、発憤		
+憤	いきどお.る	common	憤る、憤り		
+奮	フン	common	奮起、奮発、興奮		
+奮	ふる.う	common	奮う、奮い立つ、奮って〔副〕		⇔震う、振るう
+分	ブン	common	分解、自分、水分		大分（おおいた）県
+分	フン	common	分別、分銅、三十分		
+分	ブ	common	一分一厘、五分		
+分	わ.ける	common	分ける、引き分け		
+分	わ.かれる	common	分かれる		⇔別れる
+分	わ.かる	common	分かる		
+分	わ.かつ	common	分かつ、分かち合う		
+文	ブン	common	文学、文化、作文		
+文	モン	common	文字、経文、天文学		「文字」は、「モジ」とも。
+文	ふみ	common	恋文		
+聞	ブン	common	新聞、風聞、見聞		
+聞	モン	common	聴聞、前代未聞		
+聞	き.く	common	聞く、人聞き		⇔聴く
+聞	き.こえる	common	聞こえる、聞こえ		
+丙	ヘイ	common	丙種、甲乙丙		
+平	ヘイ	common	平面、平和、公平		
+平	ビョウ	common	平等		
+平	たい.ら	common	平らな土地、平らげる		
+平	ひら	common	平手、平謝り、平たい		
+兵	ヘイ	common	兵器、兵隊、撤兵		
+兵	ヒョウ	common	兵糧、雑兵		
+併	ヘイ	common	併合、併用、合併	（倂）	
+併	あわ.せる	common	併せる、併せて〔接〕		⇔合わせる
+並	ヘイ	common	並行、並列、並立	（竝）	
+並	な.み	common	並の品、並木、足並み		
+並	なら.べる	common	並べる、五目並べ		
+並	なら.ぶ	common	並ぶ、並び		
+並	なら.びに	common	並びに		
+柄	ヘイ	common	横柄、権柄ずく		
+柄	がら	common	柄、家柄、身柄		
+柄	え	common	柄		
+陛	ヘイ	common	陛下		
+閉	ヘイ	common	閉店、閉口、密閉		
+閉	と.じる	common	閉じる、閉じ込める		
+閉	と.ざす	common	閉ざす		
+閉	し.める	common	閉める		⇔締める
+閉	し.まる	common	閉まる		⇔締まる
+塀	ヘイ	common	塀、板塀	（塀）	
+幣	ヘイ	common	貨幣、紙幣、御幣担ぎ		
+弊	ヘイ	common	弊害、旧弊、疲弊		
+蔽	ヘイ	common	隠蔽		＊［（付）第２の３参照］
+餅	ヘイ	common	煎餅	（餠）	［餅］＝許容字体、＊［（付）第２の３【餌】参照］
+餅	もち	common	餅屋、尻餅		
+米	ベイ	common	米作、米価、米食		
+米	マイ	common	精米、新米、白米		
+米	こめ	common	米、米粒		
+壁	ヘキ	common	壁面、壁画、岸壁		
+壁	かべ	common	壁、壁土、白壁		
+璧	ヘキ	common	完璧、双璧		
+癖	ヘキ	common	習癖、病癖、潔癖		
+癖	くせ	common	癖、口癖		
+別	ベツ	common	別離、区別、特別		
+別	わか.れる	common	別れる、別れ		⇔分かれる
+蔑	ベツ	common	蔑視、軽蔑		
+蔑	さげす.む	common	蔑む		
+片	ヘン	common	紙片、破片、断片		
+片	かた	common	片方、片手、片一方		
+辺	ヘン	common	辺境、周辺、その辺	（邊）	
+辺	あた.り	common	辺り		
+辺	べ	common	海辺、岸辺		
+返	ヘン	common	返却、返事、返礼		
+返	かえ.す	common	返す、仕返し		⇔帰す
+返	かえ.る	common	返る、寝返り		⇔帰る
+変	ヘン	common	変化、異変、大変	（變）	
+変	か.わる	common	変わる、変わり種		⇔替わる、代わる、換わる
+変	か.える	common	変える		⇔替える、代える、換える
+偏	ヘン	common	偏向、偏見、偏食		
+偏	かたよ.る	common	偏る、偏り		
+遍	ヘン	common	遍歴、普遍、一遍		
+編	ヘン	common	編集、編成、長編		
+編	あ.む	common	編む、手編み		
+弁	ベン	common	弁償、花弁、雄弁	（辨）（瓣）（辯）	
+便	ベン	common	便利、便法、簡便		
+便	ビン	common	便乗、郵便、定期便		
+便	たよ.り	common	便り、初便り、花便り		
+勉	ベン	common	勉強、勉学、勤勉	（勉）	
+歩	ホ	common	歩道、徒歩、進歩	（步）	
+歩	ブ	common	歩合、日歩		
+歩	フ	narrow	歩		
+歩	ある.く	common	歩く		
+歩	あゆ.む	common	歩む、歩み		
+保	ホ	common	保護、保存、担保		
+保	たも.つ	common	保つ		
+哺	ホ	common	哺乳類		
+捕	ホ	common	捕獲、捕虜、逮捕		
+捕	と.らえる	common	捕らえる		⇔捉える
+捕	と.らわれる	common	捕らわれる		
+捕	と.る	common	捕る、捕り物		⇔取る、採る
+捕	つか.まえる	common	捕まえる		
+捕	つか.まる	common	捕まる		
+補	ホ	common	補欠、補充、候補		
+補	おぎな.う	common	補う、補い		
+舗	ホ	common	舗装、店舗		老舗（しにせ）
+母	ボ	common	母性、父母、祖母		乳母（うば）叔母・伯母（おば）母屋・母家（おもや）母（かあ）さん
+母	はは	common	母、母親		
+募	ボ	common	募金、募集、応募		
+募	つの.る	common	募る		
+墓	ボ	common	墓地、墓参、墓穴		
+墓	はか	common	墓、墓参り		
+慕	ボ	common	慕情、敬慕、思慕		
+慕	した.う	common	慕う、慕わしい		
+暮	ボ	common	暮春、歳暮、薄暮		
+暮	く.れる	common	暮れる、暮れ		
+暮	く.らす	common	暮らす、暮らし		
+簿	ボ	common	簿記、名簿、帳簿		
+方	ホウ	common	方法、方角、地方		行方（ゆくえ）
+方	かた	common	お乗りの方、話し方、敵方		
+包	ホウ	common	包囲、包容力、内包		
+包	つつ.む	common	包む、包み、小包		
+芳	ホウ	common	芳香、芳紀、芳志		
+芳	かんば.しい	common	芳しい、芳しさ		
+邦	ホウ	common	邦楽、本邦、連邦		
+奉	ホウ	common	奉納、奉仕、信奉		
+奉	ブ	narrow	奉行		
+奉	たてまつ.る	common	奉る		
+宝	ホウ	common	宝石、国宝、財宝	（寶）	
+宝	たから	common	宝、宝船、子宝		
+抱	ホウ	common	抱負、抱懐、介抱		
+抱	だ.く	common	抱く		
+抱	いだ.く	common	抱く		
+抱	かか.える	common	抱える、一抱え		
+放	ホウ	common	放送、放棄、追放		
+放	はな.す	common	放す、手放す		⇔離す
+放	はな.つ	common	放つ		
+放	はな.れる	common	放れる		⇔離れる
+放	ほう.る	common	放る		
+法	ホウ	common	法律、文法、方法		
+法	ハッ	narrow	法度		
+法	ホッ	narrow	法主		「法主」は、「ホウシュ」とも。
+泡	ホウ	common	気泡、水泡、発泡		
+泡	あわ	common	泡、泡立つ		
+胞	ホウ	common	胞子、同胞、細胞		
+俸	ホウ	common	俸給、年俸、本俸		
+倣	ホウ	common	模倣		
+倣	なら.う	common	倣う		⇔習う
+峰	ホウ	common	秀峰、霊峰、連峰		
+峰	みね	common	峰、剣が峰		
+砲	ホウ	common	砲撃、大砲、鉄砲		
+崩	ホウ	common	崩壊		雪崩（なだれ）
+崩	くず.れる	common	崩れる、山崩れ		
+崩	くず.す	common	崩す		
+訪	ホウ	common	訪問、来訪、探訪		
+訪	おとず.れる	common	訪れる、訪れ		
+訪	たず.ねる	common	訪ねる		⇔尋ねる
+報	ホウ	common	報酬、報告、情報		
+報	むく.いる	common	報いる、報い		
+蜂	ホウ	common	蜂起		
+蜂	はち	common	蜜蜂		
+豊	ホウ	common	豊作、豊満、豊富	（豐）	
+豊	ゆた.か	common	豊かだ		
+飽	ホウ	common	飽和、飽食		
+飽	あ.きる	common	飽きる、飽き、見飽きる		
+飽	あ.かす	common	……に飽かして		
+褒	ホウ	common	褒章、褒美、過褒	（襃）	
+褒	ほ.める	common	褒める		
+縫	ホウ	common	縫合、縫製、裁縫		
+縫	ぬ.う	common	縫う、縫い目		
+亡	ボウ	common	亡父、亡命、存亡		
+亡	モウ	narrow	亡者		
+亡	な.い	common	亡い、亡き人、亡くす、亡くなる		多く文語の「亡き」で使う。⇔無い
+乏	ボウ	common	欠乏、貧乏、耐乏		
+乏	とぼ.しい	common	乏しい、乏しさ		
+忙	ボウ	common	忙殺、多忙、繁忙		
+忙	いそが.しい	common	忙しい、忙しさ		
+坊	ボウ	common	坊主、朝寝坊、赤ん坊		
+坊	ボッ	narrow	坊ちゃん		
+妨	ボウ	common	妨害		
+妨	さまた.げる	common	妨げる、妨げ		
+忘	ボウ	common	忘却、忘年会、備忘		
+忘	わす.れる	common	忘れる、物忘れ		
+防	ボウ	common	防備、堤防、予防		
+防	ふせ.ぐ	common	防ぐ、防ぎ		
+房	ボウ	common	独房、冷房、僧房		
+房	ふさ	common	房、一房、乳房		
+肪	ボウ	common	脂肪		
+某	ボウ	common	某氏、某国、某所		
+冒	ボウ	common	冒険、冒頭、感冒		
+冒	おか.す	common	冒す		⇔犯す、侵す
+剖	ボウ	common	解剖		
+紡	ボウ	common	紡績、混紡		
+紡	つむ.ぐ	common	紡ぐ		
+望	ボウ	common	望郷、希望、人望		
+望	モウ	common	所望、大望、本望		「大望」は、「タイボウ」とも。
+望	のぞ.む	common	望む、望み、望ましい		
+傍	ボウ	common	傍線、傍聴、路傍		
+傍	かたわ.ら	common	傍ら		
+帽	ボウ	common	帽子、脱帽、無帽		
+棒	ボウ	common	棒グラフ、棒読み、鉄棒		
+貿	ボウ	common	貿易		
+貌	ボウ	common	変貌、美貌		
+暴	ボウ	common	暴言、横暴、乱暴		
+暴	バク	narrow	暴露		
+暴	あば.く	common	暴く、暴き出す		
+暴	あば.れる	common	暴れる、大暴れ		
+膨	ボウ	common	膨大		
+膨	ふく.らむ	common	膨らむ、膨らみ		
+膨	ふく.れる	common	膨れる、青膨れ		
+謀	ボウ	common	謀略、無謀、首謀者		
+謀	ム	narrow	謀反		
+謀	はか.る	common	謀る		⇔計る、量る、図る
+頰	ほお	common	頰、頰張る		＊［（付）第２の３参照］「頰」は、「ほほ」とも。
+北	ホク	common	北進、北方、敗北		
+北	きた	common	北、北風、北半球		
+木	ボク	common	木石、大木、土木		
+木	モク	common	木造、樹木、材木		木綿（もめん）
+木	き	common	木、並木、拍子木		
+木	こ	narrow	木立、木陰		
+朴	ボク	common	純朴、素朴		
+牧	ボク	common	牧場、牧師、遊牧		
+牧	まき	common	牧場		
+睦	ボク	common	親睦、和睦		
+僕	ボク	common	僕、公僕		
+墨	ボク	common	筆墨、白墨、遺墨	（墨）	
+墨	すみ	common	墨、墨絵、眉墨		
+撲	ボク	common	撲殺、撲滅、打撲		相撲（すもう）
+没	ボツ	common	没収、没交渉、出没		
+勃	ボツ	common	勃興、勃発		
+堀	ほり	common	堀、外堀、釣堀		
+本	ホン	common	本質、本来、資本		
+本	もと	common	本、旗本		⇔下、元、基
+奔	ホン	common	奔走、奔放、出奔		
+翻	ホン	common	翻意、翻訳、翻刻	（飜）	
+翻	ひるがえ.る	common	翻る		
+翻	ひるがえ.す	common	翻す		
+凡	ボン	common	凡人、凡百、平凡		
+凡	ハン	narrow	凡例		
+盆	ボン	common	盆栽、盆地、旧盆		
+麻	マ	common	麻薬、麻酔、亜麻		
+麻	あさ	common	麻		
+摩	マ	common	摩擦、摩天楼		
+磨	マ	common	研磨		
+磨	みが.く	common	磨く、磨き粉		
+魔	マ	common	魔法、悪魔、邪魔		
+毎	マイ	common	毎度、毎日、毎々	（每）	
+妹	マイ	common	姉妹、義妹、令妹		
+妹	いもうと	common	妹		
+枚	マイ	common	枚数、枚挙、大枚		
+昧	マイ	common	曖昧、三昧		
+埋	マイ	common	埋没、埋蔵、埋葬		
+埋	う.める	common	埋める、埋め立て、穴埋め		
+埋	う.まる	common	埋まる		
+埋	う.もれる	common	埋もれる、埋もれ木		
+幕	マク	common	幕切れ、天幕、暗幕		
+幕	バク	common	幕府、幕末、幕僚		
+膜	マク	common	膜質、鼓膜、粘膜		
+枕	まくら	common	枕、枕元		
+又	また	common	又、又は		
+末	マツ	common	末代、本末、粉末		
+末	バツ	common	末子、末弟		「末子」、「末弟」は、「マッシ」、「マッテイ」とも。
+末	すえ	common	末、末っ子、末頼もしい		
+抹	マツ	common	抹殺、抹消、一抹		
+万	マン	common	万一、万年筆、巨万	（萬）	
+万	バン	common	万国、万端、万全		
+満	マン	common	満月、満足、充満	（滿）	
+満	み.ちる	common	満ちる、満ち潮		
+満	み.たす	common	満たす		
+慢	マン	common	慢性、怠慢、自慢		
+漫	マン	common	漫画、漫歩、散漫		
+未	ミ	common	未来、未満、前代未聞		
+味	ミ	common	味覚、意味、興味		三味線（しゃみせん）
+味	あじ	common	味、味見、塩味		
+味	あじ.わう	common	味わう、味わい		
+魅	ミ	common	魅力、魅惑、魅する		
+岬	みさき	common	岬		
+密	ミツ	common	密約、厳密、秘密		
+蜜	ミツ	common	蜜、蜜月		
+脈	ミャク	common	脈絡、動脈、山脈		
+妙	ミョウ	common	妙案、奇妙、巧妙		
+民	ミン	common	民族、民主的、国民		
+民	たみ	common	民		
+眠	ミン	common	不眠、安眠、睡眠		
+眠	ねむ.る	common	眠る、眠り		
+眠	ねむ.い	common	眠い、眠たい、眠気		
+矛	ム	common	矛盾		
+矛	ほこ	common	矛、矛先		
+務	ム	common	事務、職務、義務		
+務	つと.める	common	務める、務め		⇔勤める、努める
+務	つと.まる	common	務まる		⇔勤まる
+無	ム	common	無名、無理、皆無		
+無	ブ	common	無事、無礼、無愛想		
+無	な.い	common	無い、無くす、無くなる		⇔亡い
+夢	ム	common	夢幻、夢中、悪夢		
+夢	ゆめ	common	夢、夢見る、初夢		
+霧	ム	common	霧笛、濃霧、噴霧器		
+霧	きり	common	霧、霧雨、朝霧		
+娘	むすめ	common	娘、娘心、小娘		
+名	メイ	common	名誉、氏名、有名		
+名	ミョウ	common	名字、本名、大名		
+名	な	common	名、名前		仮名（かな）名残（なごり）
+命	メイ	common	命令、運命、生命		
+命	ミョウ	common	寿命		
+命	いのち	common	命、命拾い		
+明	メイ	common	明暗、説明、鮮明		
+明	ミョウ	common	明日、光明、灯明		明日（あす）
+明	あ.かり	common	明かり、薄明かり		
+明	あか.るい	common	明るい、明るさ		
+明	あか.るむ	common	明るむ		
+明	あか.らむ	common	明らむ		
+明	あき.らか	common	明らかだ		
+明	あ.ける	common	明ける、夜明け		⇔開ける、空ける
+明	あ.く	common	明く		⇔開く、空く
+明	あ.くる	common	明くる日、明くる朝		
+明	あ.かす	common	明かす、種明かし		
+迷	メイ	common	迷路、迷惑、低迷		
+迷	まよ.う	common	迷う、迷い		迷子（まいご）
+冥	メイ	common	冥福		
+冥	ミョウ	common	冥加、冥利		
+盟	メイ	common	加盟、同盟、連盟		
+銘	メイ	common	銘柄、碑銘		
+鳴	メイ	common	鳴動、悲鳴、雷鳴		
+鳴	な.く	common	鳴く、鳴き声		
+鳴	な.る	common	鳴る、耳鳴り		
+鳴	な.らす	common	鳴らす		
+滅	メツ	common	滅亡、消滅、絶滅		
+滅	ほろ.びる	common	滅びる		
+滅	ほろ.ぼす	common	滅ぼす		
+免	メン	common	免許、免除、放免	（免）	
+免	まぬか.れる	common	免れる		「まぬがれる」とも。
+面	メン	common	面会、顔面、方面		真面目（まじめ）
+面	おも	common	川の面、面影、面長		
+面	おもて	common	面、細面		⇔表
+面	つら	common	面、面魂、鼻面		
+綿	メン	common	綿布、綿密、純綿		木綿（もめん）
+綿	わた	common	綿、真綿		
+麺	メン	common	麺類	（麵）	
+茂	モ	common	繁茂		
+茂	しげ.る	common	茂る、茂み		
+模	モ	common	模範、模型、模倣		
+模	ボ	common	規模		
+毛	モウ	common	毛髪、毛細管、不毛		
+毛	け	common	毛、毛糸、抜け毛		
+妄	モウ	common	妄信、妄想、迷妄		
+妄	ボウ	common	妄言		「妄言」は、「モウゲン」とも。
+盲	モウ	common	盲点、盲従、文盲		
+耗	モウ	common	消耗		「モウ」は、慣用音。
+耗	コウ	narrow	心神耗弱		
+猛	モウ	common	猛烈、猛獣、勇猛		猛者（もさ）
+網	モウ	common	網膜、漁網、通信網		
+網	あみ	common	網、網戸		投網（とあみ）
+目	モク	common	目的、目前、項目		
+目	ボク	narrow	面目		「面目」は、「メンモク」とも。
+目	め	common	目、目立つ、結び目		真面目（まじめ）
+目	ま	narrow	目の当たり、目深		
+黙	モク	common	黙殺、暗黙、沈黙	（默）	
+黙	だま.る	common	黙る、黙り込む		
+門	モン	common	門戸、門下生、専門		
+門	かど	common	門、門口、門松		
+紋	モン	common	紋章、指紋、波紋		
+問	モン	common	問題、問答、訪問		
+問	と.う	common	問う、問いただす		
+問	と.い	common	問い		
+問	とん	narrow	問屋		「問屋」は、「といや」とも。
+冶	ヤ	common	冶金、陶冶		鍛冶（かじ）
+夜	ヤ	common	夜半、深夜、昼夜		
+夜	よ	common	夜が明ける、夜風、月夜		
+夜	よ.る	common	夜、夜昼		
+野	ヤ	common	野外、野性、分野		
+野	の	common	野、野原、野放し		野良（のら）
+弥	や	common		（彌）	弥生（やよい）
+厄	ヤク	common	厄、厄年、災厄		
+役	ヤク	common	役所、役目、荷役		
+役	エキ	common	役務、使役、兵役		
+約	ヤク	common	約束、約半分、節約		
+訳	ヤク	common	訳文、翻訳、通訳	（譯）	
+訳	わけ	common	訳、内訳、申し訳		
+薬	ヤク	common	薬剤、薬局、火薬	（藥）	
+薬	くすり	common	薬、飲み薬		
+躍	ヤク	common	躍動、躍起、飛躍		
+躍	おど.る	common	躍る、躍り上がる		⇔踊る
+闇	やみ	common	闇夜、暗闇		
+由	ユ	common	由来、経由		
+由	ユウ	common	自由、理由、事由		
+由	ユイ	narrow	由緒		
+由	よし	common	……の由		
+油	ユ	common	油脂、油田、石油		
+油	あぶら	common	油、油絵、水油		⇔脂
+喩	ユ	common	比喩		＊［（付）第２の３参照］
+愉	ユ	common	愉快、愉悦		
+諭	ユ	common	諭旨、教諭、説諭		
+諭	さと.す	common	諭す、諭し		
+輸	ユ	common	輸出、輸送、運輸		
+癒	ユ	common	癒着、治癒、平癒		
+癒	い.える	common	癒える		
+癒	い.やす	common	癒やす		
+唯	ユイ	common	唯一、唯物論、唯美主義		
+唯	イ	narrow	唯々諾々		
+友	ユウ	common	友好、友情、親友		
+友	とも	common	友		友達（ともだち）
+有	ユウ	common	有益、所有、特有		
+有	ウ	common	有無、有象無象		
+有	あ.る	common	有る、有り金		⇔在る
+勇	ユウ	common	勇敢、勇気、武勇		
+勇	いさ.む	common	勇む、勇み足、勇ましい		
+幽	ユウ	common	幽境、幽玄、幽霊		
+悠	ユウ	common	悠然、悠長、悠々		
+郵	ユウ	common	郵便、郵送、郵券		
+湧	ユウ	common	湧水、湧出		
+湧	わ.く	common	湧く		⇔沸く
+猶	ユウ	common	猶予		
+裕	ユウ	common	裕福、富裕、余裕		
+遊	ユウ	common	遊戯、遊離、交遊		
+遊	ユ	narrow	遊山		
+遊	あそ.ぶ	common	遊ぶ、遊び		
+雄	ユウ	common	雄大、英雄、雌雄		
+雄	お	common	雄しべ、雄牛、雄々しい		
+雄	おす	common	雄、雄犬		
+誘	ユウ	common	誘惑、誘発、勧誘		
+誘	さそ.う	common	誘う、誘い水		
+憂	ユウ	common	憂愁、憂慮、一喜一憂		
+憂	うれ.える	common	憂える、憂え		⇔愁える
+憂	うれ.い	common	憂い		⇔愁い
+憂	う.い	common	憂い、憂き目、物憂い		「憂き」は、文語の連体形。
+融	ユウ	common	融解、融和、金融		
+優	ユウ	common	優越、優柔、俳優		
+優	やさ.しい	common	優しい、優しさ		
+優	すぐ.れる	common	優れる		
+与	ヨ	common	与党、授与、関与	（與）	
+与	あた.える	common	与える		
+予	ヨ	common	予定、予備、猶予	（豫）	
+余	ヨ	common	余剰、余地、残余	（餘）	
+余	あま.る	common	余る、余り		
+余	あま.す	common	余す		
+誉	ヨ	common	名誉、栄誉	（譽）	
+誉	ほま.れ	common	誉れ		
+預	ヨ	common	預金、預託		
+預	あず.ける	common	預ける		
+預	あず.かる	common	預かる、預かり		
+幼	ヨウ	common	幼児、幼虫、幼稚		
+幼	おさな.い	common	幼い、幼友達		
+用	ヨウ	common	用意、使用、費用		
+用	もち.いる	common	用いる		
+羊	ヨウ	common	羊毛、綿羊、牧羊		
+羊	ひつじ	common	羊		
+妖	ヨウ	common	妖怪、妖艶		
+妖	あや.しい	common	妖しい		⇔怪しい
+洋	ヨウ	common	洋楽、洋風、海洋		
+要	ヨウ	common	要点、要注意、重要		
+要	かなめ	common	要		
+要	い.る	common	要る		⇔入る
+容	ヨウ	common	容易、容器、形容		
+庸	ヨウ	common	凡庸、中庸		
+揚	ヨウ	common	意気揚々、抑揚、掲揚		
+揚	あ.げる	common	揚げる、荷揚げ		⇔上げる、挙げる
+揚	あ.がる	common	揚がる		⇔上がる、挙がる
+揺	ヨウ	common	動揺	（搖）	
+揺	ゆ.れる	common	揺れる、揺れ		
+揺	ゆ.る	common	揺り返し、揺り籠		
+揺	ゆ.らぐ	common	揺らぐ		
+揺	ゆ.るぐ	common	揺るぐ、揺るぎない		
+揺	ゆ.する	common	揺する、貧乏揺すり		
+揺	ゆ.さぶる	common	揺さぶる		
+揺	ゆ.すぶる	common	揺すぶる		
+葉	ヨウ	common	葉緑素、落葉、紅葉		紅葉（もみじ）
+葉	は	common	葉、枯れ葉、落ち葉		
+陽	ヨウ	common	陽光、陰陽、太陽		
+溶	ヨウ	common	溶解、溶液、水溶液		
+溶	と.ける	common	溶ける		⇔解ける
+溶	と.かす	common	溶かす		⇔解かす
+溶	と.く	common	溶く		⇔解く
+腰	ヨウ	common	腰痛、腰部		
+腰	こし	common	腰、腰だめ、物腰		
+様	ヨウ	common	様式、様子、模様	（樣）	
+様	さま	common	様、○○様		
+瘍	ヨウ	common	潰瘍、腫瘍		
+踊	ヨウ	common	舞踊		
+踊	おど.る	common	踊る		⇔躍る
+踊	おど.り	common	踊り		
+窯	ヨウ	common	窯業		
+窯	かま	common	窯		
+養	ヨウ	common	養育、養子、休養		
+養	やしな.う	common	養う		
+擁	ヨウ	common	擁護、擁立、抱擁		
+謡	ヨウ	common	謡曲、民謡、歌謡	（謠）	
+謡	うたい	common	謡、素謡		
+謡	うた.う	common	謡う		⇔歌う
+曜	ヨウ	common	曜日、七曜表、日曜		
+抑	ヨク	common	抑圧、抑制、抑揚		
+抑	おさ.える	common	抑える、抑え		⇔押さえる
+沃	ヨク	common	肥沃		
+浴	ヨク	common	浴場、海水浴		浴衣（ゆかた）
+浴	あ.びる	common	浴びる、水浴び		
+浴	あ.びせる	common	浴びせる		
+欲	ヨク	common	欲望、食欲、無欲		
+欲	ほっ.する	common	欲する		
+欲	ほ.しい	common	欲しい、欲しがる		
+翌	ヨク	common	翌春、翌年、翌々日		
+翼	ヨク	common	左翼、尾翼		
+翼	つばさ	common	翼		
+拉	ラ	common	拉致		
+裸	ラ	common	裸身、裸体、赤裸々		
+裸	はだか	common	裸、丸裸		
+羅	ラ	common	羅列、羅針盤、網羅		
+来	ライ	common	来年、来歴、往来	（來）	
+来	く.る	common	来る、出来心		
+来	きた.る	common	来る○日		
+来	きた.す	common	来す		
+雷	ライ	common	雷雨、雷名、魚雷		
+雷	かみなり	common	雷		
+頼	ライ	common	依頼、信頼、無頼漢	（賴）	
+頼	たの.む	common	頼む、頼み		
+頼	たの.もしい	common	頼もしい		
+頼	たよ.る	common	頼る、頼り		
+絡	ラク	common	連絡、脈絡		
+絡	から.む	common	絡む、絡み付く		
+絡	から.まる	common	絡まる		
+絡	から.める	common	絡める		
+落	ラク	common	落語、落涙、集落		
+落	お.ちる	common	落ちる、落ち着く		
+落	お.とす	common	落とす、力落とし		
+酪	ラク	common	酪農		
+辣	ラツ	common	辣腕、辛辣		
+乱	ラン	common	乱戦、混乱、反乱	（亂）	
+乱	みだ.れる	common	乱れる、乱れ		
+乱	みだ.す	common	乱す		
+卵	ラン	common	卵黄、鶏卵、産卵		
+卵	たまご	common	卵		
+覧	ラン	common	観覧、展覧、一覧	（覽）	
+濫	ラン	common	濫伐、濫費、濫用		
+藍	ラン	common	出藍		
+藍	あい	common	藍色、藍染め		
+欄	ラン	common	欄干、欄外、空欄	（欄）	
+吏	リ	common	吏員、官吏、能吏		
+利	リ	common	利益、鋭利、勝利		砂利（じゃり）
+利	き.く	common	利く、左利き、口利き		⇔効く
+里	リ	common	里程、郷里、千里眼		
+里	さと	common	里、里心、村里		
+理	リ	common	理科、理由、整理		
+痢	リ	common	疫痢、下痢、赤痢		
+裏	リ	common	裏面、表裏		
+裏	うら	common	裏、裏口		
+履	リ	common	履歴、履行、弊履		草履（ぞうり）
+履	は.く	common	履く、履物		
+璃	リ	common	浄瑠璃		
+離	リ	common	離別、距離、分離		
+離	はな.れる	common	離れる、離れ、乳離れ		⇔放れる
+離	はな.す	common	離す		⇔放す
+陸	リク	common	陸地、陸橋、着陸		
+立	リツ	common	立案、起立、独立		
+立	リュウ	narrow	建立		
+立	た.つ	common	立つ、立場、夕立		立ち退く（たちのく）⇔建つ
+立	た.てる	common	立てる、立て札		⇔建てる
+律	リツ	common	律動、規律、法律		
+律	リチ	narrow	律儀		
+慄	リツ	common	慄然、戦慄		
+略	リャク	common	略称、計略、侵略		
+柳	リュウ	common	花柳界、川柳		
+柳	やなぎ	common	柳、柳腰		
+流	リュウ	common	流行、流動、電流		
+流	ル	narrow	流布、流転、流罪		
+流	なが.れる	common	流れる、流れ		
+流	なが.す	common	流す、流し		
+留	リュウ	common	留意、留学、保留		
+留	ル	narrow	留守		
+留	と.める	common	留める、帯留め		⇔止める、泊める
+留	と.まる	common	留まる、歩留まり		⇔止まる、泊まる
+竜	リュウ	common	竜、竜頭蛇尾	（龍）	
+竜	たつ	common	竜巻		
+粒	リュウ	common	粒子、粒々辛苦		
+粒	つぶ	common	粒、豆粒		
+隆	リュウ	common	隆起、隆盛、興隆	（隆）	
+硫	リュウ	common	硫安、硫酸、硫化銀		硫黄（いおう）
+侶	リョ	common	僧侶、伴侶		
+旅	リョ	common	旅行、旅情、旅券		
+旅	たび	common	旅、旅先、船旅		
+虜	リョ	common	虜囚、捕虜	（虜）	
+慮	リョ	common	遠慮、考慮、無慮		
+了	リョウ	common	了解、完了、校了		
+両	リョウ	common	両親、両立、千両	（兩）	
+良	リョウ	common	良好、良心、優良		野良（のら）奈良（なら）県
+良	よ.い	common	良い		⇔善い
+料	リョウ	common	料金、料理、材料		
+涼	リョウ	common	涼味、清涼剤、納涼		
+涼	すず.しい	common	涼しい、涼しさ		
+涼	すず.む	common	涼む、夕涼み		
+猟	リョウ	common	猟師、狩猟、渉猟	（獵）	
+陵	リョウ	common	陵墓、丘陵		
+陵	みささぎ	common	陵		
+量	リョウ	common	量産、測量、度量		
+量	はか.る	common	量る		⇔計る、測る、図る、謀る
+僚	リョウ	common	僚友、官僚、同僚		
+領	リョウ	common	領土、要領、大統領		
+寮	リョウ	common	寮生、寮母、独身寮		
+療	リョウ	common	療養、医療、治療		
+瞭	リョウ	common	明瞭		
+糧	リョウ	common	糧食、糧道		
+糧	ロウ	narrow	兵糧		
+糧	かて	common	糧		
+力	リョク	common	権力、努力、能力		
+力	リキ	common	力量、力作、馬力		
+力	ちから	common	力、力仕事、底力		
+緑	リョク	common	緑茶、緑陰、新緑	（綠）	
+緑	ロク	narrow	緑青		
+緑	みどり	common	緑、薄緑		
+林	リン	common	林業、林立、山林		
+林	はやし	common	林、松林		
+厘	リン	common	一分一厘		
+倫	リン	common	倫理、人倫、絶倫		
+輪	リン	common	輪番、一輪、車輪		
+輪	わ	common	輪、輪切り、首輪		
+隣	リン	common	隣室、隣接、近隣		
+隣	とな.る	common	隣り合う		
+隣	となり	common	隣、両隣		
+臨	リン	common	臨時、臨床、君臨		
+臨	のぞ.む	common	臨む		
+瑠	ル	common	浄瑠璃		
+涙	ルイ	common	感涙、声涙、落涙	（淚）	
+涙	なみだ	common	涙、涙ぐむ、涙ぐましい		
+累	ルイ	common	累計、累積、係累		
+塁	ルイ	common	塁審、敵塁、土塁	（壘）	
+類	ルイ	common	類型、種類、分類	（類）	
+類	たぐ.い	common	類い、○○の類い		
+令	レイ	common	令嬢、法令、命令		
+礼	レイ	common	礼儀、謝礼、無礼	（禮）	
+礼	ライ	common	礼賛、礼拝		「礼拝」は、「レイハイ」とも。
+冷	レイ	common	冷却、冷淡、寒冷		
+冷	つめ.たい	common	冷たい、冷たさ		
+冷	ひ.える	common	冷える、底冷え		
+冷	ひ.や	common	冷や、冷や汗、冷ややかだ		
+冷	ひ.やす	common	冷やす		
+冷	ひ.やかす	common	冷やかす、冷やかし		
+冷	さ.める	common	冷める		
+冷	さ.ます	common	冷ます、湯冷まし		
+励	レイ	common	励行、奨励、精励	（勵）	
+励	はげ.む	common	励む、励み		
+励	はげ.ます	common	励ます、励まし		
+戻	レイ	common	戻入、返戻	（戾）	
+戻	もど.す	common	戻す、差し戻し		
+戻	もど.る	common	戻る、後戻り		
+例	レイ	common	例外、例年、用例		
+例	たと.える	common	例える、例え、例えば		
+鈴	レイ	common	電鈴、振鈴、予鈴		
+鈴	リン	common	風鈴、呼び鈴		
+鈴	すず	common	鈴		
+零	レイ	common	零下、零細、零落		
+霊	レイ	common	霊感、霊魂、霊長類	（靈）	
+霊	リョウ	common	悪霊、死霊		
+霊	たま	common	霊、霊屋		
+隷	レイ	common	隷書、隷属、奴隷		
+齢	レイ	common	樹齢、年齢、妙齢	（齡）	
+麗	レイ	common	麗人、端麗、美麗		
+麗	うるわ.しい	common	麗しい、麗しさ		
+暦	レキ	common	暦年、還暦、太陽暦	（曆）	
+暦	こよみ	common	暦、花暦		
+歴	レキ	common	歴史、歴訪、経歴	（歷）	
+列	レツ	common	列外、列車、陳列		
+劣	レツ	common	劣等、卑劣、優劣		
+劣	おと.る	common	劣る		
+烈	レツ	common	烈火、壮烈、猛烈		
+裂	レツ	common	決裂、破裂、分裂		
+裂	さ.く	common	裂く、八つ裂き		⇔割く
+裂	さ.ける	common	裂ける、裂け目		
+恋	レン	common	恋愛、恋慕、失恋	（戀）	
+恋	こ.う	common	恋い慕う、恋い焦がれる		
+恋	こい	common	恋、初恋、恋する		
+恋	こい.しい	common	恋しい、恋しがる		
+連	レン	common	連合、連続、関連		
+連	つら.なる	common	連なる		
+連	つら.ねる	common	連ねる		
+連	つ.れる	common	連れる、連れ		
+廉	レン	common	廉価、清廉、破廉恥		
+練	レン	common	練習、試練、熟練	（練）	
+練	ね.る	common	練る、練り直す		
+錬	レン	common	錬金術、鍛錬、精錬	（鍊）	
+呂	ロ	common	風呂		
+炉	ロ	common	炉辺、暖炉、原子炉	（爐）	
+賂	ロ	common	賄賂		
+路	ロ	common	路上、道路		
+路	じ	common	家路、旅路、山路		
+露	ロ	common	露出、露店、雨露		
+露	ロウ	narrow	披露		
+露	つゆ	common	露、夜露		
+老	ロウ	common	老巧、老人、長老		老舗（しにせ）
+老	お.いる	common	老いる、老い		
+老	ふ.ける	common	老ける、老け役		
+労	ロウ	common	労働、労力、疲労	（勞）	
+弄	ロウ	common	愚弄、翻弄		
+弄	もてあそ.ぶ	common	弄ぶ		
+郎	ロウ	common	新郎	（郞）	
+朗	ロウ	common	朗読、朗々と、明朗	（朗）	
+朗	ほが.らか	common	朗らかだ、朗らかさ		
+浪	ロウ	common	浪費、波浪、放浪		
+廊	ロウ	common	廊下、回廊、画廊	（廊）	
+楼	ロウ	common	楼閣、鐘楼、望楼	（樓）	
+漏	ロウ	common	漏電、疎漏、脱漏		
+漏	も.る	common	漏る、雨漏り		
+漏	も.れる	common	漏れる		
+漏	も.らす	common	漏らす		
+籠	ロウ	common	籠城		
+籠	かご	common	籠		
+籠	こ.もる	common	籠もる		
+六	ロク	common	六月、六法、丈六		
+六	む	common	六月目		
+六	む.つ	common	六つ切り		
+六	むっ.つ	common	六つ		
+六	むい	narrow	六日		
+録	ロク	common	録音、記録、実録	（錄）	
+麓	ロク	common	山麓		
+麓	ふもと	common	麓		
+論	ロン	common	論証、論理、議論		
+和	ワ	common	和解、和服、柔和		日和（ひより）大和（やまと）
+和	オ	narrow	和尚		
+和	やわ.らぐ	common	和らぐ		
+和	やわ.らげる	common	和らげる		
+和	なご.む	common	和む		
+和	なご.やか	common	和やかだ		
+話	ワ	common	話題、会話、童話		
+話	はな.す	common	話す、話し合い		
+話	はなし	common	話、昔話、立ち話		
+賄	ワイ	common	収賄、贈賄		
+賄	まかな.う	common	賄う、賄い		
+脇	わき	common	脇腹、両脇		
+惑	ワク	common	惑星、迷惑、誘惑		
+惑	まど.う	common	惑う、惑い		
+枠	わく	common	枠、枠内、窓枠		
+湾	ワン	common	湾内、湾入、港湾	（灣）	
+腕	ワン	common	腕章、腕力、敏腕		
+腕	うで	common	腕、腕前、細腕		

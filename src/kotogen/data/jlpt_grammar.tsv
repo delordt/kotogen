@@ -1,0 +1,963 @@
+# JLPT grammar points by level - local reference table.
+# The JLPT has published no official list since the 2010 overhaul: the levels
+# here are settled by consensus, and each level holds at most its usual share
+# of the 110 / 250 / 450 / 650 points counted from N5 up; N1 holds the rest.
+#
+# level<TAB>tier<TAB>rule<TAB>meaning (en)<TAB>meaning (fr)<TAB>meaning (ja)
+#
+# The rule name is the identity of the point: the card carries it in its `Rule`
+# field and its tag, and the deck is compared on it. It is therefore unique,
+# Japanese, and holds no space. A form that heads several points carries its
+# grammatical category in full-width brackets: のに（逆接）, のに（目的）.
+#
+# The tier says how central the point is within its level: 1 its backbone,
+# 2 common, 3 finer, rarer or more formal. The lines of a level are in the
+# order `kotogen grammar jlpt` offers them: tier by tier, the most frequent
+# points first, and never a point before one of its level it rests on - which
+# may bring a point up ahead of its tier (な形容詞 before な形容詞＋名詞). A line
+# added by hand goes at the end of its tier.
+N5	1	を	marks the direct object of a verb	marque le complément d'objet direct	動作の対象を表す
+N5	1	の（所有）	possessive particle: of, belonging to	particule possessive : de, appartenant à	持ち主や所属を表す
+N5	1	だ	plain copula: equals, is	copule neutre : égale, est	名詞などの文を言い切る（ふつう体）
+N5	1	その	that (modifies a noun, near listener)	ce, cet, cette (près de l'interlocuteur)	聞き手に近いものを指す
+N5	1	この	this (modifies a noun)	ce, cet, cette (devant un nom)	話し手に近いものを指す
+N5	1	と（共同）	together with, in the company of	avec, en compagnie de	いっしょにする相手を表す
+N5	1	い形容詞（述語）	い-adjective ending a sentence	い-adjectif en position de prédicat	い形容詞で文を終える
+N5	1	ます	polite present/future verb form	forme polie du verbe au présent ou futur	動詞のていねいな形（今、これから）
+N5	2	な形容詞	noun-like adjectives requiring な before nouns	adjectifs nominaux nécessitant な devant les noms	名詞の前で な が付く形容詞
+N5	1	い形容詞・な形容詞・名詞＋で	and... (connecting predicates)	et... (coordination de prédicats)	述語をつなぐ（〜で、〜くて）
+N5	1	から（起点）	from, starting point	de, à partir de	始まりの場所や時を表す
+N5	1	か（疑問）	question marker at sentence end	marqueur de question en fin de phrase	文の終わりで質問を表す
+N5	1	な形容詞＋名詞	な-adjective plus な before a noun	な-adjectif suivi de な devant un nom	な形容詞が な で名詞を説明する
+N5	1	よ	assertive particle: I tell you, you know	particule assertive : je te dis, tu sais	相手の知らないことを伝える
+N5	1	い形容詞・な形容詞＋て	and..., being... and...	et..., étant... et...	形容詞をつなぐ（〜くて、〜で）
+N5	1	がある	something exists, is located (inanimate)	quelque chose existe, se trouve (inanimé)	物がある、存在する
+N5	1	あの	that (modifies a noun, away from both)	ce, cet, cette (loin des deux)	話し手からも聞き手からも遠いものを指す
+N5	1	い形容詞（活用）	adjectives ending in い that conjugate	adjectifs se terminant en い qui se conjuguent	い形容詞の形の変わり方
+N5	1	い形容詞＋名詞	い-adjective modifying a noun directly	い-adjectif modifiant directement un nom	い形容詞がそのまま名詞を説明する
+N5	1	いい	good, fine, acceptable, nice	bon, bien, acceptable, agréable	よい、かまわない
+N5	1	が（主語）	subject marker, identifies who or what does	marqueur de sujet, identifie qui ou quoi fait	主語を表す（だれが、何が）
+N5	1	くる	to come, to arrive	venir, arriver	こちらへ移る、来る
+N5	1	辞書形（非過去）	dictionary form of verbs, expressing present or future actions	forme du dictionnaire des verbes, exprimant des actions présentes ou futures	今やこれからのことを言う辞書形
+N5	1	する（動詞）	to do, to perform an action	faire, accomplir une action	何かを行う
+N5	1	た形（う動詞）	past affirmative form of godan verbs	forme passé affirmatif des verbes godan	う動詞の過去の形
+N5	1	た形（る動詞）	past affirmative form of ichidan verbs	forme passé affirmatif des verbes ichidan	る動詞の過去の形
+N5	1	誰	who, which person	qui, quelle personne	どの人かをたずねる
+N5	1	て形（接続）	The te-form, linking a verb to what follows	La forme en て, qui relie un verbe à la suite	動詞を後ろにつなぐ形
+N5	1	です	polite copula: equals, is	copule polie : égale, est	ていねいに言い切る
+N5	2	な形容詞＋だ	to be (な-adjective as predicate)	être (な形容詞 comme prédicat)	な形容詞で文を終える
+N5	2	ない形（う動詞）	negative present form of godan verbs	forme négative présent des verbes godan	う動詞の否定の形
+N5	2	ない形（る動詞）	negative present form of ichidan verbs	forme négative présent des verbes ichidan	る動詞の否定の形
+N5	2	に（格助詞）	marks location, time, target, or purpose	marque le lieu, le temps, la cible ou le but	場所、時、相手、目的を表す
+N5	2	は	topic marker: as for, speaking of	marqueur de thème : quant à, pour ce qui est de	話の題目を表す
+N5	2	だった・でした	was, past tense copula	était, copule au passé	名詞などの文の過去
+N5	2	が（逆接）	but, however, although	mais, cependant, bien que	前と反対のことを続ける
+N5	2	と（並列）	joins nouns in a list	relie des noms dans une énumération	名詞をならべる
+N5	2	それ	that thing near you	cela, cette chose près de toi	聞き手の近くにある物
+N5	2	これ	this thing here near me	ceci, cette chose près de moi	話し手の近くにある物
+N5	2	へ	to, toward a destination	vers, en direction de	向かう方向や行き先を表す
+N5	2	ね	confirmatory particle: right?, isn't it?	particule de confirmation : n'est-ce pas ?, hein ?	相手に同意を求める
+N5	2	たい	want to do, expressing first person desire	vouloir faire, exprimant un désir à la première personne	自分のしたいことを言う
+N5	2	くれる	to give (to me/us)	donner (à moi/nous)	ほかの人が自分にあたえる
+N5	2	だろう	probably, I guess (plain conjecture)	probablement, je suppose (supposition neutre)	たぶんそうだと思う（ふつう体）
+N5	2	から（理由）	because, the reason is	parce que, car	理由を表す
+N5	2	ここ	this place, right here	ici, cet endroit	話し手のいる場所
+N5	2	誰か・どこか・誰も・どこも	someone, somewhere, (not) anyone, (not) anywhere	quelqu'un, quelque part, (ne...) personne, (ne...) nulle part	はっきりしない人や場所、またはすべての否定
+N5	2	なんで	why (casual speech)	pourquoi (langage familier)	どうして（くだけた言い方）
+N5	2	なにか・なにも	something, (not) anything	quelque chose, (ne...) rien	はっきりしない物、またはすべての否定
+N5	2	なかった形（う動詞）	negative past form of godan verbs	forme négative passé des verbes godan	う動詞の否定の過去
+N5	2	どこ	where, what place	où, quel endroit	どの場所かをたずねる
+N5	2	か（選択）	or, either one or the other	ou, soit l'un soit l'autre	どちらか一つを選ぶ
+N5	2	きらい	to dislike, to hate	détester, ne pas aimer	好きではない
+N5	2	辞書形（う動詞）	dictionary form of godan verbs	forme du dictionnaire des verbes godan	う動詞の辞書の形
+N5	2	辞書形（る動詞）	dictionary form of ichidan verbs	forme du dictionnaire des verbes ichidan	る動詞の辞書の形
+N5	2	好き	to like, to be fond of	aimer, apprécier	気に入っている
+N5	2	だけ	only, just that and nothing more	seulement, juste cela et rien de plus	それしかないことを表す
+N5	2	て形（継起）	connecting form linking actions in sequence or simultaneously	forme de liaison reliant des actions en séquence ou simultanément	動作を順につなぐ
+N5	2	ている（進行）	to be doing, ongoing action	être en train de, action en cours	動作が続いている
+N5	2	で（手段）	by means of, using	au moyen de, en utilisant	道具や方法を表す
+N5	2	で（場所）	marks where an action takes place	marque le lieu où se déroule une action	動作をする場所を表す
+N5	2	どうして	why, how come	pourquoi, comment se fait-il que	理由をたずねる
+N5	2	動詞＋にいく	to go to do, to go for the purpose of	aller pour faire, aller dans le but de	何かをするために行く
+N5	2	なかった形（る動詞）	negative past form of ichidan verbs	forme négative passé des verbes ichidan	る動詞の否定の過去
+N5	2	ましょう	let's..., shall we...	faisons..., on va...	いっしょにしようとさそう
+N5	2	ませんか	won't you...?, would you like to...?	voulez-vous... ?, ça vous dit de... ?	ていねいにさそう
+N5	2	名詞＋まで	up to a place or time, as far as	jusqu'à un lieu ou un moment, aussi loin que	場所や時の終わりを表す
+N5	2	も	too, also, as well, either, neither	aussi, également, non plus	同じであることを表す
+N5	2	もう	already, now, no longer with negatives	déjà, maintenant, ne plus avec les négations	すでに、否定でこれ以上〜ない
+N5	2	もらう	to receive, to get	recevoir, obtenir	ほかの人から受け取る
+N5	2	い形容詞（過去）	い-adjective in past tense	い-adjectif au passé	い形容詞の過去の形
+N5	2	まえに	before doing or before a time, in front of spatially	avant de faire ou avant un moment, devant spatialement	〜するより先に、物の前に
+N5	2	でしょう	probably, I suppose (polite conjecture)	probablement, sans doute (supposition polie)	たぶんそうだと思う（ていねい）
+N5	2	まだ	still, yet, not yet with negatives	encore, toujours, pas encore avec les négations	今も続いている、否定でまだ〜ない
+N5	2	けど・だけど	but, however (informal contrast)	mais, cependant (contraste informel)	しかし（くだけた言い方）
+N5	2	じゃない	is not, negative copula	ne pas être, copule négative	名詞などの文の否定
+N5	2	がいる	someone exists, is present (animate)	quelqu'un existe, est présent (animé)	人や動物がいる
+N5	2	あげる	to give (to someone)	donner (à quelqu'un)	ほかの人にあたえる
+N5	2	て形＋ください	please...	veuillez..., s'il vous plaît...	ていねいにたのむ
+N5	2	へ行く	to go toward, to head to	aller vers, se diriger vers	ある方向へ行く
+N5	2	そこ	that place, there (near you)	là, cet endroit-là (près de toi)	聞き手の近くの場所
+N5	2	と（引用）	quotation marker for speech or thought	marque le discours rapporté ou la pensée	言ったことや思ったことを引く
+N5	3	の（名詞化）	nominalizer: turns phrases into noun equivalents	nominaliseur : transforme des phrases en équivalents nominaux	ことばのまとまりを名詞にする
+N5	3	ていた	was doing, was in a state of (past progressive or result)	était en train de, se trouvait dans l'état de	前に続いていた動作や状態
+N5	3	い形容詞・な形容詞＋の	the... one, a... one (nominalizer)	celui qui est..., un... (nominalisateur)	〜のもの（名詞のかわり）
+N5	3	とおもう	to think that, I believe that	penser que, croire que	自分の考えを言う
+N5	3	ので	because, since (soft explanation)	parce que, comme (explication douce)	理由をやわらかく言う
+N5	3	になる・くなる	to become an adjective state, change into	devenir un état adjectival, se transformer en	状態が変わる
+N5	3	そんな・こんな・あんな・どんな	that/this/that kind of, what sort of	ce genre de, quel genre de	そのような、このような、どのような
+N5	3	や	and, things like... (non-exhaustive list)	et, des choses comme... (liste non exhaustive)	例をいくつかならべる
+N5	3	という（名称）	called, named, known as	appelé, nommé, dit	名前を言う
+N5	3	だが・ですが	but, however (formal connective)	mais, cependant (connecteur formel)	しかし（かたい言い方）
+N5	3	ことができる	can; to be able to	pouvoir ; être capable de	することができる
+N5	3	意向形	let's do, I will do (volitional form)	faisons, je vais faire (forme volitive)	しようという気持ち、さそい
+N5	3	より	than, compared to, more than	que, plus que, par rapport à	くらべる相手を表す
+N5	3	い形容詞＋くない	not, negative of い-adjectives	ne pas être, négation des い形容詞	い形容詞の否定
+N5	3	たくさん	a lot, many, plenty	beaucoup, plein, en quantité	数や量が多い
+N5	3	な（禁止）	blunt prohibition attached to dictionary form, don't do	interdiction brutale attachée à la forme du dictionnaire, ne fais pas	強く禁止する
+N5	3	どの	which one, what kind, modifying a noun among several choices	lequel, quel genre, modifiant un nom parmi plusieurs choix	いくつかの中のどれかをたずねる
+N5	3	て形＋もいい	permission to do something, it's okay to	permission de faire quelque chose, c'est bon de	してもかまわない
+N5	3	なぜ	why, for what reason	pourquoi, pour quelle raison	理由をたずねる（かたい言い方）
+N5	3	て形＋から	after doing, once something is done	après avoir fait, une fois que quelque chose est fait	〜したあとで
+N5	3	どれ	which one among three or more options	lequel parmi trois options ou plus	三つ以上の中のどれかをたずねる
+N5	3	くらい（程度）	approximately, about this much in quantity or degree	approximativement, environ cette quantité ou ce degré	だいたいの量や程度
+N5	3	た形＋ほうがいい	it would be better to..., should...	il vaut mieux..., tu devrais...	そうするほうがよいとすすめる
+N5	3	あれ	that thing over there away from us	cette chose là-bas loin de nous	話し手からも聞き手からも遠い物
+N5	3	のが好き	to enjoy doing, to like doing	aimer faire, apprécier de faire	〜することが好き
+N5	3	名詞＋より名詞＋のほうが	... is more... than...	... est plus... que...	二つのものをくらべる
+N5	3	い形容詞＋くなかった	was not, past negative of い-adjectives	n'était pas, négation au passé des い形容詞	い形容詞の否定の過去
+N5	3	ない形＋でください	please don't...	s'il vous plaît ne... pas	しないようにたのむ
+N4	1	ば	if, when, provided that (conditional)	si, quand, à condition que	条件を表す：もし〜なら
+N4	1	使役形	force or allow someone to do	faire faire ou laisser faire à quelqu'un	人にさせる、させてあげる
+N4	1	て形＋しまう・ちゃう	wind up doing, finish completely, regrettably	finir par faire, faire complètement, malheureusement	すっかりする、残念な気持ち
+N4	1	てくれる	to do something for me, someone does me a favour	faire quelque chose pour moi, me rendre service	人が自分のために何かをする
+N4	1	なさる	to do (honorific, respectful)	faire (honorifique)	する の尊敬語
+N4	1	なさい	command to do, polite imperative	fais, faites (impératif poli)	しなさいと言いつける
+N4	1	なら	if, in that case, speaking of (contextual conditional)	si, dans ce cas, en ce qui concerne	話に出たことを受けて：それなら
+N4	1	見える	can be seen, is visible, appears	se voir, être visible, paraître	目に入る、見ることができる
+N4	1	てみる	to try doing, to give something a try	essayer de faire, tenter	ためしにする
+N4	1	お〜する	I do (humble, lowering oneself)	je fais (humble, modeste)	自分の動作をへりくだって言う
+N4	1	数量詞＋は	about, around that number, give or take	environ, à peu près ce nombre-là	少なくともその数くらい
+N4	1	ほとんど	almost, nearly all, hardly any	presque, la plupart, pratiquement pas	ほぼ全部、否定でほとんど〜ない
+N4	1	てもらう	to have someone do something, to receive a favour	faire faire quelque chose par quelqu'un, recevoir un service	人に何かをしてもらう
+N4	1	ます形＋かた	how to do, way of doing	manière de faire, comment faire	するやり方
+N4	1	すぎる	excessively, too much of something	excessivement, trop de quelque chose	度をこえて〜する
+N4	1	など	and so on, et cetera, such things as	et cetera, et ainsi de suite, entre autres	ほかにもあることを表す
+N4	1	名詞＋のように・のような	like, resembling, similar to	comme, ressemblant à, similaire à	〜に似ている、たとえ
+N4	1	ないで	don't do, without doing	ne fais pas, sans faire	〜しないで（たのむ、ようす）
+N4	1	疑問詞＋でも	any... at all, or something (with question words)	n'importe quel/lequel, ou quelque chose (avec mots interrogatifs)	どれでも、何でも
+N4	1	た形＋ことがある	have ever..., have done... before	avoir déjà..., avoir fait... une fois	前にしたことがある、経験
+N4	1	そう	looks like, appears, seems (based on appearance)	a l'air de, semble (d'après l'apparence)	見たところそうらしい
+N4	1	そうに・そうな	appearing to be, seeming (modifying noun or verb)	ayant l'air de, semblant (modifiant un nom ou un verbe)	そう見えるようすで
+N4	1	かもしれない	might, maybe, perhaps, it's possible that	peut-être, il se peut que, c'est possible que	そうである可能性がある
+N4	1	こと	nominalizes a verb (the act of, the fact that)	nominalise un verbe (le fait de, le fait que)	動詞を名詞にする
+N4	1	たら	if, when, after (conditional)	si, quand, après (conditionnel)	条件、〜したあとで
+N4	1	ていく	to go on doing, to continue from now on	continuer à faire, aller en faisant	これから変わっていく、続けていく
+N4	1	ておく	to do beforehand, to prepare by doing	faire à l'avance, préparer en faisant	前もって準備としてする
+N4	1	てくる	to come to, to begin to, to have been doing	commencer à, venir à, avoir fait jusqu'ici	変化が始まる、ここまで続いてきた
+N4	1	ても	no matter whether, in spite of	même si, quand bien même	たとえ〜ても
+N4	1	とき	when, at the time that	quand, au moment où	〜するその時に
+N4	1	ない形＋なくて（活用）	negative te-form conjugation	conjugaison de la forme en te négative	否定のて形
+N4	1	なければならない	must; have to (formal obligation)	devoir ; il faut (obligation formelle)	しなければいけない
+N4	1	みたい	seems like, looks like, appears to be	on dirait, semble, a l'air de	〜らしい、〜に似ている
+N4	1	ようだ	it appears that, it seems that, looks like	il semble que, on dirait que, apparemment	ようすから判断する
+N4	1	ように	so that; in order that; in such a way	afin que ; de sorte que ; de manière à	目的を表す：〜できるように
+N4	2	ように・ような	in the manner of, resembling	comme, à la manière de, tel que	〜と同じような、たとえ
+N4	2	れる・られる（受身）	passive voice: to be acted upon	voix passive : subir l'action	受身：人に〜される
+N4	2	ない形＋ないで	without doing, don't... and	sans faire, ne pas... et	〜しないで別のことをする
+N4	2	までに	by (a time), before (a deadline)	avant, d'ici (une échéance)	期限を表す：その時より前に
+N4	2	辞書形・ない形＋つもりだ	to intend to..., to plan to...	avoir l'intention de..., prévoir de...	するつもり、予定
+N4	2	がする	to smell of, to sound like, to feel like	sentir, avoir l'air de, donner l'impression de	音、におい、感じがする
+N4	2	辞書形＋まで	until an action occurs, up to the point when	jusqu'à ce qu'une action se produise, jusqu'au moment où	その動作が起きるまで
+N4	2	ます形＋はじめる	to begin doing, to start to	commencer à faire, se mettre à	〜し始める
+N4	2	ながら	while; as one does (simultaneous actions)	tout en ; pendant que (actions simultanées)	二つの動作を同時にする
+N4	2	が必要	to need, to be necessary	avoir besoin de, être nécessaire	必要である
+N4	2	あまり〜ない	not very, not much, not so	pas très, pas tellement, guère	それほど〜ない
+N4	2	ようにする	to make sure to; to try to; to arrange so that	faire en sorte de ; s'efforcer de ; arranger pour que	〜するように心がける
+N4	2	って（引用）	informal quotation particle, casual way to report speech	particule de citation informelle, façon décontractée de rapporter des paroles	くだけた引用：〜と言った
+N4	2	かな	I wonder, I suppose, maybe	je me demande, je suppose, peut-être	自分に問いかける
+N4	2	普通形＋ということ	the fact that, it means that	le fait que, cela signifie que	〜という内容、〜という意味
+N4	2	ない形＋なくて（用法）	not... and, because it's not	ne pas... et, parce que ce n'est pas	〜ないので、〜なくて
+N4	2	もし	if; supposing that (emphasizes hypothesis)	si ; en supposant que (souligne l'hypothèse)	仮に、ということを強める
+N4	2	ようになる	to reach a point where, to gradually become able to	en venir à, devenir capable de	だんだんできるようになる、変わる
+N4	2	する（価格）	to cost a certain price	coûter un certain prix	その値段である
+N4	2	つづける	to continue doing; to keep on	continuer à faire ; persévérer	続けて〜する
+N4	2	お〜になる	to do (respectful form for the listener's actions)	faire (honorifique pour l'interlocuteur)	相手の動作を高めて言う
+N4	2	く・に	adverbial forms: -ly, in a… manner	formes adverbiales : de manière…, -ment	形容詞を副詞にする：〜く、〜に
+N4	2	数量詞＋代	age range, decade (one's twenties, the 1920s)	tranche d'âge, décennie (la vingtaine, les années 1920)	年代や年れいのはば
+N4	2	する（状態）	to have a feature, to wear an accessory	avoir une caractéristique, porter un accessoire	そういう特徴がある、身につけている
+N4	2	ずっと（継続）	continuously, the whole time, all the way from	sans interruption, tout le temps, depuis toujours	長いあいだ続けて
+N4	2	て形・名詞＋で（手段）	using, by doing, through	en faisant, au moyen de, avec	方法や手段を表す
+N4	2	て形＋なおす	to do over, to redo	refaire, faire à nouveau	もう一度やり直す
+N4	2	ている（習慣）	to do regularly, habitual action	faire régulièrement, action habituelle	いつもすること、習慣
+N4	2	てくれない・てもらえない	won't you do it for me?, could you do it?	tu ne veux pas faire ?, tu ne pourrais pas ?	〜してくれないか、とたのむ
+N4	2	てすみません	I'm sorry for doing, excuse me for having done	désolé de, pardon d'avoir	〜してしまって申し訳ない
+N4	2	でございます	to be (formal copula, very polite)	être (copule formelle, très polie)	です のとてもていねいな形
+N4	2	にする	to decide on, to choose, to make it be	décider de, choisir, faire en sorte que ce soit	〜に決める、選ぶ
+N4	2	の（説明）	explanatory particle for context or reasons	particule explicative pour le contexte ou les raisons	事情や理由を説明する
+N4	2	の（代用）	substitutes for an understood noun	remplace un nom sous-entendu	わかっている名詞のかわりに使う
+N4	2	名詞＋ら	plural suffix (we, they, those)	suffixe du pluriel (nous, eux, ceux-là)	人がふくまれる複数を表す
+N4	2	かかる	to require (time), to cost (money)	prendre (du temps), coûter (de l'argent)	時間やお金が必要である
+N4	2	がる	to show signs of, to appear to feel (third person)	montrer des signes de, avoir l'air de ressentir	ほかの人の気持ちがようすに出る
+N4	2	疑問詞＋か	embedded question (what, where, who, etc. within a sentence)	question enchâssée (quoi, où, qui, etc. dans une phrase)	文の中に入れた質問
+N4	2	ごろ	around (a time), about	vers (une heure), environ	だいたいその時
+N4	2	それで	so, therefore, and then?	donc, alors, et puis ?	だから、それから
+N4	2	た形・ている＋名詞	verb modifying a noun to form a relative clause	verbe modifiant un nom pour former une proposition relative	動詞が名詞を説明する
+N4	2	他動詞・自動詞	transitive and intransitive verb pairs	paires de verbes transitifs et intransitifs	他動詞と自動詞の組
+N4	2	たり〜たりする	doing things like this and that, listing sample actions	faire des choses comme ceci et cela, énumérer des actions types	いくつかの動作を例としてならべる
+N4	2	大体	approximately, generally speaking, on the whole	à peu près, en gros, dans l'ensemble	おおよそ、だいたい
+N4	2	て形（依頼）	give it a go, please do (informal)	fais donc, s'il te plaît (familier)	くだけてたのむ：〜して
+N4	2	て形（原因）	because of, having done	parce que, ayant fait	原因や理由を表す
+N4	2	て形（並列）	and then, while, whereas	et puis, tandis que, alors que	ならべる、くらべる
+N4	2	ている（結果）	to have done, resulting state	avoir fait, état résultant	動作のあとの状態が続いている
+N4	2	ないと	must; have to; if not then (trouble)	il faut ; sinon (ennui)	〜しなければならない、しないと困る
+N4	2	に（頻度）	so many times per unit of time	tant de fois par unité de temps	ある時間に何回
+N4	2	ます形＋やすい	easy to do, tends to happen	facile à faire, a tendance à se produire	〜しやすい、〜になりやすい
+N4	2	まず	first of all, to start with	d'abord, pour commencer	最初に
+N4	2	また	also, again, moreover	aussi, encore, de plus	もう一度、さらに
+N4	2	命令形	command form; do it! (imperative)	forme impérative ; fais-le ! (ordre)	命令する形
+N4	2	れる・られる（可能）	can do, to be able to (potential form)	pouvoir faire, être capable de (potentiel)	することができる、可能
+N4	2	んです・のです	provides explanation or emphasis	donne une explication ou marque l'insistance	説明したり強めたりする
+N4	2	んだけど・んですが	but you see; I need to say though (softening or continuing)	mais vois-tu ; j'ajouterais que (adoucir ou enchaîner)	話を切り出してやわらかく続ける
+N4	2	てあげる	to do something for someone else's benefit	faire quelque chose pour quelqu'un	人のために何かをする
+N4	2	て形＋はいけない	must not..., cannot...	ne doit pas..., il ne faut pas...	してはいけない、禁止
+N4	2	かどうか	whether or not; if… or not	si oui ou non ; que… ou pas	〜かそうでないか
+N4	2	必要がある	there is a need to, it is necessary to	il est nécessaire de, il faut	〜する必要がある
+N4	2	聞こえる	can be heard, is audible, sounds	s'entendre, être audible, avoir l'air	耳に入る、音がする
+N4	2	て形＋ほしい	to want someone to do, would like you to	vouloir que quelqu'un fasse, souhaiter que tu fasses	人に〜してもらいたい
+N4	2	なくちゃ・なきゃ	gotta..., have to... (casual)	faut que..., je dois... (familier)	〜しなくては（くだけた言い方）
+N4	2	そんなに	that much, so much, to such an extent	tellement, à ce point, autant	それほど
+N4	2	ございます	to be, to exist (very polite)	être, exister (très poli)	ある の とてもていねいな形
+N4	2	て形＋ある	left in a state, set up beforehand	laissé dans un état, préparé d'avance	前もってしてあり、その状態が残っている
+N4	2	ほかに・ほかには	besides, other than, anything else	à part, en plus de, autre chose	それ以外に
+N4	2	よていだ	plan to; scheduled to; intend to	prévoir de ; avoir l'intention de	〜する予定である
+N4	2	お〜ください	please do (polite request with honorific)	veuillez faire (requête polie honorifique)	ていねいにたのむ（尊敬）
+N4	3	名詞＋がほしい	to want something, to desire	vouloir quelque chose, désirer	物がほしい
+N4	3	たがる	to want to (as observed in another person)	vouloir (vu chez autrui), avoir envie de	ほかの人が〜したがっている
+N4	3	いたす	to do (humble form)	faire (forme humble)	する の謙譲語
+N4	3	である	to be (formal/written equivalent of だ)	être (forme soutenue/écrite de だ)	だ のかたい書き言葉
+N4	3	と（条件）	whenever, if (natural consequence follows)	quand, si (conséquence naturelle)	そうすると、いつも自然にそうなる
+N4	3	さ（名詞化）	nominalizes an adjective (the degree of, -ness)	nominalise un adjectif (le degré de, la qualité de)	形容詞を名詞にする：〜さ
+N4	3	く・に＋する	to make something more…, to increase	rendre plus…, augmenter	〜くする、〜にする
+N4	3	のに（逆接）	even though, despite, although	bien que, alors que, malgré le fait que	〜けれども、思ったこととちがう
+N4	3	数量詞＋も	as many as, as much as, emphasizing quantity	pas moins de, jusqu'à, insistant sur la quantité	数や量が多いことを強める
+N4	3	中	in the middle of, during (ongoing situation)	pendant, en plein, au milieu de	〜しているところ、〜のあいだ
+N4	3	しか〜ない（限定）	only; nothing but; no more than	seulement ; rien d'autre que ; pas plus de	それだけで、ほかにない
+N4	3	だす	to burst into, to suddenly start	se mettre soudain à, commencer brusquement à	急に〜し始める
+N4	3	以外	other than, aside from, excluding	hormis, à part, à l'exception de	それではないほか
+N4	3	だけで	just by, merely by doing	rien qu'en, simplement en faisant	〜するだけで
+N4	3	ことがある	sometimes happens, there are times when	il arrive que, parfois	ときどき〜する
+N4	3	はずだ	should be; ought to; expected to (based on reason)	devrait ; censé être (d'après ce qu'on sait)	理由からそう考えられる
+N4	3	ちゃんと・きちんと	properly, correctly, thoroughly	correctement, proprement, comme il faut	正しく、きちんと
+N4	3	おかげで	thanks to, because of (positive outcome)	grâce à	〜のおかげで、よい結果
+N4	3	じゃないか	isn't it?, don't you think?, right?	n'est-ce pas ?, tu ne trouves pas ?, non ?	〜でしょう、と同意を求める
+N4	3	るところだ	just about to, on the point of doing	être sur le point de, aller faire	ちょうど今〜するところ
+N4	3	そういう	that sort of, that kind of, such	ce genre de, ce type de, tel	そのような
+N4	3	ぜんぜん	not at all, completely not, absolutely not	pas du tout, absolument pas, nullement	まったく〜ない
+N4	3	ない形＋なくてはならない	must..., have to... (formal)	il faut..., on doit... (soutenu)	しなければならない（かたい言い方）
+N4	3	いらっしゃる	to be, to go, to come (honorific)	être, aller, venir (honorifique)	いる、行く、来る の尊敬語
+N4	3	の中で	out of, within a group	parmi, dans un ensemble	あるまとまりの中で
+N4	3	あそこ	that place over there (away from both of us)	là-bas, cet endroit là-bas (loin de nous)	話し手からも聞き手からも遠い場所
+N4	3	ましょうか	shall I...?, shall we...?	je vais... ?, on fait... ?	〜しましょうか、と申し出る
+N4	3	だんだん	gradually, little by little	graduellement, petit à petit	少しずつ
+N4	3	で・からできる	made of; made from (material)	fait de ; fabriqué à partir de (matériau)	材料を表す
+N4	3	けれども	but, however, although	mais, cependant, bien que	しかし
+N4	3	じゃなかった	was not, past negative copula	n'était pas, copule négative au passé	名詞などの文の否定の過去
+N4	3	ない形＋ほうがいい	it would be better not to..., shouldn't...	il vaut mieux ne pas..., tu ne devrais pas...	しないほうがよいとすすめる
+N4	3	ない形＋なくてはいけない	must..., have to...	il faut..., on doit...	しなければいけない
+N4	3	まだ〜ていません	haven't done something yet, action not completed so far	ne pas encore avoir fait quelque chose, action non complétée jusqu'ici	まだ〜していない
+N4	3	名詞＋のなかで名詞＋がいちばん	among..., ... is the most...	parmi..., ... est le plus...	いくつかの中でいちばん〜
+N3	1	べき	should, ought to (moral obligation)	devoir (obligation morale)	当然そうするべきだ
+N3	1	に合わせて・に合った	matching, suited to, in sync with	adapté à, en accord avec	〜に合うように
+N3	1	なんか・なんて	things like, the likes of (belittling or surprised tone)	des choses comme, ce genre de (ton dédaigneux ou surpris)	〜などは（軽く見る、おどろく）
+N3	1	ずに	without doing (literary style)	sans faire (style soutenu)	〜しないで（かたい言い方）
+N3	1	にとって	to, from the perspective of	pour, du point de vue de	〜の立場から見ると
+N3	1	に関する・に関して	regarding, about	concernant, au sujet de	〜について
+N3	1	に対して	in contrast to, toward, against	par rapport à, envers, contre	〜に向けて、〜とくらべて
+N3	1	さ（終助詞）	you know, see (casual emphasis)	tu sais, tu vois (emphase décontractée)	くだけて強める
+N3	1	かなり	fairly, pretty, substantially	assez, passablement, substantiellement	そうとう、ずいぶん
+N3	1	決して〜ない	absolutely not; never under any circumstances	absolument pas ; jamais en aucune circonstance	どんなことがあっても〜ない
+N3	1	さえ（極端）	even, so much as	même, jusqu'à	〜でも、それほどのことも
+N3	1	普通形＋せいで	because of (something negative), it's the fault of	à cause de (quelque chose de négatif), c'est la faute de	〜のために悪い結果になった
+N3	1	わけではない	it doesn't mean that, not necessarily	ça ne veut pas dire que, pas forcément	かならずしも〜ではない
+N3	1	のに（目的）	for doing, in order to, for the purpose of	pour, afin de, dans le but de	〜するために、〜するのに使う
+N3	1	すでに	already, by now	déjà, d'ores et déjà	もう、前に
+N3	1	ついに	at last, in the end, ultimately	enfin, finalement, au bout du compte	とうとう、最後に
+N3	1	ことになる	it turns out that, it has been decided that	il est décidé que, il se trouve que	〜と決まった、結果として〜になる
+N3	1	ことだ	you should, the thing to do is (giving advice)	il faut, tu devrais (conseil)	〜するのがよい、と助言する
+N3	1	によると・によれば	according to, based on (a source of information)	selon, d'après (une source d'information)	情報のもとを表す
+N3	1	それぞれ	each one, respectively	chacun, respectivement	ひとつひとつ
+N3	1	まま（状態）	remaining as, unchanged	en restant tel quel, sans changer	そのままの状態で
+N3	1	こそ	precisely, indeed (emphatic)	justement, précisément	それこそ、とくに強める
+N3	1	ことにする	to decide to, to make it a rule to	décider de	〜すると自分で決める
+N3	1	そうだ（伝聞）	I hear that, apparently, they say (hearsay)	il paraît que, on dit que (information rapportée)	人から聞いたことを伝える
+N3	1	ために（原因）	because of, due to, on account of	à cause de, en raison de	原因を表す
+N3	1	ため（目的）	in order to, for the purpose of	pour, dans le but de	目的を表す：〜のために
+N3	1	たらいい・といい	it would be nice if, I hope (wish)	ce serait bien si, j'espère que	そうなればよいと願う
+N3	1	って（提題）	casual topic marker replacing は, bringing up a subject informally	marqueur de thème décontracté remplaçant は, pour introduire un sujet familièrement	くだけて話題を出す
+N3	1	といえば	speaking of, when it comes to	à propos de, en parlant de	話に出たことから思い出して言う
+N3	1	ところが	but, however, unexpectedly	mais, cependant, contre toute attente	しかし、思ったこととちがって
+N3	1	として	in the role of, functioning as	en tant que, dans le rôle de	〜の立場で、〜の役で
+N3	1	について	about, concerning, regarding	à propos de, concernant	〜に関して
+N3	1	によって・による	depending on; due to; by means of	selon, en fonction de ; en raison de ; au moyen de	〜によって変わる、原因、手段
+N3	1	ばいい	all one needs to do is, just (do) and it's fine	il suffit de, tu n'as qu'à	〜すればそれでよい
+N3	1	ほど（程度）	to the extent that, so much that, about	au point que, tellement que, environ	〜くらい、〜ほど
+N3	1	ものだ	it is natural to, one ought to, that's how things are	c'est normal de, on doit, c'est comme ça	ふつうそういうものだ
+N3	1	にみえる	appears to be, looks like (visual impression)	semble être, paraît (impression visuelle)	〜のように見える
+N3	1	ずつ	each; apiece; at a time	chacun ; à la fois	同じ数を分ける：一つずつ
+N3	1	というのは	what is meant by… is, the reason is that	ce qu'on appelle…, c'est que, la raison est que	〜とは、〜の理由は
+N3	1	がある＋名詞	noun that has, noun with	nom qui a, nom avec	〜がある名詞
+N3	1	に違いない	must be; there's no doubt that	ce doit être ; sans aucun doute	きっと〜だ
+N3	1	のだろうか	I wonder if, could it be that	je me demande si, est-ce que	〜だろうか、と考える
+N3	1	あまりに	excessively, overly, too much	excessivement, trop, par trop	あまりにも〜すぎる
+N3	1	かい	casual question particle (masculine)	particule interrogative familière (masculin)	くだけた質問（男性的）
+N3	1	意向形＋と思う	I intend to, I'm planning to	j'ai l'intention de, je compte	〜しようと思っている
+N3	1	みたいに・みたいな	like, similar to, as if (modifying a noun or verb)	comme, semblable à, tel que	〜のように、〜のような
+N3	1	数量詞＋しか〜ない	just, merely that amount	seulement, rien que cette quantité	それだけしか〜ない
+N3	1	ようにいう	to tell to; to instruct that; to ask to	dire de ; demander de ; ordonner de	〜するように言う
+N3	1	ます形＋にくい	difficult to do, not easy to	difficile à faire, pas facile à	〜しにくい
+N3	1	たばかり	have just; only just finished	venir juste de ; à peine fini	〜したばかり
+N3	2	ということだ	it means that, in other words, that is to say	cela veut dire que, autrement dit	つまり〜という意味だ
+N3	2	ごとに	every, each time, per	chaque, à chaque fois, tous les	〜のたびに、〜につき
+N3	2	どうしても	no matter what, by all means, absolutely must	à tout prix, absolument, coûte que coûte	どんなことをしても
+N3	2	以下	not exceeding, up to and including	ne dépassant pas, jusqu'à et y compris	それより少ない、それをふくむ
+N3	2	かしら	I wonder (feminine, gentle speculation)	je me demande (féminin, spéculation douce)	〜だろうか（女性的）
+N3	2	らしい（様態）	it seems that, I've heard, apparently	il paraît que, on dirait que, apparemment	〜のようだ、聞いたところでは
+N3	2	場合は	when, if circumstances are such that	dans le cas où, si jamais	〜のときは
+N3	2	たところだ	have just done; just finished	venir de faire ; juste fini	〜したところ、終わったばかり
+N3	2	ますます	increasingly, all the more	de plus en plus, toujours plus	さらに、どんどん
+N3	2	例えば	for instance, for example	par exemple	例を出すと
+N3	2	めったに〜ない	seldom; rarely	rarement ; presque jamais	ほとんど〜ない
+N3	2	名詞＋でもある	is also, it is likewise, additionally is	est aussi, est également	〜でもある
+N3	2	合う	to do mutually, to do together	faire mutuellement, faire ensemble	おたがいに〜する
+N3	2	うちに	while, during (before circumstances change)	pendant que, tant que (avant que ça change)	〜しているあいだに
+N3	2	代わりに	in return for, as a substitute for	en échange de, à la place de	〜のかわりに
+N3	2	ことなの	the thing is that, it means that	le fait est que, cela veut dire que	〜ということなのだ
+N3	2	ことはない	there's no need to, no point in	ce n'est pas la peine de, pas besoin de	〜する必要はない
+N3	2	そこで	thereupon, so then	là-dessus, alors	それで、そこで
+N3	2	たところ（発見）	when I did..., on doing... (what the act turned up)	quand j'ai..., en faisant... (ce que l'acte a fait découvrir)	〜したら、そのときわかった
+N3	2	だって	because, but, even	parce que, mais, même	だって、〜でも
+N3	2	つまり	that is, to put it another way	c'est-à-dire, autrement dit	言いかえると
+N3	2	てもかまわない	it's fine if, it's okay to	ça ne dérange pas si, c'est bon de	〜してもかまわない
+N3	2	できれば・できたら	if possible, if it can be done	si possible, si c'est faisable	もしできるなら
+N3	2	ではなくて・じゃなくて	it's not A but rather B	ce n'est pas A mais B	AではなくてB
+N3	2	では・それでは・じゃあ	well then, in that case, so	alors, dans ce cas, eh bien	それなら、では
+N3	2	と言える	one can say that, it's fair to say	on peut dire que, il est juste de dire	〜と言ってよい
+N3	2	と同時に	simultaneously with, along with	en même temps que, conjointement avec	〜と同じときに、〜とともに
+N3	2	ないうちに	before (something happens), while still not	avant que, tant que ne... pas encore	〜にならないうちに
+N3	2	なかなか（程度）	quite, rather, considerably (high degree)	assez, plutôt, considérablement (degré élevé)	かなり、思ったより
+N3	2	の間に	while, during (specific time span)	pendant, durant, au cours de	ある時間のあいだに
+N3	2	ばかり（限定）	only, nothing but, exclusively	seulement, ne... que	それだけ、そればかり
+N3	2	普通形＋とおり	just as, exactly as, in the same way that	exactement comme, tel que, de la même manière que	〜のとおりに
+N3	2	ほど〜ない	not as… as, nothing like as… as	pas aussi… que, moins… que	〜ほどではない
+N3	2	ます形＋上がる・上げる	to complete fully, to finish doing something entirely	terminer complètement, finir entièrement	最後まですっかり〜する
+N3	2	また〜も	and also, furthermore, additionally	et aussi, de plus, en outre	そのうえ〜も
+N3	2	まで（程度）	even, to the extent of	même, jusqu'à, au point de	〜までも、そこまで
+N3	2	名詞＋的	-tic, -like, -ish (adjectival suffix)	-ique, de nature… (suffixe adjectival)	〜のような性質の
+N3	2	名詞＋向け	aimed at, designed for, intended for (a target audience)	destiné à, conçu pour (un public cible)	〜のために作られた
+N3	2	んじゃない	shouldn't, you mustn't	tu ne devrais pas, il ne faut pas	〜してはいけない
+N3	2	んだって	I heard that, they say that	il paraît que, on m'a dit que	〜だそうだ（くだけた言い方）
+N3	2	とは限らない	not necessarily; isn't always the case	pas nécessairement ; ce n'est pas toujours le cas	かならず〜とは言えない
+N3	2	といい	it would be nice if, I hope, you'd better	ce serait bien si, j'espère que, tu ferais mieux de	〜するとよい、そうなればよい
+N3	2	使役受身形	forced to do by someone	être forcé de faire par quelqu'un	人にむりに〜させられる
+N3	2	それでも	nevertheless, even so, still	néanmoins, malgré tout, quand même	それでもやはり
+N3	2	ずっと（程度）	much more, way more, considerably	bien plus, beaucoup plus, de loin	ずっと〜だ、はるかに
+N3	2	それに	moreover, besides, on top of that	de plus, en outre, et en plus	そのうえ
+N3	2	ばよかった	I wish I had, I should have (regret)	j'aurais dû, si seulement j'avais (regret)	〜すればよかった、と後悔する
+N3	2	一体	emphasizes a question, expressing bewilderment or frustration	intensifie une question, exprime la perplexité ou l'exaspération	いったい、と強くたずねる
+N3	2	化する	to become; to turn into; -ize	devenir ; se transformer en ; -iser	〜になる、〜の状態にする
+N3	2	が・の（主語）	の replacing が as subject marker inside relative clauses	の remplaçant が comme marqueur de sujet dans les relatives	名詞を説明する文で が のかわりに の
+N3	2	しか〜ない（選択）	no choice but to; the only option is	pas d'autre choix que ; la seule option	それしか方法がない
+N3	2	助詞＋の	particle combinations with の	combinaisons de particules avec の	助詞と の の組み合わせ
+N3	2	点	point, aspect, respect	point, aspect	〜という点、ところ
+N3	2	なん＋助数詞＋か	some number of, several	quelques, un certain nombre de	いくつかの数
+N3	2	ます形＋込む（程度）	to do thoroughly, to do deeply, to immerse oneself in	faire à fond, faire profondément, s'immerger dans	深く、すっかり〜する
+N3	2	ます形＋込む（方向）	to go into, to put inside, to move inward	entrer dans, mettre dedans, aller à l'intérieur	中に入る、中に入れる
+N3	2	ます形＋かけ	half-done, in the middle of, about to	à moitié fait, en train de, sur le point de	〜しかけ、とちゅう
+N3	2	全くない形	not in the slightest, not one bit	pas du tout, absolument pas	まったく〜ない
+N3	2	ように〜て形＋ほしい	wish someone would do it this way	souhaiter que quelqu'un fasse ainsi	〜するようにしてほしい
+N3	2	なかなか〜ない（困難）	not readily, hard to, doesn't easily (difficulty)	ne... pas facilement, difficilement (difficulté)	かんたんには〜ない
+N3	2	たびに	whenever, each time that	chaque fois que, à chaque	〜するときはいつも
+N3	2	べきではない	should not, ought not to (moral prohibition)	ne doit pas, ne devrait pas (interdiction morale)	〜するべきではない
+N3	2	ば形＋ほど	the more… the more…	plus… plus…	〜すればするほど
+N3	2	名詞・い形容詞語幹＋っぽい	-ish, -like, has the quality of, tends to be	un peu, qui a l'air de, qui a tendance à être	〜のような感じがする
+N3	2	普通形＋ふりをする	to pretend to, to act as if	faire semblant de, prétendre	〜のふりをする
+N3	2	なければいけない	must; have to; need to	devoir ; il faut ; avoir besoin de	〜しなければいけない
+N3	2	ようとしない	refuses to; doesn't even try to	refuse de ; n'essaie même pas de	〜しようとしない
+N3	2	まるで〜ようだ	just as though, exactly like	exactement comme si, tout comme	まるで〜のようだ
+N3	2	関係がある	is related to, has a connection with	est lié à, a un rapport avec	〜とつながりがある
+N3	2	てごらん	try doing, go ahead and (gentle suggestion)	essaie de, va donc (suggestion douce)	〜してみなさい（やさしく）
+N3	2	名詞＋型	type, model, style, pattern	type, modèle, style	〜の形、〜のタイプ
+N3	2	名詞＋同士	between peers, among each other, fellow	entre pairs, entre eux, les uns avec les autres	同じ仲間どうし
+N3	2	ます形＋切れない	unable to do completely, cannot finish doing	ne pas réussir à finir, ne pas pouvoir terminer	全部は〜できない
+N3	2	だけでなく	not only… but also; as well as	non seulement… mais aussi ; en plus de	〜だけではなく
+N3	2	だけでなく〜も	not just, also	non seulement, mais aussi	〜だけではなく、〜も
+N3	2	たとえ〜ても	even if; no matter how much	même si ; quand bien même	たとえ〜ても
+N3	2	かならずしも	not always, not necessarily	pas forcément, pas toujours	いつも〜とは限らない
+N3	2	っけ	trying to recall something, wasn't it...?	cherche à se rappeler, c'était bien... ?	思い出そうとして確かめる
+N3	2	て形＋よかった	thankfully, it was good that	heureusement que, c'était bien de	〜してよかった
+N3	2	はずがない	cannot be; there's no way; impossible	ne peut pas être ; impossible	〜であるはずがない
+N3	2	ているところだ	in the middle of doing; right now doing	en train de faire ; en plein milieu de	ちょうど〜しているところ
+N3	2	とても〜ない	cannot possibly, nowhere near able to	absolument pas, impossible de	とても〜できない
+N3	2	どんなに〜ても	no matter how much, however much	peu importe à quel point, aussi… que	どれだけ〜ても
+N3	2	と同じくらい	about as much as; roughly the same as	environ autant que ; à peu près comme	〜と同じくらい
+N3	2	どんどん	rapidly, more and more, steadily	rapidement, de plus en plus, progressivement	どんどん進む、変わる
+N3	2	とうとう	at last, finally, in the end	finalement, enfin, au bout du compte	ついに、最後に
+N3	2	まさか	surely not, no way, it can't be that	sûrement pas, pas possible, ce n'est pas vrai que	まさか、そんなことはないだろう
+N3	2	は〜の一つだ	is among the, counts as one of the	fait partie des, est un des	〜の中の一つだ
+N3	2	といった	such as; like; for example	tel que ; comme ; par exemple	〜のような、たとえば
+N3	2	結果・の結果	as a result of; consequently	en conséquence de ; par suite de	〜の結果として
+N3	2	以前	before even, prior to	avant même, avant de	〜より前
+N3	2	なし	without, lacking (formal)	sans, dépourvu de (registre soutenu)	〜がない状態で
+N3	2	更に	furthermore; in addition; even more	de plus ; en outre ; encore plus	そのうえ、もっと
+N3	2	てやる	I will do it (for you or to show them)	je vais le faire (pour toi ou pour leur montrer)	〜してやる
+N3	2	に向かって・に向けて	toward, heading for, aimed at	vers, en direction de, destiné à	〜の方へ、〜を目標にして
+N3	2	のうち・のうちで	out of, among	parmi, sur	〜の中で
+N3	2	以上（範囲）	more than, at least, and above	plus de, au moins, et au-delà	〜より多い、それをふくむ
+N3	2	限り	as far as, to the extent that	tant que, dans la mesure où	〜のあいだは、〜するかぎり
+N3	2	み	-ness; the quality of being (nominalizer for adjectives)	le caractère de ; la qualité d'être (nominalisateur d'adjectifs)	形容詞を名詞にする：〜み
+N3	2	とともに	together with, as well as, at the same time as	avec, en même temps que, ainsi que	〜といっしょに、〜と同時に
+N3	3	としても	even if, even supposing that	même si, à supposer que	仮に〜としても
+N3	3	途中に・途中で	midway, partway through	en chemin, à mi-parcours	とちゅうで
+N3	3	くは	contrastive topic marker (as for… -ly)	marqueur de thème contrastif (quant à… -ment)	〜くは、ほかとくらべて言う
+N3	3	ます形＋切る	to do thoroughly to the end, to finish completely	faire jusqu'au bout, terminer complètement	最後まで〜する
+N3	3	真っ	perfectly, straight through, total	tout à fait, en plein, parfaitement	完全に〜、まったく
+N3	3	再び	once more; once again	de nouveau ; encore une fois	もう一度
+N3	3	ことになっている	it has been decided that; it is arranged that; it is the rule that	il est convenu que ; c'est prévu que ; c'est la règle que	〜と決まっている、きまり
+N3	3	以来	since; ever since (from a past point until now)	depuis ; depuis lors (d'un moment passé jusqu'à maintenant)	〜してからずっと
+N3	3	おそらく	Likely, in all probability	Probablement, vraisemblablement	たぶん
+N3	3	ぶりに	for the first time in (period)	pour la première fois depuis ; après (période)	ひさしぶりに
+N3	3	名詞＋を通じて・を通して	through, via, throughout, by means of	par, via, à travers, au moyen de	〜を通して、〜のあいだずっと
+N3	3	さえ（条件）	if only, as long as	pourvu que, si seulement	〜さえすれば
+N3	3	というより	more than, rather than calling it	plutôt que, plus que	〜というよりむしろ
+N3	3	て初めて	for the first time by doing, not until	pour la première fois en, seulement après	〜して、はじめて
+N3	3	となっている	is established as, has come to be	est établi comme, en est venu à être	〜となっている、決まっている
+N3	3	それとも	or, or rather (in questions)	ou, ou bien (dans les questions)	または（質問で）
+N3	3	としたら・とすれば・とすると	supposing, if we assume	en supposant que, si l'on admet que	仮に〜とすると
+N3	3	名詞＋としては	as, for, from the position of	en tant que, pour, du point de vue de	〜の立場からは
+N3	3	たった	Merely, just, only	Seulement, à peine, rien que	ほんの、たった
+N3	3	ます形＋がち	tend to, prone to (usually something undesirable)	avoir tendance à (souvent quelque chose d'indésirable)	〜しがち、よくない方へ
+N3	3	ということは	This means, what this tells us is	Cela signifie que, autrement dit	つまり〜ということだ
+N3	3	確かに	indeed, admittedly	certes, il est vrai que	たしかにそうだ
+N3	3	らしい（典型）	befitting, typical of, -like	digne de, typique de, qui ressemble à	〜らしい、〜にふさわしい
+N3	3	に気をつける	to pay attention to, to watch out for	faire attention à, prendre garde à	〜に注意する
+N3	3	少しも〜ない	not even slightly, not a bit	pas du tout, pas le moins du monde	少しも〜ない
+N3	3	に気がつく	to notice, to become aware of	remarquer, prendre conscience de	〜に気づく
+N3	3	ていただけませんか	could you please do?, would you kindly?	pourriez-vous faire ?, auriez-vous l'obligeance de ?	〜していただけませんか（ていねいにたのむ）
+N3	3	けっこう	quite, fairly, pretty much	assez, plutôt, pas mal	かなり、思ったより
+N3	3	なくてもいい	don't have to, it's okay not to	pas obligé de, ce n'est pas la peine de	〜しなくてもよい
+N3	3	と同じで・と違って	the same as / different from	pareil que / différent de	〜と同じで、〜とちがって
+N3	3	ます形＋おわる	to finish doing, to complete	finir de faire, achever	〜し終わる
+N3	3	たらどう	how about (doing)?, why don't you?	et si tu (faisais) ?, pourquoi tu ne (fais) pas ?	〜したらどうか、とすすめる
+N3	3	あとで	after, afterwards, later	après, ensuite, plus tard	あとで
+N3	3	てくれてありがとう	thank you for doing	merci d'avoir fait, merci de faire	〜してくれてありがとう
+N3	3	は〜で有名	is famous for, is well-known for	est célèbre pour, est réputé pour	〜で有名だ
+N3	3	でも〜でも	whether... or..., either... or...	que ce soit... ou..., soit... soit...	〜でも〜でも
+N3	3	ている間に	while doing, during the time that	pendant que, durant	〜しているあいだに
+N3	3	ところで	by the way, changing the subject	au fait, à propos, pour changer de sujet	話を変えて
+N3	3	別に〜ない	not especially, nothing in particular	pas spécialement, pas vraiment	とくに〜ない
+N3	3	なるべく	if possible, as much as one can, preferably	autant que possible, dans la mesure du possible, de préférence	できるだけ
+N3	3	ます形＋づらい	hard to do, uncomfortable to do	pénible à faire, inconfortable à faire	〜しづらい
+N3	3	と〜と、どちらが	which one, … or …?; between the two	lequel, … ou … ? ; entre les deux	二つのうちどちらが
+N3	3	と聞いた	I was told that, I've been informed	on m'a dit que, j'ai entendu dire que	〜と聞いた
+N3	3	もしも〜なら・もしも〜でも	if by any chance, supposing that, what if	si jamais, en supposant que, au cas où	もし、万一
+N3	3	とか〜とか	things like, such as, for instance	des choses comme, par exemple, genre	〜とか〜とか、例をならべる
+N3	3	なぜならから	because, the reason is that	parce que, car	なぜなら〜から
+N3	3	少なくない	a fair amount, not few	pas mal de, un nombre non négligeable	少なくない、かなりある
+N3	3	もの・もん（理由）	because, you see, the fact is (explaining)	parce que, c'est que, tu vois (explication)	〜だもの、と理由を言う
+N3	3	のがじょうず	to be good at..., skilled at...	être bon en..., être doué pour...	〜するのが上手
+N3	3	のがへた	to be bad at..., not good at...	être mauvais en..., ne pas être doué pour...	〜するのが下手
+N2	1	ふうに	In the style of, after the fashion of	À la manière de, dans le style de	〜のように、〜のやり方で
+N2	1	上	from the standpoint of, regarding	du point de vue de, quant à	〜の上で、〜の点から
+N2	1	得ない	cannot possibly, there is no way	ne peut absolument pas, il est impossible de	〜することはありえない
+N2	1	ねばならない	must, ought to (formal)	devoir (soutenu)	〜しなければならない（かたい言い方）
+N2	1	のみ	only, nothing but	seulement, uniquement	〜だけ
+N2	1	にもかかわらず	nevertheless, notwithstanding	malgré, en dépit de	〜のに、それでも
+N2	1	ざるを得ない	cannot help but, must reluctantly	ne peut faire autrement que de, doit bon gré mal gré	〜しないわけにはいかない
+N2	1	かのようだ	Just as if, seeming as though	Comme si, exactement comme si	まるで〜かのようだ
+N2	1	いわゆる	so-called, what people call	ce qu'on appelle, soi-disant	よく言われる、いわゆる
+N2	1	にすぎない	merely, no more than	ne fait que, seulement	ただ〜だけだ
+N2	1	際に	when; at the moment of	au moment de ; lorsque	〜のときに
+N2	1	やがて	before long; soon; eventually	bientôt ; avant longtemps ; finalement	そのうち、まもなく
+N2	1	にあたり・にあたって	upon; on the occasion of (formal turning point)	à l'occasion de ; au moment de (tournant formel)	〜をするときに
+N2	1	つつある	to be in the process of (formal progressive)	être en train de (progressif formel)	〜しつつある、進んでいる
+N2	1	わけだ	that's why, naturally, it follows that	c'est pour ça, naturellement, il s'ensuit que	だから〜なのだ
+N2	2	意向形＋とする	to attempt to; to be on the verge of	essayer de ; être sur le point de	〜しようとする
+N2	1	意向形＋としたが	I was about to... but; I tried to... but	j'allais... mais ; j'ai essayé de... mais	〜しようとしたが
+N2	1	だらけ	full of; covered with (negative connotation)	plein de ; couvert de (connotation négative)	〜でいっぱい（よくないもの）
+N2	1	次第に	progressively, step by step	peu à peu, progressivement	だんだん
+N2	1	につれて	as something progresses, in proportion to	à mesure que, au fur et à mesure de	〜にしたがって
+N2	1	も又	also; too (emphatic addition)	aussi ; également (ajout emphatique)	〜もまた
+N2	1	ます形＋ぎみ	somewhat, a little, feeling slightly	un peu, légèrement, avoir une petite tendance à	少し〜の感じがする
+N2	1	だけは	at least this much, as far as possible	au moins cela, dans la mesure du possible	〜だけは、せめて
+N2	1	ところに・ところへ	just as; right when (something happens)	juste au moment où ; alors que	ちょうど〜のときに
+N2	1	傾向がある	tend to; have a tendency to	avoir tendance à ; tendre à	〜しやすい傾向がある
+N2	1	きり	only, just; not since then, ever since and nothing more	seulement ; plus jamais depuis, depuis ce moment et rien d'autre	それだけ、〜してからずっと
+N2	1	ただちに	right away, without delay	immédiatement, sans délai	すぐに
+N2	1	ことから	because of the fact that, since	du fait que, puisque	〜ことから、〜ので
+N2	1	言うまでもない（当然）	needless to say; it goes without saying	inutile de dire ; cela va sans dire	言うまでもない
+N2	1	からといって	Even though, the fact that... doesn't mean	Ce n'est pas parce que, même si... cela ne veut pas dire	〜からといって、〜とは限らない
+N2	1	ます形＋がたい	hard to do, difficult to (formal expression)	difficile de, malaisé de (expression formelle)	〜することがむずかしい（かたい言い方）
+N2	1	をはじめ	beginning with, including	à commencer par, y compris	〜をはじめとして、〜もふくめて
+N2	3	と考えられる	It is thought that, can be considered	On peut penser que, il est considéré que	〜と考えることができる
+N2	1	と考えられている	it is thought that, it is believed that	on pense que, on estime que	一般に〜と考えられている
+N2	1	あるいは	or, alternatively, possibly	ou bien, peut-être, éventuellement	または、もしかすると
+N2	1	ては（反復）	doing repeatedly; over and over	faire à plusieurs reprises ; encore et encore	〜してはまた〜する、くり返し
+N2	1	ない〜はない	all of them do, every single one	tous sans exception, pas un qui ne	〜ないものはない、すべて〜する
+N2	1	未だに	still, even now (emphasizing continuation to the present)	toujours, encore maintenant (souligne la continuation)	今でもまだ
+N2	1	げ	appearing; seeming; showing signs of	avoir l'air ; sembler ; montrer des signes de	〜そうなようす
+N2	1	動詞辞書形＋ことなく	without doing (formal)	sans faire (formel)	〜しないで（かたい言い方）
+N2	1	ないではいられない	cannot help but, compelled to	ne pas pouvoir s'empêcher de	〜しないではいられない
+N2	1	むしろ	if anything, sooner	plutôt, au contraire	どちらかと言えば、かえって
+N2	1	かねる	unable to do, difficult to do (polite refusal)	ne pas pouvoir, avoir du mal à (refus poli)	〜することはできない（ていねいに断る）
+N2	1	次第だ・次第で	it depends on, subject to	selon, en fonction de	〜によって決まる
+N2	1	わざわざ	going out of one's way, taking the trouble to do something	se donner la peine de, faire exprès de	手間をかけて、特別に
+N2	1	というわけではない	it doesn't mean that, it's not that	ça ne veut pas dire que, ce n'est pas que	かならずしも〜というわけではない
+N2	1	しかも	moreover, furthermore, what's more	de plus, qui plus est, en outre	そのうえ
+N2	1	とも	no matter what, even if (formal concessive)	quoi qu'il arrive, même si (soutenu)	たとえ〜ても（かたい言い方）
+N2	1	どころか	let alone, not only... but also	loin de là, non seulement... mais encore	〜はもちろん、反対に
+N2	1	は言うまでもない	obviously, there's no need to mention	il va sans dire que, inutile de préciser que	〜は言うまでもない
+N2	1	ずにはいられない	cannot help but do, cannot stop oneself from	ne peut s'empêcher de, ne peut faire autrement que	〜しないではいられない
+N2	1	しかしながら	nonetheless, yet	néanmoins, cependant	しかし（かたい言い方）
+N2	2	たって	even if, no matter how (colloquial)	même si, quand bien même (familier)	〜しても（くだけた言い方）
+N2	2	にしては	considering it's, for something that is	pour, étant donné que c'est	〜のわりには
+N2	2	わけにはいかない	cannot do; must not for social or moral reasons	ne peut pas faire ; ne doit pas pour des raisons sociales ou morales	事情があって〜することはできない
+N2	2	逆に	conversely, on the contrary, inversely	inversement, au contraire, à l'inverse	反対に
+N2	2	ことは〜が	it is true that... but; while it is... still	il est vrai que... mais ; certes... mais	〜することは〜するが
+N2	2	てたまらない	unbearably, cannot stand	insupportablement, ne peut supporter	〜てがまんできないほど
+N2	2	てならない	cannot help but, unbearably	ne peut s'empêcher de, extrêmement	〜てしかたがない
+N2	2	てはならない	must not, is forbidden	ne doit pas, est interdit	〜してはいけない
+N2	2	ては（条件）	if; whenever (conditional with negative consequence)	si ; chaque fois que (conditionnel avec conséquence négative)	〜しては困る、よくない結果
+N2	2	中を	right in the midst of, while doing	en plein milieu de, pendant	〜の中を、〜しているときに
+N2	2	にわたって	across, spanning	sur toute l'étendue de, durant	〜の全体にわたって
+N2	2	ものの	Though, but still, despite	Bien que, même si, malgré	〜けれども、しかし
+N2	2	風	style, in the manner of	de style, à la manière de	〜のような感じ、〜のやり方
+N2	2	に加えて	in addition to; besides; on top of	en plus de ; outre ; en sus de	〜に加えて、そのうえ
+N2	2	どうやら	it seems that, one gathers that	il semble que, on dirait que	どうも〜らしい
+N2	2	に比べて	compared to, in comparison with	comparé à, par rapport à	〜とくらべて
+N2	2	つつ	while doing; doing and at the same time (literary style)	tout en faisant ; faire en même temps que (style littéraire)	〜しながら（かたい言い方）
+N2	2	後の名詞	the remaining, what's left	le reste, ce qui reste	残りの
+N2	2	お〜願う	Please do, I humbly request that you	Je vous prie de, veuillez	ていねいにお願いする
+N2	2	各	each, every, respective	chaque, tous les, respectif	それぞれの
+N2	2	かというと（理由）	as for why; the reason is	quant à savoir pourquoi ; c'est parce que	なぜかと言うと
+N2	2	かは〜によって違う	depends on, varies according to	dépend de, varie selon	〜によってちがう
+N2	2	っぱなし	left undone, remains in that state without being dealt with	laissé tel quel, reste dans cet état sans qu'on s'en occupe	〜したまま、ほうっておく
+N2	2	と並んで	alongside; ranking with	aux côtés de ; au même rang que	〜と同じように、ならんで
+N2	2	とみえる	apparently, it seems that (inference from evidence)	apparemment, il semble que (inférence)	〜らしい、と様子から考える
+N2	2	に代わって	acting for someone, representing	au nom de, en représentant	〜のかわりに
+N2	2	には	for, in order to, as for (topic + purpose)	pour, afin de, quant à (thème + but)	〜するためには、〜にとっては
+N2	2	にもとづいて	based on, in accordance with	sur la base de, conformément à	〜をもとにして
+N2	2	ばと思います	I hope that you will, I wish you would	J'espère que vous allez, je souhaiterais que vous	〜してくれればと思う
+N2	2	ます形＋たて	freshly done, just finished, newly made	fraîchement fait, qui vient d'être fait	〜したばかりで新しい
+N2	2	名詞＋次第	as soon as, immediately upon, the moment that	dès que, aussitôt que, au moment où	〜したらすぐに
+N2	2	ようではないか	Shouldn't we, why don't we then	Ne devrions-nous pas, et si nous faisions	いっしょに〜しようではないか
+N2	2	いきなり	suddenly; abruptly; without warning	soudainement ; brusquement ; sans prévenir	とつぜん
+N2	2	名詞＋をもとに	based on, using as a foundation	sur la base de, en se fondant sur	〜を土台にして
+N2	2	に伴って・に伴い	along with, accompanying	avec, en accompagnement de	〜とともに、〜につれて
+N2	2	させてもらう	let me, allow me to (receiving permission politely)	permettez-moi de, je me permets de	〜させていただく
+N2	2	いっぽうで	meanwhile, on the other hand, whereas	d'un autre côté, par ailleurs, tandis que	その一方で
+N2	2	さすが	as expected; just as one would expect; truly	comme on pouvait s'y attendre ; vraiment ; décidément	やはり、さすがに
+N2	2	というものだ	This is what we call, that's what it means to	Voilà ce qu'on appelle, c'est ce que c'est que	それこそ〜というものだ
+N2	2	あまり	so... that, to such an extent that (excess)	tellement... que, à tel point que (excès)	〜すぎて
+N2	2	一応（暫定）	for the time being, tentatively	pour le moment, provisoirement	とりあえず、いちおう
+N2	2	一応（用心）	just to be safe, as a precaution	par précaution, pour plus de sûreté	念のため
+N2	2	から見ると	Looking from, seen from the perspective of	Vu de, du point de vue de	〜から見れば
+N2	2	からすると・からすれば	From the standpoint of, based on	Du point de vue de, à en juger par	〜の立場から考えると
+N2	2	気	feeling; mood; intention; inclination	sentiment ; humeur ; intention ; envie	気持ち、〜する気
+N2	2	きっかけ	the trigger; what prompted	le déclencheur ; ce qui a provoqué	始まるもとになったこと
+N2	2	くらい（極端）	to such an extent that, emphasizing an extreme degree	à tel point que, soulignant un degré extrême	〜ほど、強めて言う
+N2	2	ことに	to my (emotion); what's more	à mon grand (émotion) ; qui plus est	〜なことに（気持ちを表す）
+N2	2	最中に	right in the middle of, while something is actively happening	en plein milieu de, au beau milieu de	ちょうど〜しているときに
+N2	2	幸い・幸いなことに	fortunately; luckily; happily	heureusement ; par chance	運よく
+N2	2	そうもない	shows no sign of happening, seems unlikely	ne semble pas près de se produire, paraît improbable	〜しそうにない
+N2	2	たとたんに	right when, just as, the instant that	juste au moment où, dès que	〜したとたんに、すぐ
+N2	2	たものだ	used to, would always	autrefois, on avait l'habitude de	よく〜したものだ
+N2	2	つもりで	imagining that, as if	en s'imaginant que, comme si	〜したつもりで
+N2	2	てしょうがない	can't help; unbearably; extremely	ne pas pouvoir s'empêcher ; terriblement ; extrêmement	〜てしかたがない
+N2	2	と言っても	even though I say, although one might say	même si je dis, bien que l'on dise	〜と言っても、じつは
+N2	2	とか	I hear that, they say, or something	Il paraît que, on dit que, ou quelque chose comme ça	〜とか（聞いた話）
+N2	2	ところだった（回避）	almost did, narrowly avoided	j'ai failli, j'ai évité de justesse	もう少しで〜するところだった
+N2	2	ところを見ると	From what one sees, given the appearance	À en juger par, vu ce qu'on observe	〜のようすから考えると
+N2	2	に限る	nothing beats; is the best; is limited to	rien ne vaut ; c'est le mieux ; se limite à	〜がいちばんよい、〜だけに限る
+N2	2	に先立ち	prior to; before (formal)	avant ; préalablement à (formel)	〜の前に（かたい言い方）
+N2	2	に沿って	following, in line with	le long de, conformément à	〜にしたがって
+N2	2	において・における	in, at, regarding (formal usage)	à, dans, concernant (registre soutenu)	〜で、〜における（かたい言い方）
+N2	2	の下で	under the direction of, under the rule of	sous la direction de, sous l'autorité de	〜のもとで
+N2	2	ばかり（傾向）	keeps on, continues to, increasingly	ne fait que, de plus en plus	〜するばかりだ、どんどん
+N2	2	名詞＋抜きで	without, leaving out, omitting	sans, en excluant, en omettant	〜なしで
+N2	2	名詞＋に応じて	according to, depending on, in line with	selon, en fonction de, conformément à	〜に合わせて
+N2	2	名詞＋に応えて	in response to, answering, meeting (expectations)	en réponse à, répondant à, pour satisfaire	〜にこたえて
+N2	2	名詞＋に反して	contrary to, against, in defiance of	contrairement à, contre, à l'encontre de	〜とちがって、〜に反して
+N2	2	名詞＋にしたら	from the standpoint of, for, in the eyes of	du point de vue de, pour, aux yeux de	〜の立場から見ると
+N2	2	名詞＋はもとより	not only, let alone, of course	sans parler de, encore moins, bien sûr	〜はもちろん
+N2	2	ものか	As if I would, no way, absolutely not	Jamais de la vie, il n'en est pas question	絶対に〜しない
+N2	2	ものだから	because; the reason is; you see	parce que ; c'est que ; voyez-vous	〜なので、〜だから
+N2	2	ものですから・もので	the fact is; it's because; you see (explanatory)	c'est que ; c'est parce que ; voyez-vous (explicatif)	〜なものですから、と理由を言う
+N2	2	割に	considering; relatively speaking; for	compte tenu de ; relativement ; pour un	〜のわりに
+N2	2	を除いて	excluding, apart from	à l'exception de, hormis	〜をのぞいて
+N2	2	かえって	instead, all the more	au contraire, plutôt	反対に、ぎゃくに
+N2	2	ばかりでなく	not merely, not limited to	non seulement, pas seulement	〜だけでなく
+N2	2	さて	now then, well	bon alors, eh bien	さあ、では
+N2	2	どうせ	in any case, no matter what one does	de toute façon, quoi qu'on fasse	どうせ〜なのだから
+N2	2	活かす	to put to use, to capitalize on	mettre à profit, tirer parti de	〜を生かす
+N2	2	かんがえられない	cannot imagine, unthinkable	inimaginable, impensable	考えられない
+N2	2	当たり	per; for each	par ; pour chaque	〜あたり、〜につき
+N2	2	ながらも	even while, though, despite	bien que, tout en, malgré	〜ながらも、〜けれども
+N2	2	という理由で	for the reason that, because of the fact that	pour la raison que, du fait que	〜という理由で
+N2	2	は〜くらいです	only about, at best	seulement environ, au mieux	せいぜい〜くらいだ
+N2	2	折角	specially, expressly, now that one has this precious opportunity	spécialement, exprès, maintenant qu'on a cette occasion précieuse	せっかく〜のだから
+N2	2	が気になる	to worry about, to weigh on one's mind	être préoccupé par, avoir en tête	〜が気になる
+N2	2	にしても	even supposing, even granting that	même si, même en admettant que	〜にしても、たとえ
+N2	2	動詞＋そうにない	does not look like, seems unlikely to	ne semble pas, paraît peu probable de	〜しそうにない
+N2	2	も〜ば〜も	both... and..., not only... but also...	aussi bien... que..., à la fois... et...	〜も〜ば、〜も
+N2	2	要するに	in brief, the point is	en résumé, bref	つまり、短く言うと
+N2	2	普通形＋くせに	even though, despite (with criticism or resentment)	bien que, alors que (avec reproche ou ressentiment)	〜のに（非難する気持ち）
+N2	2	て頂戴	Please do (familiar, often to children)	Fais-le, s'il te plaît (familier, affectueux)	〜してちょうだい（親しく）
+N2	2	恐れがある	There's a danger that, risk of	Il y a un risque que, on craint que	〜するおそれがある
+N2	2	ずに済む	to get by without doing, to avoid having to	s'en tirer sans faire, éviter d'avoir à	〜しないですむ
+N2	2	すると	then, thereupon, at that moment	alors, sur ce, à ce moment-là	そうすると、そのとき
+N2	2	だけに	all the more because, just because	d'autant plus que, justement parce que	〜だけあって、それだけに
+N2	2	ような気がする	it feels like, I get the sense that	j'ai l'impression que, il me semble que	〜ような気がする
+N2	3	何より	above all, better than anything	avant tout, mieux que tout	なによりも
+N2	3	につき	due to, per (measurement)	en raison de, par (unité)	〜のため、〜あたり
+N2	3	とっくに	long ago; ages ago (already past)	il y a longtemps ; depuis belle lurette (déjà passé)	ずっと前に
+N2	3	以上に	beyond, more than expected	au-delà de, plus que prévu	〜より以上に
+N2	3	その結果	as a result, consequently	en conséquence, par conséquent	その結果
+N2	3	に限って	especially when, of all times	justement quand, précisément pour	〜のときにかぎって
+N2	3	上で	after doing, upon completion of	après avoir fait, une fois que	〜したうえで
+N2	3	にかかわらず	irrespective of, no matter	indépendamment de, quel que soit	〜に関係なく
+N2	3	たちまち	instantly; in no time; quickly	instantanément ; en un clin d'œil ; rapidement	すぐに、あっというまに
+N2	3	を中心に	centered around, focusing on	centré sur, autour de	〜を中心にして
+N2	3	どころではない	no time for; far from; hardly the situation for	pas le moment pour ; loin de ; ce n'est pas la situation pour	〜どころではない
+N2	3	の姿	appearance, figure, state of	apparence, allure, aspect de	〜のすがた、ようす
+N2	3	ていては	if one keeps doing; at this rate (negative outcome)	si l'on continue à ; à ce rythme (résultat négatif)	〜していては、よくない
+N2	3	という風に	In the manner that, in a way suggesting	De façon à dire que, d'une manière telle que	〜というふうに
+N2	3	もしかしたら	perhaps; possibly; there's a chance that	peut-être ; il se pourrait que	もしかすると
+N2	3	を込めて	with; filled with; putting into	avec ; rempli de ; en y mettant	〜をこめて
+N2	3	いつの間にか	before one knew it, at some point unnoticed	sans s'en rendre compte, on ne sait quand	いつのまにか
+N2	3	ことか	how very; so incredibly (emphatic exclamation)	comme c'est ; tellement (exclamation emphatique)	なんと〜ことか
+N2	3	てでも	even by doing, even if it requires	même en faisant, quitte à	〜してでも
+N2	3	なお（継続）	still, even more	encore, toujours	まだ、さらに
+N2	3	いよいよ	finally, at last, increasingly, more and more	enfin, finalement, de plus en plus	いよいよ、ますます
+N2	3	そういえば	Come to think of it, that reminds me	Au fait, maintenant que tu en parles	そう言えば
+N2	3	で言うと	speaking in terms of; if you put it in	en termes de ; si on le dit en	〜で言えば
+N2	3	せめて	if nothing else, at the minimum	si ce n'est que, au minimum	せめて〜だけでも
+N2	3	ざる	literary negative form, not	forme négative littéraire, ne... pas	〜ない（書き言葉）
+N2	3	ぬ	not (classical negative, literary)	ne... pas (négatif classique, littéraire)	〜ない（古い書き言葉）
+N2	3	さ（間投助詞）	you see, uh, well (hesitation marker)	voyez-vous, euh, ben (hésitation)	ね、さ、と間に入れる
+N2	3	得る	can possibly, may well	peut éventuellement, peut bien	〜しうる、ありうる
+N2	3	僅かに	slightly; barely; only a little	légèrement ; à peine ; très peu	ほんの少し
+N2	3	に当たる	corresponds to; falls under	correspond à ; équivaut à	〜にあたる
+N2	3	おきに	at intervals of, every other	tous les, à intervalles de	〜ごとに、一つおきに
+N2	3	とされている	it is regarded as, it is held to be	c'est considéré comme, il est admis que	〜とされている
+N2	3	それなら	if that's the case, well then	dans ce cas, eh bien alors	それなら
+N2	3	いくら〜でも	as much as you like, any amount	autant que l'on veut, n'importe quelle quantité	いくら〜ても
+N2	3	と言われている	it is said that, people say that	on dit que, il paraît que	〜と言われている
+N2	3	ついでに	while doing something else, on the same occasion	pendant qu'on y est, à la même occasion	〜するついでに
+N2	3	つい	unintentionally, without thinking, inadvertently	sans le vouloir, sans y penser, involontairement	思わず、うっかり
+N2	3	その上	besides, in addition	en outre, de plus	そのうえ
+N2	3	そのために	for that purpose, that's why	pour cette raison, c'est pourquoi	そのために
+N2	3	し〜し	and what's more; plus (listing multiple reasons)	et de plus ; en outre (énumérer des raisons)	〜し、〜し、と理由をならべる
+N2	3	だけしか	no more than, merely	seulement, rien que	それだけしか
+N2	3	ても〜なくても	whether or not, regardless of whether	que… ou non, peu importe si	〜しても〜しなくても
+N2	3	名詞＋の次に	next after, second to, following	juste après, en deuxième position après	〜の次に
+N2	3	か何か	or something, or the like	ou quelque chose comme ça	〜か、そのようなもの
+N2	3	そうすると	if so, in that case, then	dans ce cas, alors, si on fait ainsi	そうすると、それなら
+N2	3	普通形＋でよければ	if that's okay, if you don't mind, if it's acceptable	si ça te convient, si ça ne te dérange pas	〜でよければ
+N2	3	ないことはない	it's not that... not, not entirely impossible	ce n'est pas qu'on ne puisse pas, pas totalement impossible	〜ないわけではない
+N2	3	と言ってもいい	it would be fair to say, one can call it	on peut dire que, il est juste de dire	〜と言ってもよい
+N2	3	ようにいのる	to pray that; to hope that	prier pour que ; espérer que	〜ようにと願う
+N1	1	をもって	With, by means of, effective from	Avec, au moyen de, à compter de	〜で、〜によって、〜の時点で
+N1	1	および	and; as well as; together with (formal)	et ; ainsi que ; avec (formel)	そして、〜と（かたい言い方）
+N1	1	につけ	whenever, each time	chaque fois que, à chaque occasion de	〜するたびに
+N1	1	まい	will not, probably won't (formal negative volitional)	ne pas (faire), probablement pas (volonté négative soutenue)	〜しないだろう、〜しないつもりだ
+N1	1	までもない	no need to go so far as, unnecessary to	pas besoin de, inutile de	〜するまでもない
+N1	1	たる	befitting, appropriate to one's standing as	digne de, qui convient à	〜という立場にふさわしい
+N1	1	一旦	once, for the moment, temporarily	une fois, pour le moment, temporairement	いったん、一度
+N1	1	に値する	be worth; deserve; be worthy of	mériter ; valoir ; être digne de	〜する価値がある
+N1	1	すなわち	in other words, which is to say	à savoir, c'est-à-dire	つまり
+N1	1	すら	Even (emphasizing an extreme case)	Même (soulignant un cas extrême)	〜さえ、〜すら
+N1	1	ったら・といったら	you cannot imagine how, so very	tu ne peux pas savoir comme, tellement	とても〜だ、と強める
+N1	1	にて	at, in, by means of (formal で)	à, dans, au moyen de (で formel)	〜で（かたい言い方）
+N1	1	どうにか	somehow; one way or another; manage to	d'une façon ou d'une autre ; tant bien que mal ; arriver à	なんとか
+N1	1	飽くまで	to the end, thoroughly; merely, only	jusqu'au bout, complètement ; seulement, uniquement	最後まで、どこまでも、あくまで
+N1	1	あくまでも	To the end, thoroughly, merely	Jusqu'au bout, absolument, seulement	最後まで、どこまでも
+N1	1	ってば・ったら	I'm telling you!, geez! (emphatic complaint or frustration)	je te dis !, mais enfin ! (insistance, plainte)	〜ってば、といらだつ
+N1	1	にあって	in the situation of, being in	dans la situation de, étant dans	〜という状況で
+N1	1	との	saying that, a statement that (formal indirect quote)	disant que, une déclaration selon laquelle (citation indirecte formelle)	〜という（かたい引用）
+N1	1	や否や	as soon as; no sooner than; the moment	dès que ; à peine… que ; sitôt que	〜するとすぐに
+N1	1	いかなる	any, no matter what kind of	n'importe quel, quel que soit	どんな〜でも
+N1	1	精々	at best; at most; no more than	au mieux ; au plus ; tout au plus	せいぜい、多くても
+N1	1	ゆえに	therefore, for that reason (formal)	c'est pourquoi, pour cette raison (formel)	だから（かたい言い方）
+N1	1	た末・の末	after much, at the conclusion of	après bien des, au terme de	いろいろ〜したあとで
+N1	1	ぐらいなら	if it means, rather than, would sooner	plutôt que, si c'est pour, autant	〜するくらいなら
+N1	1	にかかわる	relating to, affecting	relatif à, qui concerne	〜にかかわる、関係する
+N1	1	むき	suitable for, intended for, directed toward	adapté à, destiné à, orienté vers	〜に合う、〜に向いている
+N1	1	なりに	in one's own way, suiting one's situation	à sa façon, selon ses moyens	〜なりに、それに合ったやり方で
+N1	1	であれ	Whether it be, even if it is	Que ce soit, même si c'est	〜であっても
+N1	1	如く・如き・如し	as if, like (classical literary)	comme, tel que (littéraire classique)	〜のように（古い書き言葉）
+N1	1	にかけては	when it comes to; in regard to (superiority)	en ce qui concerne ; pour ce qui est de (supériorité)	〜については、だれにも負けない
+N1	1	並み	equal to, comparable to, -level	égal à, comparable à, du niveau de	〜と同じくらいの
+N1	1	まくる	doing constantly; doing like crazy; to an extreme degree	faire sans arrêt ; faire comme un fou ; à outrance	どんどん〜しつづける
+N1	1	左右する	to influence the outcome, to control	influencer le résultat, contrôler	結果を大きく変える
+N1	1	どうにも	by no means, no matter how one tries (with negative)	en aucune façon, quoi qu'on fasse (avec négatif)	どうしても〜ない
+N1	1	べからず	must not; shall not; forbidden to	ne doit pas ; interdit de ; défense de	〜してはいけない（禁止）
+N1	1	を余儀なくされる	to be compelled to, to have no choice but to	être contraint de, être forcé de	しかたなく〜させられる
+N1	1	ものと思う	to assume that, to take for granted that	supposer que, tenir pour acquis que	〜だと思いこむ
+N1	1	動詞ます形＋抜く	do thoroughly, do to the end, do completely	faire complètement, faire jusqu'au bout, faire à fond	最後まで〜しとおす
+N1	1	なり〜なり	either... or..., whether... or..., one way or another	soit... soit..., que ce soit... ou..., d'une façon ou d'une autre	〜なり〜なり、どちらかで
+N1	1	なお（補足）	furthermore, by the way	par ailleurs, de plus	なお、ついでに言うと
+N1	1	なり	As soon as, the moment that	Dès que, aussitôt que	〜するとすぐに
+N1	1	かたがた	combining two purposes, while also	combinant deux buts, tout en	〜をかねて
+N1	1	おまけに	on top of that; what's more; to make things worse	en plus de cela ; qui plus est ; pour ne rien arranger	そのうえ
+N1	1	前者は・後者は	the former... the latter...	le premier... le second..., celui-là... celui-ci...	前のほうは、後のほうは
+N1	1	わけがない	there's no way that, cannot possibly	il est impossible que, ça ne peut pas	〜はずがない
+N1	1	からには	now that, since (strong commitment to consequence)	puisque, maintenant que (engagement fort envers la conséquence)	〜するからには、かならず
+N1	1	を経て	After passing through, via	Après avoir passé par, via	〜を通って、〜を経験して
+N1	1	上に	in addition to that, furthermore	en plus de cela, qui plus est	〜うえに、そのうえ
+N1	1	からこそ	precisely because, exactly for that reason	justement parce que, c'est précisément parce que	〜からこそ
+N1	1	やら〜やら	things like... and..., what with	entre... et..., avec	〜やら〜やら
+N1	1	というところ	about; something like; at most; you might say	environ ; quelque chose comme ; au plus ; disons	だいたい〜くらい
+N1	1	はもちろん	not only, goes without saying that	bien sûr, sans parler de	〜はもちろん
+N1	1	思うように	as one wishes, as hoped, as intended	comme on le souhaite, comme espéré, comme prévu	思うとおりに
+N1	1	とはいえ	Having said that, though it is true that	Cela dit, bien que ce soit vrai que	〜とはいっても
+N1	1	めく	seeming like; taking on an air of; suggesting	semblant ; prenant des airs de ; évoquant	〜らしくなる
+N1	1	は別として	setting aside, leaving out of consideration	mis à part, en laissant de côté	〜は別にして
+N1	1	を問わず	regardless of, no matter what	sans distinction de, quel que soit	〜に関係なく
+N1	1	のも当然だ	Small wonder that, naturally	Il n'est pas étonnant que, naturellement	〜のは当然だ
+N1	1	名詞＋を＋名詞＋に任せる	to leave something to, to put oneself in the hands of	confier quelque chose à, s'en remettre à	〜を〜にまかせる
+N1	1	からして	Starting with, even just from	Rien qu'à voir, à commencer par	〜からして、すでに
+N1	1	したがって	therefore; accordingly	par conséquent ; donc	だから
+N1	1	かと思ったら・かと思うと	Just when I thought..., immediately after	À peine avais-je pensé que..., juste après avoir cru que	〜と思ったら、すぐに
+N1	1	てこそ	only through, precisely because	c'est seulement en, c'est en faisant que	〜してはじめて
+N1	1	万が一	in the unlikely event that, if by any chance	dans l'éventualité improbable où, si d'aventure	もしものとき
+N1	1	でしかない	nothing but, merely	n'est rien d'autre que	ただ〜にすぎない
+N1	1	極まりない・極まる	extremely, in the extreme	extrêmement, au plus haut point	この上なく〜だ
+N1	1	のみならず	not only but also	non seulement mais aussi	〜だけでなく
+N1	1	に至るまで	extending even to, down to the very	jusqu'à, jusque dans les moindres	〜にいたるまで、すべて
+N1	1	ようがない	no means of, unable to even if one wanted	aucun moyen de, impossible même si on voulait	〜しようとしてもできない
+N1	1	陸に〜ない	not properly, scarcely, hardly at all	à peine, pas comme il faut, insuffisamment	ろくに〜ない
+N1	1	のももっともだ	it's natural that, it's understandable that	il est naturel que, c'est compréhensible que	〜のももっともだ
+N1	1	に限らず	not just, not confined to	pas seulement, pas limité à	〜だけでなく、ほかも
+N1	1	た形＋まで	I only did, all I did was (downplaying one's action)	Je n'ai fait que, tout ce que j'ai fait c'est (minimisant)	〜しただけだ
+N1	1	あげく	in the end; after all (negative result)	au bout du compte ; après tout (résultat négatif)	いろいろあって、結局（よくない結果）
+N1	2	を以て	with, by means of (formal)	avec, au moyen de (soutenu)	〜で、〜によって（かたい言い方）
+N1	2	名詞＋にかけて	throughout, from... to, over a span or range	tout au long de, de... à, sur une période	〜から〜にかけて
+N1	2	はたして	really? indeed? (as expected or questioning)	vraiment ? en effet ? (comme prévu ou interrogation)	本当に、やはり
+N1	2	っこない	absolutely no way that, totally impossible (casual emphatic)	absolument impossible que, aucune chance que (familier emphatique)	ぜったいに〜ない（くだけた言い方）
+N1	2	ないわけにはいかない	cannot avoid doing, must do	on ne peut pas ne pas faire, on est obligé de	〜しないわけにはいかない
+N1	2	ずくめ	all, full of, entirely composed of	que du, tout en, entièrement	〜ばかり、すべて〜
+N1	2	に足る	worth doing, deserving of	qui mérite, digne de	〜する価値がある
+N1	2	甲斐がある	to be worth the effort; worthwhile or not	valoir la peine ; mériter l'effort ou non	〜したかいがある
+N1	2	に決まっている	must be; bound to be; there's no doubt that	c'est sûr que ; ça ne peut être que ; sans aucun doute	きっと〜だ
+N1	2	ところだった（進行）	was right in the middle of	j'étais en train de	ちょうど〜しているところだった
+N1	2	はさておき	putting aside, leaving that aside, to set that apart	mis à part, laissant de côté, pour ne pas parler de	〜は置いておいて
+N1	2	には及ばない（劣位）	cannot match, falls far short of	n'arrive pas à la cheville de, loin derrière	〜にはかなわない
+N1	2	に際して	when; upon the occasion of (formal)	lors de ; à l'occasion de (formel)	〜するときに（かたい言い方）
+N1	2	はともかく	putting aside, never mind	sans parler de, peu importe	〜は別として
+N1	2	ならでは	Unique to, something only… possesses	Propre à, quelque chose que seul… possède	〜だけにしかない
+N1	2	もっとも	though; having said that; mind you	certes ; cela dit ; remarquez	ただし
+N1	2	か否か	whether or not	si oui ou non	〜かどうか
+N1	2	ないまでも	even if not, if not quite, at the very least	même si ce n'est pas, sans aller jusqu'à, au moins	〜とまではいかなくても
+N1	2	にかかっている	depends on, hinges on, is up to	dépend de, repose sur, est en jeu dans	〜によって決まる
+N1	2	べく	In order to, for the purpose of	Afin de, dans le but de	〜するために
+N1	2	を皮切りに	Beginning with, using as the starting point	En commençant par, ayant pour point de départ	〜を始まりとして
+N1	2	を機に	taking advantage of, using the occasion of	profitant de, à l'occasion de	〜をきっかけにして
+N1	2	といえども	even though, even if (formal written)	même si, quand bien même (écrit soutenu)	〜であっても（書き言葉）
+N1	2	と来たら	speaking of, when you mention	quand on parle de, pour ce qui est de	〜ときたら、と不満を言う
+N1	2	いっぽうだ	keeps on getting more, continues increasingly	ne fait qu'augmenter, de plus en plus	どんどん〜していく
+N1	2	はおろか	let alone; not to mention; much less	sans parler de ; encore moins ; loin de	〜はもちろん
+N1	2	おおよそ	approximately, around	environ, à peu près	だいたい
+N1	2	てからというもの	ever since, from the time that	depuis que, à partir du moment où	〜してからずっと
+N1	2	といわず	whether A or B; in both; everywhere without distinction	que ce soit A ou B ; aussi bien ; partout sans distinction	AもBも、どこでも
+N1	2	にしたがって	in proportion as, following	à mesure que, conformément à	〜するにつれて
+N1	2	て当然だ	It's natural that, of course	Il est naturel que, c'est normal que	〜して当然だ
+N1	2	にして（時点）	At, upon reaching (age or point in time)	À, en atteignant (un âge ou un moment)	〜になって、〜で
+N1	2	に足りない	not worth; not deserving of; insufficient to	ne mérite pas ; indigne de ; insuffisant pour	〜する価値がない
+N1	2	なにやら	some sort of, something or other	une sorte de, quelque chose d'indéfini	なにか
+N1	2	だけあって	as would be expected from, true to	comme on pourrait s'y attendre de, à la hauteur de	〜だけのことはある
+N1	2	にほかならない	none other than, precisely because	n'est autre que, précisément parce que	まさに〜だ
+N1	2	ようでは・ようじゃ	if it's the case that; if things are such that	si c'est le cas que ; si les choses sont telles que	〜ようでは、よくない
+N1	2	をものともせず	without being daunted by, defying	sans se laisser intimider par, en bravant	〜にも負けずに
+N1	2	のではないだろうか	Could it be that, isn't it perhaps	Ne serait-ce pas plutôt que, se pourrait-il que	〜ではないだろうか
+N1	2	には及ばない（不要）	no need to, unnecessary to go so far as	inutile de, pas besoin d'aller jusqu'à	〜する必要はない
+N1	2	わ〜わ	and... and... (emphatic accumulation), both... and...	et... et... (accumulation emphatique), à la fois... et...	〜わ〜わ、次々に
+N1	2	べくもない	impossible to, no chance of	impossible de, aucun moyen de	〜できるはずがない
+N1	2	に則って	in accordance with; based on; following	conformément à ; selon ; en application de	〜にしたがって
+N1	2	如何	depending on how (formal)	selon comment, en fonction de (soutenu)	〜しだいで
+N1	2	かたわら	while also, in addition to	tout en, parallèlement à	〜しながら、そのかたわら
+N1	2	かねない	might well, could possibly (negative outcome)	risquer de, être susceptible de (résultat négatif)	〜するおそれがある
+N1	2	ことだし	and moreover, and what's more	et de plus, et d'autant plus que	〜ことだし、それに
+N1	2	ことにはならない	does not mean that, does not follow that	ne signifie pas que, n'entraîne pas que	〜ということにはならない
+N1	2	次第です	that is the situation; such are the circumstances; that is why	voilà la situation ; telles sont les circonstances ; c'est pourquoi	〜というわけです
+N1	2	て形＋みせる	will definitely do; will show you I can	je vais le faire ; je vais te montrer que je peux	かならず〜してみせる
+N1	2	手前	just before, given one's position	juste avant, vu sa position	〜の手前、立場があるので
+N1	2	という（全部）	every single, all without exception	tous sans exception, chaque	すべての〜
+N1	2	ところを	Although, when in fact (interruption or contrast)	Alors que, bien que (interruption ou contraste)	〜ところを、なのに
+N1	2	とは	to think that...! (expressing shock or dismay)	dire que... ! (exprimant la surprise ou l'indignation)	〜とは、とおどろく
+N1	2	ともなると・にもなると	when it comes to, at the level of	quand il s'agit de, au niveau de	〜ともなると
+N1	2	ないでもない	not that it isn't, somewhat, cannot say it's impossible	pas impossible, un peu quand même, on ne peut pas dire que non	〜ないこともない
+N1	2	ながらに	While remaining, just as it is	Tout en restant, tel quel	〜のまま
+N1	2	なくして	without, not without	sans, non sans	〜がなければ
+N1	2	に至って・に至り	when it reaches, only when, not until	en arrivant à, seulement quand, pas avant	〜になって、ようやく
+N1	2	に言わせれば・に言わせると・に言わせたら	according to, in the opinion of, if you ask	selon, d'après, si on demande à	〜の考えでは
+N1	2	にしたところで	even if one considers, even from the perspective of	même du point de vue de, même en considérant	〜にしても
+N1	2	にして（兼備）	While also being, combining both qualities	Tout en étant, combinant les deux qualités	〜であり、同時に
+N1	2	にせよ・にしろ（譲歩）	even if, no matter	même si, quoi que	たとえ〜にしても
+N1	2	にもほどがある	there are limits to; that is going too far	il y a des limites à ; tu exagères ; c'est un peu fort	〜にもほどがある、やりすぎだ
+N1	2	ばこそ	it is exactly because, precisely due to	c'est justement parce que, précisément car	〜からこそ
+N1	2	ものがある	there is something; one cannot help feeling	il y a quelque chose ; on ne peut s'empêcher de ressentir	〜ものがある、と感じる
+N1	2	ものとして	treating it as, working on the assumption that	en considérant que, en partant du principe que	〜とみなして
+N1	2	ものとする	it is prescribed that, it is deemed that	il est établi que, il est entendu que	〜と決める（規則）
+N1	2	ようが〜まいが	Whether or not, regardless of whether	Que l'on… ou non, peu importe que	〜しても〜しなくても
+N1	2	ようによっては	depending on how, according to the manner	selon la façon, en fonction de comment	〜しだいでは
+N1	2	よりほかない	no alternative but to, one can only	pas d'autre choix que de, on ne peut que	〜するしかない
+N1	2	を前提に	based on the premise that, presupposing	en se fondant sur le fait que, en présupposant	〜を前提として
+N1	2	を巡って	concerning, regarding (often disputes)	concernant, autour de (souvent des débats)	〜をめぐって
+N1	2	に越したことはない	nothing beats, it's best to	rien de mieux que, il vaut mieux	〜にこしたことはない
+N1	2	何といっても	after all, no matter what you say	après tout, quoi qu'on dise	なんといっても
+N1	2	がけに	on the way; while going to	en chemin ; en allant à	〜のついでに、行くとちゅうで
+N1	2	ものなら（仮定）	if only it were possible to, if one could	si seulement on pouvait, ah si c'était possible de	もし〜できるなら
+N1	2	何から何まで	everything without exception, every single thing	absolument tout, sans exception	なにもかも全部
+N1	2	さぞ	surely; must be; I imagine quite	sûrement ; cela doit être ; j'imagine que	さぞ〜だろう
+N1	2	ときたら	when it comes to; speaking of; as for that	quand il s'agit de ; pour ce qui est de ; celui-là alors	〜ときたら、と不満を言う
+N1	2	じゃあるまいし	it's not like, it's not as though	ce n'est pas comme si, on n'est pas	〜ではないのだから
+N1	2	たところで	even if one does, it won't make a difference	même si on fait, ça ne changera rien	〜しても、むだだ
+N1	2	を契機に	taking the opportunity of; triggered by	à l'occasion de ; déclenché par	〜をきっかけにして
+N1	2	何しろ	at any rate, you see	de toute façon, voyez-vous	なにしろ、とにかく
+N1	2	と思いきや	I thought that, but contrary to expectation	je pensais que, mais contrairement à l'attente	〜と思ったら、ちがっていた
+N1	2	弱	a bit less than; just under	un peu moins de ; juste en dessous de	その数より少し少ない
+N1	2	それにしても	even so, nevertheless, still	même ainsi, néanmoins, quand même	それにしても
+N1	2	を境に	taking as the turning point, from that point on	à partir de ce moment, en prenant comme tournant	〜を境にして、それから
+N1	2	ただ〜のみ	only, merely, nothing more than	seulement, uniquement, rien d'autre que	ただ〜だけ
+N1	2	をいいことに	taking advantage of, exploiting the fact that	profitant de, abusant du fait que	〜をいいことに、利用して
+N1	2	に照らして	in light of; considering; judging from	à la lumière de ; au regard de ; compte tenu de	〜に照らし合わせて
+N1	2	ないことには〜ない	unless, not… unless	si on ne fait pas, on ne peut pas	〜しなければ〜ない
+N1	2	に堪えない	unbearable, cannot tolerate	insupportable, ne peut tolérer	とても〜できない、たえられない
+N1	2	あり	with, having, exists (formal)	avec, pourvu de, il existe (registre soutenu)	〜がある（かたい言い方）
+N1	2	い形容詞＋限りだ	extremely; nothing could be more; utterly	extrêmement ; on ne peut plus ; au plus haut point	とても〜だ
+N1	2	意向形＋にも動詞＋ない	would like to but cannot, even if one wants to	voudrait mais ne peut pas, même si on veut	〜しようとしても〜できない
+N1	2	上は	since it has come to this, now that	puisqu'il en est ainsi, maintenant que	〜するからには
+N1	2	かというと（選択）	if I had to say; I'd say rather that	si je devais dire ; je dirais plutôt que	どちらかと言うと
+N1	2	がみられる	can be observed, is seen (formal observation)	peut être observé, on constate (observation formelle)	〜が見られる（かたい言い方）
+N1	2	辞書形＋るまでだ	one has only to, all that's left is to	il suffit de, on n'a qu'à	〜するだけだ
+N1	2	ずとも	even without doing, without having to (formal)	même sans, sans avoir à (soutenu)	〜しなくても（かたい言い方）
+N1	2	たまえ	do, go ahead (masculine imperative)	fais donc (impératif masculin ou littéraire)	〜しなさい（男性的）
+N1	2	たりとも〜ない	not even one; not a single; not even the slightest	pas même un ; pas un seul ; pas le moindre	一つも〜ない
+N1	2	だに＋しない	not even, cannot even (formal, emphatic negative)	même pas, ne même pas (soutenu, négation forte)	〜さえしない
+N1	2	つ〜つ	doing now this, now that (alternating opposite actions)	faire tantôt ceci, tantôt cela (actions opposées alternées)	〜したり〜したり、くり返し
+N1	2	てやまない	never cease to, deeply and constantly (formal sentiment)	ne cesse de, du fond du cœur (sentiment sincère)	心から〜しつづける
+N1	2	でなくてなんだろう	if not... then what?, must be, what else could it be?	si ce n'est pas... qu'est-ce alors ?, que pourrait-ce être d'autre ?	〜でなくて何だろう、まさに〜だ
+N1	2	ともなく・ともなしに	Without intending to, unconsciously	Sans y penser, inconsciemment	なんとなく〜する
+N1	2	なら名詞＋で	if it's…, then with…	si c'est…, alors avec…	〜なら〜で
+N1	2	にも〜ない	cannot even, unable to even though one wants to	ne peut même pas, impossible de même si on veut	〜しようとしてもできない
+N1	2	塗れ	Smeared with, soaked in	Couvert de, trempé de	〜でいっぱいによごれる
+N1	2	びる	act like; put on airs of; become affected with	jouer les ; prendre des airs de ; se donner des airs de	〜のようなようすを見せる
+N1	2	まい〜のように	nearly every, practically all	presque tous, pratiquement tous	ほとんど毎〜
+N1	2	まま（放任）	leaving to, letting it happen	laissant à, laissant faire	〜のまま、されるままに
+N1	2	ものと思っていた	thought that, believed that, was under the impression that	pensais que, croyais que, étais convaincu que	〜だと思っていた
+N1	2	んばかりに	as if about to; as though; looking like it will	comme sur le point de ; comme si ; à croire que	今にも〜しそうに
+N1	2	から言うと	speaking from, judging by	du point de vue de, à en juger par	〜から言えば
+N1	2	相まって	combined with; together with; interacting with	combiné à ; allié à ; conjugué à	〜といっしょになって
+N1	2	のは名詞の方だ	it is… that, the one who… is (contrastive emphasis)	c'est… qui/que (emphase contrastive)	〜のは名詞のほうだ
+N1	2	とあれば	if it is the case that; when it comes to; if it means	s'il s'agit de ; dès lors que ; si c'est pour	〜とあれば
+N1	2	を限りに	with this as the last, ending from	avec ceci comme dernier, prenant fin à partir de	〜を最後に
+N1	2	を兼ねて	serving also as; combining with; taking the opportunity to	servant aussi de ; combinant avec ; profitant pour	〜をかねて
+N1	2	てはいられない	cannot afford to, cannot just keep	ne peut se permettre de, ne peut rester à	〜してはいられない
+N1	2	だけのことはある	lives up to expectations, worthy of	mérite sa réputation, est à la hauteur	〜だけのことはある
+N1	2	にもまして	even more than; above all; more than ever	plus encore que ; plus que jamais ; par-dessus tout	〜よりもさらに
+N1	2	か〜ないかのうちに	barely; almost as soon as; the moment	à peine ; dès que ; au moment même où	〜するかしないかのうちに
+N1	2	でもなんでもない	nothing like, not at all, absolutely not	rien de tel, absolument pas, nullement	まったく〜ではない
+N1	2	に即して	based on, in line with, following	conformément à, en accord avec	〜にそって
+N1	2	がてら	while doing, on the occasion of, at the same time as	en profitant pour, à l'occasion de, en même temps	〜のついでに
+N1	2	いかん〜ず	regardless of, irrespective of, no matter what	indépendamment de, peu importe, quel que soit	〜に関係なく
+N1	2	あっての	Made possible by, owing its existence to	Rendu possible par, devant son existence à	〜があってはじめての
+N1	2	それなのに	nevertheless, despite that	néanmoins, malgré cela	それなのに
+N1	2	ない形ものか	I wish there were a way to; if only one could	si seulement il y avait moyen de ; ah, si on pouvait	なんとかして〜できないものか
+N1	2	たら最後	once one does, then it's over (unstoppable consequence)	une fois que, c'est fini (conséquence inévitable)	〜したら、もう終わり
+N1	2	つつも	even while; although one does, yet (showing contrast)	bien que ; même si l'on fait, et pourtant (contraste)	〜しながらも
+N1	2	い形容詞＋くもなんともない	not the least bit, not at all, perfectly fine	pas du tout, nullement, aucunement	少しも〜くない
+N1	2	が早いか	the moment, scarcely had... when	à peine... que, dès que	〜するとすぐに
+N1	2	きらいがある	to have a tendency to (negatively)	avoir tendance à (en mal)	〜しやすい（よくない傾向）
+N1	2	名詞＋であれ名詞＋であれ	whether it be… or…, in either case	que ce soit… ou…, dans les deux cas	AであれBであれ
+N1	2	もさることながら	not only... but also, goes without saying, but even more	certes... mais surtout, sans parler de... mais encore plus	〜もそうだが、それ以上に
+N1	2	折には	on the occasion of, at the time of, when the chance arises	à l'occasion de, au moment de, lorsque l'occasion se présente	〜のときに
+N1	2	強	a bit more than; just over	un peu plus de ; juste au-dessus de	その数より少し多い
+N1	2	た形＋はいいが	It's fine that I did…, but	C'est bien beau d'avoir fait…, mais	〜したのはよいが
+N1	2	よりしかたがない	have no choice but to, can only	n'avoir d'autre choix que, ne pouvoir que	〜するしかない
+N1	2	かれ名詞＋かれ	whether… or…, be it… or…	que ce soit… ou…, soit… soit…	AかれBかれ、どちらでも
+N1	2	とばかりに	as if to say, with the attitude that, as though	comme pour dire, avec l'air de, comme si	〜と言わんばかりに
+N1	2	にしてみれば	From the perspective of, if you ask	Du point de vue de, si l'on demande à	〜の立場から見れば
+N1	3	なりとも	even if only, at least, if nothing else	ne serait-ce que, au moins, même si ce n'est que	少しでも、せめて
+N1	3	ずじまい	ended without doing, never got around to	a fini par ne jamais faire, n'a jamais pu	結局〜しないままで終わった
+N1	3	とは言うものの	even so, having said that, nevertheless	cela dit, même si on dit cela, néanmoins	〜とは言っても
+N1	3	に至っては	As for, when you get to (often an extreme case)	Quant à, pour ce qui est de (souvent un cas extrême)	〜に至っては（極端な例）
+N1	3	を余儀なくさせる	to leave no choice but, to compel	ne laisser d'autre choix que, contraindre à	しかたなく〜させる
+N1	3	というのは事実だ	the truth is that, it's undeniable that	c'est un fait que, il est indéniable que	〜は事実だ
+N1	3	ものなら（警告）	if you dare to, should you ever try to (warning)	si jamais tu oses, au cas où tu essaierais (avertissement)	〜しようものなら、たいへんだ
+N1	3	ても差し支えない	it is acceptable to, there is no harm in	il n'y a pas d'inconvénient à, on peut sans problème	〜してもかまわない
+N1	3	だいいち	in the first place, for one thing	d'abord, premièrement, en premier lieu	まず第一に
+N1	3	にかこつけて	using as an excuse, under the guise of	sous prétexte de, en profitant de	〜を口実にして
+N1	3	ならまだしも	if it were... perhaps, but (expressing exasperation)	si c'était... passe encore, mais (exaspération)	〜ならまだよいが
+N1	3	とは比べものにならない	incomparably better than, in a different league from	incomparablement supérieur à, sans commune mesure avec	〜とはくらべものにならない
+N1	3	ものを	If only, yet (expressing regret or complaint)	Si seulement, alors que (exprimant un regret)	〜のに、と残念に思う
+N1	3	を顧みず	regardless of, heedless of, ignoring	sans égard pour, au mépris de	〜を気にせずに
+N1	3	以上（理由）	now that, since, given that	puisque, étant donné que, du moment que	〜する以上は
+N1	3	反面	on the other hand, but then again	d'un autre côté, mais par ailleurs	その反面
+N1	3	訳あり	for a reason, with circumstances, having some issue	pour une raison particulière, avec une histoire, défectueux	わけがある、事情がある
+N1	3	にまつわる	concerning, related to, associated with	concernant, lié à, relatif à	〜に関係する
+N1	3	に先駆けて	taking the lead in, pioneering, ahead of others	en prenant les devants, en pionnier, avant les autres	〜より先に
+N1	3	れる・られる＋ままに	as one is acted upon, at the mercy of	en se laissant faire, à la merci de	〜されるままに
+N1	3	まじき	must not, improper for, unsuitable for	indigne de, qui ne convient pas à	〜としてあってはならない
+N1	3	とあって	given that, because of the special circumstance that	étant donné que, vu que (circonstance particulière)	〜ということで、特別に
+N1	3	を踏まえて	based on, taking into account	en se basant sur, en tenant compte de	〜をふまえて
+N1	3	に限ったことではない	not limited to, not exclusive to	ne se limite pas à, n'est pas propre à	〜だけのことではない
+N1	3	なくはない	not that it isn't, somewhat	ce n'est pas qu'il n'y ait pas, un peu quand même	〜ないこともない
+N1	3	に難くない	not difficult to, easy to surmise	pas difficile de, facile de	かんたんに〜できる
+N1	3	ならいざ知らず	might be understandable if, but not for	si c'était... passe encore, mais pour	〜ならともかく
+N1	3	にしろ〜にしろ（並列）	whether... or..., no matter if	que ce soit... ou..., peu importe si	〜にしても〜にしても
+N1	3	だの	And things like, or… or (listing examples)	Et des choses comme, ou… ou (énumérant)	〜だの〜だの、とならべる
+N1	3	に恥じない	living up to, deserving of, not unworthy of	digne de, à la hauteur de	〜にふさわしい
+N1	3	こそすれ〜ない	may well... but never, if anything... rather than	certes... mais jamais, peut-être... mais pas	〜することはあっても、〜しない
+N1	3	動詞＋だに	even just to, the mere act of (formal emphasis)	ne serait-ce que, rien que de (emphase soutenue)	〜するだけでも
+N1	3	べくして	as was bound to happen, inevitably	comme il devait arriver, inévitablement	なるべくして、当然
+N1	3	のなんのって	so incredibly, you can't imagine how (casual)	tellement, tu n'imagines pas à quel point (familier)	とても〜だ（くだけた言い方）
+N1	3	の極み	The utmost, the peak of	Le comble de, le summum de	この上ない〜
+N1	3	といおうか	or should I say, how to put it	ou plutôt, comment dire	〜と言おうか
+N1	3	って感じ	kind of, sort of (casual impression)	du genre, une impression de (impression informelle)	〜という感じ
+N1	3	さ（感動詞）	well then, come on (exclamation)	allez, tiens (exclamation)	さあ
+N1	3	に至っても	even at the point of; even when matters reach	même au point de ; même quand on en arrive à	〜になっても
+N1	3	それまでだ	that will be the end, it will all be over	ce sera la fin, tout sera fini	それで終わりだ
+N1	3	をよそに	ignoring, disregarding, paying no heed to	sans tenir compte de, ignorant	〜を気にせずに
+N1	3	ぐるみで	as a whole, together, involving all of	tout entier, tous ensemble, en bloc	〜ぐるみで、全部いっしょに
+N1	3	には当たらない	does not merit, is not worth	ne mérite pas, ne vaut pas la peine de	〜するほどのことではない
+N1	3	た形＋なり・なり	Having done… and left it at that	Après avoir fait… et en être resté là	〜したきり
+N1	3	の至り	extremely, the pinnacle of, utmost	au plus haut point, le comble de	この上なく〜
+N1	3	にとどまらず	not stopping at, not confined to	ne se limitant pas à, sans se borner à	〜だけでなく
+N1	3	始末だ	ended up in a sorry state, things came to the point where	en est arrivé à un triste état, les choses en sont venues au point où	〜というひどい結果になった
+N1	3	ずにはすまない	cannot avoid doing, must inevitably	ne peut éviter de, doit inévitablement	かならず〜することになる
+N1	3	にしても〜にしても	whether... or..., in either case, no matter which	que ce soit... ou..., dans les deux cas, peu importe	〜にしても〜にしても
+N1	3	も構わず	without regard for, ignoring	sans se soucier de, sans tenir compte de	〜もかまわずに
+N1	3	んがため	in order to, for the purpose of (formal, literary)	dans le but de, afin de (soutenu, littéraire)	〜するために（古い書き言葉）
+N1	3	ことだから	since it's; knowing him/her; given that it's	vu que c'est ; le connaissant ; étant donné que c'est	〜のことだから
+N1	3	ともあろう	for someone in such a position, of all people	pour quelqu'un dans une telle position, venant de	〜ともあろう人が
+N1	3	を禁じ得ない	cannot suppress, cannot help but feel	ne peut s'empêcher de, ne peut retenir	〜をおさえられない
+N1	3	ならともかく	if it were... that would be one thing, but	si c'était... passe encore, mais	〜ならともかく
+N1	3	をおいてほかに〜ない	Nobody but, there is no other than	Personne d'autre que, il n'y a que	〜のほかにはない
+N1	3	てからでないと	not until, only after	seulement après avoir, pas avant d'avoir	〜してからでないと
+N1	3	数量詞＋からある	as much as, no less than (emphasizing a large quantity)	pas moins de, jusqu'à (souligne une grande quantité)	〜もある、と多さを強める
+N1	3	というものでもない	It's not quite true that, not exactly the case	Ce n'est pas vraiment le cas que, pas exactement	かならず〜というものでもない
+N1	3	に相違ない	must be, there can be no doubt that	c'est certainement, il ne peut y avoir de doute que	きっと〜だ
+N1	3	にひきかえ	by contrast with, unlike	par contraste avec, contrairement à	〜とちがって
+N1	3	ばかりに	just because, simply because (with regret)	simplement parce que, juste parce que	〜ばかりに、よくない結果
+N1	3	ずにはおかない	inevitably leads to, is sure to	mène inévitablement à, ne manquera pas de	かならず〜させる
+N1	3	そばから	as soon as, no sooner... than, right after	à peine... que, dès que, aussitôt après	〜するとすぐに、また
+N1	3	たら名詞＋で	when one does, with…, and	quand on fait, avec…, et	〜たら〜で
+N1	3	わ〜わで	both… and…; piling up reasons; what with… and…	à la fois… et… ; avec… et… ; entre… et…	〜わ〜わで、たいへんだ
+N1	3	からする	Starting from, at least (amounts)	À partir de, au moins (quantités)	少なくとも〜もする
+N1	3	こととて	since, because of the circumstance that	étant donné que, vu que	〜なので（かたい言い方）
+N1	3	だけましだ	at least; better than nothing; be grateful that	au moins ; c'est mieux que rien ; heureusement que	〜だけましだ
+N1	3	ったらない	so… that words fail; beyond description; incredibly	tellement… que les mots manquent ; incroyablement ; indescriptible	とても〜だ
+N1	3	てはかなわない	cannot put up with someone doing, it is intolerable if	ne peut supporter que quelqu'un fasse, c'est intolérable si	〜されてはたまらない
+N1	3	という点から考えると	Considering from the standpoint of, viewed from	Si l'on considère du point de vue de, vu sous l'angle de	〜という点から考えると
+N1	3	がん	extremely, totally (casual emphatic prefix)	extrêmement, totalement (préfixe emphatique familier)	とても、すごく（くだけた言い方）
+N1	3	連用形	conjunctive stem of verb or adjective (grammar term)	forme conjonctive du verbe ou de l'adjectif (terme grammatical)	動詞や形容詞の連用形

@@ -1,0 +1,128 @@
+# Local secrets: the keys of the AI providers, and whatever holds a password or
+# a session. `.env.example` is the one meant to be read, and it stays.
+.env
+.env.*
+!.env.example
+*.env
+.envrc
+.netrc
+.pypirc
+*.pem
+*.key
+cookies.txt
+
+# Python
+__pycache__/
+*.py[cod]
+.venv*/
+venv/
+build/
+dist/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+.coverage.*
+htmlcov/
+.nox/
+.tox/
+
+# Generator output
+*.tsv
+*.jsonl
+# ...but the JLPT tables are package data (see pyproject, package-data), not
+# output: without them, the level of the cards can no longer be worked out.
+!src/kotogen/data/*.tsv
+# ...and the golden copies are what `tests/test_golden.py` compares a run with:
+# without them, a fresh clone fails the suite.
+!tests/golden/*.tsv
+!tests/golden/*.jsonl
+
+# What a run is tried on, and what Anki exports. A past paper, a podcast, a
+# booklet or a collection is someone else's work or one person's cards, and
+# none of it is committed: a test writes sentences of its own instead (see the
+# head of `tests/test_audio_split.py`).
+*.apkg
+*.colpkg
+*.pdf
+*.mp3
+*.m4a
+*.wav
+*.ogg
+*.opus
+*.flac
+*.mp4
+*.mkv
+*.webm
+*.srt
+*.vtt
+# The pictures a run writes beside its TSV (a past paper's figures, a
+# mini-book's pages), at the root only: docs/images is the README's.
+/*.png
+/*.jpg
+/*.jpeg
+/*.webp
+
+# Editors and IDEs: the settings of one machine. The local history some
+# extensions keep holds a copy of every file saved, `.env` included.
+.vscode/
+*.code-workspace
+.history/
+.idea/
+*.iml
+.vs/
+.zed/
+.fleet/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+*~
+
+# AI assistants and agents: their instructions, their local settings and the
+# history some of them keep in the folder they work in. None of it is part of
+# the project, whichever tool wrote it.
+.claude/
+CLAUDE.md
+CLAUDE.local.md
+.mcp.json
+AGENTS.md
+.gemini/
+GEMINI.md
+.cursor/
+.cursorrules
+.cursorignore
+.windsurf/
+.windsurfrules
+.github/copilot-instructions.md
+.github/instructions/
+.github/prompts/
+.aider*
+.continue/
+.clinerules
+.roo/
+.roomodes
+.kilocode/
+.junie/
+.aiassistant/
+.amazonq/
+.kiro/
+.trae/
+.specstory/
+
+# Operating systems
+.DS_Store
+._*
+Thumbs.db
+desktop.ini
+.directory
+.Trash-*
+
+# Leftovers: logs, downloads cut short, merges and the backups of an editor
+*.log
+*.part
+*.tmp
+*.orig
+*.rej
+*.bak
