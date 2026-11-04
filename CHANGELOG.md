@@ -12,6 +12,13 @@ such change is listed under its own **Note types** heading, with what
 
 ## [Unreleased]
 
+### Fixed
+
+- A past-paper card no longer holds the time given to read the options, nor
+  the bell that closes it, when Whisper laid the first word of the
+  conversation inside that blank: the sound opened ten seconds before the
+  voice.
+
 ## [1.0.0] - 2026-11-02
 
 The first public release.

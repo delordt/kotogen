@@ -1049,6 +1049,46 @@ def test_a_first_word_laid_over_the_bell_starts_after_it():
     assert announcements.after_the_bell(clean, [(55.94, 76.15), (78.39, 80.16)]) is None
 
 
+# Whisper laid the first word of the conversation at 167.92, in the middle of the
+# reading time, and the second one from there to 182.72, over the bell. The
+# voice comes in at 182.29.
+INSIDE_THE_BLANK = [("佐", 167.92, 167.92), ("藤", 167.92, 182.72), ("さん", 182.72, 183.46),
+                    (" 旅行はどうだった", 183.68, 185.32)]
+INSIDE_SILENCES = [(152.95, 154.62), (158.17, 178.4), (180.66, 182.29), (182.97, 183.61),
+                   (185.13, 185.82), (191.87, 192.6), (208.54, 210.87), (212.65, 214.2)]
+
+
+def test_a_first_word_laid_inside_the_blank_starts_after_the_bell():
+    opening = seg("佐藤さん 旅行はどうだった", 167.92, 185.32, INSIDE_THE_BLANK)
+    assert announcements.after_the_bell(opening, INSIDE_SILENCES) == 182.29
+    # With no bell after the blank, the voice still cannot start inside it.
+    assert announcements.after_the_bell(opening, [(158.17, 178.4)]) == 178.4
+
+
+def test_a_conversation_opened_inside_the_blank_leaves_it_out_with_the_bell():
+    """The exam question is cut out and Whisper opened the conversation inside the
+    blank: neither its ten seconds nor the bell may be heard before the voice."""
+    segments = [
+        seg("1番 先生と学生が話しています", 147.92, 153.82,
+            [("1", 147.92, 148.56), ("番", 148.56, 149.2), (" 先生と学生が", 149.26, 151.4),
+             ("話しています", 151.4, 152.9)]),
+        seg("学生はいつ国へ帰りますか", 154.42, 158.46, [("学生はいつ国へ帰りますか", 154.42, 158.1)]),
+        seg("はい", 167.12, 167.92, [("はい", 167.12, 167.92)]),     # written in the blank
+        seg("佐藤さん 旅行はどうだった", 167.92, 185.32, INSIDE_THE_BLANK),
+        seg("うん 楽しかったよ", 185.32, 191.96, [("うん", 185.32, 186.16), (" 楽しかったよ", 186.77, 191.8)]),
+        seg("来週は国へ帰るんだ", 192.6, 208.64, [("来週は国へ帰るんだ", 192.6, 208.5)]),
+        seg("学生はいつ国へ帰りますか", 214.38, 220.14, [("学生はいつ国へ帰りますか", 214.38, 220.0)]),
+    ]
+    split = audio_split._read_answer(
+        {"kind": "collection", "blocks": [{"keep": True, "lines": [[1, 6]]}]},
+        segments, INSIDE_SILENCES)
+
+    block = split.blocks[0]
+    assert block.lines == (1, 4, 5, 6)
+    assert len(block.ranges) == 2
+    assert 180.66 < block.ranges[1][0] < 182.29     # after the bell, before the voice
+
+
 def test_what_whisper_writes_between_the_bell_and_the_voice_was_not_said():
     """A line written in the 1.5 s of blank between the bell and the voice."""
     ghost = seg("2人は、女の人と男の人の話をしています", 186.48, 187.72,

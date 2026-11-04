@@ -367,20 +367,24 @@ def after_the_bell(segment: Segment, silences: list[tuple[float, float]]) -> flo
 
     A first word running across a silence of its own says so, as a word holds no
     pause: the speech starts where that silence ends, if it ends within a bell's
-    length after the blank.
+    length after the blank. With no such silence, a first word Whisper laid
+    inside the blank still starts at its end.
     """
     long = [(start, end) for start, end in silences if end - start >= UNHEARD_SILENCE]
     if not segment.words or not long:
         return None
     head = segment.words[:2]
-    blank_end = max((end for _start, end in long if end <= head[0].end + 0.01), default=None)
-    if blank_end is None:
+    # The blank over before the first word ends, or the one Whisper laid it in.
+    blanks = [(start, end) for start, end in long
+              if end <= head[0].end + 0.01 or start - 0.01 <= head[0].start]
+    if not blanks:
         return None
+    blank_start, blank_end = max(blanks, key=lambda blank: blank[1])
     for start, end in silences:
         if (end - start >= cuts.BOUNDARY_MIN and 0 <= start - blank_end <= BELL_MAX
                 and any(word.start < start and word.end > end for word in head)):
             return end
-    return None
+    return blank_end if blank_start - 0.01 <= head[0].start < blank_end else None
 
 
 def _follows_a_counter(text: str) -> bool:
