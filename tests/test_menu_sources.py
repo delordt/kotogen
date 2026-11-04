@@ -176,17 +176,16 @@ def test_vocab_jlpt_level(monkeypatch):
 
 
 def test_vocab_theme_offered(monkeypatch):
-    # source "a theme"; the first one offered; all levels (default); 20 words; no send
-    feed(monkeypatch, ["2", "3", "1", "", "", ""])
+    # source "a theme"; the first one offered; 20 words; no send
+    feed(monkeypatch, ["2", "3", "1", "", ""])
     assert interactive_argv() == ["vocab", "--theme", "Food and drink"]
 
 
 def test_vocab_theme_typed(monkeypatch):
-    # source "a theme"; another one, typed; N3; 10 words; no send
-    feed(monkeypatch, ["2", "3", "9", "job interview", "3", "10", ""])
-    assert interactive_argv() == [
-        "vocab", "--theme", "job interview", "--level", "N3", "--count", "10",
-    ]
+    # source "a theme"; another one, typed; 10 words; no send. No level is
+    # asked: a theme has none, and its words come the easiest first.
+    feed(monkeypatch, ["2", "3", "9", "job interview", "10", ""])
+    assert interactive_argv() == ["vocab", "--theme", "job interview", "--count", "10"]
 
 
 def test_vocab_accepts_any_page(monkeypatch):

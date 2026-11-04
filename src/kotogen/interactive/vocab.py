@@ -92,11 +92,9 @@ def _theme_options() -> list[str]:
     ], default=1, allow_back=True)
     if theme == other:
         theme = _ask(_("Theme"), back=True)
+    # No level asked: a theme has no level of its own, and its words come the
+    # easiest first anyway. `--level` stays for whoever skips its basics.
     argv = ["vocab", "--theme", theme]
-    levels = [(level, level) for level in JLPT_LEVELS] + [("auto", _("All levels"))]
-    level = _menu(_("Which level?"), levels, default=len(levels), allow_back=True)
-    if level != "auto":
-        argv += ["--level", level]
     count = _ask_int(_("Number of words to generate"), 20)
     if count != 20:
         argv += ["--count", str(count)]

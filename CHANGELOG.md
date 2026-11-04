@@ -23,6 +23,9 @@ such change is listed under its own **Note types** heading, with what
 
 - In automatic mode, the purple flag no longer names the other cards of a
   passage before the line that counts them.
+- The vocabulary menu no longer asks for a level after a theme: a theme has
+  none, and its words come the easiest first. `--level` still aims the list
+  at one.
 
 ### Fixed
 
