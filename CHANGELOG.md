@@ -26,6 +26,9 @@ such change is listed under its own **Note types** heading, with what
 - The vocabulary menu no longer asks for a level after a theme: a theme has
   none, and its words come the easiest first. `--level` still aims the list
   at one.
+- The Japanese screens call the `Context` field 場面 everywhere: the template
+  settings said 文脈, the context of a text, and the maintenance screens its
+  English name.
 
 ### Fixed
 
