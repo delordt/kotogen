@@ -256,9 +256,10 @@ def _section_of_page(page: int, starts: dict[int, int]) -> int | None:
 
 # The map of a booklet is kept between runs, as drawing it costs a vision call
 # and an exam is worked over several runs. Keyed by a digest of the bytes, so a
-# booklet moved or renamed is found again; MAP_VERSION follows the shape of a map.
+# booklet moved or renamed is found again; MAP_VERSION follows the shape of a map,
+# and the read that made it (version 1 could number an example as item 1).
 MAP_FOLDER = "booklets"
-MAP_VERSION = 1
+MAP_VERSION = 2
 
 
 def _map_file(data: bytes) -> Path:
@@ -309,6 +310,8 @@ class Booklet:
         self.path = path
         self._figures: dict[Position, tuple[int, tuple[float, float, float, float]]] | None = None
         self._data: bytes | None = None
+        # The sections where two figures claimed one item (see `_place`).
+        self._claimed: set[int] = set()
         self.error = ""
 
     def _load(self, client: AIClient) -> dict:
@@ -324,9 +327,15 @@ class Booklet:
                 return self._figures
             pages, objects, page_map, starts, blocks = self._survey(client)
             flagged = 0
+            self._claimed = set()
             for items, page in zip(page_map, pages):
                 self._place(page, items, objects[page], starts, blocks.get(page, ()))
-                flagged += sum(1 for item in items if item["figure"])
+                flagged += sum(1 for item in items
+                               if item["figure"] and not item.get("example"))
+            # Two figures for one item: the read numbered that section wrongly,
+            # and nothing says which figure is right.
+            self._figures = {position: found for position, found in self._figures.items()
+                             if position.section not in self._claimed}
             # A map short of a figure is a misreading: kept under the digest of the
             # bytes, it would deny the booklet its figures for good.
             if self._figures and len(self._figures) >= flagged:
@@ -409,10 +418,14 @@ class Booklet:
             groups = pdf_figures.group_into(list(objects.images), len(illustrated))
 
         for item, group in zip(laid, groups):
-            if not group:
+            # The example takes its drawing out of the pairing, and files nothing.
+            if not group or item.get("example"):
                 continue
             area = pdf_figures.area_of(group, objects.strokes)
-            self._figures[Position(section, item["number"])] = (page, area)
+            position = Position(section, item["number"])
+            if position in self._figures:
+                self._claimed.add(section)
+            self._figures[position] = (page, area)
 
     def figure(self, client: AIClient, position: Position) -> bytes | None:
         """The PNG of this exercise, or None if it has no figure."""

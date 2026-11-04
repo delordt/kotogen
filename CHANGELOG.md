@@ -30,6 +30,10 @@ such change is listed under its own **Note types** heading, with what
   extract is heard as it stands.
 - The purple flag finds the recording of an extract whose name Anki
   lowercased.
+- The figures of a scanned booklet no longer shift by one item when its
+  reading numbers the example 「れい」 as item 1, and two figures claiming one
+  item leave their section without any. A booklet read before is read again
+  once.
 
 ## [1.0.0] - 2026-11-02
 

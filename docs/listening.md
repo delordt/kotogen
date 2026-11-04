@@ -907,8 +907,11 @@ Compared with a typeset booklet:
 
 A scan costs more. In exchange, the printed labels give a cross-check: the vision reading is
 trusted only for the **item numbers**, and when its count does not match the labels, no
-figure is set on that page. A page that shows the drawing of the 「れい」 example beside an
-item gets no figure either, since nothing says which of the two blocks is the example.
+figure is set on that page. The reading lists the 「れい」 example where it is printed, so
+that its drawing goes to no item; a page that shows that drawing beside an item while the
+reading leaves the example out gets no figure, since nothing says which of the two blocks is
+the example. When two figures claim the same item, the reading numbered that section wrongly,
+and the section gets no figure at all.
 
 The route is chosen by **measurement**, never by the year or the file name: a booklet in which
 no page has its drawings as separate PDF objects is a scan.

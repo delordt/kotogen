@@ -305,6 +305,18 @@ def test_one_entry_per_page_even_an_empty_one():
     assert [len(page["items"]) for page in chart] == [0, 0, 1]
 
 
+def test_the_example_is_kept_without_a_number():
+    """Listed so that its drawing is not taken for an item's; never an item."""
+    client = MapClient({"Pages": [{"section": 4, "items": [
+        {"example": True, "figure": True}, {"number": "x", "figure": True},
+        {"number": 1, "figure": False}]}]})
+
+    items = pdf_source.extract_map(client, b"%PDF", "N3L.pdf", 1)[0]["items"]
+
+    assert items == [{"number": None, "figure": True, "example": True},
+                     {"number": 1, "figure": False, "example": False}]
+
+
 def test_a_count_that_does_not_match_is_refused():
     """Better to give up on the figures than to stick them on the wrong items."""
     client = MapClient({"Pages": [{"section": None, "items": []}]})
@@ -356,6 +368,6 @@ def test_extract_items_gives_back_the_items_only():
     ]})
 
     assert pdf_source.extract_items(client, b"%PDF", "L.pdf", 2) == [
-        [{"number": 1, "figure": True}],
-        [{"number": 2, "figure": False}],
+        [{"number": 1, "figure": True, "example": False}],
+        [{"number": 2, "figure": False, "example": False}],
     ]

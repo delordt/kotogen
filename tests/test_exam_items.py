@@ -417,6 +417,62 @@ def test_the_example_beside_an_item_lays_nothing(monkeypatch):
     assert booklet._figures == {}
 
 
+def test_a_drawn_example_listed_as_such_keeps_its_drawing_from_item_1(monkeypatch):
+    """The shape of a 発話表現 section: the title page holds the drawn example
+    alone, the next pages two items each."""
+    booklet, client = _scan(
+        monkeypatch,
+        {2: _items([(0.20, 0.50, 0.16, 0.84)]),
+         3: _items([(0.11, 0.48, 0.18, 0.85)], [(0.54, 0.91, 0.18, 0.85)])},
+        [{"section": None, "items": []},
+         {"section": 4, "items": [{"number": None, "figure": True, "example": True}]},
+         {"section": None, "items": [{"number": 1, "figure": True},
+                                     {"number": 2, "figure": True}]}],
+        pages=3)
+
+    booklet._load(client)
+
+    assert set(booklet._figures) == {Position(4, 1), Position(4, 2)}
+    assert booklet._figures[Position(4, 1)][0] == 3, "item 1 took the example's drawing"
+
+
+def test_an_example_in_words_shifts_nothing(monkeypatch):
+    """The shape of a 課題理解 section: an example in words, then a page whose
+    first item alone is drawn."""
+    booklet, client = _scan(
+        monkeypatch,
+        {3: _items([(0.11, 0.48, 0.18, 0.85)])},
+        [{"section": None, "items": []},
+         {"section": 1, "items": [{"number": None, "figure": False, "example": True}]},
+         {"section": None, "items": [{"number": 1, "figure": True},
+                                     {"number": 2, "figure": False}]}],
+        pages=3)
+
+    booklet._load(client)
+
+    assert set(booklet._figures) == {Position(1, 1)}
+
+
+def test_two_figures_for_one_item_leave_their_section_without_any(monkeypatch):
+    """The read numbered the section wrongly, and nothing says which is right;
+    another section keeps its figures."""
+    booklet, client = _scan(
+        monkeypatch,
+        {1: _items([(0.20, 0.50, 0.16, 0.84)]),
+         3: _items([(0.11, 0.48, 0.18, 0.85)], [(0.54, 0.91, 0.18, 0.85)]),
+         4: _items([(0.11, 0.48, 0.18, 0.85)])},
+        [{"section": 4, "items": [{"number": 1, "figure": True}]},
+         {"section": None, "items": []},
+         {"section": None, "items": [{"number": 1, "figure": True},
+                                     {"number": 2, "figure": True}]},
+         {"section": 5, "items": [{"number": 1, "figure": True}]}],
+        pages=4)
+
+    booklet._load(client)
+
+    assert set(booklet._figures) == {Position(5, 1)}
+
+
 def test_a_scan_without_a_single_frame_says_so(monkeypatch):
     """Neither objects nor frames: there is nothing to cut, and the reason is said."""
     booklet, client = _scan(monkeypatch, {}, [])

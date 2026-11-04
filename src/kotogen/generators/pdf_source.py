@@ -173,7 +173,8 @@ def extract_map(client: AIClient, pdf_bytes: bytes, filename: str,
     """The map of a 聴解 booklet: what each page carries, in order.
 
     One entry per page sent, empty ones included:
-    `[{"section": 1 | None, "items": [{"number": 1, "figure": True}, ...]}, ...]`.
+    `[{"section": 1 | None, "items": [{"number": 1, "figure": True, "example": False},
+    ...]}, ...]`, the example of a section listed with its number None.
     The model's page numbers are off by one and ignored; its order holds, so the
     count is checked, and a mismatch raises rather than put figures on the wrong
     items. `whole` only tells the model whether it receives the whole booklet.
@@ -204,13 +205,18 @@ def extract_map(client: AIClient, pdf_bytes: bytes, filename: str,
         items = page.get("items") or []
         chart.append({
             "section": _int_or_none(page.get("section")),
-            "items": [
-                {"number": int(i["number"]), "figure": bool(i.get("figure"))}
-                for i in items
-                if isinstance(i, dict) and str(i.get("number", "")).strip().isdigit()
-            ],
+            "items": [_item(i) for i in items if isinstance(i, dict) and (
+                i.get("example") is True or str(i.get("number", "")).strip().isdigit())],
         })
     return chart
+
+
+def _item(raw: dict) -> dict:
+    """One entry of a page: an item, or the example, kept so that its drawing
+    is not handed to an item (`exam_items.Booklet._place`)."""
+    if raw.get("example") is True:
+        return {"number": None, "figure": bool(raw.get("figure")), "example": True}
+    return {"number": int(raw["number"]), "figure": bool(raw.get("figure")), "example": False}
 
 
 def _int_or_none(value) -> int | None:
