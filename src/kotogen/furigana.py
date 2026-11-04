@@ -202,6 +202,12 @@ _CONTENT_SPACE_RE = re.compile(
     f"(?=[{_JA_CTX}])(?=[^\\s\\[\\]]*[{KANJI_CHARS}])"
 )
 
+# In a Japanese line a space before a word with a reading is an anchor, except
+# after an arrow or a relation sign (U+2190-22FF, `=`), where the line shows it.
+_SIGN_SPACE_RE = re.compile(
+    f"(?<=[←-⋿=]) (?! )(?=[{_JA_CTX}])(?=[^\\s\\[\\]]*[{KANJI_CHARS}])"
+)
+
 # Latin letters against Japanese characters, to tell the language of a line.
 _LATIN_RE = re.compile(r"[A-Za-zÀ-ÿ]")
 _JA_CHAR_RE = re.compile(f"[{KANJI_CHARS}{_KANA}]")
@@ -219,12 +225,14 @@ def _is_latin_line(text: str) -> bool:
 
 
 def protect_content_spaces(text: str) -> str:
-    """Double the space separating Latin text from a Japanese word.
+    """Double the space a line shows before a Japanese word that will carry a reading.
 
-    Anki's filter eats one and HTML shows the other. To be applied BEFORE any
-    anchor is laid (`fix_furigana_spacing`), while the spaces are the source's.
+    Anki's filter eats one and HTML shows the other: in a Latin line any space
+    before Japanese, in a Japanese line the one after a sign (`降る → 降れば`). To be
+    applied BEFORE any anchor is laid (`fix_furigana_spacing`), while the spaces
+    are the source's.
     """
-    return _CONTENT_SPACE_RE.sub("  ", text) if _is_latin_line(text) else text
+    return (_CONTENT_SPACE_RE if _is_latin_line(text) else _SIGN_SPACE_RE).sub("  ", text)
 
 
 def strip_japanese_spaces(text: str) -> str:

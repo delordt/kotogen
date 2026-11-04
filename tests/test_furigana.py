@@ -487,6 +487,14 @@ def test_latin_line_does_not_space_out_an_opening_bracket():
     assert process_furigana(out) == out
 
 
+def test_japanese_line_keeps_its_space_after_an_arrow():
+    # The space after the arrow is the line's: only the anchors are eaten.
+    pytest.importorskip("fugashi")
+    out = process_furigana("条件[じょうけん]： 降[ふ]る → 降[ふ]れば")
+    assert _anki_furigana(out) == "条件：降る → 降れば"
+    assert process_furigana(out) == out
+
+
 def test_japanese_line_still_eats_the_anchor_after_latin():
     # In a Japanese sentence that space is only an anchor: `2026 年` must not show.
     pytest.importorskip("fugashi")

@@ -119,9 +119,10 @@ of the answer.
   - E.g. okurigana: `分[わ]かる`, `食[た]べます`, `読[よ]んでいる`
 - Do **not** put a space before a word that has **no** furigana.
 - Use **ASCII spaces** only (no full-width spaces, no NBSP).
-- Anki's filter takes that space as the start of the group and shows none. In a line of
-  Latin prose (an English or French `Explanation`), where a space also has to show before
-  the Japanese word, the export doubles it (`condition:  降[ふ]る`): the model writes one.
+- Anki's filter takes that space as the start of the group and shows none. Where a space
+  also has to show, the export doubles it and the model writes one: before the Japanese
+  word in a line of Latin prose (an English or French `Explanation`, `condition:  降[ふ]る`),
+  and after a sign such as an arrow in a Japanese line (`降[ふ]る →  降[ふ]れば`).
 - The `Sentence` (inside the gap too), `Hint` and `Rule` fields and the Japanese words
   quoted in `Explanation` follow **exactly** the same convention.
 - The translated fields (`Translation`, `Target`, `Nuance`) carry none, and neither does

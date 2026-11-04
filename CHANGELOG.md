@@ -47,6 +47,8 @@ such change is listed under its own **Note types** heading, with what
 - A text written on the deck no longer reports a する verb of the deck as left
   out when it uses it conjugated (運転して, 検討しています): the word counts as
   worked on, and no longer comes back as a target of the next texts.
+- On a card written in Japanese, the space after an arrow or a sign before a
+  word with furigana no longer disappears: `降る → 降れば` showed `降る →降れば`.
 
 ## [1.0.0] - 2026-11-02
 
