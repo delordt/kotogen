@@ -858,7 +858,7 @@ TRANSLATED_UMBRELLAS = ["A : Quel parapluie prenez-vous ?", "B : Je prends le bl
 FIGURE = "N5_Q1_3_2f3a4b5c.png"
 
 
-def _figured_cards(*marks, choice: bool = False, figure: str = FIGURE):
+def _figured_cards(*marks, choice: bool = False, figure: str = FIGURE, fits=None):
     from kotogen.generators import audio
 
     cards = [{"Question": f"Question {rank}", "Answer": "Le bleu",
@@ -866,7 +866,8 @@ def _figured_cards(*marks, choice: bool = False, figure: str = FIGURE):
               **({"Figure": mark} if mark is not None else {})}
              for rank, mark in enumerate(marks, 1)]
     result = {"Level": "N5", "TranscriptLines": list(UMBRELLAS),
-              "TranslationLines": list(TRANSLATED_UMBRELLAS), "Cards": cards}
+              "TranslationLines": list(TRANSLATED_UMBRELLAS), "Cards": cards,
+              **({"FigureFits": fits} if fits is not None else {})}
     return audio._post_process(result, "x.mp3", "x", "N5", figure=figure,
                                choice=choice)
 
@@ -914,27 +915,53 @@ def test_no_figure_says_nothing_about_one(capsys):
     assert "figure" not in capsys.readouterr().out
 
 
+def test_a_figure_cut_out_for_another_item_goes_on_no_card(capsys):
+    """The model sees the figure, and says when it shows another conversation."""
+    cards = _figured_cards(None, True, fits=False)
+    assert not any(card["Image"] for card in cards)
+    assert "does not illustrate this passage" in capsys.readouterr().out
+
+
+def test_a_choice_item_loses_a_picture_that_is_not_its_own():
+    (card,) = _figured_cards(None, choice=True, fits=False)
+    assert not card["Image"]
+
+
+def test_a_figure_said_to_fit_or_said_nothing_of_is_laid():
+    assert _figured_cards(None, True, fits=True)[1]["Image"]
+    assert _figured_cards(None, True)[1]["Image"]
+
+
 class _Client:
     def __init__(self):
         self.sent = ""
+        self.attached = None
 
     def chat_json(self, system, user):
         self.sent = user
         return {"Cards": []}
 
+    def chat_json_pdf(self, system, user, pdf_bytes, filename):
+        self.attached = (pdf_bytes, filename)
+        return self.chat_json(system, user)
 
-@pytest.mark.parametrize("figured, choice, told", [
-    (True, False, True),
-    (False, False, False),
-    # The choice item has its own instruction, and its one card takes the figure.
-    (True, True, False),
+
+@pytest.mark.parametrize("figured, choice, instruction", [
+    (True, False, "FIGURE_INSTRUCTION"),
+    (False, False, None),
+    # The choice item's one card takes the picture: only its fit is asked.
+    (True, True, "CHOICE_FIGURE_INSTRUCTION"),
 ])
-def test_the_model_is_told_about_the_figure_when_it_has_to_mark_a_card(
-        figured, choice, told):
+def test_the_figure_goes_with_the_call_and_the_model_is_told_what_to_do_with_it(
+        monkeypatch, figured, choice, instruction):
     from kotogen import prompts
-    from kotogen.generators import audio
+    from kotogen.generators import audio, pdf_pages
 
+    monkeypatch.setattr(pdf_pages, "to_pdf", lambda paths: b"%PDF-" + paths[0].name.encode())
     client = _Client()
     audio._generate_for_audio(client, "x.mp3", UMBRELLAS, 3, "N5", choice,
-                              figured=figured)
-    assert (prompts.say(audio.FIGURE_INSTRUCTION) in client.sent) is told
+                              figure=Path(FIGURE) if figured else None)
+    for name in ("FIGURE_INSTRUCTION", "CHOICE_FIGURE_INSTRUCTION"):
+        assert (prompts.say(getattr(audio, name)) in client.sent) is (name == instruction)
+    assert client.attached == ((b"%PDF-" + FIGURE.encode(), "N5_Q1_3_2f3a4b5c.pdf")
+                               if figured else None)

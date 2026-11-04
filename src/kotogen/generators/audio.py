@@ -84,14 +84,26 @@ CHOICE_INSTRUCTION = (
 # language of the cards.
 CHOICE_QUESTION = "Which of the three replies fits?"
 
-# Tells the generator the passage has a printed figure, which it does not see:
-# the figure illustrates the audio's own question, and only the model knows
-# which card asks it. That card alone carries the figure.
+# Tells the generator the passage has a printed figure, attached to the call: the
+# figure illustrates the audio's own question, and only the model knows which
+# card asks it. That card alone carries the figure. The booklet was cut by
+# machine, so the model also says whether the figure belongs to this audio.
 FIGURE_INSTRUCTION = (
-    "This audio is a past-paper item with a PRINTED FIGURE, shown on the front "
-    "of the card. Apply the rule of the printed figure: the first card asks the "
-    "question the audio itself asks, with \"Decoys\": [], and it alone carries "
+    "This audio is a past-paper item with a PRINTED FIGURE, attached to this "
+    "message and shown on the front of the card. Apply the rule of the printed "
+    "figure: describe it in \"FigureShows\", then say in \"FigureFits\" whether "
+    "it illustrates this audio; if it does, "
+    "the first card asks the question the audio itself asks, with \"Decoys\": [], "
+    "is answered by the label the figure prints, and it alone carries "
     "\"Figure\": true."
+)
+
+# The same check on an item with replies to choose, whose one card takes the
+# picture of its prompt.
+CHOICE_FIGURE_INSTRUCTION = (
+    "The picture of this item is attached to this message and shown on the front "
+    "of the card: describe it in \"FigureShows\", then say in \"FigureFits\" "
+    "whether it shows the situation the prompt describes."
 )
 
 
@@ -102,8 +114,9 @@ def _generate_for_audio(
     limit: int,
     level: str,
     choice: bool = False,
-    figured: bool = False,
+    figure: Path | None = None,
 ) -> dict:
+    """The model's answer for one passage; `figure`, when given, goes with the call."""
     numbered = "\n".join(f"{i}. {line}" for i, line in enumerate(transcript_lines, 1))
     # Prompt, not screen: the whole message is in the language of the cards.
     if level == "auto":
@@ -115,12 +128,20 @@ def _generate_for_audio(
         prompts.say("Raw transcript of the file \"{name}\":").format(name=audio_name)
         + f"\n\n{numbered}\n\n"
         + (prompts.say(CHOICE_INSTRUCTION) if choice else quota.instruction(limit))
-        # Not for a choice item: its single card takes the figure anyway.
-        + (" " + prompts.say(FIGURE_INSTRUCTION) if figured and not choice else "")
+        + (" " + prompts.say(CHOICE_FIGURE_INSTRUCTION if choice else FIGURE_INSTRUCTION)
+           if figure is not None else "")
         + f" {level_part}"
     )
 
-    result = client.chat_json(prompts.load("audio_card"), user_msg)
+    if figure is None:
+        result = client.chat_json(prompts.load("audio_card"), user_msg)
+    else:
+        # A one-page PDF: the one attachment every provider of the client reads.
+        from kotogen.generators import pdf_pages
+
+        result = client.chat_json_pdf(prompts.load("audio_card"), user_msg,
+                                      pdf_pages.to_pdf([figure]),
+                                      figure.with_suffix(".pdf").name)
     if not isinstance(result, dict):
         raise ValueError(_("unexpected JSON structure: {kind}").format(kind=type(result).__name__))
     return result
@@ -187,6 +208,10 @@ def _post_process(result: dict, audio_name: str, stem: str, level_arg: str,
                               "recognised in the sound neither by its spelling nor by "
                               "its reading").format(count=prorated))
 
+    # The model saw the figure: one cut out for another item goes on no card.
+    if figure and result.get("FigureFits") is False:
+        console.aside(_("the figure does not illustrate this passage: it is left out"))
+        figure = ""
     cards: list[dict] = []
     figure_laid = False
     for i, raw in enumerate(result.get("Cards") or [], start=1):
@@ -437,8 +462,7 @@ def _generate_for_block(client: AIClient, args, source: Path, block, rank: int,
     while True:
         try:
             result = _generate_for_audio(client, media.name, lines, asked,
-                                         level, choice,
-                                         figured=figure is not None)
+                                         level, choice, figure=figure)
         except AIAuthError:
             console.close_line()   # the line does not stay open behind us
             raise

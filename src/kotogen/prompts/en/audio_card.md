@@ -122,8 +122,8 @@ have no place there either: the exam sets three.
 
 - **At most** the number of cards asked for: it is a ceiling, not a target. The questions bear on **different** passages of the audio; when the audio supports no more, you stop, even far below the ceiling. A thirty-second audio may justify a single card, and that is the right answer - one right card beats three of which two are redundant or guessable without having listened.
 - **Question**: **in English**, bearing on the understanding of the audio's content. A Japanese term heard in the audio may appear in it in Japanese when it is the term the question is about ("What does 擬音語[ぎおんご] mean?") - with the furigana convention below; the sentence itself stays English.
-- **Answer**: the right answer, **in English** (case 3 is the only one where it is in
-  Japanese). It is repeated nowhere else: it is the card that will mix it in among the decoys, and the fact that it comes from this field is enough to recognise it.
+- **Answer**: the right answer, **in English** (case 3, where it is in Japanese, and the label of a printed
+  figure are the only exceptions). It is repeated nowhere else: it is the card that will mix it in among the decoys, and the fact that it comes from this field is enough to recognise it.
 - **Decoys**: 3 wrong answers **in English**, clearly wrong to anyone who understood the audio, but plausible otherwise. The order does not matter (the card shuffles the 4 choices on every review day). **Always 3**, on every card except the choice-of-replies item of case 3 and the card of a printed figure, which carry none: everywhere else, a question that does not admit three is not asked (see below).
 - **The 4 choices name 4 different things.** A decoy is never the Answer, nor another way of saying it: not its copy, not its translation, not its transliteration into rōmaji, not its rewording, not a special case of what it states. "Onomatopoeia", "giongo gitaigo" and "擬音擬態語" are **one** choice, not three: the learner who ticks the variant you did not pick is right and is marked wrong. When in doubt about two choices, replace the offending decoy with a frankly other answer - and if the question does not admit three, ask another one or hand back one card fewer.
 - **KeyLine**: the number (from 1) of the line of TranscriptLines that most supports the answer (for a deduction, the main line of the reasoning). **Counted on the lines you hand back**, never on the numbering of the raw transcript you were given: you recut it, so the two do not line up.
@@ -184,17 +184,25 @@ possible answer.
 ### A past-paper item with a printed figure
 
 **This case too is signalled to you along with the transcript: never deduce it yourself.**
-Some past-paper items (課題理解, ポイント理解) come with a figure printed in the booklet -
-options drawn and numbered 1 to 4, or a scene labelled ア/イ/ウ/エ - and the card shows it on
-its front. You do not see it: you have the transcript only. What it illustrates is the
+Some past-paper items come with a figure printed in the booklet - options drawn and
+numbered 1 to 4, a list or a scene labelled ア/イ/ウ/エ, or, on an item with replies to
+choose (case 3), the scene of its prompt - and the card shows it on its front. **The figure
+is attached to this message: look at it.** Outside case 3, what it illustrates is the
 question the audio itself asks, stated before the conversation and repeated after it
 (「男の人はどれを買いますか」), and nothing else.
 
+- **First describe it, then say whether it belongs to this audio.** It was cut out of the
+  booklet by machine and may be another item's. Two keys of the protocol, written before
+  `"Cards"`: `"FigureShows"`, one line saying what the figure shows and what each of its
+  labels stands for (`ア glue, イ ballpoint pens, ウ notebooks...`); then `"FigureFits"`,
+  `true` when that is what the audio talks about and `false` otherwise. When it is `false`,
+  write the cards as if there were no figure.
 - **The first card asks that question**, the one the exam asks, in English, with
   `"Decoys": []`: the options are the drawings, and the learner chooses on the figure, as
-  the exam does. Its Answer is the right option, named by what it is ("The blue
-  umbrella"), never by a number or a letter of the figure: you do not know which drawing
-  carries which.
+  the exam does. Its Answer is the label the figure prints for the right option, exactly as
+  printed and nothing else: `3`, `ウ`, or `アウオ` when the question asks for several. Only
+  on a figure that prints no label is the right option named by what it is ("The blue
+  umbrella").
 - **That card alone carries `"Figure": true`**, a key of the protocol like the others. The
   figure shows only where it is set: every other card of the passage is an ordinary
   listening card, without the figure, and its question does not bear on the drawing.
@@ -202,6 +210,8 @@ question the audio itself asks, stated before the conversation and repeated afte
   card, that card is this one.
 - When the transcript does not tell which question the audio asks, set the key on no card:
   a figure beside the wrong question is worse than none.
+- On an item with replies to choose (case 3), only `"FigureFits"` applies: the picture is
+  the scene of the prompt, and the card stays as case 3 says.
 
 ## Kinds of question - vary the registers
 

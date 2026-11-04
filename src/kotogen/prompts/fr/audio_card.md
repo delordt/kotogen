@@ -125,8 +125,8 @@ proposition inventée n'aurait rien à y faire non plus : l'examen en pose trois
 
 - **Au plus** le nombre de cartes demandé : c'est un plafond, pas un objectif. Les questions portent sur des passages **différents** de l'audio ; quand l'audio n'en soutient plus, tu t'arrêtes, même loin du plafond. Un audio de trente secondes peut ne justifier qu'une seule carte, et c'est la bonne réponse - mieux vaut une carte juste que trois dont deux redondantes ou devinables sans avoir écouté.
 - **Question** : **en français**, porte sur la compréhension du contenu de l'audio. Un terme japonais entendu dans l'audio peut y figurer en japonais quand c'est lui l'objet de la question (« Que veut dire 擬音語[ぎおんご] ? ») - avec la convention furigana ci-dessous ; la phrase, elle, reste française.
-- **Answer** : la bonne réponse, **en français** (le cas 3 est le seul où elle est en
-  japonais). Elle ne se répète nulle part ailleurs : c'est la carte qui la mélangera aux leurres, et le fait qu'elle vienne de ce champ suffit à la reconnaître.
+- **Answer** : la bonne réponse, **en français** (le cas 3, où elle est en japonais, et l'étiquette d'une figure
+  imprimée sont les seules exceptions). Elle ne se répète nulle part ailleurs : c'est la carte qui la mélangera aux leurres, et le fait qu'elle vienne de ce champ suffit à la reconnaître.
 - **Decoys** : 3 mauvaises réponses **en français**, clairement fausses pour qui a compris l'audio, mais plausibles sinon. L'ordre n'a pas d'importance (la carte mélange les 4 propositions à chaque jour de révision). **Toujours 3**, sur toutes les cartes hormis l'item à réponses au choix du cas 3 et la carte d'une figure imprimée, qui n'en portent aucun : partout ailleurs, une question qui n'en admet pas trois ne se pose pas (voir plus bas).
 - **Les 4 propositions désignent 4 choses différentes.** Un leurre n'est jamais la bonne réponse, ni une autre façon de la dire : ni sa copie, ni sa traduction, ni sa translittération en romaji, ni sa reformulation, ni un cas particulier de ce qu'elle énonce. « Onomatopée », « giongo gitaigo » et « 擬音擬態語 » sont **une seule** proposition, pas trois : l'apprenant qui coche la variante non retenue a raison et est compté faux. Dans le doute sur deux propositions, remplace le leurre fautif par une réponse franchement autre - et si la question n'en admet pas trois, pose-en une autre ou rends une carte de moins.
 - **KeyLine** : numéro (à partir de 1) de la ligne de TranscriptLines qui soutient le plus la réponse (pour une déduction, la ligne principale du raisonnement). **Compté sur les lignes que tu rends**, jamais sur la numérotation du transcript brut qu'on t'a donné : tu l'as redécoupé, les deux ne coïncident pas.
@@ -189,17 +189,25 @@ qu'une question sans réponse possible.
 ### Un item d'annales avec une figure imprimée
 
 **Ce cas aussi t'est signalé avec la transcription : ne le déduis jamais toi-même.**
-Certains items d'annales (課題理解, ポイント理解) viennent avec une figure imprimée dans le
-livret - des options dessinées et numérotées de 1 à 4, ou une scène étiquetée ア/イ/ウ/エ - et
-la carte la montre au recto. Tu ne la vois pas : tu n'as que la transcription. Ce qu'elle
-illustre, c'est la question que pose l'audio lui-même, énoncée avant la conversation et
-répétée après (「男の人はどれを買いますか」), et rien d'autre.
+Certains items d'annales viennent avec une figure imprimée dans le livret - des options
+dessinées et numérotées de 1 à 4, une liste ou une scène étiquetée ア/イ/ウ/エ, ou, sur un
+item à réponses au choix (cas 3), la scène de son énoncé - et la carte la montre au recto.
+**La figure est jointe à ce message : regarde-la.** Hors du cas 3, ce qu'elle illustre,
+c'est la question que pose l'audio lui-même, énoncée avant la conversation et répétée après
+(「男の人はどれを買いますか」), et rien d'autre.
 
+- **Décris-la d'abord, puis dis si elle appartient à cet audio.** Elle a été découpée dans
+  le livret par une machine et peut être celle d'un autre item. Deux clés du protocole,
+  écrites avant `"Cards"` : `"FigureShows"`, une ligne qui dit ce que montre la figure et ce
+  que désigne chacune de ses étiquettes (`ア colle, イ stylos à bille, ウ cahiers...`) ; puis
+  `"FigureFits"`, `true` quand c'est ce dont parle l'audio et `false` sinon. Quand elle vaut
+  `false`, écris les cartes comme s'il n'y avait pas de figure.
 - **La première carte pose cette question**, celle de l'examen, en français, avec
   `"Decoys": []` : les options sont les dessins, et l'apprenant choisit sur la figure, comme
-  à l'examen. Son Answer est la bonne option, nommée par ce qu'elle est (« Le parapluie
-  bleu »), jamais par un numéro ou une lettre de la figure : tu ne sais pas quel dessin porte
-  quoi.
+  à l'examen. Son Answer est l'étiquette que la figure imprime pour la bonne option, telle
+  qu'elle est imprimée et rien d'autre : `3`, `ウ`, ou `アウオ` quand la question en demande
+  plusieurs. Ce n'est que sur une figure qui n'imprime aucune étiquette que la bonne option
+  est nommée par ce qu'elle est (« Le parapluie bleu »).
 - **Cette carte seule porte `"Figure": true`**, une clé du protocole comme les autres. La
   figure ne s'affiche que là où elle est posée : toutes les autres cartes du passage sont des
   cartes d'écoute ordinaires, sans la figure, et leur question ne porte pas sur le dessin.
@@ -207,6 +215,8 @@ répétée après (「男の人はどれを買いますか」), et rien d'autre.
   est d'une carte, cette carte est celle-ci.
 - Quand la transcription ne dit pas quelle question pose l'audio, ne pose la clé sur aucune
   carte : une figure à côté de la mauvaise question est pire que pas de figure.
+- Sur un item à réponses au choix (cas 3), seule `"FigureFits"` s'applique : l'image est la
+  scène de l'énoncé, et la carte reste telle que le cas 3 la décrit.
 
 ## Types de questions - varier les registres
 

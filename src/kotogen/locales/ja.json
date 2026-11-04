@@ -580,6 +580,7 @@
   "no action": "操作なし",
   "to rework": "作り直し",
   "no card asks the question of the figure: it is left out": "図の問題を聞くカードがありません：図は外します",
+  "the figure does not illustrate this passage: it is left out": "図はこの部分のものではありません：図は外します",
   "Paste a URL (a video, a channel or a playlist)": "URL を貼り付ける（動画、チャンネル、再生リスト）",
   "Path of the file (text or PDF)": "ファイルのパス（テキストか PDF）",
   "Path of the file of rules": "規則のファイルのパス",

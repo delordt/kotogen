@@ -1854,7 +1854,7 @@ def test_every_passage_gives_its_card_and_its_audio(tmp_path, monkeypatch, capsy
         extracts.append(path)
         return path
 
-    def generate(client, name, lines, limit, level, choice=False, figured=False):
+    def generate(client, name, lines, limit, level, choice=False, figure=None):
         calls.append(name)
         return _ai_result()
 

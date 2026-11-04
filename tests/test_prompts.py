@@ -255,7 +255,8 @@ def _table_driven() -> set[str]:
     from kotogen.generators import audio, deck_story
     from kotogen.maintenance import review
 
-    return ({audio.CHOICE_INSTRUCTION, audio.FIGURE_INSTRUCTION, audio.CHOICE_QUESTION}
+    return ({audio.CHOICE_INSTRUCTION, audio.FIGURE_INSTRUCTION, audio.CHOICE_FIGURE_INSTRUCTION,
+             audio.CHOICE_QUESTION}
             | {"same reading", "close reading", "same spelling", "close spelling",
                "same translation", "close translation", review._DISTINCT_CONTEXTS,
                "same sentence", "close sentence", "same rule"}

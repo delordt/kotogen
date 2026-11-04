@@ -814,12 +814,18 @@ does not say them. The card's `Image` field carries that figure.
 
 The figure goes on **one card** of the passage: the one that asks the exam's own question
 (「男の人はどれを買いますか」), whose options are the drawings. That card has no written
-choices: you choose on the figure, as in the exam, and the back names the right option by
-what it shows. The generator is told the passage has a figure, and marks that card; the other
+choices: you choose on the figure, as in the exam, and the back gives the label the figure
+prints for the right option (`3`, `ウ`, or `アウオ` when several are asked for), or what it
+shows when the figure prints no label. The figure goes with the call that writes the cards,
+so the generation needs a model that reads images; that model marks the card, and the other
 cards ask about the conversation and carry no picture, since a figure beside a question it
 does not illustrate would only mislead. When no card asks the exam's question, no card gets
 the figure, and the run says so. An item with a choice of replies (発話表現) has a single card,
 which takes the figure.
+
+The figure was cut out of the booklet by machine, so the model also says whether it
+illustrates the conversation it hears. A figure that shows another item goes on no card, and
+the run says so.
 
 For a downloaded section (`jlpt-nX`), there is nothing to do: the listening booklet of the
 collection is downloaded automatically, and the item number comes from the sound (see

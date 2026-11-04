@@ -390,7 +390,7 @@ def _truncated_then(answer):
     """
     asked: list[int] = []
 
-    def generate(client, name, lines, limit, level, choice=False, figured=False):
+    def generate(client, name, lines, limit, level, choice=False, figure=None):
         asked.append(limit)
         if len(asked) == 1:
             raise AITruncatedError("answer truncated on the 4096-token limit")

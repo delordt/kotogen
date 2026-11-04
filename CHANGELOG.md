@@ -12,6 +12,13 @@ such change is listed under its own **Note types** heading, with what
 
 ## [Unreleased]
 
+### Added
+
+- A past-paper card with a figure is answered by the label the figure prints
+  (`3`, `ウ`, `アウエ`), and a figure cut out for another item goes on no card:
+  the figure goes with the call that writes the cards, which takes a model
+  that reads images.
+
 ### Changed
 
 - In automatic mode, the purple flag no longer names the other cards of a
