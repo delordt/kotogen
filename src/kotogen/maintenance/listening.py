@@ -18,7 +18,7 @@ from pathlib import Path
 from kotogen import prompts
 from kotogen.ai_client import AIClient
 from kotogen.exporter import safe_text
-from kotogen.generators import audio_split, cuts, key_line
+from kotogen.generators import announcements, audio_split, cuts, key_line
 from kotogen.generators.audio_split import Block, Segment
 from kotogen.i18n import _
 from kotogen.maintenance.kinds import LISTENING
@@ -103,6 +103,7 @@ class Heard:
     segments: list[Segment]
     block: Block | None         # the extract in `segments`, None when heard as it stands
     moved: bool = False         # the bounds changed
+    trimmed: bool = False       # `block` is the extract itself, its reading time cut out
 
     @property
     def lines(self) -> list[str]:
@@ -140,6 +141,56 @@ def recut(segments: list[Segment], start: float, end: float,
     if cut_out <= cut_in:
         return None
     return Block(tuple(range(first + 1, last + 2)), ((cut_in, cut_out),))
+
+
+def _head(segment: Segment) -> float:
+    return segment.words[0].start if segment.words else segment.start
+
+
+def without_reading_time(segments: list[Segment], silences: list[tuple[float, float]],
+                         length: float) -> Block | None:
+    """A past paper's extract heard as it stands, in pieces around the reading time
+    left in it; None when there is none.
+
+    Inside such an extract a blank of `UNHEARD_SILENCE` or more is never the
+    passage, whatever Whisper wrote in it, and the bell after it goes too: the
+    blanks come from the signal, and only the bell from the words.
+    """
+    lines = announcements.without_the_unheard(
+        segments, [n for n, s in enumerate(segments, 1) if s.text.strip()], silences)
+    ranges: list[tuple[float, float]] = []
+    gaps: list[tuple[float, float]] = []
+    start = 0.0
+    for s0, s1 in silences:
+        if (s1 - s0 < announcements.UNHEARD_SILENCE or s0 <= start + cuts.EDGE_MARGIN
+                or s1 >= length - cuts.EDGE_MARGIN):
+            continue
+        # Whisper may stretch the line before over the blank, never start it there.
+        following = [n for n in lines if _head(segments[n - 1]) >= s0 - 0.01]
+        # The bell Whisper wrote as a number of its own (「2」).
+        while (len(following) > 1 and announcements.is_marker(segments[following[0] - 1].text)
+               and segments[following[0] - 1].start - s1 <= announcements.BELL_MAX):
+            following.pop(0)
+        if not following:
+            continue
+        opening = segments[following[0] - 1]
+        entry = opening.words[0].start if opening.words else cuts._spoken_start(opening, silences)
+        voice = announcements.after_the_bell(opening, silences)
+        entry = max(entry, s1 if voice is None else voice)
+        stop = cuts.cut_end(s0, silences)
+        resume = cuts.cut_start(entry, silences, stop)
+        if not start < stop < resume < length:
+            continue
+        ranges.append((start, stop))
+        gaps.append((stop, resume))
+        start = resume
+    if not ranges:
+        return None
+    ranges.append((start, length))
+    heard = [n for n in lines if not any(stop - 0.01 <= segments[n - 1].start
+                                         and segments[n - 1].end <= resume + 0.01
+                                         for stop, resume in gaps)]
+    return Block(tuple(heard or lines), tuple(ranges))
 
 
 # ── What the model writes of it ───────────────────────────────────────────────

@@ -18,6 +18,13 @@ such change is listed under its own **Note types** heading, with what
   the bell that closes it, when Whisper laid the first word of the
   conversation inside that blank: the sound opened ten seconds before the
   voice.
+- The purple flag cuts out of a past-paper card the reading time and the bell
+  left inside its extract, and lays its `Timecodes` again.
+- The purple flag no longer cuts again in one span an extract made of pieces,
+  which would have put back the exam question left out between them: such an
+  extract is heard as it stands.
+- The purple flag finds the recording of an extract whose name Anki
+  lowercased.
 
 ## [1.0.0] - 2026-11-02
 

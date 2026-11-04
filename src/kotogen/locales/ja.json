@@ -1669,6 +1669,8 @@
   "(the AI distinguishes the two, or turns down the one too many)": "（AI が二つを区別するか、余分な方を除外する）",
   "the Source field gives no bounds: the extract is heard as it stands, its bounds cannot move": "Source フィールドに境目がありません：部分はそのまま聞き、その境目は動かせません",
   "the extract was not found again in its recording: it is heard as it stands, its bounds cannot move": "録音の中に部分が見つかりません：そのまま聞き、その境目は動かせません",
+  "the extract is made of pieces: it is heard as it stands, its bounds cannot move": "部分はいくつかに切って作られています：そのまま聞き、その境目は動かせません",
+  "Reading time cut out: {span}": "読む時間を取り除きました：{span}",
   "your request": "依頼の内容",
   "Say what the AI is to do: {command}.": "AI にしてほしいことを書いてください：{command}",
   "Nothing was restored: the deck as it stands could not be backed up first.": "何も復元していません：今のデッキを先にバックアップできませんでした。",

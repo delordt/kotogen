@@ -5,7 +5,9 @@ sound and `Timecodes` that drifted. Whisper hears the extract again with a margi
 taken from its recording, found by the readable name the extract carries
 (`<name>_<rank>_<fingerprint>`); the bounds are laid again in the silences as
 `audio_split` lays them, the model rewrites the transcript, and the instants come
-from Whisper's timestamps. Without the recording, the bounds cannot move.
+from Whisper's timestamps. Without the recording, the bounds cannot move; nor can
+they on an extract made of pieces, but a past paper's then loses the reading time
+left inside it.
 
 In automatic mode, a change that leaves a question of the passage without its
 answer is not made, and the flag stays. What the card says, and what the model
@@ -15,6 +17,7 @@ writes of what is heard, is the library's (`maintenance.listening`).
 from __future__ import annotations
 
 import tempfile
+import unicodedata
 from pathlib import Path
 
 from kotogen import audio_quality, console, system
@@ -29,6 +32,7 @@ from kotogen.generators import (
     audio_files,
     audio_split,
     cuts,
+    jlpt_papers,
     timecodes,
     whisper,
 )
@@ -44,6 +48,7 @@ from kotogen.maintenance.listening import (
     recut,
     same_instants,
     with_bounds,
+    without_reading_time,
 )
 from kotogen.maintenance.review import _field, _passage_stem, auto_line, card_name, field_lines
 
@@ -59,6 +64,10 @@ WHISPER_MODEL = "medium"
 # `Source` field are to the second.
 _MOVED = 1.0
 
+# How much shorter than its bounds an extract is when the split left something
+# out inside it (an exam question): past the second each rounded bound may lose.
+_PIECES = 1.5
+
 
 # The folders named during this run, searched for every later passage.
 _folders: list[Path] = []
@@ -72,14 +81,20 @@ def locate(media: Media, folders: list[Path] | None = None) -> Path | None:
     """
     wanted = (audio_files.VIDEO_EXTENSIONS if media.video
               else audio_files.MEDIA_EXTENSIONS)
+    readable = _comparable(media.readable)
     for root in [system.cache_dir(), *(_folders if folders is None else folders)]:
         if not root.is_dir():
             continue
         for path in root.rglob("*"):
             if (path.suffix.lower() in wanted and path.is_file()
-                    and audio_files._readable(path.stem) == media.readable):
+                    and _comparable(audio_files._readable(path.stem)) == readable):
                 return path
     return None
+
+
+def _comparable(name: str) -> str:
+    """A media name as Anki may have stored it: lowercased and in NFC (see `anki.media`)."""
+    return unicodedata.normalize("NFC", name).casefold()
 
 
 def _ask_where(media: Media) -> Path | None:
@@ -107,9 +122,27 @@ def _media_path(media: Media) -> Path | None:
     return path if path and path.is_file() else None
 
 
+def in_pieces(media: Media, bounds: tuple[float, float] | None) -> bool:
+    """Whether the extract is shorter than its bounds: pieces glued back together.
+
+    Cut again in one span from the recording, it would get back what the split
+    left out between them, a past paper's exam question.
+    """
+    extract = _media_path(media)
+    if bounds is None or extract is None:
+        return False
+    from kotogen.generators import nhk  # late import (nhk drags the browser)
+    length = nhk.probe_duration(extract)
+    return length is not None and (bounds[1] - bounds[0]) - length > _PIECES
+
+
 def hear(media: Media, bounds: tuple[float, float] | None, recording: Path | None,
-         work: Path, models: dict) -> Heard | None:
-    """Hears the extract again, with its margins when the recording is there."""
+         work: Path, models: dict, paper: bool = False) -> Heard | None:
+    """Hears the extract again, with its margins when the recording is there.
+
+    `paper`: the extract comes from a past paper, and one heard as it stands
+    loses the reading time left in it.
+    """
     level = audio_quality.resolve(None)
     if recording is not None and bounds is not None and media.rank:
         sound = recording
@@ -130,8 +163,14 @@ def hear(media: Media, bounds: tuple[float, float] | None, recording: Path | Non
     extract = _media_path(media)
     if extract is None:
         return None
-    return Heard(extract, 0.0, None,
-                 whisper._transcribe(extract, WHISPER_MODEL, models, work), None)
+    segments = whisper._transcribe(extract, WHISPER_MODEL, models, work)
+    block = None
+    if paper and media.rank and not media.video:
+        from kotogen.generators import nhk  # late import (nhk drags the browser)
+        length = nhk.probe_duration(extract)
+        if length:
+            block = without_reading_time(segments, cuts.detect_silences(extract), length)
+    return Heard(extract, 0.0, None, segments, block, trimmed=block is not None)
 
 
 # ── The new extract ───────────────────────────────────────────────────────────
@@ -155,6 +194,18 @@ def _encode(media: Media, recording: Path, heard: Heard, work: Path) -> Path:
     return audio_gen._write_extract(
         recording, work, rank, ".mp3",
         lambda dest: nhk.transcode_spans_to_mp3(sound, dest, spans, level))
+
+
+def _trim(media: Media, heard: Heard, work: Path) -> Path:
+    """The extract without its reading time, cut from the extract itself."""
+    from kotogen.generators import nhk  # late import (nhk drags the browser)
+
+    level = audio_quality.resolve(None)
+    # Named after its recording as the generation names it, so that a later pass
+    # finds the recording again.
+    return audio_gen._write_extract(
+        Path(media.readable + ".mp3"), work, int(media.rank), ".mp3",
+        lambda dest: nhk.transcode_spans_to_mp3(heard.audio, dest, heard.block.spans(), level))
 
 
 def _install(path: Path) -> str | None:
@@ -216,13 +267,17 @@ def _passage(client: AIClient, note: dict, kind: CardKind, auto: bool,
             print("   ! " + _("no sound on this card: nothing to hear again"))
         return False
     bounds = bounds_of(_field(note, "Source"))
-    recording = locate(media) if media.rank and media.readable else None
-    if recording is None and media.rank and not auto:
-        recording = _ask_where(media)
+    pieced = bool(media.rank) and in_pieces(media, bounds)
+    recording = None
+    if media.rank and not pieced:
+        recording = locate(media) if media.readable else None
+        if recording is None and not auto:
+            recording = _ask_where(media)
 
     with tempfile.TemporaryDirectory(prefix="kotogen_") as tmp:
         work = Path(tmp)
-        heard = hear(media, bounds, recording, work, models)
+        heard = hear(media, bounds, recording, work, models,
+                     jlpt_papers.names_a_paper(_field(note, "Source")))
         if heard is None:
             line = _("the sound of this card is not in Anki's media folder, flag kept")
             if auto:
@@ -230,8 +285,11 @@ def _passage(client: AIClient, note: dict, kind: CardKind, auto: bool,
             else:
                 print("   ! " + line)
             return False
-        if heard.block is None and media.rank:
-            if recording is None:
+        if (heard.block is None or heard.trimmed) and media.rank:
+            if pieced:
+                why = _("the extract is made of pieces: it is heard as it stands, "
+                        "its bounds cannot move")
+            elif recording is None:
                 why = _("recording not found: the extract is heard as it stands, "
                         "its bounds cannot move")
             elif bounds is None:
@@ -265,7 +323,8 @@ def _passage(client: AIClient, note: dict, kind: CardKind, auto: bool,
         # transcript can still point its lines at the wrong second.
         stamps = timecodes.for_lines(rewrite.transcript, heard.segments, heard.block,
                                      whole=heard.block is None)
-        if (not heard.moved and rewrite.transcript == field_lines(_field(note, "Transcript"))
+        if (not heard.moved and not heard.trimmed
+                and rewrite.transcript == field_lines(_field(note, "Transcript"))
                 and same_instants(stamps, _field(note, "Timecodes"))):
             if auto:
                 auto_line("=", note, _("heard right, flag removed"))
@@ -294,6 +353,13 @@ def _passage(client: AIClient, note: dict, kind: CardKind, auto: bool,
             start = heard.offset + heard.block.start
             shared["Source"] = with_bounds(_field(note, "Source"), start,
                                            heard.offset + heard.block.end)
+        elif heard.trimmed:
+            # Cut inside the extract: its bounds in the recording stay as they are.
+            new_name = _install(_trim(media, heard, work))
+            if new_name is None:
+                print("   ! " + _("the new extract did not reach Anki: nothing changed"))
+                return False
+            shared[media.field] = audio_ref(new_name)
 
     # The bounds go to the cards whose `Source` says the same extract: one
     # edited by hand keeps what it says. Read before any write, since the first
@@ -334,6 +400,10 @@ def _show(note: dict, questions: list[dict], heard: Heard,
         print("   " + _("Extract: {old} -> {new}").format(
             old=f"{audio_split.timestamp(bounds[0])} → {audio_split.timestamp(bounds[1])}",
             new=f"{audio_split.timestamp(start)} → {audio_split.timestamp(end)}"))
+    if heard.trimmed:
+        for (_start, stop), (resume, _end) in zip(heard.block.ranges, heard.block.ranges[1:]):
+            print("   " + _("Reading time cut out: {span}").format(
+                span=f"{audio_split.timestamp(stop)} → {audio_split.timestamp(resume)}"))
     before = field_lines(_field(note, "Transcript"))
     if before != rewrite.transcript:
         print("   Transcript" + convention("colon", ": ").rstrip())

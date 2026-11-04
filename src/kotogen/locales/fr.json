@@ -1785,6 +1785,8 @@
   "(the AI distinguishes the two, or turns down the one too many)": "(l'IA distingue les deux, ou écarte celle de trop)",
   "the Source field gives no bounds: the extract is heard as it stands, its bounds cannot move": "le champ Source ne donne pas de bornes : l'extrait est réécouté tel quel, ses bornes ne peuvent pas bouger",
   "the extract was not found again in its recording: it is heard as it stands, its bounds cannot move": "l'extrait est introuvable dans son enregistrement : il est réécouté tel quel, ses bornes ne peuvent pas bouger",
+  "the extract is made of pieces: it is heard as it stands, its bounds cannot move": "l'extrait est fait de morceaux : il est réécouté tel quel, ses bornes ne peuvent pas bouger",
+  "Reading time cut out: {span}": "Temps de lecture retiré : {span}",
   "your request": "ta demande",
   "Say what the AI is to do: {command}.": "Dis ce que l'IA doit faire : {command}.",
   "Nothing was restored: the deck as it stands could not be backed up first.": "Rien n'a été restauré : le deck tel qu'il est n'a pas pu être sauvegardé d'abord.",

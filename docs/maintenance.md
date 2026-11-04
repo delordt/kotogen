@@ -185,9 +185,9 @@ Whatever the model answers:
 ### Hearing a listening card again (purple)
 
 On a word, purple checks the reading the speech synthesis says. On a listening card it
-checks the card against the sound, for three faults: an extract cut mid-sentence, a
-transcript that differs from the audio, and a line that does not land on its sentence when
-clicked.
+checks the card against the sound, for four faults: an extract cut mid-sentence, a
+transcript that differs from the audio, a line that does not land on its sentence when
+clicked, and the reading time of a past paper left inside the extract.
 
 - **Finding the recording.** The name of the extract carries the name of the file it was
   cut from, which is looked for in the cache where kotogen keeps its downloads (podcasts,
@@ -197,6 +197,13 @@ clicked.
   fifteen seconds on either side. A sentence the old cut went through is taken whole, and
   the new cuts go in the silence before the first sentence and after the last, as the
   split lays them.
+- **An extract made of pieces.** When the split left something out inside the extract (a
+  past paper's exam question), the extract is shorter than the bounds of its `Source`. It is
+  then heard as it stands, since cutting it again in one span from the recording would
+  bring back what was left out.
+- **The reading time of a past paper.** On a past paper heard as it stands, a blank of three
+  seconds or more inside the extract is never the conversation: it is cut out, with the bell
+  that closes it, and the extract keeps its bounds.
 - **Rewriting it.** The model writes the transcript of what is heard, in furigana, one
   sentence per line, with its translation and the key line of each question of the
   passage. The instant of each line is worked out again from Whisper's timestamps, even

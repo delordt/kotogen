@@ -5,7 +5,10 @@ Whisper, ffmpeg and Anki are faked: what is pinned is what the pass decides.
 
 from pathlib import Path
 
+import pytest
+
 from kotogen.anki.maintain import listening as listening_pass
+from kotogen.generators import jlpt_papers
 from kotogen.generators.audio_split import Block, Segment, Word
 from kotogen.maintenance import kinds, listening
 
@@ -149,18 +152,21 @@ def test_a_translation_that_is_not_lined_up_is_turned_down():
 
 # ── The pass ──────────────────────────────────────────────────────────────────
 
-def _run(monkeypatch, answer, *, heard=HEARD, auto=True, stamps="0.40 2.10"):
+def _run(monkeypatch, answer, *, heard=HEARD, auto=True, stamps="0.40 2.10",
+         pieced=False, card=CARD, hear=None):
     """One purple card of a two-card passage, everything outside faked."""
     import copy
 
-    card, other = copy.deepcopy(CARD), copy.deepcopy(OTHER)
+    card, other = copy.deepcopy(card), copy.deepcopy(OTHER)
     writes, cleared, anki_calls = [], [], []
     monkeypatch.setattr(listening_pass, "locate", lambda media: Path("episode 12.mp3"))
-    monkeypatch.setattr(listening_pass, "hear", lambda *a: heard)
+    monkeypatch.setattr(listening_pass, "in_pieces", lambda media, bounds: pieced)
+    monkeypatch.setattr(listening_pass, "hear", hear or (lambda *a: heard))
     monkeypatch.setattr(listening_pass, "passage_of", lambda note, kind, known: [other])
     monkeypatch.setattr(listening_pass.timecodes, "for_lines",
                         lambda lines, segments, block, whole=False: stamps)
     monkeypatch.setattr(listening_pass, "_encode", lambda *a: Path("episode_12_03_ffff0000.mp3"))
+    monkeypatch.setattr(listening_pass, "_trim", lambda *a: Path("episode_12_03_eeee0000.mp3"))
     monkeypatch.setattr(listening_pass, "_install", lambda path: path.name)
     monkeypatch.setattr(listening_pass, "apply_changes",
                         lambda nid, fields, add, remove: writes.append((nid, fields)))
@@ -252,6 +258,7 @@ def test_a_failure_that_is_not_the_model_is_not_called_an_ai_error(monkeypatch, 
 
     monkeypatch.setattr(listening_pass, "hear", broken)
     monkeypatch.setattr(listening_pass, "locate", lambda media: Path("episode 12.mp3"))
+    monkeypatch.setattr(listening_pass, "in_pieces", lambda media, bounds: False)
     listening_pass.process(_Client(ANSWER), [{"cardId": 100, "note": 1}],
                            {1: CARD, 2: OTHER}, kinds.LISTENING, True)
     err = capsys.readouterr().err
@@ -265,3 +272,104 @@ def test_a_model_that_fails_is_still_called_an_ai_error(monkeypatch, capsys):
     monkeypatch.setattr(listening_pass, "ask_transcript", refused)
     _run(monkeypatch, ANSWER)
     assert "AI error" in capsys.readouterr().err
+
+
+# ── A past paper's reading time left inside the extract ───────────────────────
+
+# Silences measured on such an extract: the scene-setting fades at 3.77, the
+# reading time runs to 15.40, the bell to 17.83, and the voice comes in at 19.27.
+PAPER_LENGTH = 45.94
+PAPER_SILENCES = [(3.77, 15.4), (17.83, 19.27), (19.98, 20.61), (22.14, 22.82), (25.0, 25.66)]
+PAPER = [
+    Segment("先生と学生が話しています", 0.06, 3.7,
+            (Word("先生と学生が", 0.06, 2.0), Word("話しています", 2.0, 3.6))),
+    Segment("はい", 6.0, 6.8, (Word("はい", 6.0, 6.8),)),             # written in the blank
+    # The first word laid inside the blank, the second over the bell.
+    Segment("佐藤さん 旅行はどうだった", 7.0, 22.1,
+            (Word("佐", 7.0, 7.0), Word("藤", 7.0, 19.6), Word("さん", 19.6, 19.98),
+             Word(" 旅行はどうだった", 20.61, 22.1))),
+    Segment("うん 楽しかったよ", 22.82, 25.0, (Word("うん", 22.82, 23.2), Word(" 楽しかったよ", 23.4, 25.0))),
+]
+PAPER_SOURCE = "JLPT 公式問題集 (2012) - N4 - 問題2 (02:29 → 03:29)"
+
+
+def test_a_past_paper_extract_loses_the_reading_time_and_the_bell_left_in_it():
+    block = listening.without_reading_time(PAPER, PAPER_SILENCES, PAPER_LENGTH)
+    assert block.lines == (1, 3, 4)
+    assert block.ranges == ((0.0, pytest.approx(4.07)), (pytest.approx(19.12), PAPER_LENGTH))
+
+
+def test_a_bell_written_as_a_number_goes_with_the_reading_time():
+    segments = [PAPER[0], Segment("2", 15.5, 16.2, (Word("2", 15.5, 16.2),)),
+                Segment("佐藤さん 旅行はどうだった", 19.3, 22.1,
+                        (Word("佐藤さん", 19.3, 19.98), Word(" 旅行はどうだった", 20.61, 22.1))),
+                PAPER[3]]
+    block = listening.without_reading_time(segments, PAPER_SILENCES, PAPER_LENGTH)
+    assert block.lines == (1, 3, 4)
+    assert block.ranges[1][0] == pytest.approx(19.12)
+
+
+def test_an_extract_with_no_reading_time_inside_is_left_as_it_is():
+    assert listening.without_reading_time(PAPER, PAPER_SILENCES[1:], PAPER_LENGTH) is None
+    # A blank at either end is no reading time: the extract's bounds hold it.
+    assert listening.without_reading_time(PAPER, [(0.0, 5.0), (40.0, PAPER_LENGTH)],
+                                          PAPER_LENGTH) is None
+
+
+def test_a_past_paper_is_told_by_its_source():
+    assert jlpt_papers.names_a_paper(PAPER_SOURCE)
+    assert not jlpt_papers.names_a_paper(SOURCE)
+
+
+def test_the_recording_is_found_whatever_case_anki_gave_the_extract(monkeypatch, tmp_path):
+    """Anki lowercases the name it stores, the cache keeps the downloaded one."""
+    folder = tmp_path / "papers" / "jlpt2012-n4"
+    folder.mkdir(parents=True)
+    (folder / "N4_問題2.mp3").write_bytes(b"")
+    monkeypatch.setattr(listening_pass.system, "cache_dir", lambda: tmp_path)
+    media = listening.media_of(_note(5, Audio='<audio controls src="n4_問題2_02_3ff170ed.mp3"></audio>'))
+    assert listening_pass.locate(media, []) == folder / "N4_問題2.mp3"
+
+
+def test_an_extract_shorter_than_its_bounds_is_made_of_pieces(monkeypatch):
+    from kotogen.generators import nhk
+
+    monkeypatch.setattr(listening_pass, "_media_path", lambda media: Path("extract.mp3"))
+    media = listening.media_of(CARD)
+    monkeypatch.setattr(nhk, "probe_duration", lambda path: PAPER_LENGTH)
+    assert listening_pass.in_pieces(media, (149.0, 209.0))
+    monkeypatch.setattr(nhk, "probe_duration", lambda path: 59.4)   # the bounds' rounding
+    assert not listening_pass.in_pieces(media, (149.0, 209.0))
+    monkeypatch.setattr(nhk, "probe_duration", lambda path: None)
+    assert not listening_pass.in_pieces(media, (149.0, 209.0))
+    assert not listening_pass.in_pieces(media, None)
+
+
+TRIMMED = listening.Heard(Path("extract.mp3"), 0.0, None, PAPER,
+                          Block((1, 3, 4), ((0.0, 4.07), (19.12, PAPER_LENGTH))), trimmed=True)
+
+
+def test_an_extract_made_of_pieces_is_heard_as_it_stands(monkeypatch, capsys):
+    """Cut again in one span from its recording, it would get back the exam
+    question the split left out between its pieces."""
+    asked = []
+
+    def hear(media, bounds, recording, work, models, paper):
+        asked.append((recording, paper))
+        return TRIMMED
+
+    card = {**CARD, "fields": {**CARD["fields"], "Source": PAPER_SOURCE}}
+    _run(monkeypatch, {"changed": False, "reason": "right"}, card=card, pieced=True, hear=hear)
+    assert asked == [(None, True)]
+    assert "made of pieces" in capsys.readouterr().out
+
+
+def test_the_extract_without_its_reading_time_reaches_every_card(monkeypatch, capsys):
+    result, writes, cleared, anki_calls = _run(
+        monkeypatch, {"changed": False, "reason": "right"}, heard=TRIMMED, pieced=True)
+    assert result == (2, 1) and cleared == [100]
+    for _nid, fields in writes:
+        assert fields["Audio"] == '<audio controls src="episode_12_03_eeee0000.mp3"></audio>'
+        assert fields["Timecodes"] == "0.40 2.10"
+        assert "Source" not in fields              # its bounds in the recording hold
+    assert "00:04 → 00:19" in capsys.readouterr().out

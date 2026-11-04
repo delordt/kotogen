@@ -99,6 +99,16 @@ COLLECTIONS: dict[str, Collection] = {
 DEFAULT = "jlpt"
 
 
+def names_a_paper(source: str) -> bool:
+    """Whether a card's `Source` names one of these collections.
+
+    The extraction writes `JLPT 公式問題集 (2012) - N4 - 問題2 (02:29 → 03:29)`
+    (see `Target.name`).
+    """
+    return any(source.startswith(f"{collection.name} - ")
+               for collection in COLLECTIONS.values())
+
+
 @dataclass(frozen=True)
 class Target:
     """What an alias names: a collection, at a level."""
