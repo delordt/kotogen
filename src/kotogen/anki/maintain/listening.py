@@ -285,7 +285,8 @@ def _passage(client: AIClient, note: dict, kind: CardKind, auto: bool,
             else:
                 print("   ! " + line)
             return False
-        if (heard.block is None or heard.trimmed) and media.rank:
+        # Only when nothing was cut: a reading time cut out is the fix itself.
+        if heard.block is None and media.rank:
             if pieced:
                 why = _("the extract is made of pieces: it is heard as it stands, "
                         "its bounds cannot move")
@@ -331,7 +332,7 @@ def _passage(client: AIClient, note: dict, kind: CardKind, auto: bool,
             else:
                 print("   → " + _("The transcript says what the extract says."))
             return True
-        _show(note, questions, heard, bounds, rewrite)
+        _show(note, questions, heard, bounds, rewrite, auto)
         if rewrite.lost and auto:
             auto_line("!", note, _("a question of the passage loses its answer, "
                                    "flag kept"))
@@ -390,8 +391,12 @@ def _passage(client: AIClient, note: dict, kind: CardKind, auto: bool,
 
 
 def _show(note: dict, questions: list[dict], heard: Heard,
-          bounds: tuple[float, float] | None, rewrite: Rewrite) -> None:
-    """The change, before it is made: the bounds, the lines, the questions."""
+          bounds: tuple[float, float] | None, rewrite: Rewrite, auto: bool = False) -> None:
+    """The change, before it is made: the bounds, the lines, the questions.
+
+    The other cards of the passage are named before the question only: in
+    automatic mode the closing line counts them.
+    """
     if rewrite.reason:
         print("   " + _("Reason: {reason}").format(reason=console.clean(rewrite.reason)))
     if heard.moved and bounds is not None:
@@ -417,7 +422,7 @@ def _show(note: dict, questions: list[dict], heard: Heard,
         print("   ! " + _("question {n} loses its answer: {question}").format(
             n=n, question=quoted(card_name(questions[n - 1]))))
     others = len(questions) - 1
-    if others:
+    if others and not auto:
         print("   = " + counted(others,
                                 "{count} other card of the passage changes with it",
                                 "{count} other cards of the passage change with it")

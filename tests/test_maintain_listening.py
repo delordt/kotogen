@@ -361,6 +361,13 @@ def test_an_extract_made_of_pieces_is_heard_as_it_stands(monkeypatch, capsys):
     card = {**CARD, "fields": {**CARD["fields"], "Source": PAPER_SOURCE}}
     _run(monkeypatch, {"changed": False, "reason": "right"}, card=card, pieced=True, hear=hear)
     assert asked == [(None, True)]
+    # The reading time cut out is the fix: nothing to warn about.
+    assert "made of pieces" not in capsys.readouterr().out
+
+
+def test_an_extract_made_of_pieces_with_nothing_to_cut_says_its_bounds_hold(monkeypatch, capsys):
+    heard = listening.Heard(Path("extract.mp3"), 0.0, None, WINDOW, None)
+    _run(monkeypatch, {"changed": False, "reason": "right"}, heard=heard, pieced=True)
     assert "made of pieces" in capsys.readouterr().out
 
 
@@ -373,3 +380,11 @@ def test_the_extract_without_its_reading_time_reaches_every_card(monkeypatch, ca
         assert fields["Timecodes"] == "0.40 2.10"
         assert "Source" not in fields              # its bounds in the recording hold
     assert "00:04 → 00:19" in capsys.readouterr().out
+
+
+def test_the_other_cards_of_the_passage_are_named_before_the_question_only(monkeypatch, capsys):
+    """In automatic mode the closing line counts them already."""
+    _run(monkeypatch, ANSWER)
+    assert "other card of the passage changes" not in capsys.readouterr().out
+    _run(monkeypatch, ANSWER, auto=False)
+    assert "1 other card of the passage changes with it" in capsys.readouterr().out

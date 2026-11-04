@@ -12,6 +12,11 @@ such change is listed under its own **Note types** heading, with what
 
 ## [Unreleased]
 
+### Changed
+
+- In automatic mode, the purple flag no longer names the other cards of a
+  passage before the line that counts them.
+
 ### Fixed
 
 - A past-paper card no longer holds the time given to read the options, nor
