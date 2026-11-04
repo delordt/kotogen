@@ -41,6 +41,9 @@ such change is listed under its own **Note types** heading, with what
   reading numbers the example 「れい」 as item 1, and two figures claiming one
   item leave their section without any. A booklet read before is read again
   once.
+- A text written on the deck no longer reports a する verb of the deck as left
+  out when it uses it conjugated (運転して, 検討しています): the word counts as
+  worked on, and no longer comes back as a target of the next texts.
 
 ## [1.0.0] - 2026-11-02
 

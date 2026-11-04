@@ -57,6 +57,21 @@ def test_uses_finds_a_word_under_any_of_its_forms():
     assert not measured.uses("飲む")
 
 
+@needs_mecab
+@pytest.mark.parametrize("line", ["車を運転して駅に行きました。", "毎日運転しています。",
+                                  "弟に運転させた。", "もう運転できます。"])
+def test_uses_finds_a_suru_verb_of_the_deck_conjugated(line):
+    """unidic cuts 運転して into 運転 and する: the deck holds 運転する."""
+    assert coverage.measure([line], lambda word: True).uses("運転する")
+
+
+@needs_mecab
+def test_a_noun_without_its_suru_is_not_the_verb():
+    measured = coverage.measure(["運転が好きです。"], lambda word: True)
+    assert measured.uses("運転")
+    assert not measured.uses("運転する")
+
+
 def test_without_mecab_there_is_no_figure(monkeypatch):
     monkeypatch.setattr(coverage, "get_tagger", lambda: None)
     assert coverage.measure(["猫"], lambda word: True) is None

@@ -29,6 +29,9 @@ _TIES = frozenset({"て", "で"})
 # they would flood the measure with words no deck bothers to hold.
 _GRAMMAR_VERBS = frozenset({"する", "ある", "いる", "なる", "できる"})
 
+# What follows a noun to make it a verb, its potential included (運転できる).
+_SURU = frozenset({"する", "できる", "出来る"})
+
 # What a compound of the deck may be made of: content words and affixes (the 語
 # of 日本語 is a suffix to unidic). A particle ends it.
 _COMPOUND_PARTS = CONTENT | {"接尾辞", "接頭辞"}
@@ -112,6 +115,10 @@ def measure(lines: Iterable[str], knows: Callable[[str], bool]) -> Coverage | No
     words = known = 0
     unknown: list[str] = []
     bases: set[str] = set()
+    # unidic cuts 運転して into 運転 and する: the verb of the deck, 運転する, is
+    # put back together, so that `uses` finds it under any of its forms.
+    bases.update(token.base + "する" for token, after in zip(tokens, tokens[1:])
+                 if token.pos1 == "名詞" and after.base in _SURU)
     i = 0
     while i < len(tokens):
         token = tokens[i]
