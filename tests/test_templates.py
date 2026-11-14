@@ -1795,6 +1795,24 @@ def test_a_one_kanji_suru_verb_conjugates_on_its_kanji_in_kana(root, chromium, e
     page.close()
 
 
+@pytest.mark.parametrize("card", ["Recognition", "Production"])
+@pytest.mark.parametrize("expression", [
+    "<div>回[まわ]る</div>", "<div>持[も]ち 帰[かえ]る</div> <div></div>",
+])
+def test_a_word_wrapped_by_ankis_editor_still_conjugates(root, chromium, card, expression):
+    """A field edited in Anki's editor comes back inside a <div>: the forms are
+    cut from its last kana all the same, and that kana takes its colour."""
+    _front, back = _faces(root, "vocab", card,
+                          {"Expression": expression, "Tags": "Verb::五段動詞"})
+    page = _anki(chromium)
+    assert _show(page, back) == []
+    endings = page.evaluate("Array.from(document.querySelectorAll('.vocab-form-ending'))"
+                            ".map(f => f.textContent)")
+    assert endings == ["らない", "ります", "って", "れる", "ろう", "れば"]
+    assert page.evaluate("document.querySelector('.vocab-ending').textContent") == "る"
+    page.close()
+
+
 def _fit(page) -> str:
     return page.evaluate("document.querySelector('.vocab-word').style.getPropertyValue('--fit')")
 

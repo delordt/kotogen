@@ -329,6 +329,24 @@
     return text;
   }
 
+  // Anki's editor can wrap a field it has edited (<div>回る</div>): the word is
+  // taken out of it, or no form could be cut from its last kana.
+  function unwrap(box) {
+    var shown = Array.prototype.filter.call(box.childNodes, function (node) {
+      return seen(node).trim();
+    });
+    var only = shown.length === 1 ? shown[0] : null;
+    if (only && (only.nodeName === "DIV" || only.nodeName === "P")) {
+      // What shows nothing beside it, a space or a <div></div>, goes with it.
+      box.textContent = "";
+      while (only.firstChild) {
+        box.appendChild(only.firstChild);
+      }
+      unwrap(box);
+    }
+  }
+  unwrap(word);
+
   function ends(text, endings) {
     return endings.some(function (end) {
       return text.slice(-end.length) === end;

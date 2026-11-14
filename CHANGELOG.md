@@ -52,6 +52,10 @@ such change is listed under its own **Note types** heading, with what
   worked on, and no longer comes back as a target of the next texts.
 - On a card written in Japanese, the space after an arrow or a sign before a
   word with furigana no longer disappears: `降る → 降れば` showed `降る →降れば`.
+- A verb or an adjective whose word was edited in Anki's editor shows its forms
+  on the back again: the editor wraps the field in a `<div>`, and the back
+  found no kana at the end of the word to cut them from. `kotogen deck install`
+  lays the new back.
 
 ## [1.0.0] - 2026-11-02
 
